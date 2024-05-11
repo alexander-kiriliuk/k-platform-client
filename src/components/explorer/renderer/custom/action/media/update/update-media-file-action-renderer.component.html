@@ -1,0 +1,5 @@
+@if (action) {
+  <button class="p-button-sm p-button-warning" pButton pRipple (click)="updateMedia()">
+    {{ action.name | localize:action.code }}
+  </button>
+}

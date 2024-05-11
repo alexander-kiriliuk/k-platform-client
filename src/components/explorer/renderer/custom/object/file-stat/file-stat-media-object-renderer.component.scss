@@ -1,0 +1,12 @@
+:host {
+  @apply border block p-4 rounded;
+  border-color: var(--surface-d);
+}
+
+.label {
+  @apply py-2 font-semibold;
+}
+
+span {
+  color: var(--accent-color);
+}

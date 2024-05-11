@@ -1,0 +1,20 @@
+<div class="label">{{ column.name | localize: column.property }}</div>
+@if (data) {
+  <div class="status" [ngClass]="statusControlValue?.toLowerCase()">
+  <span [ngClass]="{enabled: data.enabled, disabled: !data.enabled}">
+    {{ (data.enabled ? "msg.enabled" : "msg.disabled") | transloco }}
+  </span>
+    <span>
+    {{ "msg.status" | transloco }}: {{ statusControlValue }}
+  </span>
+  </div>
+}
+<p-tabView [scrollable]="true" [(activeIndex)]="activeTabIndex">
+  @for (log of logsList; track log.id) {
+    <p-tabPanel [header]="log.tsCreated | date: 'medium'">
+      <div class="logs"
+           [innerHTML]="log.content | processLog">
+      </div>
+    </p-tabPanel>
+  }
+</p-tabView>

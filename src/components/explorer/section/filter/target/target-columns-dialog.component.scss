@@ -1,0 +1,13 @@
+li {
+  @apply cursor-pointer flex items-center gap-2 my-1;
+  &:hover {
+    color: var(--primary-color);
+  }
+  &.active {
+    color: var(--accent-color);
+  }
+}
+
+i {
+  @apply text-xs;
+}

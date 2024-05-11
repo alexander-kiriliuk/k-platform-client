@@ -1,0 +1,63 @@
+:host {
+  @apply border block p-4 rounded;
+  border-color: var(--surface-d);
+}
+
+.label {
+  @apply py-2 font-semibold;
+}
+
+.status {
+  @apply font-semibold flex gap-x-8;
+}
+
+.enabled {
+  color: var(--success-color);
+}
+
+.disabled {
+  color: var(--danger-color);
+}
+
+.execute {
+  color: var(--primary-color);
+}
+
+.ready {
+  color: var(--accent-color);
+}
+
+.crashed {
+  color: var(--danger-color);
+}
+
+.logs {
+  @apply flex flex-col gap-y-1 text-sm;
+  ::ng-deep {
+    & > div {
+      &.log {
+        color: var(--success-color);
+      }
+
+      &.verbose {
+        color: var(--primary-color);
+      }
+
+      &.debug {
+        color: var(--accent-color);
+      }
+
+      &.warn {
+        color: var(--warn-color);
+      }
+
+      &.error {
+        color: var(--danger-color);
+      }
+
+      .date {
+        color: var(--text-color);
+      }
+    }
+  }
+}

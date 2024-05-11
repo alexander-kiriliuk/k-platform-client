@@ -1,0 +1,115 @@
+:host {
+  max-width: 75vw;
+  @apply block;
+}
+
+p-confirmDialog {
+  @apply w-full;
+  max-width: 400px;
+
+  div, input {
+    @apply w-full;
+  }
+}
+
+.cols-list {
+  .virtual {
+    color: var(--primary-color);
+  }
+
+  & > div {
+    @apply flex flex-col justify-between gap-0;
+    @apply md:flex-row md:gap-4;
+    & > div {
+      @apply flex items-center gap-x-2;
+      &:last-child {
+        @apply justify-end flex-row-reverse gap-x-0;
+        @apply md:justify-start md:flex-row md:gap-x-2;
+      }
+    }
+  }
+
+}
+
+.cols {
+  @apply flex flex-col gap-4;
+  & > div:first-child {
+    @apply my-2 w-full;
+    ::ng-deep {
+      input {
+        @apply w-full;
+      }
+    }
+  }
+}
+
+.transparent {
+  @apply invisible;
+}
+
+.cols-actions {
+  @apply flex justify-between;
+  & > div {
+    @apply flex items-center;
+  }
+}
+
+.cbx-container {
+  @apply flex gap-x-2 items-center w-full;
+}
+
+.content-wrapper {
+  @apply grid grid-cols-1 gap-x-4 w-full;
+  @apply lg:grid-cols-2 lg:gap-x-8;
+}
+
+.data-grid {
+  & > div {
+    @apply grid grid-cols-1 gap-2 py-1;
+    @apply md:grid-cols-2 md:gap-4;
+    & > div {
+      @apply flex items-center gap-x-2;
+      &:first-child {
+        color: var(--surface-600);
+        @apply italic;
+      }
+
+      &:last-child {
+        @apply font-semibold;
+      }
+    }
+
+    &:nth-child(1) i {
+      color: var(--primary-color);
+    }
+
+    &:nth-child(2) i {
+      color: var(--accent-color);
+    }
+
+    &:nth-child(3) i {
+      color: var(--warn-color);
+    }
+  }
+}
+
+.right {
+  @apply relative;
+  .info {
+    @apply sticky top-0;
+    & > div:not(.actions) {
+      @apply py-2;
+    }
+  }
+}
+
+.actions {
+  @apply py-8 text-center;
+}
+
+.tabs {
+  @apply flex flex-col gap-4;
+  div, input, p-inputNumber, textarea {
+    @apply w-full;
+  }
+}

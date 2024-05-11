@@ -1,0 +1,22 @@
+<p-tabView [activeIndex]="activeTab">
+  @for (lang of langList; track lang.id) {
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <div class="t-header">
+          <media-res [src]="lang.icon"/>
+          <span>{{ lang.name }}</span>
+        </div>
+      </ng-template>
+      <div class="p-float-label">
+        <textarea pInputTextarea
+                  [id]="id"
+                  [disabled]="disabled"
+                  [autoResize]="true"
+                  [(ngModel)]="resData[lang.id].value"
+                  (keydown)="synchronize()">
+        </textarea>
+        <label [for]="id">{{ placeholder() }}</label>
+      </div>
+    </p-tabPanel>
+  }
+</p-tabView>

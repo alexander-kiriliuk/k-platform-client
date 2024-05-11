@@ -1,0 +1,6 @@
+<media-input
+  [placeholder]="'media.dialog.choose.file' | transloco"
+  [mediaType]="data.type.code"
+  [mediaId]="data.id"
+  [galleryEnabled]="false"
+  (changeMedia)="onChange($event)"/>

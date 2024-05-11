@@ -1,0 +1,11 @@
+<ul>
+  @for (item of data.target.entity.columns; track item.id) {
+    @if (item.type !== "reference") {
+      <li [ngClass]="{active: item.property === data.selected}"
+          (click)="setColumn(item)">
+        <i class="pi pi-box"></i>
+        {{ item.name | localize:item.property }}
+      </li>
+    }
+  }
+</ul>

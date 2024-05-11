@@ -1,0 +1,6 @@
+<button
+  class="p-button-sm" pButton pRipple
+  [disabled]="!enabledCtrlValue || statusControlValue === 'execute'"
+  (click)="start()">
+  {{action.name | localize:action.code}}
+</button>

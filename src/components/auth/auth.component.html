@@ -1,0 +1,50 @@
+<div>
+  <p-card>
+    <form [formGroup]="vm.form" (ngSubmit)="vm.doLogin()">
+      <div class="logo"></div>
+      <div class="p-input-icon-right">
+        <i class="pi pi-user"></i>
+        <input pInputText
+               [placeholder]="'auth.login' | transloco"
+               [formControl]="vm.form.controls.login"/>
+      </div>
+      <div class="p-input-icon-right">
+        <i class="pi pi-lock"></i>
+        <p-password
+          [placeholder]="'auth.password' | transloco"
+          [formControl]="vm.form.controls.password"
+          [toggleMask]="true"
+          [feedback]="false"/>
+      </div>
+      @if (captchaConfig?.enabled) {
+        <div class="captcha">
+          @if (!vm.isReCaptcha) {
+            <div>
+              <img alt="captcha" [src]="captchaConfig.image"/>
+              <p-button icon="pi pi-replay"
+                        [rounded]="true"
+                        (click)="vm.getCaptcha()"/>
+            </div>
+            <input pInputText
+                   [placeholder]="'auth.captcha.value' | transloco"
+                   [formControl]="vm.form.controls.captchaPayload"/>
+          } @else {
+            <re-captcha [siteKey]="captchaConfig.id"
+                        [theme]="vm.theme"
+                        (resolved)="vm.onCaptchaResolved($event)"
+            />
+          }
+        </div>
+      }
+      <button pButton pRipple
+              class="p-button-success"
+              icon="pi pi-sign-in"
+              iconPos="right"
+              [label]="'auth.sign.in' | transloco"
+              [disabled]="!vm.form.valid || !captchaConfig || (vm.isReCaptcha && !vm.reCaptchaResolved())">
+      </button>
+      <preloader *preloading="{state: false, channel: vm.preloaderChannel}"/>
+    </form>
+  </p-card>
+</div>
+<div class="promo"></div>

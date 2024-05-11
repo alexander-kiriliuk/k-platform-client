@@ -1,0 +1,20 @@
+@if (action) {
+  <button class="p-button-sm p-button-danger" pButton pRipple (click)="deleteMedia()">
+    {{ action.name | localize:action.code }}
+  </button>
+}
+
+<p-confirmDialog #dialog [key]="dialogKey">
+  <ng-template pTemplate="header">
+    {{ "media.delete.title" | transloco }}
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button type="button" pButton (click)="dialog.reject()">
+      {{ "media.cancel" | transloco }}
+    </button>
+    <button type="button" class="p-button-success" pButton
+            (click)="dialog.accept()">
+      {{ "media.accept" | transloco }}
+    </button>
+  </ng-template>
+</p-confirmDialog>

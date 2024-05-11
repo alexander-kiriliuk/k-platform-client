@@ -1,0 +1,88 @@
+:host {
+  --actions-h: 70px;
+  @apply relative block h-full;
+
+  ::ng-deep {
+    & > p-tabview {
+      @apply block;
+      min-height: calc(100vh - var(--header-bar-h) - var(--actions-h));
+
+      & > div > .p-tabview-panels {
+        @apply p-0 #{!important};
+      }
+    }
+
+    & > p-tabview.single {
+      & > div > .p-tabview-nav-container {
+        @apply hidden;
+      }
+    }
+  }
+}
+
+.actions {
+  @screen md {
+    --actions-h: auto;
+    @apply rounded-t;
+  }
+  @apply p-4 z-50 sticky bottom-0 flex justify-between;
+  background: var(--neutral-b);
+  height: var(--actions-h);
+
+  &.dialog-mode {
+    @apply mx-0;
+    @apply md:mx-4;
+    background: var(--surface-a);
+  }
+
+  &-btn {
+    @screen lg {
+      @apply hidden;
+    }
+    ::ng-deep {
+      & > * {
+        @apply px-2 w-auto #{!important};
+      }
+    }
+  }
+
+  ::ng-deep {
+    .p-dialog-content {
+      @apply flex flex-wrap gap-4;
+      @apply px-6 pb-6 #{!important};
+      explorer-action-renderer {
+        @apply hidden #{!important};
+      }
+    }
+  }
+
+  explorer-action-renderer, & > div {
+    @apply flex items-center justify-end gap-x-4;
+  }
+
+  button {
+    min-width: auto;
+  }
+
+  span {
+    @apply hidden pl-2;
+    @apply sm:inline;
+  }
+
+}
+
+.box {
+  @apply break-inside-avoid py-4 px-4;
+}
+
+.col-2 {
+  @apply columns-2;
+}
+
+.col-3 {
+  @apply columns-3;
+}
+
+.col-4 {
+  @apply columns-4;
+}

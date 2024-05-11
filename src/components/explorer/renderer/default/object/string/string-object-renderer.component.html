@@ -1,0 +1,20 @@
+<div class="p-float-label">
+  @if (!isTextArea) {
+    <input
+      pInputText
+      type="text"
+      [id]="id"
+      [formControl]="ctrl"
+      [readonly]="isReadonly"
+    />
+  } @else {
+    <textarea
+      pInputTextarea
+      [id]="id"
+      [autoResize]="rendererParams.textareaAutoResize"
+      [formControl]="ctrl"
+      [readonly]="isReadonly"
+    ></textarea>
+  }
+  <label [for]="id">{{ column.name | localize: column.property }}</label>
+</div>

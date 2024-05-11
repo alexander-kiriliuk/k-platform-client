@@ -1,0 +1,27 @@
+<div class="actions">
+  <button
+    class="p-button-success"
+    pButton pRipple
+    icon="pi pi-arrow-down-right"
+    iconPos="right"
+    [label]="'xdb.import' | transloco"
+    [disabled]="!ctrl.valid"
+    (click)="vm.doImport(ctrl.value)"></button>
+  <p-fileUpload
+    mode="basic"
+    name="file"
+    accept="zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
+    chooseIcon="pi pi-folder-open"
+    [url]="uploadUrl"
+    [chooseLabel]="'xdb.upload' | transloco"
+    [auto]="true"
+    (onError)="vm.onErrorFileUpload($event)"
+    (onBeforeUpload)="vm.onBeforeUploadFile()"
+    (onUpload)="vm.onUploadFile($event)"/>
+</div>
+<textarea pInputTextarea
+          [formControl]="ctrl"
+          [autoResize]="true">
+</textarea>
+
+<preloader *preloading="{state: false, channel: vm.preloaderChannel}"/>

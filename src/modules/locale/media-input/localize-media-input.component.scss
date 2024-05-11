@@ -1,0 +1,18 @@
+:host {
+  @apply block relative;
+}
+
+textarea {
+  @apply w-full;
+}
+
+.t-header {
+  @apply inline-flex items-center gap-x-2;
+  media-res {
+    ::ng-deep {
+      img {
+        max-width: 1rem;
+      }
+    }
+  }
+}

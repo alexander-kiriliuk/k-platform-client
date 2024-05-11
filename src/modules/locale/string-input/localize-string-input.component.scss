@@ -1,0 +1,24 @@
+:host {
+  @apply block relative border px-4 pb-4 rounded;
+  border-color: var(--surface-d);
+  ::ng-deep {
+    .p-tabview-panels {
+      @apply px-0 pb-0;
+    }
+  }
+}
+
+textarea {
+  @apply w-full;
+}
+
+.t-header {
+  @apply inline-flex items-center gap-x-2;
+  media-res {
+    ::ng-deep {
+      img {
+        max-width: 1rem;
+      }
+    }
+  }
+}

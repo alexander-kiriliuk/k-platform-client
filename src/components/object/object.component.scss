@@ -1,0 +1,52 @@
+:host {
+  @apply block;
+  ::ng-deep {
+    .p-card-header {
+      @apply relative text-center p-4;
+    }
+  }
+}
+
+.head {
+  @apply mb-2 mt-2 px-4;
+  @apply lg:px-0 lg:mb-8 lg:mt-0;
+  @apply w-full;
+  input, & > div {
+    @apply w-full;
+  }
+}
+
+p-badge {
+  @apply absolute right-6 top-6;
+}
+
+media-res {
+  ::ng-deep {
+    img {
+      max-width: 40px;
+    }
+  }
+}
+
+p-card {
+  @apply cursor-pointer relative overflow-hidden;
+  &:hover {
+    &:after {
+      content: "";
+      background-color: var(--accent-color);
+      @apply rounded absolute left-0 right-0 top-0 bottom-0 opacity-20;
+    }
+  }
+}
+
+.contents {
+  @apply block py-4 px-4 columns-1;
+  @apply lg:py-0 lg:px-0 lg:pb-8;
+  @apply md:columns-2;
+  @apply xl:columns-3;
+  @apply 2xl:columns-4;
+
+  & > div {
+    @apply mb-4 break-inside-avoid;
+  }
+}

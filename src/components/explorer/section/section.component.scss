@@ -1,0 +1,122 @@
+:host {
+  --paginator-h: 10vh;
+  height: 100%;
+
+  &.dialogMode {
+    max-width: 90vw;
+  }
+
+  ::ng-deep {
+
+    media-res img {
+      max-height: 50px;
+      width: max-content;
+    }
+
+    @screen sm {
+      .p-paginator, .p-datatable-thead tr:first-child th {
+        @apply rounded-t;
+      }
+    }
+
+    .p-datatable-thead tr:last-child th, tbody tr:last-child td {
+      @apply border-0;
+    }
+
+    .p-paginator {
+      @apply border-0;
+      height: var(--paginator-h);
+    }
+
+    p-paginator .p-element.p-dropdown-label.p-inputtext {
+      @apply px-4 py-3;
+    }
+
+    .p-datatable-table {
+      @apply border-separate;
+    }
+
+    .p-datatable-wrapper, .p-datatable {
+      @apply h-full;
+    }
+
+    .p-datatable-thead {
+      th {
+        @apply whitespace-nowrap;
+        i {
+          @apply px-1 rounded-full text-xs leading-3;
+        }
+      }
+    }
+
+  }
+
+}
+
+th {
+  &:hover {
+    @apply relative;
+
+    i.ctrl {
+      @apply visible;
+    }
+  }
+
+  i.ctrl {
+    @apply invisible cursor-pointer;
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
+}
+
+.line {
+  &:hover {
+    @apply cursor-pointer select-none;
+    background: var(--surface-c);
+  }
+}
+
+.indicator {
+  color: var(--primary-color);
+  @apply cursor-pointer;
+
+  &:hover {
+    &:before {
+      content: "\e90b";
+      color: var(--danger-color);
+    }
+  }
+
+}
+
+.set-btn {
+  @apply cursor-pointer;
+  color: var(--danger-color);
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+tr.selected {
+  td {
+    @apply relative;
+    &:after {
+      content: "";
+      background-color: var(--primary-color);
+      @apply absolute left-0 right-0 top-0 bottom-0 opacity-20;
+    }
+  }
+}
+
+.section-actions {
+  @apply inline-flex items-center gap-x-4;
+  explorer-action-renderer, & > div {
+    @apply flex items-center justify-end gap-x-4;
+  }
+}
+
+.default-action {
+  @apply mr-4;
+}

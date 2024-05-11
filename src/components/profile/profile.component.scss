@@ -1,0 +1,11 @@
+.wrap {
+  @apply grid grid-cols-1 gap-4;
+  @apply sm:grid-cols-2 sm:gap-6;
+  & > div {
+    @apply flex flex-col gap-4 py-4;
+  }
+}
+
+ul {
+  @apply list-disc pl-4;
+}

@@ -1,0 +1,14 @@
+.label {
+  @apply flex items-center gap-6 pb-6;
+  div {
+    @apply font-semibold;
+  }
+}
+
+p {
+  @apply mt-6 mb-4 font-semibold;
+}
+
+.cbx-container {
+  @apply mb-6;
+}

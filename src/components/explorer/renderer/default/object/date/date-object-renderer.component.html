@@ -1,0 +1,19 @@
+<label [for]="id">
+  <span>
+    {{ column.name | localize: column.property }}
+  </span>
+  <span [ngClass]="{'string-value': !rendererParams.showCalendar}">
+    {{ ctrl.value | date: rendererParams.dateFormat }}
+  </span>
+</label>
+@if (rendererParams.showCalendar) {
+  <p-calendar
+    [inputId]="id"
+    [formControl]="ctrl"
+    [placeholder]="(column.name | localize: column.property).toString()"
+    [firstDayOfWeek]="rendererParams.firstDayOfWeek"
+    [showTime]="rendererParams.showTime"
+    [showSeconds]="rendererParams.showSeconds"
+    [readonlyInput]="rendererParams.readonlyInput"
+    [inline]="rendererParams.inline"/>
+}

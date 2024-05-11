@@ -1,0 +1,61 @@
+{
+  "name": "@k-platform/client-core",
+  "version": "0.0.15",
+  "description": "todo description",
+  "author": "Alexander Kiriliuk",
+  "scripts": {
+    "ng": "ng",
+    "build": "ng build k-platform-client-core --configuration production",
+    "publish": "cd dist && npm publish --registry=https://npm.specs-tech.ru",
+    "start": "ng serve",
+    "lint": "eslint --fix --ext .js,.ts,.html .",
+    "test": "ng test"
+  },
+  "peerDependencies": {
+    "@angular/animations": "17.*",
+    "@angular/common": "17.*",
+    "@angular/compiler": "17.*",
+    "@angular/core": "17.*",
+    "@angular/forms": "17.*",
+    "@angular/platform-browser": "17.*",
+    "@angular/platform-browser-dynamic": "17.*",
+    "@angular/router": "17.*",
+    "@ngneat/transloco": "6.*",
+    "ng-recaptcha": "13.*",
+    "ngx-device-detector": "7.*",
+    "primeicons": "7.*",
+    "primeng": "17.*",
+    "rxjs": "7.*",
+    "zone.js": "0.14.*"
+  },
+  "dependencies": {
+    "tslib": "2.6.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "17.3.2",
+    "@angular-eslint/eslint-plugin": "17.3.0",
+    "@angular-eslint/eslint-plugin-template": "17.3.0",
+    "@angular-eslint/template-parser": "17.3.0",
+    "@angular/cli": "17.3.2",
+    "@angular/compiler-cli": "17.3.2",
+    "@types/jasmine": "5.1.4",
+    "@typescript-eslint/eslint-plugin": "7.4.0",
+    "@typescript-eslint/parser": "7.4.0",
+    "autoprefixer": "10.4.19",
+    "eslint": "8.57.0",
+    "eslint-plugin-html": "8.0.0",
+    "eslint-plugin-import-newlines": "1.4.0",
+    "jasmine-core": "5.1.2",
+    "karma": "6.4.3",
+    "karma-chrome-launcher": "3.2.0",
+    "karma-coverage": "2.2.1",
+    "karma-jasmine": "5.1.0",
+    "karma-jasmine-html-reporter": "2.1.0",
+    "ng-packagr": "17.3.0",
+    "postcss": "8.4.38",
+    "postcss-import": "16.1.0",
+    "tailwindcss": "3.4.3",
+    "tailwindcss-animated": "1.0.1",
+    "typescript": "5.4.3"
+  }
+}

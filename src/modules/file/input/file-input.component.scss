@@ -1,0 +1,32 @@
+:host {
+  ::ng-deep {
+    .p-fileupload-content {
+      @apply px-0 pt-2 pb-4;
+    }
+
+    .p-button-success {
+      @apply inline-flex items-center gap-x-1;
+    }
+  }
+}
+
+h4 {
+  @apply px-4 py-2 font-semibold;
+}
+
+.medias {
+  @apply px-4 flex flex-col gap-y-2;
+  & > div {
+    @apply flex gap-2 items-center;
+    ::ng-deep img {
+      --s: 40px;
+      max-width: var(--s);
+      max-height: var(--s);
+    }
+  }
+}
+
+.stats {
+  @apply text-xs my-6 px-4;
+  color: var(--success-color);
+}

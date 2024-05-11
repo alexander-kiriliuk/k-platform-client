@@ -1,0 +1,45 @@
+:host {
+  --paginator-h: 10vh;
+
+  ::ng-deep {
+
+    .p-paginator {
+      height: var(--paginator-h);
+    }
+
+    p-paginator .p-element.p-dropdown-label.p-inputtext {
+      @apply px-4 py-3;
+    }
+
+    .p-datatable-thead {
+      th {
+        @apply whitespace-nowrap;
+        i {
+          @apply px-1 rounded-full text-xs leading-3;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        @apply cursor-pointer;
+      }
+    }
+
+    .action {
+      @apply flex items-center gap-x-4;
+    }
+
+  }
+
+}
+
+tr {
+  &:hover {
+    background: var(--highlight-bg);
+  }
+}
+
+#c-search + i {
+  @apply -mt-1.5;
+}

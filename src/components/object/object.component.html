@@ -1,0 +1,24 @@
+<div class="head">
+  <div class="p-input-icon-left">
+    <i class="pi pi-search"></i>
+    <input type="text" pInputText [placeholder]="'object.search' | transloco" [formControl]="ctrl"/>
+  </div>
+</div>
+<div class="contents">
+  @for (item of targetList$ | async; track item.target) {
+    <div>
+      <p-card [subheader]="item.tableName"
+              [header]="(item.name | localize: item.target).toString()"
+              (click)="showObjectDetails(item)">
+        <ng-template pTemplate="header">
+          <media-res [src]="item.icon"/>
+          <p-badge severity="info" [value]="item.size.toString()"></p-badge>
+        </ng-template>
+        <p>
+          {{ item.description | localize:item.target }}
+        </p>
+      </p-card>
+    </div>
+  }
+</div>
+<preloader *preloading="{state: true, channel: preloaderChannel}"/>

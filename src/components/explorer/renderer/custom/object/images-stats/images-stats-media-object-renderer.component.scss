@@ -1,0 +1,34 @@
+:host {
+  @apply border block p-4 rounded;
+  border-color: var(--surface-d);
+}
+
+p-image {
+  ::ng-deep{
+    img {
+      width: auto;
+      max-height: 50px;
+    }
+  }
+}
+
+.label {
+  @apply py-2 font-semibold;
+}
+
+.items {
+  @apply flex flex-wrap gap-4;
+  & > div {
+    @apply p-4 flex text-xs gap-4;
+    background: var(--surface-d);
+  }
+
+  a {
+    color: var(--primary-color);
+
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
+}
+

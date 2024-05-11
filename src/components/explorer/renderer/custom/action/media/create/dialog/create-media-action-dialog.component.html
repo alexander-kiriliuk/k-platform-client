@@ -1,0 +1,11 @@
+<ref-input target="MediaTypeEntity"
+           [placeholder]="'media.dialog.choose.type' | transloco"
+           [formControl]="typeCtrl"/>
+
+@if (typeCtrl.value) {
+  <media-input
+    [placeholder]="'media.dialog.choose.file' | transloco"
+    [mediaType]="typeCtrl.value.code"
+    [galleryEnabled]="false"
+    (changeMedia)="onChange($event)"/>
+}

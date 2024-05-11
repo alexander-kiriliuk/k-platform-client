@@ -1,0 +1,27 @@
+<div class="label">{{ column.name | localize: column.property }}</div>
+<div class="items">
+  @for (file of files; track file.id) {
+    <div>
+      <p-image
+        [src]="thumbUrl"
+        [previewImageSrc]="url + '/' + file.name + '.' + media.type.ext.code"
+        [preview]="true"/>
+      <div>
+        <p>{{ file.format.name }}: {{ file.width }}x{{ file.height }}</p>
+        <p>
+          {{ file.size | fileSize }}
+          @if (file.duplicate) {
+            & {{ file.duplicate.size | fileSize }}
+          }
+        </p>
+        <p>
+          <a target="_blank"
+             [href]="url + '/' + file.name + '.' + media.type.ext.code">{{ media.type.ext.code.toUpperCase() }}</a>
+          @if (file.duplicate) {
+            & <a target="_blank" [href]="url + '/' + file.name + '.webp'">WEBP</a>
+          }
+        </p>
+      </div>
+    </div>
+  }
+</div>

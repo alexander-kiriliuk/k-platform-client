@@ -1,0 +1,8 @@
+:host {
+  @apply border block p-4 rounded;
+  border-color: var(--surface-d);
+}
+
+.cbx-container {
+  @apply flex gap-x-2 items-center w-full;
+}

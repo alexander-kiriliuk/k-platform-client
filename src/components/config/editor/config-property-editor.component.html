@@ -1,0 +1,26 @@
+<div [formGroup]="form">
+  <div class="p-float-label">
+    <input id="c-key" pInputText
+           [formControl]="form.controls.key"/>
+    <label for="c-key">{{'config.key' | transloco}}</label>
+  </div>
+  <div class="p-float-label">
+    <textarea pInputTextarea id="c-value"
+              [formControl]="form.controls.value"></textarea>
+    <label for="c-value">{{'config.value' | transloco}}</label>
+  </div>
+  <div class="actions">
+    <p-button pRipple severity="danger"
+              icon="pi pi-times"
+              iconPos="left"
+              [disabled]="!isDeleteBtnEnabled"
+              [label]="'config.delete' | transloco"
+              (click)="deleteProperty()"/>
+    <p-button pRipple severity="success"
+              icon="pi pi-save"
+              iconPos="left"
+              [disabled]="!isSaveBtnEnabled"
+              [label]="'config.save' | transloco"
+              (click)="saveProperty()"/>
+  </div>
+</div>

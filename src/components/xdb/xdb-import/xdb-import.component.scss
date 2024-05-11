@@ -1,0 +1,19 @@
+:host {
+  @apply block relative p-4;
+  ::ng-deep {
+    .p-fileupload-choose {
+      @apply w-full;
+    }
+  }
+}
+
+.actions {
+  @apply sticky top-0 pb-4 flex gap-6 flex-col;
+  @apply sm:flex-row;
+  background: var(--neutral-a);
+}
+
+textarea {
+  min-height: 500px;
+  @apply w-full mb-4;
+}

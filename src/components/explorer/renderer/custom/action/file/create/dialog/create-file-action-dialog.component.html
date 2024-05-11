@@ -1,0 +1,12 @@
+<div class="cbx-container">
+  <p-checkbox inputId="isPublic"
+              [formControl]="isPublic"
+              [binary]="true"
+              [label]="'file.dialog.public' | transloco"/>
+</div>
+
+<file-input
+  [galleryEnabled]="false"
+  [isPublic]="isPublic.value"
+  [placeholder]="'file.dialog.choose.file' | transloco"
+  (changeFile)="onChange($event)"/>

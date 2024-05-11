@@ -1,0 +1,10 @@
+:host {
+  i {
+    &.pi-times {
+      color: var(--danger-color);
+    }
+    &.pi-check {
+      color: var(--success-color);
+    }
+  }
+}

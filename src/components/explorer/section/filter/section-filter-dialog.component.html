@@ -1,0 +1,108 @@
+<ul>
+  @if (!vm.isReference) {
+    <li>
+    <span>
+      <i class="pi pi-sort-alt"></i>
+      {{ "explorer.sort" | transloco }}
+    </span>
+      <ul>
+        <li>
+          <a (click)="vm.setOrder('ASC')">
+            <i class="pi pi-sort-amount-up" [ngClass]="{active: isSortAscActive}"></i>
+            {{ "explorer.asc" | transloco }}
+          </a>
+        </li>
+        <li>
+          <a (click)="vm.setOrder('DESC')">
+            <i class="pi pi-sort-amount-down" [ngClass]="{active: isSortDescActive}"></i>
+            {{ "explorer.desc" | transloco }}
+          </a>
+        </li>
+      </ul>
+    </li>
+  }
+  <li>
+    <span>
+      <i class="pi pi-sliders-h"></i>
+      {{ vm.column.type !== 'date' ? ("explorer.filter.label" | transloco) : ("explorer.filter.date" | transloco) }}
+    </span>
+    <ul>
+      @if (vm.isReference) {
+        <li class="reference">
+          <a class="select-field" (click)="vm.showRefTargetDialog()">
+            <i class="pi pi-window-maximize"></i>
+            <span [ngClass]="{orange: vm.referenceField?.ref}">
+            {{ vm.referenceField?.ref ? vm.referenceField.ref : ("explorer.filter.select" | transloco) }}
+          </span>
+          </a>
+          @if (vm.referenceField?.ref && vm.referencedColumn?.type !== "date") {
+            <a class="red" (click)="vm.openSectionDialog()">
+              <i class="pi pi-arrow-up-right"></i>
+            </a>
+          }
+        </li>
+      }
+      @if (!vm.isReference || (vm.isReference && vm.referenceField?.ref)) {
+        <li>
+          @if (vm.form.controls.name.value.length) {
+            @if (vm.column.type !== "reference") {
+              <ng-container *ngTemplateOutlet="editorCtrl; context: {type: vm.column.type}"/>
+            }
+            @if (vm.column.type === "reference" && vm.referencedColumn) {
+              <ng-container *ngTemplateOutlet="editorCtrl; context: {type: vm.referencedColumn.type}"/>
+            }
+            <div class="actions">
+              <button class="p-button-sm" pButton [disabled]="!applyButtonEnabled" (click)="vm.applyFilter()">
+                {{ "explorer.apply" | transloco }}
+              </button>
+            </div>
+          }
+        </li>
+      }
+    </ul>
+  </li>
+</ul>
+
+<preloader *preloading="{state: false, channel: vm.preloaderChannel}"/>
+
+<ng-template #editorCtrl let-type="type">
+  <ng-container [formGroup]="vm.form">
+    @switch (type) {
+      @default {
+        <div class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input formControlName="value" class="p-inputtext-xs" type="text" pInputText
+                 [placeholder]="'explorer.filter.value' | transloco"/>
+        </div>
+      }
+      @case ("number") {
+        <p-inputNumber styleClass="p-inputtext-xs" formControlName="value"/>
+      }
+      @case ("boolean") {
+        <div class="ctrl-wrapper">
+          <p-checkbox inputId="es" formControlName="value" [binary]="true"/>
+          <label for="es">{{ "explorer.sate" | transloco }}</label>
+        </div>
+      }
+      @case ("date") {
+        <div>
+          <p class="orange">{{ currentDataValue }}</p>
+          <p-calendar
+            formControlName="value"
+            selectionMode="range"
+            [firstDayOfWeek]="1"
+            [showTime]="true"
+            [showSeconds]="true"
+            [readonlyInput]="true"
+            [inline]="true"/>
+        </div>
+      }
+    }
+    @if (type !== "boolean" && type !== "date") {
+      <div class="ctrl-wrapper">
+        <p-checkbox inputId="em" [binary]="true" [formControl]="vm.form.controls.exactMatch"/>
+        <label for="em">{{ "explorer.exact" | transloco }}</label>
+      </div>
+    }
+  </ng-container>
+</ng-template>

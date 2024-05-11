@@ -1,0 +1,85 @@
+@if (vm.targetData?.entity?.columns) {
+  <p-table
+    [scrollHeight]="scrollHeight"
+    [value]="vm.pageableData?.items"
+    [scrollable]="true"
+    [paginator]="true"
+    [first]="currentPos"
+    [lazy]="true"
+    [rowsPerPageOptions]="[20, 50, 100, 500, 1000]"
+    [rows]="vm.pageableData?.pageSize"
+    [totalRecords]="vm.pageableData?.totalCount"
+    (onPage)="vm.getItems($event)">
+    <ng-template pTemplate="header">
+      @if (!vm.dialogMode) {
+        <tr>
+          <th [colSpan]="vm.targetData.entity.columns.length">
+            @if (vm.targetData.entity.defaultActionCreate) {
+              <button class="default-action p-button-sm p-button-success" pButton pRipple
+                      (click)="vm.navToCreateNewItemUi()">
+                <i class="pi pi-plus"></i>&nbsp;
+                {{ "explorer.create" | transloco }}
+              </button>
+            }
+            @if (vm.targetData.entity?.actions?.length) {
+              <div class="section-actions">
+                <explorer-action-renderer
+                  [target]="vm.targetData"
+                  [data]="vm.pageableData?.items"
+                  [actions]="vm.targetData.entity.actions"/>
+              </div>
+            }
+          </th>
+        </tr>
+      }
+      <tr>
+        @if (vm.dialogMode) {
+          <th>
+            @if (vm.multiselect) {
+              <p-button [disabled]="!selectedRowsCount" (click)="vm.applySelectedRows()">
+                {{ "explorer.select" | transloco: {v: selectedRowsCount} }}
+              </p-button>
+            }
+          </th>
+        }
+        @for (item of vm.targetData.entity.columns; track item.id) {
+          @if (item.sectionVisibility) {
+            <th>
+              @if (vm.queryParamsSnapshot['sort'] === item.property) {
+                <i class="indicator pi" [ngClass]="{
+                  'pi-sort-amount-down': vm.queryParamsSnapshot['order'] === 'DESC',
+                  'pi-sort-amount-up': vm.queryParamsSnapshot['order'] === 'ASC'
+                 }" (click)="vm.removeSorting()"></i>
+              }
+              @if (propertyFilter(item.property)) {
+                <i class="indicator pi pi-filter" (click)="vm.removeFilter(item.property)"></i>
+              }
+              {{ item.name | localize:item.property }}
+              @if (!item.virtual) {
+                <i class="ctrl pi pi-window-maximize" pRipple (click)="vm.showFilterDialog(item)"></i>
+              }
+            </th>
+          }
+        }
+      </tr>
+    </ng-template>
+    <ng-template let-item pTemplate="body">
+      <tr class="line" [ngClass]="{selected: isSelected(item)}" (click)="vm.openObjectUi(item)">
+        @if (vm.dialogMode) {
+          <td class="set-btn" stop-propagation (click)="vm.selectEntityAndCloseDialog(item)">
+            <i class="pi pi-arrow-down-left"></i>
+          </td>
+        }
+        @for (col of vm.targetData.entity.columns; track col.id) {
+          @if (col.sectionVisibility) {
+            <td>
+              <explorer-section-renderer [target]="vm.targetData" [column]="col" [data]="item"/>
+            </td>
+          }
+        }
+      </tr>
+    </ng-template>
+  </p-table>
+}
+
+<preloader *preloading="{state: true, channel: vm.preloaderChannel}"/>

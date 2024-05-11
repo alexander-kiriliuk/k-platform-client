@@ -1,0 +1,41 @@
+@if (placeholder()) {
+  <div class="label">
+    {{ placeholder() }}
+    <p-button
+      icon="pi pi-folder-open" severity="info"
+      [disabled]="disabled"
+      [rounded]="true"
+      [text]="true"
+      (click)="openSection()"/>
+  </div>
+}
+<ng-template #emptyUi>
+  <span class="c-warn">{{"msg.empty" | transloco}}</span>
+</ng-template>
+<ng-template #itemUI let-entity="entity">
+  <div>
+    <p-button
+      icon="pi pi-times"
+      severity="danger" [rounded]="true"
+      [text]="true"
+      (click)="removeItem(entity)"/>
+    {{ entity | refName:targetData }}
+  </div>
+</ng-template>
+@if (entity) {
+  <div class="content-wrapper">
+    @if (!multi()) {
+      <ng-container *ngTemplateOutlet="itemUI; context: {entity}"/>
+    } @else {
+      @if (entities.length){
+        @for (item of entities; track item) {
+          <ng-container *ngTemplateOutlet="itemUI; context: {entity: item}"/>
+        }
+      } @else {
+        <ng-container *ngTemplateOutlet="emptyUi"/>
+      }
+    }
+  </div>
+} @else {
+  <ng-container *ngTemplateOutlet="emptyUi"/>
+}

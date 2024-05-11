@@ -1,0 +1,77 @@
+:host {
+  @apply relative;
+  & > ul {
+    & > li:not(:last-child) {
+      @apply mb-4;
+    }
+
+    ul {
+      @apply ml-0 mt-1 mb-2;
+      @apply lg:ml-3;
+    }
+  }
+}
+
+ul {
+  li {
+    a, span {
+      @apply inline-flex items-center gap-x-2;
+    }
+
+    span {
+      @apply font-semibold;
+    }
+
+    a {
+      @apply cursor-pointer;
+      &:hover {
+        color: var(--primary-color);
+      }
+
+      &.select-field {
+        span {
+          @apply font-normal text-sm;
+        }
+
+        &:hover {
+          color: var(--accent-color);
+        }
+      }
+    }
+  }
+}
+
+i {
+  @apply text-xs;
+  &.active {
+    color: var(--accent-color);
+  }
+}
+
+input {
+  @apply my-2;
+}
+
+.actions {
+  @apply mt-4 text-center;
+}
+
+.ctrl-wrapper {
+  @apply flex gap-x-2 items-center;
+}
+
+.orange {
+  color: var(--warn-color);
+}
+
+.red {
+  color: var(--danger-color);
+}
+
+.reference {
+  @apply flex gap-x-2;
+}
+
+p {
+  @apply my-2;
+}

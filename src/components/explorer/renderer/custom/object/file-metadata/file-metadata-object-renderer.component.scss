@@ -1,0 +1,23 @@
+:host {
+  @apply border block p-4 rounded;
+  border-color: var(--surface-d);
+}
+
+.label {
+  @apply py-2 font-semibold;
+}
+
+table {
+  @apply text-xs;
+  td {
+    @apply py-1 px-2;
+    &:last-child {
+      @apply break-all;
+    }
+  }
+}
+
+.subtitle {
+  @apply text-sm py-1 px-2;
+  color: var(--accent-color);
+}

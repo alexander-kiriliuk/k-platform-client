@@ -1,0 +1,9 @@
+<div class="label">{{column.name | localize: column.property}}</div>
+<p>
+  <span>{{(data.public ? "file.public" : "file.private") | transloco}} {{"file.url" | transloco}}</span>:
+  <a target="_blank" [href]="url">{{url}}</a>
+</p>
+<p>
+  <span>{{"file.size" | transloco}}</span>:
+  {{data.size | fileSize}}
+</p>

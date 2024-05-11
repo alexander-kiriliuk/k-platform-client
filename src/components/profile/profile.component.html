@@ -1,0 +1,58 @@
+<div class="wrap" [formGroup]="vm.form">
+  <div>
+    <div class="p-float-label">
+      <input pInputText id="id" formControlName="id"/>
+      <label for="id">{{ "profile.id" | transloco }}</label>
+    </div>
+    <div class="p-float-label">
+      <input pInputText id="login" formControlName="login"/>
+      <label for="login">{{ "profile.login" | transloco }}</label>
+    </div>
+    <media-input
+      mediaType="default"
+      formControlName="avatar"
+      [galleryEnabled]="false"
+      [placeholder]="'profile.avatar' | transloco"/>
+  </div>
+  <div>
+    <div class="p-float-label">
+      <input pInputText id="firstName" formControlName="firstName"/>
+      <label for="email">{{ "profile.name.first" | transloco }}</label>
+    </div>
+    <div class="p-float-label">
+      <input pInputText id="lastName" formControlName="lastName"/>
+      <label for="email">{{ "profile.name.last" | transloco }}</label>
+    </div>
+    <div class="p-float-label">
+      <input pInputText id="email" formControlName="email"/>
+      <label for="email">{{ "profile.email" | transloco }}</label>
+    </div>
+    <div class="p-float-label">
+      <input pInputText id="phone" formControlName="phone"/>
+      <label for="phone">{{ "profile.phone" | transloco }}</label>
+    </div>
+    <div class="p-float-label">
+      <p-password
+        formControlName="password"
+        [toggleMask]="false"
+        [feedback]="false"/>
+      <label for="password">{{ "profile.password" | transloco }}</label>
+    </div>
+    @if (roles.length) {
+      <div>
+        {{ "profile.roles" | transloco }}
+        <ul>
+          @for (item of roles; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+</div>
+
+<div>
+  <button pButton (click)="vm.save()">{{ "profile.save" | transloco }}</button>
+</div>
+
+<preloader *preloading="{state: false, channel: vm.preloaderChannel}"/>

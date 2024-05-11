@@ -1,0 +1,6 @@
+@if (action) {
+  <button class="p-button-sm p-button-success" pButton pRipple (click)="createMedia()">
+    <i class="pi pi-plus"></i>&nbsp;
+    {{ action.name | localize:action.code }}
+  </button>
+}

@@ -1,0 +1,24 @@
+:host {
+  @apply border block p-4 rounded;
+  border-color: var(--surface-d);
+  ::ng-deep {
+    p-calendar {
+      & > span {
+        @apply w-full;
+      }
+    }
+  }
+}
+
+label {
+  @apply flex flex-col gap-4;
+  span {
+    &:first-child {
+      @apply font-semibold;
+    }
+    &:last-child:not(.string-value) {
+      @apply text-xs pb-4;
+      color: var(--warn-color);
+    }
+  }
+}

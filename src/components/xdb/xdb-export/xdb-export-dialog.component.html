@@ -1,0 +1,39 @@
+<ng-container [formGroup]="vm.form">
+  <div class="label">
+    <div>
+      {{vm.form.controls.target.value}}
+      [{{data.target.primaryColumn.property}}]={{vm.form.controls.id.value}}
+    </div>
+    <button class="p-button-sm p-button-success" pButton pRipple
+            (click)="vm.export()">
+      <i class="pi pi-file-export"></i>&nbsp;
+      {{"xdb.export.btn" | transloco}}
+    </button>
+  </div>
+  <div class="cbx-container">
+    <p-checkbox inputId="useFiles"
+                formControlName="useFiles"
+                [binary]="true"
+                [label]="'xdb.export.form.use.files' | transloco"/>
+  </div>
+  <div class="p-float-label">
+    <p-inputNumber inputId="depth" formControlName="depth" [min]="0"/>
+    <label for="depth">{{"xdb.export.depth" | transloco}}</label>
+  </div>
+  <p>{{"xdb.export.properties.label" | transloco}}</p>
+  <p-listbox
+    formControlName="excludeProperties"
+    optionLabel="name"
+    optionValue="code"
+    [filterPlaceHolder]="'xdb.export.filter.hint' | transloco"
+    [options]="properties"
+    [multiple]="true"
+    [checkbox]="true"
+    [metaKeySelection]="true"
+    [filter]="true"
+    [showToggleAll]="true"
+    [listStyle]="{ 'max-height': '220px' }"
+  />
+</ng-container>
+
+<preloader *preloading="{state: false, channel: vm.preloaderChannel}"/>

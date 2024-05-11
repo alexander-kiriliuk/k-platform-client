@@ -1,0 +1,20 @@
+<p-tabView [activeIndex]="activeTab">
+  @for (lang of langList; track lang.id) {
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <div class="t-header">
+          <media-res [src]="lang.icon"/>
+          <span>{{ lang.name }}</span>
+        </div>
+      </ng-template>
+      <div class="p-float-label">
+        <media-input
+          [mediaType]="mediaType()"
+          [disabled]="disabled"
+          [placeholder]="placeholder()"
+          [(ngModel)]="resData[lang.id].value"
+          (changeMedia)="synchronize()"/>
+      </div>
+    </p-tabPanel>
+  }
+</p-tabView>

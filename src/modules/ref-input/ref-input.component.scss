@@ -1,0 +1,15 @@
+:host {
+  @apply border block p-4 rounded;
+  border-color: var(--surface-d)
+}
+
+.label {
+  @apply gap-x-2 pb-2 flex items-center font-semibold;
+}
+
+.content-wrapper {
+  @apply flex flex-col justify-center;
+  & > div {
+    @apply gap-x-2 flex items-center;
+  }
+}
