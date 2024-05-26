@@ -15,13 +15,13 @@
  */
 
 import {
-ChangeDetectionStrategy,
-ChangeDetectorRef,
-Component,
-inject,
-input,
-OnInit,
-output
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  inject,
+  input,
+  OnInit,
+  output
 } from "@angular/core";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {DialogService} from "primeng/dynamicdialog";

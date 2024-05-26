@@ -26,10 +26,10 @@ import {
 } from "@angular/core";
 import {EXPLORER_SECTION_RENDERER} from "../explorer.constants";
 import {
-ColumnDataType,
-ExplorerColumn,
-ExplorerRendererLoader,
-TargetData
+  ColumnDataType,
+  ExplorerColumn,
+  ExplorerRendererLoader,
+  TargetData
 } from "../explorer.types";
 import {AbstractExplorerRendererComponent} from "./abstract-explorer-renderer.component";
 
@@ -79,19 +79,19 @@ export class ExplorerSectionRendererComponent extends AbstractExplorerRendererCo
   private getRendererByDataType(type: ColumnDataType): ExplorerRendererLoader {
     let code = "string-section-renderer";
     switch (type) {
-      case "boolean":
-        code = "boolean-section-renderer";
-        break;
-      case "date":
-        code = "date-section-renderer";
-        break;
-      case "reference":
-        if (this.column().referencedEntityName === "MediaEntity") {
-          code = "media-section-renderer";
-        } else {
-          code = "reference-section-renderer";
-        }
-        break;
+    case "boolean":
+      code = "boolean-section-renderer";
+      break;
+    case "date":
+      code = "date-section-renderer";
+      break;
+    case "reference":
+      if (this.column().referencedEntityName === "MediaEntity") {
+        code = "media-section-renderer";
+      } else {
+        code = "reference-section-renderer";
+      }
+      break;
     }
     return this.getRendererByCode(code);
   }

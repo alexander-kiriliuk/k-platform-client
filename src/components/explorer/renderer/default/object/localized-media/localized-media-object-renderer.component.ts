@@ -20,7 +20,9 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {LocalizedMediaObjectRendererTypes} from "./localized-media-object-renderer.types";
 import {RefInputComponent} from "../../../../../../modules/ref-input/ref-input.component";
 import {LocalizePipe} from "../../../../../../modules/locale/localize.pipe";
-import {LocalizeMediaInputComponent} from "../../../../../../modules/locale/media-input/localize-media-input.component";
+import {
+  LocalizeMediaInputComponent
+} from "../../../../../../modules/locale/media-input/localize-media-input.component";
 import {AbstractExplorerObjectRenderer} from "../../abstract-explorer-object-renderer";
 import {LocalizedMedia} from "../../../../../../modules/locale/locale.types";
 

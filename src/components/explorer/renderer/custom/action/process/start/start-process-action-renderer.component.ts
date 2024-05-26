@@ -31,7 +31,9 @@ import {finalize, throwError} from "rxjs";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {ProcessService} from "../../../../../../../global/service/process/process.service";
 import {LocalizePipe} from "../../../../../../../modules/locale/localize.pipe";
-import {AbstractExplorerActionRenderer} from "../../../../default/abstract-explorer-action-renderer";
+import {
+  AbstractExplorerActionRenderer
+} from "../../../../default/abstract-explorer-action-renderer";
 import {Store} from "../../../../../../../modules/store/store";
 import {Explorer} from "../../../../../explorer.constants";
 import {ProcessStatus, ProcessUnit, ToastData} from "../../../../../../../global/types";

@@ -17,7 +17,7 @@
 import {inject, Pipe, PipeTransform} from "@angular/core";
 import {Media} from "./media.types";
 import {ReservedMediaFormat, WEBP_SUPPORT} from "./media.constants";
-import {environment} from "../../global/env/env";
+import {MEDIA_URL} from "../../global/constants";
 
 @Pipe({
   name: "mediaUrl",
@@ -25,6 +25,7 @@ import {environment} from "../../global/env/env";
 })
 export class MediaUrlPipe implements PipeTransform {
 
+  private readonly mediaUrl = inject(MEDIA_URL);
   private readonly webpSupport = inject(WEBP_SUPPORT);
 
   transform(media: Media, format: string = ReservedMediaFormat.THUMB) {
@@ -37,7 +38,7 @@ export class MediaUrlPipe implements PipeTransform {
     }
     const file = media.files?.find(v => v.format.code === format);
     const fileName = `${file?.name}.${ext}`;
-    return `${environment.mediaUrl}/${media.id}/${fileName}`;
+    return `${this.mediaUrl}/${media.id}/${fileName}`;
   }
 
 }

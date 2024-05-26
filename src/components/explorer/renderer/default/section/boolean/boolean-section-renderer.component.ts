@@ -33,10 +33,10 @@ export class BooleanSectionRendererComponent extends AbstractExplorerSectionRend
 
   get cssClassName() {
     switch (this.data[this.column.property]) {
-      case true:
-        return "pi-check";
-      case false:
-        return "pi-times";
+    case true:
+      return "pi-check";
+    case false:
+      return "pi-times";
     }
     return "pi-ellipsis-h";
   }

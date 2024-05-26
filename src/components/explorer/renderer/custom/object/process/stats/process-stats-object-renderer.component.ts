@@ -33,7 +33,9 @@ import {ExplorerObjectRendererComponent} from "../../../../explorer-object-rende
 import {LocalizePipe} from "../../../../../../../modules/locale/localize.pipe";
 import {ProcessLogPipe} from "../../../../../../../modules/process/process-log.pipe";
 import {ProcessService} from "../../../../../../../global/service/process/process.service";
-import {AbstractExplorerObjectRenderer} from "../../../../default/abstract-explorer-object-renderer";
+import {
+  AbstractExplorerObjectRenderer
+} from "../../../../default/abstract-explorer-object-renderer";
 import {ProcessLog, ProcessStatus, ProcessUnit} from "../../../../../../../global/types";
 import {Store} from "../../../../../../../modules/store/store";
 import {ExplorerEvent} from "../../../../../object/explorer.event";

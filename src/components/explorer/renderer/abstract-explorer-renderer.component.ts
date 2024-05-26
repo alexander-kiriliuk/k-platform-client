@@ -15,10 +15,10 @@
  */
 
 import {
-ExplorerColumn,
-ExplorerRenderer,
-ExplorerRendererLoader,
-TargetData
+  ExplorerColumn,
+  ExplorerRenderer,
+  ExplorerRendererLoader,
+  TargetData
 } from "../explorer.types";
 import {ChangeDetectorRef, ComponentRef, InputSignal, ViewContainerRef} from "@angular/core";
 import {FormGroup} from "@angular/forms";

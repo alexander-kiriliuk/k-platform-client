@@ -28,10 +28,10 @@ import {
 } from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {
-ExplorerAction,
-ExplorerActionRenderer,
-ExplorerActionRendererLoader,
-TargetData
+  ExplorerAction,
+  ExplorerActionRenderer,
+  ExplorerActionRendererLoader,
+  TargetData
 } from "../explorer.types";
 import {AbstractExplorerActionRenderer} from "./default/abstract-explorer-action-renderer";
 import {EXPLORER_ACTION_RENDERER} from "../explorer.constants";

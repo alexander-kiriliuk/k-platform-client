@@ -14,11 +14,7 @@
  * limitations under the License.
  */
 
-import {
-ExplorerAction,
-ExplorerActionRenderer,
-TargetData
-} from "../../explorer.types";
+import { ExplorerAction, ExplorerActionRenderer, TargetData } from "../../explorer.types";
 import {FormGroup} from "@angular/forms";
 import {InputSignal} from "@angular/core";
 

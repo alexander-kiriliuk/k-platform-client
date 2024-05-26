@@ -26,10 +26,10 @@ import {
 } from "@angular/core";
 import {EXPLORER_OBJECT_RENDERER} from "../explorer.constants";
 import {
-ColumnDataType,
-ExplorerColumn,
-ExplorerRendererLoader,
-TargetData
+  ColumnDataType,
+  ExplorerColumn,
+  ExplorerRendererLoader,
+  TargetData
 } from "../explorer.types";
 import {AbstractExplorerRendererComponent} from "./abstract-explorer-renderer.component";
 import {FormGroup} from "@angular/forms";
@@ -81,28 +81,28 @@ export class ExplorerObjectRendererComponent extends AbstractExplorerRendererCom
   private getRendererByDataType(type: ColumnDataType): ExplorerRendererLoader {
     let code = "string-object-renderer";
     switch (type) {
-      case "boolean":
-        code = "boolean-object-renderer";
+    case "boolean":
+      code = "boolean-object-renderer";
+      break;
+    case "date":
+      code = "date-object-renderer";
+      break;
+    case "reference":
+      switch (this.column().referencedEntityName) {
+      case "MediaEntity":
+        code = "media-object-renderer";
         break;
-      case "date":
-        code = "date-object-renderer";
+      case "LocalizedStringEntity":
+        code = "localized-string-renderer";
         break;
-      case "reference":
-        switch (this.column().referencedEntityName) {
-          case "MediaEntity":
-            code = "media-object-renderer";
-            break;
-          case "LocalizedStringEntity":
-            code = "localized-string-renderer";
-            break;
-          case "LocalizedMediaEntity":
-            code = "localized-media-renderer";
-            break;
-          default:
-            code = "reference-object-renderer";
-            break;
-        }
+      case "LocalizedMediaEntity":
+        code = "localized-media-renderer";
         break;
+      default:
+        code = "reference-object-renderer";
+        break;
+      }
+      break;
     }
     return this.getRendererByCode(code);
   }

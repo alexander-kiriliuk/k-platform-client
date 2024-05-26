@@ -22,12 +22,7 @@ import {FormBuilder, FormControl} from "@angular/forms";
 import {TranslocoService} from "@ngneat/transloco";
 import {ConfirmationService} from "primeng/api";
 import {ExplorerObject} from "./explorer-object.constants";
-import {
-ExplorerObjectDto,
-ExplorerTab,
-ObjectDialogConfig,
-TargetData
-} from "../explorer.types";
+import { ExplorerObjectDto, ExplorerTab, ObjectDialogConfig, TargetData } from "../explorer.types";
 import {ExplorerEvent} from "./explorer.event";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {Explorer} from "../explorer.constants";

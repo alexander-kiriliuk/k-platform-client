@@ -15,13 +15,13 @@
  */
 
 import {
-AfterViewInit,
-Directive,
-inject,
-input,
-InputSignal,
-TemplateRef,
-ViewContainerRef
+  AfterViewInit,
+  Directive,
+  inject,
+  input,
+  InputSignal,
+  TemplateRef,
+  ViewContainerRef
 } from "@angular/core";
 import {Store} from "../store/store";
 import {PreloaderEvent} from "./preloader.event";

@@ -22,7 +22,9 @@ import {TranslocoPipe} from "@ngneat/transloco";
 import {ConfirmationService} from "primeng/api";
 import {finalize, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
-import {AbstractExplorerActionRenderer} from "../../../../default/abstract-explorer-action-renderer";
+import {
+  AbstractExplorerActionRenderer
+} from "../../../../default/abstract-explorer-action-renderer";
 import {PreloaderComponent} from "../../../../../../../modules/preloader/preloader.component";
 import {LocalizePipe} from "../../../../../../../modules/locale/localize.pipe";
 import {Store} from "../../../../../../../modules/store/store";

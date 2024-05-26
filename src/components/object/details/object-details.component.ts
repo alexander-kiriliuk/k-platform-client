@@ -33,7 +33,9 @@ import {ObjectDetails} from "./object-details.constants";
 import {PreloaderComponent} from "../../../modules/preloader/preloader.component";
 import {PreloaderDirective} from "../../../modules/preloader/preloader.directive";
 import {LocalizePipe} from "../../../modules/locale/localize.pipe";
-import {LocalizeStringInputComponent} from "../../../modules/locale/string-input/localize-string-input.component";
+import {
+  LocalizeStringInputComponent
+} from "../../../modules/locale/string-input/localize-string-input.component";
 import {MediaInputComponent} from "../../../modules/media/input/media-input.component";
 import {RefInputComponent} from "../../../modules/ref-input/ref-input.component";
 import {ObjectDetailsViewModel} from "./object-details.view-model";

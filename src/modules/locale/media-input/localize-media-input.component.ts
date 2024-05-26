@@ -19,10 +19,10 @@ import {Language, LocalizedMedia} from "../locale.types";
 import {AVAIL_LANGS} from "../locale.constants";
 import {TranslocoPipe, TranslocoService} from "@ngneat/transloco";
 import {
-ControlValueAccessor,
-FormsModule,
-NG_VALUE_ACCESSOR,
-ReactiveFormsModule
+  ControlValueAccessor,
+  FormsModule,
+  NG_VALUE_ACCESSOR,
+  ReactiveFormsModule
 } from "@angular/forms";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {SharedModule} from "primeng/api";

@@ -15,12 +15,12 @@
  */
 
 import {
-ChangeDetectionStrategy,
-Component,
-inject,
-Injector,
-OnInit,
-runInInjectionContext
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  Injector,
+  OnInit,
+  runInInjectionContext
 } from "@angular/core";
 import {NewPasswordObjectRendererParams} from "./new-password-object-renderer.types";
 import {ReactiveFormsModule, Validators} from "@angular/forms";

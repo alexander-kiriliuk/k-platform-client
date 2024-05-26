@@ -23,8 +23,8 @@ import {LocalizePipe} from "../../../../../../modules/locale/localize.pipe";
 import {FileSizePipe} from "../../../../../../modules/file/file-size.pipe";
 import {AbstractExplorerObjectRenderer} from "../../../default/abstract-explorer-object-renderer";
 import {ReservedMediaFormat} from "../../../../../../modules/media/media.constants";
-import {environment} from "../../../../../../global/env/env";
 import {Media} from "../../../../../../modules/media/media.types";
+import {MEDIA_URL} from "../../../../../../global/constants";
 
 @Component({
   selector: "images-stats-media-object-renderer",
@@ -42,6 +42,7 @@ import {Media} from "../../../../../../modules/media/media.types";
 })
 export class ImagesStatsMediaObjectRendererComponent extends AbstractExplorerObjectRenderer {
 
+  private readonly mediaUrl = inject(MEDIA_URL);
   private readonly mediaUrlPipe = inject(MediaUrlPipe);
 
   get thumbUrl() {
@@ -49,7 +50,7 @@ export class ImagesStatsMediaObjectRendererComponent extends AbstractExplorerObj
   }
 
   get url() {
-    return `${environment.mediaUrl}/${this.media.id}`;
+    return `${this.mediaUrl}/${this.media.id}`;
   }
 
   get media() {

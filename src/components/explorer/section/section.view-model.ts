@@ -16,10 +16,10 @@
 
 import {inject, Injectable, signal} from "@angular/core";
 import {
-ExplorerColumn,
-ObjectDialogConfig,
-SectionDialogConfig,
-TargetData
+  ExplorerColumn,
+  ObjectDialogConfig,
+  SectionDialogConfig,
+  TargetData
 } from "../explorer.types";
 import {DialogService, DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {ExplorerService} from "../explorer.service";

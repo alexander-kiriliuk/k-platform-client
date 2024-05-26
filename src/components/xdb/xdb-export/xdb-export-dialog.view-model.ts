@@ -27,7 +27,7 @@ import {Xdb} from "../xdb.constants";
 import {PreloaderEvent} from "../../../modules/preloader/preloader.event";
 import {ToastData} from "../../../global/types";
 import {ToastEvent} from "../../../global/events";
-import {environment} from "../../../global/env/env";
+import {TMP_URL} from "../../../global/constants";
 import createForm = XdbExportDialog.createForm;
 
 
@@ -35,6 +35,7 @@ import createForm = XdbExportDialog.createForm;
 export class XdbExportDialogViewModel {
 
   readonly form = createForm();
+  private readonly tmpUrl = inject(TMP_URL);
   private readonly config = inject(DynamicDialogConfig);
   private readonly ref = inject(DynamicDialogRef);
   private readonly store = inject(Store);
@@ -60,7 +61,7 @@ export class XdbExportDialogViewModel {
     ).subscribe(v => {
       this.store.emit<ToastData>(ToastEvent.Success, {message: this.ts.translate("xdb.export.success")});
       if (v.file) {
-        window.open(`${environment.tmpUrl}/${v.file}`, "_blank");
+        window.open(`${this.tmpUrl}/${v.file}`, "_blank");
       }
       this.ref.close();
     });

@@ -92,12 +92,12 @@ export class ConfigViewModel {
           return;
         }
         switch (res.cmd) {
-          case "delete":
-            this.deleteProperty(res.data);
-            break;
-          case "save":
-            this.saveProperty(res.data);
-            break;
+        case "delete":
+          this.deleteProperty(res.data);
+          break;
+        case "save":
+          this.saveProperty(res.data);
+          break;
         }
       });
     });

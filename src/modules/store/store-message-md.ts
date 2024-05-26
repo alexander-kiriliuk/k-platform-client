@@ -16,23 +16,23 @@
 
 export class StoreMessageMd<T = unknown> {
 
-	private readonly id: string;
-	private readonly key: string;
-	private readonly data: T | unknown;
+  private readonly id: string;
+  private readonly key: string;
+  private readonly data: T | unknown;
 
-	constructor(key: string, data?: T) {
-		this.id = this.uuid();
-		this.key = key;
-		this.data = data;
-	}
+  constructor(key: string, data?: T) {
+    this.id = this.uuid();
+    this.key = key;
+    this.data = data;
+  }
 
-	private uuid(): string {
-		return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c: string) => {
-			const r = (Math.random() * 16) | 0;
-			const v = c === "x" ? r : (r & 0x3) | 0x8;
-			return v.toString(16);
-		});
-	}
+  private uuid(): string {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c: string) => {
+      const r = (Math.random() * 16) | 0;
+      const v = c === "x" ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
+  }
 
 }
 

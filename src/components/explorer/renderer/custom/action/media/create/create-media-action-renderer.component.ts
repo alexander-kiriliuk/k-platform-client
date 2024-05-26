@@ -20,7 +20,9 @@ import {ButtonModule} from "primeng/button";
 import {DialogService} from "primeng/dynamicdialog";
 import {TranslocoService} from "@ngneat/transloco";
 import {Router} from "@angular/router";
-import {AbstractExplorerActionRenderer} from "../../../../default/abstract-explorer-action-renderer";
+import {
+  AbstractExplorerActionRenderer
+} from "../../../../default/abstract-explorer-action-renderer";
 import {LocalizePipe} from "../../../../../../../modules/locale/localize.pipe";
 import {Media} from "../../../../../../../modules/media/media.types";
 

@@ -19,7 +19,7 @@ import {ExplorerColumn, ExplorerRenderer, TargetData} from "../../explorer.types
 import {PlainObject} from "../../../../global/types";
 
 export abstract class AbstractExplorerObjectRenderer<Data = unknown, Property = unknown, Params = unknown>
-  implements ExplorerRenderer<Data, Params> {
+implements ExplorerRenderer<Data, Params> {
   column: ExplorerColumn;
   params: Params;
   data: Data;

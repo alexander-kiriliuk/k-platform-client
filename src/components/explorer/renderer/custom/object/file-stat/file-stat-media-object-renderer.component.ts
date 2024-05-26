@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-import {ChangeDetectionStrategy, Component} from "@angular/core";
+import {ChangeDetectionStrategy, Component, inject} from "@angular/core";
 import {TranslocoPipe} from "@ngneat/transloco";
 import {LocalizePipe} from "../../../../../../modules/locale/localize.pipe";
 import {FileSizePipe} from "../../../../../../modules/file/file-size.pipe";
 import {AbstractExplorerObjectRenderer} from "../../../default/abstract-explorer-object-renderer";
-import {environment} from "../../../../../../global/env/env";
 import {File} from "../../../../../../modules/file/file.types";
+import {API_URL, FILE_URL} from "../../../../../../global/constants";
 
 @Component({
   selector: "file-stat-media-object-renderer",
@@ -36,11 +36,14 @@ import {File} from "../../../../../../modules/file/file.types";
 })
 export class FileStatMediaObjectRendererComponent extends AbstractExplorerObjectRenderer<File> {
 
+  private readonly apiUrl = inject(API_URL);
+  private readonly fileUrl = inject(FILE_URL);
+
   get url() {
     if (this.data.public) {
-      return `${environment.fileUrl}/${this.data.id}/${this.data.path}`;
+      return `${this.fileUrl}/${this.data.id}/${this.data.path}`;
     }
-    return `${environment.apiUrl}/file/private/${this.data.id}`;
+    return `${this.apiUrl}/file/private/${this.data.id}`;
   }
 
 }

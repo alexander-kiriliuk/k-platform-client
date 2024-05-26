@@ -19,7 +19,9 @@ import {RippleModule} from "primeng/ripple";
 import {ButtonModule} from "primeng/button";
 import {DialogService} from "primeng/dynamicdialog";
 import {TranslocoService} from "@ngneat/transloco";
-import {AbstractExplorerActionRenderer} from "../../../../default/abstract-explorer-action-renderer";
+import {
+  AbstractExplorerActionRenderer
+} from "../../../../default/abstract-explorer-action-renderer";
 import {LocalizePipe} from "../../../../../../../modules/locale/localize.pipe";
 import {Store} from "../../../../../../../modules/store/store";
 import {Media} from "../../../../../../../modules/media/media.types";

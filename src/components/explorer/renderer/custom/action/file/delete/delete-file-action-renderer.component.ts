@@ -25,7 +25,9 @@ import {TranslocoPipe} from "@ngneat/transloco";
 import {ConfirmationService} from "primeng/api";
 import {catchError} from "rxjs/operators";
 import {LocalizePipe} from "../../../../../../../modules/locale/localize.pipe";
-import {AbstractExplorerActionRenderer} from "../../../../default/abstract-explorer-action-renderer";
+import {
+  AbstractExplorerActionRenderer
+} from "../../../../default/abstract-explorer-action-renderer";
 import {Store} from "../../../../../../../modules/store/store";
 import {Explorer} from "../../../../../explorer.constants";
 import {PreloaderEvent} from "../../../../../../../modules/preloader/preloader.event";
@@ -68,8 +70,8 @@ export class DeleteFileActionRendererComponent extends AbstractExplorerActionRen
             this.store.emit<ToastData>(ToastEvent.Error, {message: res.error.message});
             return throwError(res);
           }),finalize(() => {
-          this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-        })).subscribe(() => {
+            this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
+          })).subscribe(() => {
           this.router.navigate(["/section/files"], {replaceUrl: true});
         });
       }

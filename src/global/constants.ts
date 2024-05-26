@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import {InjectionToken} from "@angular/core";
+
 export enum ToastKey {
   Global = "global"
 }
@@ -30,3 +32,9 @@ export class Roles {
   static readonly ADMIN = "admin";
   static readonly MANAGER = "manager";
 }
+
+export const API_URL = new InjectionToken<string>("Path to backend server");
+export const FRONT_END_URL = new InjectionToken<string>("Path to front end server");
+export const MEDIA_URL = new InjectionToken<string>("Path to medias storage");
+export const FILE_URL = new InjectionToken<string>("Path to files storage");
+export const TMP_URL = new InjectionToken<string>("Path to tmp-files storage");

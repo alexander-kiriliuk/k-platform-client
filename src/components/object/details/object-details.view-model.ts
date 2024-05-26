@@ -29,9 +29,16 @@ import {ExplorerService} from "../../explorer/explorer.service";
 import {LocalizePipe} from "../../../modules/locale/localize.pipe";
 import {Store} from "../../../modules/store/store";
 import {ColumnForm, TabForm} from "../object.types";
-import {onlyLatinLettersAndNumbersValidator} from "../../../global/validator/only-latin-letters-and-numbers.validator";
+import {
+  onlyLatinLettersAndNumbersValidator
+} from "../../../global/validator/only-latin-letters-and-numbers.validator";
 import {PreloaderEvent} from "../../../modules/preloader/preloader.event";
-import {ExplorerColumn, ExplorerTab, ExplorerTarget, SectionDialogConfig} from "../../explorer/explorer.types";
+import {
+  ExplorerColumn,
+  ExplorerTab,
+  ExplorerTarget,
+  SectionDialogConfig
+} from "../../explorer/explorer.types";
 import {ToastData} from "../../../global/types";
 import {ToastEvent} from "../../../global/events";
 

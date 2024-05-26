@@ -25,7 +25,9 @@ import {ConfirmationService} from "primeng/api";
 import {catchError} from "rxjs/operators";
 import {MediaService} from "../../../../../../../modules/media/media.service";
 import {LocalizePipe} from "../../../../../../../modules/locale/localize.pipe";
-import {AbstractExplorerActionRenderer} from "../../../../default/abstract-explorer-action-renderer";
+import {
+  AbstractExplorerActionRenderer
+} from "../../../../default/abstract-explorer-action-renderer";
 import {Store} from "../../../../../../../modules/store/store";
 import {Explorer} from "../../../../../explorer.constants";
 import {PreloaderEvent} from "../../../../../../../modules/preloader/preloader.event";

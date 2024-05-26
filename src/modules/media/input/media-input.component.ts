@@ -15,12 +15,12 @@
  */
 
 import {
-ChangeDetectionStrategy,
-ChangeDetectorRef,
-Component,
-inject,
-input,
-output
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  inject,
+  input,
+  output
 } from "@angular/core";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {FileUploadEvent, Media} from "../media.types";

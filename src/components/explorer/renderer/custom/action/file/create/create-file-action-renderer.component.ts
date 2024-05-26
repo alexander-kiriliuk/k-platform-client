@@ -21,7 +21,9 @@ import {DialogService} from "primeng/dynamicdialog";
 import {TranslocoService} from "@ngneat/transloco";
 import {Router} from "@angular/router";
 import {LocalizePipe} from "../../../../../../../modules/locale/localize.pipe";
-import {AbstractExplorerActionRenderer} from "../../../../default/abstract-explorer-action-renderer";
+import {
+  AbstractExplorerActionRenderer
+} from "../../../../default/abstract-explorer-action-renderer";
 import {File} from "../../../../../../../modules/file/file.types";
 
 @Component({

@@ -4,6 +4,10 @@ module.exports = {
     node: true,
     es2021: true,
   },
+  ignorePatterns: [
+    "node_modules/",
+    "dist/"
+  ],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -31,6 +35,7 @@ module.exports = {
       parser: "@angular-eslint/template-parser",
       plugins: ["@angular-eslint/template"],
       rules: {
+        "@angular-eslint/template/mouse-events-have-key-events": "off",
         "@angular-eslint/template/interactive-supports-focus": "off",
         "@angular-eslint/template/click-events-have-key-events": "off",
         "@angular-eslint/template/elements-content": "off",
@@ -89,6 +94,10 @@ module.exports = {
           "error",
           "only-multiline",
         ],
+        "indent": ["error", 2, {
+          "ImportDeclaration": 1,
+          "flatTernaryExpressions": false
+        }],
       },
     }
   ],
