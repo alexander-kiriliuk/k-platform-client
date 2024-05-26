@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "k-platform-client-core": {
+    "k-platform-client": {
       "projectType": "library",
       "schematics": {
         "@schematics/angular:component": {
