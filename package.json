@@ -7,7 +7,8 @@
     "ng": "ng",
     "build": "ng build k-platform-client --configuration production",
     "publish": "cd dist && npm publish --registry=https://npm.specs-tech.ru",
-    "start": "ng serve",
+    "start:example:admin": "ng serve k-platform-admin",
+    "build:example:admin": "ng build k-platform-admin",
     "lint": "eslint --fix --ext .js,.ts,.html .",
     "test": "ng test"
   },

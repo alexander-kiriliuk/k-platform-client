@@ -36,6 +36,112 @@
           "defaultConfiguration": "production"
         }
       }
+    },
+    "k-platform-admin": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "changeDetection": "OnPush"
+        }
+      },
+      "root": "",
+      "sourceRoot": "examples/admin/src",
+      "prefix": "",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/examples/admin",
+            "index": "examples/admin/src/index.html",
+            "main": "examples/admin/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "examples/admin/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "examples/admin/src/assets",
+              "examples/admin/src/manifest.webmanifest"
+            ],
+            "styles": [
+              "examples/admin/src/main.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "examples/admin/src/app/env/env.ts",
+                  "with": "examples/admin/src/app/env/env.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "k-platform-admin:build:production"
+            },
+            "development": {
+              "open": true,
+              "port": 3002,
+              "buildTarget": "k-platform-admin:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "k-platform-admin:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "examples/admin/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "examples/admin/src/assets",
+              "examples/admin/src/manifest.webmanifest"
+            ],
+            "styles": [
+              "examples/admin/src/main.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   }
 }
