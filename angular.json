@@ -12,14 +12,14 @@
         }
       },
       "root": "lib",
-      "sourceRoot": "lib",
+      "sourceRoot": "lib/src",
       "prefix": "",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "lib/tsconfig.lib.json",
-            "project": "ng-package.json"
+            "project": "lib/ng-package.json"
           },
           "configurations": {
             "production": {
@@ -45,7 +45,7 @@
           "changeDetection": "OnPush"
         }
       },
-      "root": "",
+      "root": "examples/admin",
       "sourceRoot": "examples/admin/src",
       "prefix": "",
       "architect": {
@@ -115,31 +115,6 @@
             }
           },
           "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "k-platform-admin:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "examples/admin/tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "examples/admin/src/assets",
-              "examples/admin/src/manifest.webmanifest"
-            ],
-            "styles": [
-              "examples/admin/src/main.scss"
-            ],
-            "scripts": []
-          }
         }
       }
     }

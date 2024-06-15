@@ -1,0 +1,24 @@
+{
+  "name": "@k-platform/client",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/animations": "17.*",
+    "@angular/common": "17.*",
+    "@angular/compiler": "17.*",
+    "@angular/core": "17.*",
+    "@angular/forms": "17.*",
+    "@angular/platform-browser": "17.*",
+    "@angular/platform-browser-dynamic": "17.*",
+    "@angular/router": "17.*",
+    "@ngneat/transloco": "6.*",
+    "ng-recaptcha": "13.*",
+    "ngx-device-detector": "7.*",
+    "primeicons": "7.*",
+    "primeng": "17.*",
+    "rxjs": "7.*",
+    "zone.js": "0.14.*"
+  },
+  "dependencies": {
+    "tslib": "2.6.2"
+  }
+}

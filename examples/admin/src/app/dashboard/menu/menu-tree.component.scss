@@ -1,0 +1,53 @@
+:host {
+  & > ul {
+    @apply h-auto opacity-100 #{!important};
+    & > li {
+      @apply my-0.5;
+    }
+  }
+}
+
+ul {
+
+  li {
+    &.active {
+      background: var(--neutral-b);
+
+      & > a {
+        & > span {
+          & + i {
+            @apply transform rotate-180;
+          }
+        }
+      }
+    }
+
+    a {
+      @apply cursor-pointer flex items-center justify-between px-6 py-2;
+      span {
+        @apply gap-x-2 flex items-center;
+      }
+    }
+  }
+
+  ul {
+    @apply pl-2;
+
+    a {
+      @apply text-sm;
+    }
+
+    i {
+      @apply text-xs;
+    }
+
+    .ctrl {
+      @apply p-1.5;
+    }
+  }
+
+}
+
+.ctrl {
+  @apply p-1;
+}

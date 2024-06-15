@@ -1,0 +1,6 @@
+@if (vm.ready) {
+  <router-outlet/>
+} @else {
+  <p-progressSpinner/>
+}
+<p-toast [key]="toastKey"></p-toast>

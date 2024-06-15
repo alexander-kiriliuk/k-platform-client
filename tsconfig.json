@@ -28,7 +28,7 @@
     ],
     "paths": {
       "@k-platform/client": [
-        "lib"
+        "lib/src"
       ]
     }
   },
@@ -36,7 +36,6 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true,
-    "compilationMode": "partial"
+    "strictTemplates": true
   }
 }

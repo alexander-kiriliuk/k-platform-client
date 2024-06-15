@@ -2,13 +2,17 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "declaration": true,
     "outDir": "../dist/core",
     "types": []
   },
+  "angularCompilerOptions": {
+    "compilationMode": "partial"
+  },
   "files": [
-    "./index.ts"
+    "./src/index.ts"
   ],
   "include": [
-    "./**/*.d.ts"
+    "./**/*.ts"
   ]
 }

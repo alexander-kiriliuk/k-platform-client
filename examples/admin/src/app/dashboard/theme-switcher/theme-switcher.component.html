@@ -1,0 +1,4 @@
+<a (click)="toggleTheme()">
+  {{("dashboard.theme." + currentTheme) | transloco}}
+  <i class="pi" [ngClass]="themeBtnClass"></i>
+</a>

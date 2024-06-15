@@ -1,0 +1,7 @@
+:host {
+  ::ng-deep {
+    .p-inputtext {
+      @apply px-2 py-1;
+    }
+  }
+}

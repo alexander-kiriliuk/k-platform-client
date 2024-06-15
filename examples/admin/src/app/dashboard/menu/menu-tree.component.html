@@ -1,0 +1,27 @@
+<ng-template #list let-data="data" let-parent="parent" let-depth="depth">
+  <ul
+    [ngStyle]="{visibility: depth === 0 || vm.openedNodes[parent?.id] ? 'visible' : 'hidden'}"
+    [@toggleNode]="vm.openedNodes[parent?.id] ? 'expanded' : 'collapsed'"
+  >
+    @for (item of data; track item) {
+      <li [ngClass]="{ active: vm.openedNodes[item.id] !== undefined }">
+        <a (click)="vm.openBranch(item)">
+        <span>
+          @if (item.params) {
+            <i [ngClass]="item.params.iconClass"></i>
+          }
+          {{ item.name | localize }}
+        </span>
+          @if (item.children?.length) {
+            <i stop-propagation class="ctrl pi pi-angle-down" (click)="vm.closeBranch(item)"></i>
+          }
+        </a>
+        @if (item.children?.length) {
+          <ng-container [ngTemplateOutlet]="list"
+                        [ngTemplateOutletContext]="{ data: item.children, parent: item, depth: depth + 1 }"/>
+        }
+      </li>
+    }
+  </ul>
+</ng-template>
+<ng-container [ngTemplateOutlet]="list" [ngTemplateOutletContext]="{ data: vm.data, depth: 0 }"/>

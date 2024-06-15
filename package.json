@@ -5,7 +5,7 @@
   "author": "Alexander Kiriliuk",
   "scripts": {
     "ng": "ng",
-    "build": "ng build k-platform-client --configuration production",
+    "build:lib": "ng build k-platform-client --configuration production",
     "publish": "cd dist && npm publish --registry=https://npm.specs-tech.ru",
     "start:example:admin": "ng serve k-platform-admin",
     "build:example:admin": "ng build k-platform-admin",

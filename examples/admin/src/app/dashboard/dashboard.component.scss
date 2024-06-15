@@ -1,0 +1,130 @@
+:host {
+  @apply flex flex-col w-full h-full;
+}
+
+.content-wrapper {
+  @apply flex;
+}
+
+.content-area {
+  width: calc(100vw - var(--side-menu-w));
+  @apply overflow-hidden;
+  @screen max-lg {
+    @apply w-full;
+  }
+}
+
+.content-block {
+  max-height: calc(100vh - var(--header-bar-h));
+  @apply px-6 overflow-auto h-full;
+  @screen max-lg {
+    @apply px-0;
+  }
+}
+
+.sidebar {
+  min-width: 280px;
+  width: var(--side-menu-w);
+  max-height: 100vh;
+  height: 100vh;
+  box-shadow: var(--shadow-a);
+  @apply rounded-r-2xl overflow-hidden;
+
+  ::ng-deep {
+    .p-scrollpanel-bar-x {
+      @apply hidden;
+    }
+  }
+
+  @screen max-lg {
+    left: -500px;
+    animation: sidebarAnimation 300ms ease-in-out;
+    animation-fill-mode: forwards;
+    @apply hidden;
+
+    .close {
+      @apply block;
+    }
+
+    &.over {
+      @apply block fixed z-50;
+    }
+  }
+
+  &-overlay {
+    background: var(--surface-d);
+    @apply fixed left-0 top-0 bottom-0 right-0 z-0 hidden;
+    @screen max-lg {
+      @apply block;
+    }
+  }
+
+  &-content {
+    @apply h-full relative;
+    background: var(--surface-a);
+  }
+
+  &-data {
+    height: calc(100vh - var(--logo-bar-h));
+  }
+
+}
+
+.welcome {
+  @apply flex justify-center items-center h-full text-2xl pb-40;
+}
+
+.logo-bar {
+  height: var(--logo-bar-h);
+  @apply relative cursor-pointer;
+  &:after {
+    content: "";
+    background: no-repeat var(--logo-s-url) center left;
+    @apply absolute left-4 right-4 top-4 bottom-4 bg-contain;
+  }
+}
+
+.head-bar {
+  @apply px-6 flex items-center justify-between;
+  height: var(--header-bar-h);
+
+  @screen max-lg {
+    @apply px-4;
+    background: var(--surface-a);
+  }
+  & > div {
+    @apply flex gap-x-4 items-center;
+    a {
+      @apply inline-flex gap-x-2 items-center cursor-pointer;
+    }
+  }
+}
+
+.menu-ctrl {
+  @apply hidden cursor-pointer;
+  @screen max-lg {
+    @apply inline;
+  }
+}
+
+.user-login {
+  @screen max-lg {
+    @apply hidden;
+  }
+}
+
+p-avatar {
+  @apply flex items-center;
+}
+
+
+@keyframes sidebarAnimation {
+  from {
+    opacity: 0;
+    left: -500px;
+  }
+  to {
+    opacity: 1;
+    left: 0;
+  }
+}

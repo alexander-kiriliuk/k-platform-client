@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "primeng/resources/primeng.min.css";
+@import "primeicons/primeicons.css";
+
+:root {
+  --header-bar-h: 7vh;
+  --logo-bar-h: 9vh;
+  --side-menu-w: 15vw;
+}
+
+body {
+  background: var(--neutral-a);
+  font-family: var(--font-family);
+
+  &.pending {
+    @apply flex flex-col items-center;
+    &:after {
+      @apply absolute top-40 animate-ping animate-once animate-duration-[2000ms] animate-delay-0 animate-ease-in-out animate-reverse animate-fill-both;
+      content: var(--logo-url);
+      width: max-content;
+      height: max-content;
+    }
+  }
+
+}
+
+p-avatar > div {
+  @apply relative;
+}
+
+input.p-inputtext-xs, span.p-inputtext-xs input {
+  @apply text-xs px-2 py-3;
+}
+
+table.p-datepicker-calendar {
+  thead th {
+    @apply text-center;
+  }
+}
+
+.heading-xl {
+  @apply text-xl font-medium;
+  @screen max-xl {
+    @apply text-lg;
+  }
+  @screen max-lg {
+    @apply text-base;
+  }
+}
+
+.heading-2xl {
+  @apply text-2xl font-medium;
+  @screen max-xl {
+    @apply text-xl;
+  }
+  @screen max-lg {
+    @apply text-lg;
+  }
+}
+
+p-paginator {
+  @screen max-lg {
+    .p-paginator.p-component {
+      border-radius: 0 !important;
+
+      button {
+        --pe-w: 2.0rem;
+        width: var(--pe-w) !important;
+        height: var(--pe-w) !important;
+        min-width: var(--pe-w) !important;
+        min-height: var(--pe-w) !important;
+      }
+
+      .p-dropdown {
+        height: 2.3rem !important;
+
+        .p-element.p-dropdown-label.p-inputtext {
+          padding-top: 0.35rem !important;;
+        }
+      }
+    }
+  }
+}
+
+.dialog-mode {
+  .p-dialog-content {
+    @apply p-0 #{!important};
+  }
+}
+
+.c-primary {
+  color: var(--primary-color)
+}
+
+.c-accent {
+  color: var(--accent-color)
+}
+
+.c-warn {
+  color: var(--warn-color)
+}
+
+.c-success {
+  color: var(--success-color)
+}

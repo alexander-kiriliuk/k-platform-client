@@ -1,0 +1,393 @@
+{
+  "msg": {
+    "on": "On",
+    "off": "Off",
+    "error": "Error",
+    "warn": "Warning",
+    "cancel": "Cancel",
+    "accept": "Accept",
+    "status": "Status",
+    "enabled": "Enabled",
+    "empty": "Empty",
+    "disabled": "Disabled"
+  },
+  "config": {
+    "key": "Key",
+    "value": "Value",
+    "title": "Configuration",
+    "header": "Property Editor",
+    "delete": "Delete",
+    "save": "Save",
+    "property": {
+      "saved": "Configuration saved",
+      "deleted": "Configuration deleted"
+    }
+  },
+  "xdb": {
+    "title": "Data Import",
+    "import": "Import",
+    "upload": "Download import file",
+    "success": {
+      "import": "Successful import",
+      "upload": "Successful file upload"
+    },
+    "export": {
+      "btn": "Export",
+      "form.use.files": "Export files",
+      "properties.label": "Exclude fields to export",
+      "filter.hint": "Search",
+      "depth": "Depth",
+      "success": "Export completed"
+    }
+  },
+  "media": {
+    "dialog": {
+      "title": "Create media-object",
+      "choose.file": "Image file",
+      "choose.type": "Media Type",
+      "update": "Update media-file"
+    },
+    "recreate.title": "Recreate thumbnails?",
+    "delete.title": "Delete media?",
+    "cancel": "Cancel",
+    "accept": "Confirm",
+    "input": {
+      "choose": "Choose",
+      "upload": "Upload",
+      "cancel": "Cancel",
+      "label": {
+        "files": {
+          "success": "Files uploaded successfully"
+        }
+      },
+      "section.open": "From gallery"
+    }
+  },
+  "metadata": {
+    "common": {
+      "header": "Properties",
+      "hash": "Hash",
+      "mime": "MIME",
+      "ext": "Extension"
+    },
+    "gps": {
+      "header": "Geo-data",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "altitude": "Altitude"
+    },
+    "image": {
+      "header": "Image",
+      "date": "Creation date",
+      "bps": "Bits per sample",
+      "height": "Height",
+      "width": "Width",
+      "color.components": "Color channels",
+      "subsampling": "Subsampling",
+      "bit.depth": "Bit depth",
+      "color.type": "Color type",
+      "compression": "Compression level",
+      "filter": "Filter",
+      "interlace": "Alternation"
+    },
+    "icc": {
+      "header": "ICC profile",
+      "profile.version": "Profile version",
+      "profile.class ": "Profile class",
+      "connection.space": "Connection space",
+      "signature": "Signature",
+      "primary.platform": "Primary platform",
+      "device.manufacturer": "Device manufacturer",
+      "device.model.number": "Device model",
+      "rendering.intent": "Rendering intent",
+      "profile.creator": "Profile creator",
+      "description": "Profile description",
+      "copyright": "Copyright"
+    },
+    "exif": {
+      "header": "EXIF",
+      "make": "Camera manufacturer",
+      "model": "Camera model",
+      "orientation": "Orientation",
+      "resolution.x": "X-resolution",
+      "resolution.y": "Y-resolution",
+      "resolution.unit": "Resolution unit",
+      "software": "Software",
+      "ycb.cr.positioning": "Positioning of color components",
+      "ifd.pointer": "IFD Pointer",
+      "gps.info.ifd.pointer": "GPS IFD Pointer",
+      "exposure.time": "Shutter speed",
+      "f.number": "Aperture",
+      "exposure.program": "Exposure measurement mode",
+      "iso.speed.ratings": "ISO",
+      "version": "EXIF version",
+      "offset.time": "Time zone offset",
+      "shutter.speed.value": "Shutter Speed Aperture Value (AV)",
+      "aperture": "Aperture Value (AV)",
+      "brightness": "Brightness of the scene",
+      "exposure.bias": "Exposure bias",
+      "max.aperture": "Maximum lens aperture",
+      "subject.distance": "Distance to the object in the image",
+      "metering.mode": "Exposure detection measurement mode",
+      "flash": "Flash",
+      "focal.length": "Focal length",
+      "flashpix.version": "Flashpix version",
+      "color.space": "Color space",
+      "pixel.x.dimension": "Width",
+      "pixel.y.dimension": "Height",
+      "interoperability.ifd.pointer": "Location of the compatibility data block",
+      "sensing.method": "Sensor type",
+      "scene.type": "Scene type",
+      "custom.rendered": "Custom image processing",
+      "exposure.mode": "Exposure mode",
+      "white.balance": "White balance",
+      "digital.zoom.ratio": "Digital zoom",
+      "scene.capture.type": "Shooting mode",
+      "contrast": "Contrast",
+      "saturation": "Saturation",
+      "sharpness": "Clarity",
+      "subject.distance.range": "Distance to the object in the frame",
+      "lens.make": "Lens manufacturer",
+      "lens.model": "Lens model",
+      "composite.image": "Composite image",
+      "interoperability.index": "Compatibility rule identifier",
+      "interoperability.version": "Version of the compatibility rule"
+    },
+    "audio": {
+      "header": "Audio",
+      "codec": "Codec",
+      "container": "Format",
+      "sample.rate": "Sampling rate",
+      "number.of.channels": "Number of channels",
+      "bitrate": "Bitrate",
+      "codec.profile": "Codec profile",
+      "tool": "Coding tool",
+      "duration": "Duration",
+      "title": "Title",
+      "album": "Album",
+      "artist": "Artists",
+      "year": "Year",
+      "genre": "Genres",
+      "label": "Labels"
+    },
+    "video": {
+      "header": "Video",
+      "codec": "Codec",
+      "container": "Format",
+      "width": "Width",
+      "height": "Height",
+      "bitrate": "Bitrate",
+      "duration": "Duration",
+      "sample.aspect.ratio": "Pixel aspect ratio",
+      "display.aspect.ratio": "Display aspect ratio",
+      "color.range": "Color range",
+      "color.space": "Color space",
+      "frame.rate": "Frame rate",
+      "rotate": "Rotation angle"
+    }
+  },
+  "file": {
+    "delete.title": "Delete file?",
+    "cancel": "Cancel",
+    "size": "Size",
+    "url": "URL",
+    "accept": "Confirm",
+    "public": "Public",
+    "private": "Private",
+    "input": {
+      "choose": "Choose",
+      "upload": "Upload",
+      "cancel": "Cancel",
+      "label": {
+        "files": {
+          "success": "Files uploaded successfully"
+        }
+      },
+      "section.open": "From storage"
+    },
+    "label": {
+      "files": {
+        "success": "Files uploaded successfully"
+      }
+    },
+    "dialogue": {
+      "title": "Create file",
+      "choose.file": "File",
+      "public": "Public"
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "password": "Password",
+    "sign": {
+      "in": "Sign in"
+    },
+    "captcha": {
+      "value": "Code from image"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "lang": "System language",
+    "theme": {
+      "light": "Light theme",
+      "dark": "Dark theme"
+    },
+    "menu": {
+      "profile": "Profile",
+      "settings": "Settings",
+      "exit": "Exit"
+    },
+    "loading": {
+      "profile": "Loading profile..."
+    }
+  },
+  "explorer": {
+    "actions": "Actions",
+    "create": "Create",
+    "save": "Save",
+    "delete": "Delete",
+    "duplicate": "Duplicate",
+    "select": "Set {{v}}",
+    "sort": "Sorting",
+    "asc": "Ascending order",
+    "desc": "Descending order",
+    "apply": "Apply",
+    "exact": "Exact match",
+    "sate": "State",
+    "title": "{{name}} <sup class=\"c-primary\">{{count}}</sup>",
+    "export": {
+      "btn": "Export",
+      "label": "Export object"
+    },
+    "filter": {
+      "label": "Search and filtering",
+      "head": "Field {{v}}",
+      "select": "Select target field",
+      "value": "Enter value",
+      "date": "Select date range"
+    },
+    "tab": {
+      "rest": "Administration"
+    },
+    "msg": {
+      "delete": "Remove object?",
+      "object": {
+        "save": {
+          "success": "Object saved successfully"
+        },
+        "delete": {
+          "success": "Object deleted successfully"
+        }
+      }
+    }
+  },
+  "object": {
+    "title": "Объекты",
+    "search": "Search",
+    "details": {
+      "target": {
+        "name": "Object name",
+        "table": "Table name",
+        "pk": "Primary key (name)"
+      },
+      "object": {
+        "name": "Name",
+        "description": "Description",
+        "icon": "Icon"
+      },
+      "action": {
+        "create": "Create (default action)",
+        "delete": "Delete (default action)",
+        "save": "Save (default action)",
+        "duplicate": "Duplicate (default action)"
+      },
+      "error": "Error saving object",
+      "success": "Object saved successfully",
+      "cols": "Columns (fields)",
+      "save": "Save",
+      "tabs": "Tabs",
+      "tab": {
+        "label": "Object tab",
+        "id": "ID",
+        "name": "Name",
+        "priority": "Priority",
+        "params": "Params",
+        "cancel": "Cancel",
+        "ok": "Save",
+        "error": "Error saving tab",
+        "success": "Tab saved"
+      },
+      "col": {
+        "new": {
+          "label": "Adding a new virtual column",
+          "name": "Column name",
+          "cancel": "Cancel",
+          "ok": "Add",
+          "warn": "A column with the same name already exists",
+          "success": "New column added successfully"
+        },
+        "id": "ID",
+        "property": "Object property",
+        "name": "Name",
+        "description": "Description",
+        "type": "Data type",
+        "virtual": "Virtual",
+        "primary": "Primary",
+        "unique": "Unique",
+        "alias": "Alias",
+        "multiple": "Array of values",
+        "actions": "Actions",
+        "sec.rd.params": "Section renderer params",
+        "obj.rd.params": "Object renderer params",
+        "ref.tbl.name": "Name of the related table",
+        "ref.ent.name": "Name of the associated entity",
+        "sec.priority": "Section priority",
+        "obj.priority": "Priority in object",
+        "sec.enabled": "Available in section",
+        "obj.enabled": "Available in object",
+        "sec.visibility": "Visible in section",
+        "obj.visibility": "Visible in object",
+        "renderer": {
+          "section": "Section renderer",
+          "object": "Object renderer"
+        },
+        "can": {
+          "read": "Readable for",
+          "write": "Writable for"
+        }
+      }
+    }
+  },
+  "profile": {
+    "save": "Apply",
+    "id": "ID",
+    "login": "Login",
+    "email": "Email",
+    "phone": "Phone",
+    "password": "Password",
+    "avatar": "Avatar",
+    "active": "Active",
+    "name": {
+      "first": "First name",
+      "last": "Last name"
+    },
+    "roles": "Roles"
+  },
+  "password": {
+    "prompt": "Enter password",
+    "repeat": "Repeat password",
+    "label": {
+      "weak": "Insecure password",
+      "medium": "Simple password",
+      "strong": "Strong password"
+    }
+  },
+  "primeng": {
+    "format": {
+      "date": {
+        "full": "dd/MM/yyyy hh:mm:ss a"
+      }
+    }
+  }
+}
