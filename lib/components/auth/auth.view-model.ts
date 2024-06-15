@@ -18,16 +18,16 @@ import {inject, Injectable, signal} from "@angular/core";
 import {finalize, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
 import getCurrentTheme = ThemeUtils.getCurrentTheme;
-import {ThemeUtils} from "@k-platform/client";
+import {ThemeUtils} from "../../global/util/theme.utils";
 import {CaptchaResponse, ToastData} from "../../global/types";
 import {Auth} from "./auth.constants";
-import {Store} from "@k-platform/client";
+import {Store} from "../../modules/store/store";
 import {AuthService} from "./auth.service";
-import {PreloaderEvent} from "@k-platform/client";
+import {PreloaderEvent} from "../../modules/preloader/preloader.event";
 import {LoginPayload} from "./auth.types";
-import {ToastEvent} from "@k-platform/client";
+import {ToastEvent} from "../../global/events";
 import {AuthEvent} from "./auth.event";
-import {CaptchaService} from "@k-platform/client";
+import {CaptchaService} from "../../global/service/captcha/captcha.service";
 
 @Injectable()
 export class AuthViewModel {
