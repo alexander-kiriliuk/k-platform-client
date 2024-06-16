@@ -3,7 +3,7 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "declaration": true,
-    "outDir": "../dist/core",
+    "outDir": "../dist/lib",
     "types": []
   },
   "angularCompilerOptions": {
