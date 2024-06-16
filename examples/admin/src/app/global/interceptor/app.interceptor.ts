@@ -26,7 +26,7 @@ import {
 import {Observable, switchMap, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
 import {Router} from "@angular/router";
-import {API_URL} from "../../../../../../lib/src";
+import {API_URL} from "@k-platform/client";
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {

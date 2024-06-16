@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 import {Env} from "@k-platform/client";
 
 export const environment: Env = {

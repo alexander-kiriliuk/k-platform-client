@@ -24,6 +24,12 @@ import {MessageService, PrimeNGConfig} from "primeng/api";
 import {DeviceDetectorService} from "ngx-device-detector";
 import {DialogService} from "primeng/dynamicdialog";
 import {APP_ROUTES} from "./app/app.routing";
+import {environment} from "./app/env/env";
+import {TranslocoHttpLoader} from "./app/global/internationalization/transloco-http-loader";
+import {AppInitializer} from "./app/global/service/app-initializer";
+import {AppInterceptor} from "./app/global/interceptor/app.interceptor";
+import {LangUtils} from "./app/global/utils/lang.utils";
+import {provideAnimationsAsync} from "@angular/platform-browser/animations/async";
 import {
   API_URL,
   AVAIL_LANGS,
@@ -43,14 +49,8 @@ import {
   TMP_URL,
   WEBP_SUPPORT
 } from "@k-platform/client";
-import detectWebpSupportFactory = MediaUtils.detectWebpSupportFactory;
-import {environment} from "./app/env/env";
-import {TranslocoHttpLoader} from "./app/global/internationalization/transloco-http-loader";
-import {AppInitializer} from "./app/global/service/app-initializer";
-import {AppInterceptor} from "./app/global/interceptor/app.interceptor";
-import {LangUtils} from "./app/global/utils/lang.utils";
 import setNgTranslation = LangUtils.setNgTranslation;
-import {provideAnimationsAsync} from "@angular/platform-browser/animations/async";
+import detectWebpSupportFactory = MediaUtils.detectWebpSupportFactory;
 
 
 ThemeUtils.setDefaultTheme();

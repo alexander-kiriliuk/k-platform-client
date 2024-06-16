@@ -1,6 +1,6 @@
 {
   "name": "@k-platform/client",
-  "version": "0.0.7",
+  "version": "0.0.1",
   "peerDependencies": {
     "@angular/animations": "17.*",
     "@angular/common": "17.*",

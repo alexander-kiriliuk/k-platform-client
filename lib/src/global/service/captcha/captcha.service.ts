@@ -16,7 +16,7 @@
 
 import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../types";
+import {CaptchaResponse} from "../../vars";
 
 @Injectable()
 export class CaptchaService {

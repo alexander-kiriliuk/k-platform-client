@@ -1,44 +1,40 @@
 {
-  "name": "@k-platform/client",
-  "version": "0.0.7",
   "description": "todo description",
   "author": "Alexander Kiriliuk",
   "scripts": {
     "ng": "ng",
     "build:lib": "ng build k-platform-client --configuration production",
-    "publish": "cd dist/core && npm publish --registry=https://npm.specs-tech.ru",
+    "publish": "cd dist/lib && npm publish --registry=https://npm.specs-tech.ru",
     "start:example:admin": "ng serve k-platform-admin",
     "build:example:admin": "ng build k-platform-admin",
     "lint": "eslint --fix --ext .js,.ts,.html .",
-    "test": "ng test"
-  },
-  "peerDependencies": {
-    "@angular/animations": "17.*",
-    "@angular/common": "17.*",
-    "@angular/compiler": "17.*",
-    "@angular/core": "17.*",
-    "@angular/forms": "17.*",
-    "@angular/platform-browser": "17.*",
-    "@angular/platform-browser-dynamic": "17.*",
-    "@angular/router": "17.*",
-    "@ngneat/transloco": "6.*",
-    "ng-recaptcha": "13.*",
-    "ngx-device-detector": "7.*",
-    "primeicons": "7.*",
-    "primeng": "17.*",
-    "rxjs": "7.*",
-    "zone.js": "0.14.*"
+    "analyze:example:admin": "ng build k-platform-admin --configuration development --stats-json && webpack-bundle-analyzer dist/examples/admin/stats.json"
   },
   "dependencies": {
+    "@angular/animations": "17.3.8",
+    "@angular/common": "17.3.8",
+    "@angular/compiler": "17.3.8",
+    "@angular/core": "17.3.8",
+    "@angular/forms": "17.3.8",
+    "@angular/platform-browser": "17.3.8",
+    "@angular/platform-browser-dynamic": "17.3.8",
+    "@angular/router": "17.3.8",
+    "@ngneat/transloco": "6.0.4",
+    "ng-recaptcha": "13.2.1",
+    "ngx-device-detector": "7.0.0",
+    "primeicons": "7.0.0",
+    "primeng": "17.18.1",
+    "rxjs": "7.8.1",
+    "zone.js": "0.14.7",
     "tslib": "2.6.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "17.3.2",
+    "@angular/cli": "17.3.8",
+    "@angular/compiler-cli": "17.3.8",
+    "@angular-devkit/build-angular": "17.3.8",
     "@angular-eslint/eslint-plugin": "17.3.0",
     "@angular-eslint/eslint-plugin-template": "17.3.0",
     "@angular-eslint/template-parser": "17.3.0",
-    "@angular/cli": "17.3.2",
-    "@angular/compiler-cli": "17.3.2",
     "@types/jasmine": "5.1.4",
     "@typescript-eslint/eslint-plugin": "7.4.0",
     "@typescript-eslint/parser": "7.4.0",
@@ -53,6 +49,7 @@
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
     "ng-packagr": "17.3.0",
-    "typescript": "5.4.3"
+    "typescript": "5.4.3",
+    "webpack-bundle-analyzer": "4.10.2"
   }
 }

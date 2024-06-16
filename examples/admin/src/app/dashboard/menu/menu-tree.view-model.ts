@@ -15,12 +15,12 @@
  */
 
 import {inject, Injectable, signal} from "@angular/core";
-import {DashboardEvent, Category, Store, PreloaderEvent} from "@k-platform/client";
 import {MENU_STORE_KEY} from "./menu-tree.constants";
 import {Router} from "@angular/router";
 import {finalize} from "rxjs";
 import {Dashboard} from "../dashboard.constants";
 import {AppService} from "../../global/service/app.service";
+import {PreloaderEvent,Store,Category, DashboardEvent} from "@k-platform/client";
 
 
 @Injectable()

@@ -82,36 +82,36 @@ export class DashboardViewModel implements MenuCommandHandler {
 
   onMenuCommand(event: MenuItemCommandEvent, id: string): void {
     switch (id) {
-    case "profile":
-      import("../../../../../lib/src").then(c => {
-        this.dialogService.open(c.ProfileComponent, {
-          header: this.currentUser.fullName,
-          resizable: true,
-          draggable: true,
-          modal: false,
-          position: "topright"
-        }).onClose.subscribe(data => {
-          if (!data) {
-            return;
-          }
-          this.store.emit<User>(CurrentUserEvent.Set, data);
+      case "profile":
+        import("@k-platform/client").then(c => {
+          this.dialogService.open(c.ProfileComponent, {
+            header: this.currentUser.fullName,
+            resizable: true,
+            draggable: true,
+            modal: false,
+            position: "topright"
+          }).onClose.subscribe(data => {
+            if (!data) {
+              return;
+            }
+            this.store.emit<User>(CurrentUserEvent.Set, data);
+          });
         });
-      });
-      break;
-    case "settings":
-      import("./app-settings/app-settings.component").then(c => {
-        this.dialogService.open(c.AppSettingsComponent, {
-          header: this.ts.translate("dashboard.menu.settings"),
-          resizable: true,
-          draggable: true,
-          modal: false,
-          position: "topright"
+        break;
+      case "settings":
+        import("./app-settings/app-settings.component").then(c => {
+          this.dialogService.open(c.AppSettingsComponent, {
+            header: this.ts.translate("dashboard.menu.settings"),
+            resizable: true,
+            draggable: true,
+            modal: false,
+            position: "topright"
+          });
         });
-      });
-      break;
-    case "exit":
-      this.store.emit(AuthEvent.Logout);
-      break;
+        break;
+      case "exit":
+        this.store.emit(AuthEvent.Logout);
+        break;
     }
   }
 

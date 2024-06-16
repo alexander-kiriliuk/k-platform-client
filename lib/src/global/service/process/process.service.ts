@@ -16,9 +16,9 @@
 
 import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {StringUtils} from "../../util/string.utils";
+import {StringUtils} from "../../util";
 import {delay, EMPTY, expand, switchMap, timer} from "rxjs";
-import {ProcessLog, ProcessUnit} from "../../types";
+import {ProcessLog, ProcessUnit} from "../../vars";
 import {catchError} from "rxjs/operators";
 import fillParams = StringUtils.fillParams;
 

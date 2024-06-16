@@ -22,9 +22,8 @@ import {MenuTreeComponent} from "./menu/menu-tree.component";
 import {MenuModule} from "primeng/menu";
 import {AvatarModule} from "primeng/avatar";
 import {TranslocoPipe} from "@ngneat/transloco";
-import {PreloaderDirective, MediaComponent, PreloaderComponent, CurrentUser} from "@k-platform/client";
 import {DashboardViewModel} from "./dashboard.view-model";
-
+import {MediaComponent, CurrentUser, PreloaderComponent, PreloaderDirective} from "@k-platform/client";
 
 @Component({
   selector: "dashboard",
