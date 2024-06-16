@@ -1,19 +1,30 @@
 :host {
-  @apply block relative p-4;
+  position: relative;
+  display: block;
+  padding: 1rem;
+
   ::ng-deep {
     .p-fileupload-choose {
-      @apply w-full;
+      width: 100%;
     }
   }
 }
 
 .actions {
-  @apply sticky top-0 pb-4 flex gap-6 flex-col;
-  @apply sm:flex-row;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
   background: var(--neutral-a);
+  @media (min-width: 640px) {
+    flex-direction: row;
+  }
 }
 
 textarea {
   min-height: 500px;
-  @apply w-full mb-4;
+  margin-bottom: 1rem;
+  width: 100%;
 }

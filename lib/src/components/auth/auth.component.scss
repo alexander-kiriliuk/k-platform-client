@@ -1,21 +1,35 @@
 :host {
-  @apply flex justify-between w-full h-full;
-  & > div {
-    @apply flex items-center justify-center w-full;
-  }
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
 
-  ::ng-deep{
-    input, .p-input-icon-right {
-      @apply w-full;
+  & > div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    &.promo {
+      @media (max-width: 1025px) {
+        display: none;
+      }
     }
   }
 
-  @screen max-lg {
+  ::ng-deep {
+    input, .p-input-icon-right {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 1025px) {
     ::ng-deep {
       .p-card {
-        @apply shadow-none;
+        box-shadow: none;
+
         &-body {
-          @apply p-0;
+          padding: 0;
         }
       }
     }
@@ -23,58 +37,78 @@
 }
 
 form {
-  @apply relative px-6 py-2 flex flex-col gap-6 items-center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.5rem 1.5rem;
 }
 
 img {
   max-width: 240px;
-  @apply w-full;
+  width: 100%;
 }
 
 button {
-  @apply mt-4;
+  margin-top: 1rem;
 }
 
 .captcha {
-  @apply mt-2 flex flex-col gap-y-2;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+
   & > div {
-    @apply flex gap-x-4;
+    display: flex;
+    column-gap: 1rem;
   }
 }
 
 .logo {
-  @apply relative w-full;
+  position: relative;
+  width: 100%;
   height: 100px;
 
   &:after {
     content: "";
     background: no-repeat var(--logo-url) center left;
-    @apply absolute left-3 right-3 top-3 bottom-3 bg-contain;
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    top: 0.75rem;
+    background-size: contain;
   }
 }
 
 .promo {
-  @apply relative;
-  @screen max-lg {
-    @apply hidden #{!important};
-  }
+  position: relative;
   background: var(--gradient-a);
 
   &:after {
     content: "";
     background-image: url("/assets/icons/promo.png");
-    @apply absolute left-0 right-0 top-0 bottom-0 opacity-40 bg-no-repeat bg-center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.4;
   }
 }
 
 re-captcha {
-  @apply overflow-hidden;
+  overflow: hidden;
   width: 298px;
   height: 74px;
 
   ::ng-deep {
     & > div {
-      @apply relative;
+      position: relative;
       top: -1px;
       left: -2px;
     }

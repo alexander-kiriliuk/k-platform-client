@@ -1,63 +1,84 @@
 :host {
   --actions-h: 70px;
-  @apply relative block h-full;
+  position: relative;
+  display: block;
+  height: 100%;
 
   ::ng-deep {
     & > p-tabview {
-      @apply block;
+      display: block;
       min-height: calc(100vh - var(--header-bar-h) - var(--actions-h));
 
       & > div > .p-tabview-panels {
-        @apply p-0 #{!important};
+        padding: 0 !important;
       }
     }
 
     & > p-tabview.single {
       & > div > .p-tabview-nav-container {
-        @apply hidden;
+        display: none;
       }
     }
   }
 }
 
 .actions {
-  @screen md {
+  @media (min-width: 768px) {
     --actions-h: auto;
-    @apply rounded-t;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
   }
-  @apply p-4 z-50 sticky bottom-0 flex justify-between;
+  position: sticky;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
   background: var(--neutral-b);
   height: var(--actions-h);
 
   &.dialog-mode {
-    @apply mx-0;
-    @apply md:mx-4;
+    margin-left: 0;
+    margin-right: 0;
     background: var(--surface-a);
+    @media (min-width: 768px) {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
   }
 
   &-btn {
-    @screen lg {
-      @apply hidden;
+    @media (min-width: 1025px) {
+      display: none;
     }
     ::ng-deep {
       & > * {
-        @apply px-2 w-auto #{!important};
+        width: auto !important;;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;;
       }
     }
   }
 
   ::ng-deep {
     .p-dialog-content {
-      @apply flex flex-wrap gap-4;
-      @apply px-6 pb-6 #{!important};
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;;
+      padding-bottom: 1.5rem !important;;
       explorer-action-renderer {
-        @apply hidden #{!important};
+        display: none !important;
       }
     }
   }
 
   explorer-action-renderer, & > div {
-    @apply flex items-center justify-end gap-x-4;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 1rem;
   }
 
   button {
@@ -65,24 +86,28 @@
   }
 
   span {
-    @apply hidden pl-2;
-    @apply sm:inline;
+    display: none;
+    padding-left: 0.5rem;
+    @media (min-width: 640px) {
+        display: inline;
+    }
   }
 
 }
 
 .box {
-  @apply break-inside-avoid py-4 px-4;
+  break-inside: avoid;
+  padding: 1rem;
 }
 
 .col-2 {
-  @apply columns-2;
+  columns: 2;
 }
 
 .col-3 {
-  @apply columns-3;
+  columns: 3;
 }
 
 .col-4 {
-  @apply columns-4;
+  columns: 4;
 }

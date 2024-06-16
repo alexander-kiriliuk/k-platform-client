@@ -1,16 +1,24 @@
 :host {
-  @apply block;
+  display: block;
   min-width: 300px;
   min-height: 200px;
 
   & > div {
-    @apply flex gap-4;
+    display: flex;
+    gap: 1rem;
     & > div {
-      @apply p-2 flex items-center;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem;
     }
   }
 }
 .footer {
   height: var(--sb-footer-h);
-  @apply my-16 py-2 px-2 flex items-center justify-between;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
 }

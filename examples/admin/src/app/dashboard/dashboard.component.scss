@@ -1,24 +1,31 @@
 :host {
-  @apply flex flex-col w-full h-full;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
 }
 
 .content-wrapper {
-  @apply flex;
+  display: flex;
 }
 
 .content-area {
   width: calc(100vw - var(--side-menu-w));
-  @apply overflow-hidden;
-  @screen max-lg {
-    @apply w-full;
+  overflow: hidden;
+  @media (max-width: 1025px) {
+    width: 100%;
   }
 }
 
 .content-block {
   max-height: calc(100vh - var(--header-bar-h));
-  @apply px-6 overflow-auto h-full;
-  @screen max-lg {
-    @apply px-0;
+  height: 100%;
+  overflow: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  @media (max-width: 1025px) {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -28,39 +35,50 @@
   max-height: 100vh;
   height: 100vh;
   box-shadow: var(--shadow-a);
-  @apply rounded-r-2xl overflow-hidden;
+  overflow: hidden;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 
   ::ng-deep {
     .p-scrollpanel-bar-x {
-      @apply hidden;
+      display: none;
     }
   }
 
-  @screen max-lg {
+  @media (max-width: 1025px) {
     left: -500px;
     animation: sidebarAnimation 300ms ease-in-out;
     animation-fill-mode: forwards;
-    @apply hidden;
+    display: none;
 
     .close {
-      @apply block;
+      display: block;
     }
 
     &.over {
-      @apply block fixed z-50;
+      position: fixed;
+      z-index: 50;
+      display: block;
     }
   }
 
   &-overlay {
     background: var(--surface-d);
-    @apply fixed left-0 top-0 bottom-0 right-0 z-0 hidden;
-    @screen max-lg {
-      @apply block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    display: none;
+    @media (max-width: 1025px) {
+      display: block;
     }
   }
 
   &-content {
-    @apply h-full relative;
+    position: relative;
+    height: 100%;
     background: var(--surface-a);
   }
 
@@ -71,50 +89,74 @@
 }
 
 .welcome {
-  @apply flex justify-center items-center h-full text-2xl pb-40;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .logo-bar {
   height: var(--logo-bar-h);
-  @apply relative cursor-pointer;
+  position: relative;
+  cursor: pointer;
   &:after {
     content: "";
     background: no-repeat var(--logo-s-url) center left;
-    @apply absolute left-4 right-4 top-4 bottom-4 bg-contain;
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: 1rem;
+    bottom: 1rem;
+    background-size: contain;
   }
 }
 
 .head-bar {
-  @apply px-6 flex items-center justify-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   height: var(--header-bar-h);
 
-  @screen max-lg {
-    @apply px-4;
+  @media (max-width: 1025px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
     background: var(--surface-a);
   }
   & > div {
-    @apply flex gap-x-4 items-center;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
     a {
-      @apply inline-flex gap-x-2 items-center cursor-pointer;
+      display: inline-flex;
+      cursor: pointer;
+      align-items: center;
+      column-gap: 0.5rem;
     }
   }
 }
 
 .menu-ctrl {
-  @apply hidden cursor-pointer;
-  @screen max-lg {
-    @apply inline;
+  display: none;
+  cursor: pointer;
+  @media (max-width: 1025px) {
+    display: inline;
   }
 }
 
 .user-login {
-  @screen max-lg {
-    @apply hidden;
+  @media (max-width: 1025px) {
+    display: none;
   }
 }
 
 p-avatar {
-  @apply flex items-center;
+  display: flex;
+  align-items: center;
 }
 
 

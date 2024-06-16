@@ -1,15 +1,26 @@
 :host {
-  @apply border block p-4 rounded;
+  display: block;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  padding: 1rem;
   border-color: var(--surface-d)
 }
 
 .label {
-  @apply gap-x-2 pb-2 flex items-center font-semibold;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .content-wrapper {
-  @apply flex flex-col justify-center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   & > div {
-    @apply gap-x-2 flex items-center;
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
   }
 }

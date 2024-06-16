@@ -1,7 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "./assets/styles/reset.css";
 @import "primeng/resources/primeng.min.css";
 @import "primeicons/primeicons.css";
 
@@ -16,53 +13,73 @@ body {
   font-family: var(--font-family);
 
   &.pending {
-    @apply flex flex-col items-center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     &:after {
-      @apply absolute top-40 animate-ping animate-once animate-duration-[2000ms] animate-delay-0 animate-ease-in-out animate-reverse animate-fill-both;
       content: var(--logo-url);
       width: max-content;
       height: max-content;
+      animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+      animation-delay: 0ms;
+      animation-direction: reverse;
+      animation-duration: 2000ms;
+      animation-fill-mode: both;
+      animation-iteration-count: 1;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 
 }
 
 p-avatar > div {
-  @apply relative;
+  position: relative;
 }
 
 input.p-inputtext-xs, span.p-inputtext-xs input {
-  @apply text-xs px-2 py-3;
+  padding: 0.75rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 table.p-datepicker-calendar {
   thead th {
-    @apply text-center;
+    text-align: center;
   }
 }
 
 .heading-xl {
-  @apply text-xl font-medium;
-  @screen max-xl {
-    @apply text-lg;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+
+  @media (max-width: 1280px) {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
-  @screen max-lg {
-    @apply text-base;
+  @media (max-width: 1025px) {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 
 .heading-2xl {
-  @apply text-2xl font-medium;
-  @screen max-xl {
-    @apply text-xl;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+  @media (max-width: 1280px) {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
-  @screen max-lg {
-    @apply text-lg;
+  @media (max-width: 1025px) {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
 
 p-paginator {
-  @screen max-lg {
+  @media (max-width: 1025px) {
     .p-paginator.p-component {
       border-radius: 0 !important;
 
@@ -87,7 +104,7 @@ p-paginator {
 
 .dialog-mode {
   .p-dialog-content {
-    @apply p-0 #{!important};
+    padding: 0 !important;
   }
 }
 

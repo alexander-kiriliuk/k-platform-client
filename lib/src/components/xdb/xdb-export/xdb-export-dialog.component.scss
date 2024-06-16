@@ -1,14 +1,19 @@
 .label {
-  @apply flex items-center gap-6 pb-6;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
   div {
-    @apply font-semibold;
+    font-weight: 600;
   }
 }
 
 p {
-  @apply mt-6 mb-4 font-semibold;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 .cbx-container {
-  @apply mb-6;
+  margin-bottom: 1.5rem;
 }

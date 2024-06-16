@@ -1,5 +1,10 @@
 li {
-  @apply cursor-pointer flex items-center gap-2 my-1;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.5rem;
   &:hover {
     color: var(--primary-color);
   }
@@ -9,5 +14,6 @@ li {
 }
 
 i {
-  @apply text-xs;
+  font-size: 0.75rem;
+  line-height: 1rem;
 }

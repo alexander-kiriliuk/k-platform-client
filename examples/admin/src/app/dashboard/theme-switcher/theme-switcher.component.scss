@@ -1,3 +1,6 @@
 a {
-  @apply cursor-pointer inline-flex items-center gap-x-2;
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  column-gap: 0.5rem;
 }

@@ -1,19 +1,29 @@
 :host {
-  @apply block relative border px-4 pb-4 rounded;
+  position: relative;
+  display: block;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
   border-color: var(--surface-d);
   ::ng-deep {
     .p-tabview-panels {
-      @apply px-0 pb-0;
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 0;
     }
   }
 }
 
 textarea {
-  @apply w-full;
+  width: 100%;
 }
 
 .t-header {
-  @apply inline-flex items-center gap-x-2;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.5rem;
   media-res {
     ::ng-deep {
       img {

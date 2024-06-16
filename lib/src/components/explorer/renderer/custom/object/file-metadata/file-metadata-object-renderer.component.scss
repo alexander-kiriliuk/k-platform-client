@@ -1,23 +1,31 @@
 :host {
-  @apply border block p-4 rounded;
+  display: block;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  padding: 1rem;
   border-color: var(--surface-d);
 }
 
 .label {
-  @apply py-2 font-semibold;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 table {
-  @apply text-xs;
+  font-size: 0.75rem;
+  line-height: 1rem;
   td {
-    @apply py-1 px-2;
+    padding: 0.25rem 0.5rem;
     &:last-child {
-      @apply break-all;
+      word-break: break-all;
     }
   }
 }
 
 .subtitle {
-  @apply text-sm py-1 px-2;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   color: var(--accent-color);
 }

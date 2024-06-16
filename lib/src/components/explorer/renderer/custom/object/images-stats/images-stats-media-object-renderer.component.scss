@@ -1,5 +1,8 @@
 :host {
-  @apply border block p-4 rounded;
+  display: block;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  padding: 1rem;
   border-color: var(--surface-d);
 }
 
@@ -13,13 +16,21 @@ p-image {
 }
 
 .label {
-  @apply py-2 font-semibold;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .items {
-  @apply flex flex-wrap gap-4;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   & > div {
-    @apply p-4 flex text-xs gap-4;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
     background: var(--surface-d);
   }
 

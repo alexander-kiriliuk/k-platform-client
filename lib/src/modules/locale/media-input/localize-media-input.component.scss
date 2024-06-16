@@ -1,13 +1,16 @@
 :host {
-  @apply block relative;
+  position: relative;
+  display: block;
 }
 
 textarea {
-  @apply w-full;
+  width: 100%;
 }
 
 .t-header {
-  @apply inline-flex items-center gap-x-2;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.5rem;
   media-res {
     ::ng-deep {
       img {

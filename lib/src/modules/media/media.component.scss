@@ -1,13 +1,19 @@
 :host {
   &.background {
-    @apply absolute left-0 right-0 bottom-0 top-0 bg-cover bg-center bg-no-repeat;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   &:not(.has-preview) {
     ::ng-deep {
-
       .p-image-preview-indicator {
-        @apply hidden;
+        display: none;
       }
     }
   }

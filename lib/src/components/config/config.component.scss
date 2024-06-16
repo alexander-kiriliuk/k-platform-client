@@ -8,26 +8,32 @@
     }
 
     p-paginator .p-element.p-dropdown-label.p-inputtext {
-      @apply px-4 py-3;
+      padding: 0.75rem 1rem;
     }
 
     .p-datatable-thead {
       th {
-        @apply whitespace-nowrap;
+        white-space: nowrap;
         i {
-          @apply px-1 rounded-full text-xs leading-3;
+          border-radius: 9999px;
+          padding-left: 0.25rem;
+          padding-right: 0.25rem;
+          font-size: 0.75rem;
+          line-height: .75rem;
         }
       }
     }
 
     tbody {
       tr {
-        @apply cursor-pointer;
+        cursor: pointer;
       }
     }
 
     .action {
-      @apply flex items-center gap-x-4;
+      display: flex;
+      align-items: center;
+      column-gap: 1rem;
     }
 
   }
@@ -41,5 +47,5 @@ tr {
 }
 
 #c-search + i {
-  @apply -mt-1.5;
+  margin-top: -0.375rem;
 }

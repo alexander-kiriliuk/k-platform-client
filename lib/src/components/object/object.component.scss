@@ -1,23 +1,37 @@
 :host {
-  @apply block;
+  display: block;
+
   ::ng-deep {
     .p-card-header {
-      @apply relative text-center p-4;
+      position: relative;
+      padding: 1rem;
+      text-align: center;
     }
   }
 }
 
 .head {
-  @apply mb-2 mt-2 px-4;
-  @apply lg:px-0 lg:mb-8 lg:mt-0;
-  @apply w-full;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  @media (min-width: 1025px) {
+    margin-bottom: 2rem;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   input, & > div {
-    @apply w-full;
+    width: 100%;
   }
 }
 
 p-badge {
-  @apply absolute right-6 top-6;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
 }
 
 media-res {
@@ -29,24 +43,45 @@ media-res {
 }
 
 p-card {
-  @apply cursor-pointer relative overflow-hidden;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+
   &:hover {
     &:after {
       content: "";
       background-color: var(--accent-color);
-      @apply rounded absolute left-0 right-0 top-0 bottom-0 opacity-20;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border-radius: 0.25rem;
+      opacity: 0.2;
     }
   }
 }
 
 .contents {
-  @apply block py-4 px-4 columns-1;
-  @apply lg:py-0 lg:px-0 lg:pb-8;
-  @apply md:columns-2;
-  @apply xl:columns-3;
-  @apply 2xl:columns-4;
+  display: block;
+  columns: 1;
+  padding: 1rem;
+
+  @media (min-width: 1025px) {
+    padding: 0 0 2rem;
+  }
+  @media (min-width: 768px) {
+    columns: 2;
+  }
+  @media (min-width: 1280px) {
+    columns: 3;
+  }
+  @media (min-width: 1536px) {
+    columns: 4;
+  }
 
   & > div {
-    @apply mb-4 break-inside-avoid;
+    margin-bottom: 1rem;
+    break-inside: avoid;
   }
 }

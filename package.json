@@ -1,12 +1,12 @@
 {
   "name": "@k-platform/client",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "description": "todo description",
   "author": "Alexander Kiriliuk",
   "scripts": {
     "ng": "ng",
     "build:lib": "ng build k-platform-client --configuration production",
-    "publish": "cd dist && npm publish --registry=https://npm.specs-tech.ru",
+    "publish": "cd dist/core && npm publish --registry=https://npm.specs-tech.ru",
     "start:example:admin": "ng serve k-platform-admin",
     "build:example:admin": "ng build k-platform-admin",
     "lint": "eslint --fix --ext .js,.ts,.html .",
@@ -53,10 +53,6 @@
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
     "ng-packagr": "17.3.0",
-    "postcss": "8.4.38",
-    "postcss-import": "16.1.0",
-    "tailwindcss": "3.4.3",
-    "tailwindcss-animated": "1.0.1",
     "typescript": "5.4.3"
   }
 }
