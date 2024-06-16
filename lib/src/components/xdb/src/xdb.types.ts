@@ -14,17 +14,26 @@
  * limitations under the License.
  */
 
-import {inject, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
+import {FormControl} from "@angular/forms";
+import {TargetData} from "../../explorer";
 
-@Injectable()
-export class CaptchaService {
+export interface XdbExportDialogParams {
+  target: TargetData;
+  entity: { [k: string]: unknown };
+}
 
-  private readonly http = inject(HttpClient);
+export interface XdbExportParams {
+  target: string;
+  id: string;
+  depth: number;
+  useFiles: boolean;
+  excludeProperties: string[];
+}
 
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
-  }
+export type XdbExportForm = {
+  [K in keyof XdbExportParams]: FormControl<XdbExportParams[K]>;
+}
 
+export type XdbExportDto = {
+  file: string;
 }

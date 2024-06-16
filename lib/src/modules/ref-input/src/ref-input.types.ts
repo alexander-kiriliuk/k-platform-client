@@ -14,17 +14,9 @@
  * limitations under the License.
  */
 
-import {inject, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
+import {BehaviorSubject, Observable} from "rxjs";
+import {TargetData} from "../../../components/explorer";
 
-@Injectable()
-export class CaptchaService {
-
-  private readonly http = inject(HttpClient);
-
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
-  }
-
+export namespace RefInput {
+  export type Cache = { data$: BehaviorSubject<TargetData>, request: Observable<TargetData> }
 }

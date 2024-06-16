@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-import {inject, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {ConfigEditorForm} from "../config.types";
+import {notOnlySpacesValidator} from "../../../../global/validator";
 
-@Injectable()
-export class CaptchaService {
+export namespace ConfigPropertyEditor {
 
-  private readonly http = inject(HttpClient);
-
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
+  export function createForm(): FormGroup<ConfigEditorForm> {
+    return new FormGroup<ConfigEditorForm>({
+      key: new FormControl<string>("", [Validators.required, notOnlySpacesValidator()]),
+      value: new FormControl<string>("", [Validators.required, notOnlySpacesValidator()])
+    });
   }
 
 }

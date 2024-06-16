@@ -14,17 +14,14 @@
  * limitations under the License.
  */
 
-import {inject, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
+import {ExplorerAction, ExplorerActionRenderer, TargetData} from "../../../../explorer";
+import {FormGroup} from "@angular/forms";
+import {InputSignal} from "@angular/core";
 
-@Injectable()
-export class CaptchaService {
-
-  private readonly http = inject(HttpClient);
-
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
-  }
-
+export abstract class AbstractExplorerActionRenderer<Data = unknown> implements ExplorerActionRenderer<Data> {
+  target: InputSignal<TargetData>;
+  data: InputSignal<Data | Data[]>;
+  entityForm: InputSignal<FormGroup>;
+  action: ExplorerAction;
 }
+

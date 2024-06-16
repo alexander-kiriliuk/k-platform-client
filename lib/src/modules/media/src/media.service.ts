@@ -16,15 +16,21 @@
 
 import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
+import {StringUtils} from "../../../global/util";
+import fillParams = StringUtils.fillParams;
+import {Media} from "./media.types";
 
 @Injectable()
-export class CaptchaService {
+export class MediaService {
 
   private readonly http = inject(HttpClient);
 
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
+  reCreate(id: string) {
+    return this.http.post<Media>(fillParams("/media/recreate/:id", id), undefined);
+  }
+
+  remove(id: string) {
+    return this.http.delete<Media>(fillParams("/media/:id", id));
   }
 
 }

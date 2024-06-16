@@ -15,16 +15,25 @@
  */
 
 import {inject, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {ConfigItem} from "./config.types";
+import {PageableData, PageableParams} from "../../../global/vars";
 
 @Injectable()
-export class CaptchaService {
+export class ConfigService {
 
   private readonly http = inject(HttpClient);
 
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
+  pageableData(params?: PageableParams) {
+    return this.http.get<PageableData<ConfigItem>>("/config", {params: params as unknown as HttpParams});
+  }
+
+  setProperty(body: ConfigItem) {
+    return this.http.post<boolean>("/config", body);
+  }
+
+  removeProperty(key: string) {
+    return this.http.delete<boolean>("/config", {params: {key}});
   }
 
 }

@@ -16,15 +16,16 @@
 
 import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
+import {StringUtils} from "../../../../../../../../global/util";
+import fillParams = StringUtils.fillParams;
 
 @Injectable()
-export class CaptchaService {
+export class DeleteFileActionRendererService {
 
   private readonly http = inject(HttpClient);
 
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
+  remove(id: string) {
+    return this.http.delete<File>(fillParams("/file/:id", id));
   }
 
 }

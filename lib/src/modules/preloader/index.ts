@@ -14,17 +14,8 @@
  * limitations under the License.
  */
 
-import {inject, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
 
-@Injectable()
-export class CaptchaService {
-
-  private readonly http = inject(HttpClient);
-
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
-  }
-
-}
+export * from "./src/preloader.component";
+export * from "./src/preloader.directive";
+export * from "./src/preloader.event";
+export * from "./src/preloader.types";

@@ -14,17 +14,22 @@
  * limitations under the License.
  */
 
-import {inject, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
+import {FormControl} from "@angular/forms";
+import {User} from "../../../global/vars";
 
-@Injectable()
-export class CaptchaService {
+export type LoginForm = {
+  [K in keyof LoginPayload]: FormControl<LoginPayload[K]>;
+}
 
-  private readonly http = inject(HttpClient);
+export interface LoginPayload {
+  login: string;
+  password: string;
+  captchaId?: string;
+  captchaPayload?: string;
+}
 
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
-  }
-
+export interface JwtDto {
+  user: User;
+  accessToken: string;
+  refreshToken: string;
 }

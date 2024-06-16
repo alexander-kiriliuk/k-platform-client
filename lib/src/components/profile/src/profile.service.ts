@@ -16,15 +16,29 @@
 
 import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
+import {StringUtils} from "../../../global/util";
+import {User} from "../../../global/vars";
+import fillParams = StringUtils.fillParams;
 
-@Injectable()
-export class CaptchaService {
+@Injectable({providedIn: "root"})
+export class ProfileService {
 
   private readonly http = inject(HttpClient);
 
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
+  getUser(id?: number) {
+    return this.http.get<User>(fillParams("/profile/:id", id));
+  }
+
+  updateUser(user: User, id?: number) {
+    return this.http.patch<User>(fillParams("/profile/:id", id), user);
+  }
+
+  removeUser(id: number) {
+    return this.http.delete<User>(fillParams("/profile/:id", id));
+  }
+
+  createUser(user: User) {
+    return this.http.post<User>("/profile", user);
   }
 
 }

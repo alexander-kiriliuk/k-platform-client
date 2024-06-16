@@ -14,17 +14,21 @@
  * limitations under the License.
  */
 
-import {inject, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
+import {FormArray, FormControl, FormGroup} from "@angular/forms";
+import { ExplorerColumn, ExplorerTab, ExplorerTarget } from "../../explorer";
 
-@Injectable()
-export class CaptchaService {
+type ObjectForm = {
+  [K in keyof ExplorerTarget]: FormControl<ExplorerTarget[K]>;
+}
 
-  private readonly http = inject(HttpClient);
+export type ColumnForm = {
+  [K in keyof ExplorerColumn]: FormControl<ExplorerColumn[K]>;
+}
 
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
-  }
+export interface TargetForm extends Omit<ObjectForm, "columns"/* | "actions"*/> {
+  columns: FormArray<FormGroup<ColumnForm>>;
+}
 
+export type TabForm = {
+  [K in keyof ExplorerTab]: FormControl<ExplorerTab[K]>;
 }

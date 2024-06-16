@@ -14,17 +14,7 @@
  * limitations under the License.
  */
 
-import {inject, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
-
-@Injectable()
-export class CaptchaService {
-
-  private readonly http = inject(HttpClient);
-
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
-  }
-
-}
+export * from "./src/xdb.service";
+export * from "./src/xdb.types";
+export * from "./src/xdb-import/xdb-import.component";
+export * from "./src/xdb-export/xdb-export-dialog.component";

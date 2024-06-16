@@ -14,17 +14,12 @@
  * limitations under the License.
  */
 
-import {inject, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
 
-@Injectable()
-export class CaptchaService {
+import {ExplorerColumn, ExplorerRenderer, TargetData} from "../../../../explorer";
 
-  private readonly http = inject(HttpClient);
-
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
-  }
-
+export abstract class AbstractExplorerSectionRenderer<T = unknown> implements ExplorerRenderer {
+  column: ExplorerColumn;
+  params: unknown;
+  data: { [p: string]: T };
+  target: TargetData;
 }

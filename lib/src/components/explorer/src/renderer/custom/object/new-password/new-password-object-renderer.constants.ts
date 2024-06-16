@@ -14,17 +14,14 @@
  * limitations under the License.
  */
 
-import {inject, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {fieldMatchValidator} from "../../../../../../../global/validator";
 
-@Injectable()
-export class CaptchaService {
-
-  private readonly http = inject(HttpClient);
-
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
-  }
-
+export function createNewPasswordObjectRendererForm() {
+  return new FormGroup({
+    newPassword: new FormControl<string>("", [Validators.required]),
+    repeatPassword: new FormControl<string>("", [Validators.required])
+  }, fieldMatchValidator("newPassword", "repeatPassword"));
 }
+
+

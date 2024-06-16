@@ -14,17 +14,9 @@
  * limitations under the License.
  */
 
-import {inject, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {CaptchaResponse} from "../../vars";
 
-@Injectable()
-export class CaptchaService {
-
-  private readonly http = inject(HttpClient);
-
-  getCaptcha() {
-    return this.http.get<CaptchaResponse>("/captcha");
-  }
-
-}
+export * from "./src/locale.types";
+export * from "./src/locale.constants";
+export * from "./src/localize.pipe";
+export * from "./src/media-input/localize-media-input.component";
+export * from "./src/string-input/localize-string-input.component";
