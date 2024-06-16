@@ -24,33 +24,25 @@ import {MessageService, PrimeNGConfig} from "primeng/api";
 import {DeviceDetectorService} from "ngx-device-detector";
 import {DialogService} from "primeng/dynamicdialog";
 import {APP_ROUTES} from "./app/app.routing";
-import {
-  API_URL,
-  AVAIL_LANGS,
-  CurrentUser,
-  DEVICE,
-  DeviceInfoImpl,
-  FILE_URL,
-  FRONT_END_URL,
-  LocalizePipe,
-  MEDIA_URL,
-  MediaUtils,
-  provideExplorerActionRenderers,
-  provideExplorerObjectRenderers,
-  provideExplorerSectionRenderers,
-  Store,
-  ThemeUtils,
-  TMP_URL,
-  WEBP_SUPPORT
-} from "@k-platform/client";
-import detectWebpSupportFactory = MediaUtils.detectWebpSupportFactory;
 import {environment} from "./app/env/env";
 import {TranslocoHttpLoader} from "./app/global/internationalization/transloco-http-loader";
 import {AppInitializer} from "./app/global/service/app-initializer";
 import {AppInterceptor} from "./app/global/interceptor/app.interceptor";
 import {LangUtils} from "./app/global/utils/lang.utils";
-import setNgTranslation = LangUtils.setNgTranslation;
 import {provideAnimationsAsync} from "@angular/platform-browser/animations/async";
+import {MediaUtils, ThemeUtils} from "@k-platform/client/global/util";
+import {Store} from "@k-platform/client/modules/store";
+import {AVAIL_LANGS, LocalizePipe} from "@k-platform/client/modules/locale";
+import {DEVICE, DeviceInfoImpl} from "@k-platform/client/modules/device";
+import {
+  provideExplorerActionRenderers,
+  provideExplorerObjectRenderers,
+  provideExplorerSectionRenderers
+} from "@k-platform/client/components/explorer/providers";
+import {CurrentUser} from "@k-platform/client/global/service";
+import {API_URL, FILE_URL, FRONT_END_URL, MEDIA_URL, TMP_URL, WEBP_SUPPORT} from "@k-platform/client/global/vars";
+import setNgTranslation = LangUtils.setNgTranslation;
+import detectWebpSupportFactory = MediaUtils.detectWebpSupportFactory;
 
 
 ThemeUtils.setDefaultTheme();

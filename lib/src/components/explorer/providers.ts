@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 
-
-export * from "./src/input/media-input.component";
-export * from "./src/media.component";
-export * from "./src/media.constants";
-export * from "./src/media.types";
-export * from "./src/media.service";
-export * from "./src/media-url.pipe";
+export * from "./src/explorer-action-renderer-providers";
+export * from "./src/explorer-object-renderer-providers";
+export * from "./src/explorer-secrion-renderer-providers";

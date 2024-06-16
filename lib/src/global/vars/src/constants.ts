@@ -38,3 +38,4 @@ export const FRONT_END_URL = new InjectionToken<string>("Path to front end serve
 export const MEDIA_URL = new InjectionToken<string>("Path to medias storage");
 export const FILE_URL = new InjectionToken<string>("Path to files storage");
 export const TMP_URL = new InjectionToken<string>("Path to tmp-files storage");
+export const WEBP_SUPPORT = new InjectionToken<boolean>("WEBP media format support flag");

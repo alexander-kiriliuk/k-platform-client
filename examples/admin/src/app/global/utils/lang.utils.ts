@@ -16,7 +16,7 @@
 
 
 import {registerLocaleData} from "@angular/common";
-import {Language} from "@k-platform/client";
+import {Language} from "@k-platform/client/modules/locale";
 
 export namespace LangUtils {
 

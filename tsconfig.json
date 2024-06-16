@@ -27,8 +27,8 @@
       "dom"
     ],
     "paths": {
-      "@k-platform/client": [
-        "lib/src"
+      "@k-platform/client/*": [
+        "lib/src/*"
       ]
     }
   },

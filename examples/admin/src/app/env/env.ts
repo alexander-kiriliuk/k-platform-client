@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-
-import {Env} from "@k-platform/client";
+import {Env} from "@k-platform/client/global/vars";
 
 export const environment: Env = {
   production: false,

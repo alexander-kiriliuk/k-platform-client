@@ -22,20 +22,10 @@ import {MessageService} from "primeng/api";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {catchError} from "rxjs/operators";
 import {finalize, throwError} from "rxjs";
-import {
-  AuthEvent,
-  AuthService,
-  CurrentUserEvent,
-  JwtDto,
-  ProfileService,
-  Store,
-  StoreMessage,
-  ToastData,
-  ToastEvent,
-  ToastKey,
-  ToastType,
-  User
-} from "@k-platform/client";
+import {AuthEvent, AuthService, JwtDto} from "@k-platform/client/components/auth";
+import {Store, StoreMessage} from "@k-platform/client/modules/store";
+import {ProfileService} from "@k-platform/client/components/profile";
+import {CurrentUserEvent, ToastData, ToastEvent, ToastKey, ToastType, User} from "@k-platform/client/global/vars";
 
 @Injectable()
 export class AppViewModel {

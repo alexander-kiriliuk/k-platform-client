@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-import {InjectionToken} from "@angular/core";
-
-export const WEBP_SUPPORT = new InjectionToken<boolean>("WEBP media format support flag");
 
 export enum ReservedMediaFormat {
   THUMB = "thumb",

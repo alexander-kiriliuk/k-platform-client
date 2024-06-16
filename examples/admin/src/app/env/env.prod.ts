@@ -15,7 +15,8 @@
  */
 
 
-import {Env} from "@k-platform/client";
+
+import {Env} from "@k-platform/client/global/vars";
 
 export const environment: Env = {
   production: true,

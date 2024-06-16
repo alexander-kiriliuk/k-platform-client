@@ -18,3 +18,4 @@
 export * from "./src/number.utils";
 export * from "./src/string.utils";
 export * from "./src/theme.utils";
+export * from "./src/media.utils";

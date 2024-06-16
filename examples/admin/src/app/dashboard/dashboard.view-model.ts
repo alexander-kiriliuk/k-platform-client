@@ -22,16 +22,10 @@ import {DialogService} from "primeng/dynamicdialog";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {NavigationEnd, Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
-import {
-  AuthEvent,
-  CurrentUser,
-  CurrentUserEvent,
-  DashboardEvent,
-  MenuCommandHandler,
-  Store,
-  User
-} from "@k-platform/client";
-
+import {CurrentUserEvent, DashboardEvent, MenuCommandHandler, User} from "@k-platform/client/global/vars";
+import {CurrentUser} from "@k-platform/client/global/service";
+import {Store} from "@k-platform/client/modules/store";
+import {AuthEvent} from "@k-platform/client/components/auth";
 
 @Injectable()
 export class DashboardViewModel implements MenuCommandHandler {
@@ -83,7 +77,7 @@ export class DashboardViewModel implements MenuCommandHandler {
   onMenuCommand(event: MenuItemCommandEvent, id: string): void {
     switch (id) {
     case "profile":
-      import("../../../../../lib/src").then(c => {
+      import("@k-platform/client/components/profile").then(c => {
         this.dialogService.open(c.ProfileComponent, {
           header: this.currentUser.fullName,
           resizable: true,

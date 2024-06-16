@@ -17,8 +17,9 @@
 import {ChangeDetectionStrategy, Component, inject} from "@angular/core";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {NgClass, NgStyle, NgTemplateOutlet} from "@angular/common";
-import {StopPropagationDirective, LocalizePipe} from "@k-platform/client";
 import {MenuTreeViewModel} from "./menu-tree.view-model";
+import {LocalizePipe} from "@k-platform/client/modules/locale";
+import {StopPropagationDirective} from "@k-platform/client/modules/events";
 
 
 @Component({
