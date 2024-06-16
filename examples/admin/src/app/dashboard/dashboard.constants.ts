@@ -16,7 +16,7 @@
 
 import {MenuItem} from "primeng/api";
 import {TranslocoService} from "@ngneat/transloco";
-import {MenuCommandHandler} from "@k-platform/client/global/vars";
+import {MenuCommandHandler} from "@k-platform/client";
 
 export namespace Dashboard {
 

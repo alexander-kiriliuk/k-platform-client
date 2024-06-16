@@ -22,10 +22,16 @@ import {DialogService} from "primeng/dynamicdialog";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {NavigationEnd, Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
-import {CurrentUserEvent, DashboardEvent, MenuCommandHandler, User} from "@k-platform/client/global/vars";
-import {CurrentUser} from "@k-platform/client/global/service";
-import {Store} from "@k-platform/client/modules/store";
-import {AuthEvent} from "@k-platform/client/components/auth";
+import {
+  AuthEvent,
+  CurrentUser,
+  CurrentUserEvent,
+  DashboardEvent,
+  MenuCommandHandler,
+  Store,
+  User
+} from "@k-platform/client";
+
 
 @Injectable()
 export class DashboardViewModel implements MenuCommandHandler {
@@ -76,36 +82,36 @@ export class DashboardViewModel implements MenuCommandHandler {
 
   onMenuCommand(event: MenuItemCommandEvent, id: string): void {
     switch (id) {
-    case "profile":
-      import("@k-platform/client/components/profile").then(c => {
-        this.dialogService.open(c.ProfileComponent, {
-          header: this.currentUser.fullName,
-          resizable: true,
-          draggable: true,
-          modal: false,
-          position: "topright"
-        }).onClose.subscribe(data => {
-          if (!data) {
-            return;
-          }
-          this.store.emit<User>(CurrentUserEvent.Set, data);
+      case "profile":
+        import("@k-platform/client").then(c => {
+          this.dialogService.open(c.ProfileComponent, {
+            header: this.currentUser.fullName,
+            resizable: true,
+            draggable: true,
+            modal: false,
+            position: "topright"
+          }).onClose.subscribe(data => {
+            if (!data) {
+              return;
+            }
+            this.store.emit<User>(CurrentUserEvent.Set, data);
+          });
         });
-      });
-      break;
-    case "settings":
-      import("./app-settings/app-settings.component").then(c => {
-        this.dialogService.open(c.AppSettingsComponent, {
-          header: this.ts.translate("dashboard.menu.settings"),
-          resizable: true,
-          draggable: true,
-          modal: false,
-          position: "topright"
+        break;
+      case "settings":
+        import("./app-settings/app-settings.component").then(c => {
+          this.dialogService.open(c.AppSettingsComponent, {
+            header: this.ts.translate("dashboard.menu.settings"),
+            resizable: true,
+            draggable: true,
+            modal: false,
+            position: "topright"
+          });
         });
-      });
-      break;
-    case "exit":
-      this.store.emit(AuthEvent.Logout);
-      break;
+        break;
+      case "exit":
+        this.store.emit(AuthEvent.Logout);
+        break;
     }
   }
 

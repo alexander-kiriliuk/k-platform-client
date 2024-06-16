@@ -23,10 +23,7 @@ import {MenuModule} from "primeng/menu";
 import {AvatarModule} from "primeng/avatar";
 import {TranslocoPipe} from "@ngneat/transloco";
 import {DashboardViewModel} from "./dashboard.view-model";
-import {PreloaderComponent, PreloaderDirective} from "@k-platform/client/modules/preloader";
-import {MediaComponent} from "@k-platform/client/modules/media";
-import {CurrentUser} from "@k-platform/client/global/service";
-
+import {MediaComponent, CurrentUser, PreloaderComponent, PreloaderDirective} from "@k-platform/client";
 
 @Component({
   selector: "dashboard",

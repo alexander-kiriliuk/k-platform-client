@@ -24,27 +24,27 @@ export const DashboardRoutes: Routes = [
     children: [
       {
         path: "section/:target",
-        loadComponent: () => import("@k-platform/client/components/explorer")
+        loadComponent: () => import("@k-platform/client")
           .then(m => m.SectionComponent)
       },
       {
         path: "object/:target/:id",
-        loadComponent: () => import("@k-platform/client/components/explorer")
+        loadComponent: () => import("@k-platform/client")
           .then(m => m.ExplorerObjectComponent)
       },
       {
         path: "system/objects",
-        loadComponent: () => import("@k-platform/client/components/object")
+        loadComponent: () => import("@k-platform/client")
           .then(m => m.ObjectComponent)
       },
       {
         path: "system/import-data",
-        loadComponent: () => import("@k-platform/client/components/xdb")
+        loadComponent: () => import("@k-platform/client")
           .then(m => m.XdbImportComponent)
       },
       {
         path: "system/config",
-        loadComponent: () => import("@k-platform/client/components/config")
+        loadComponent: () => import("@k-platform/client")
           .then(m => m.ConfigComponent)
       }
     ]

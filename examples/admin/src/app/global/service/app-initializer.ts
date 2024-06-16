@@ -21,7 +21,7 @@ import {TranslocoService} from "@ngneat/transloco";
 import {PrimeNGConfig} from "primeng/api";
 import {LangUtils} from "../utils/lang.utils";
 import getCurrentLang = LangUtils.getCurrentLang;
-import {CurrentUser} from "@k-platform/client/global/service";
+import {CurrentUser} from "@k-platform/client";
 
 export function AppInitializer(config: PrimeNGConfig, currentUser: CurrentUser) {
   const appService = inject(AppService);

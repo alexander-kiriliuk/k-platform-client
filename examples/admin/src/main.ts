@@ -30,17 +30,25 @@ import {AppInitializer} from "./app/global/service/app-initializer";
 import {AppInterceptor} from "./app/global/interceptor/app.interceptor";
 import {LangUtils} from "./app/global/utils/lang.utils";
 import {provideAnimationsAsync} from "@angular/platform-browser/animations/async";
-import {MediaUtils, ThemeUtils} from "@k-platform/client/global/util";
-import {Store} from "@k-platform/client/modules/store";
-import {AVAIL_LANGS, LocalizePipe} from "@k-platform/client/modules/locale";
-import {DEVICE, DeviceInfoImpl} from "@k-platform/client/modules/device";
 import {
+  API_URL,
+  AVAIL_LANGS,
+  CurrentUser,
+  DEVICE,
+  DeviceInfoImpl,
+  FILE_URL,
+  FRONT_END_URL,
+  LocalizePipe,
+  MEDIA_URL,
+  MediaUtils,
   provideExplorerActionRenderers,
   provideExplorerObjectRenderers,
-  provideExplorerSectionRenderers
-} from "@k-platform/client/components/explorer/providers";
-import {CurrentUser} from "@k-platform/client/global/service";
-import {API_URL, FILE_URL, FRONT_END_URL, MEDIA_URL, TMP_URL, WEBP_SUPPORT} from "@k-platform/client/global/vars";
+  provideExplorerSectionRenderers,
+  Store,
+  ThemeUtils,
+  TMP_URL,
+  WEBP_SUPPORT
+} from "@k-platform/client";
 import setNgTranslation = LangUtils.setNgTranslation;
 import detectWebpSupportFactory = MediaUtils.detectWebpSupportFactory;
 
