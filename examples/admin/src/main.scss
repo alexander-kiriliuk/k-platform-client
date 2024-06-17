@@ -7,7 +7,6 @@
   --logo-bar-h: 9vh;
   --side-menu-w: 15vw;
 }
-
 body {
   background: var(--neutral-a);
   font-family: var(--font-family);
@@ -16,17 +15,25 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
 
     &:after {
-      content: var(--logo-url);
+      content: "";
+      display: block;
+      background-image: var(--logo-url);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      max-width: 80vw;
+      min-height: 100px;
+      min-width: 80%;
       width: max-content;
       height: max-content;
-      animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-      animation-delay: 0ms;
+      animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
       animation-direction: reverse;
-      animation-duration: 2000ms;
+      animation-duration: 2500ms;
       animation-fill-mode: both;
-      animation-iteration-count: 1;
       animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
@@ -122,4 +129,16 @@ p-paginator {
 
 .c-success {
   color: var(--success-color)
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

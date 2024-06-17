@@ -23,7 +23,7 @@ import {CardModule} from "primeng/card";
 import {ImageModule} from "primeng/image";
 import {ReactiveFormsModule} from "@angular/forms";
 import {TranslocoPipe} from "@ngneat/transloco";
-import {RecaptchaComponent, RecaptchaModule} from "ng-recaptcha";
+import {RecaptchaComponent, RecaptchaModule} from "ng-recaptcha-2";
 import {takeUntilDestroyed, toObservable} from "@angular/core/rxjs-interop";
 import {skip} from "rxjs";
 import {AuthViewModel} from "./auth.view-model";
