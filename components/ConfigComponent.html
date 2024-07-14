@@ -1,0 +1,625 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Application documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Application documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ConfigComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>lib/src/components/config/src/config.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../injectables/ConfigViewModel.html" target="_self" >ConfigViewModel</a></code>
+                                <code><a href="../injectables/ConfigService.html" target="_self" >ConfigService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>config</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ButtonModule</code>
+                            <code>LocalizePipe</code>
+                                <code><a href="../components/PreloaderComponent.html" target="_self" >PreloaderComponent</a></code>
+                                <code><a href="../directives/PreloaderDirective.html" target="_self" >PreloaderDirective</a></code>
+                            <code>RippleModule</code>
+                            <code>SharedModule</code>
+                            <code>TableModule</code>
+                            <code>TranslocoPipe</code>
+                            <code>InputTextModule</code>
+                            <code>PaginatorModule</code>
+                            <code>ReactiveFormsModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./config.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./config.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#vm" >vm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#data" >data</a>
+                                </li>
+                                <li>
+                                    <a href="#scrollHeight" >scrollHeight</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="vm"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>vm</b></span>
+                        <a href="#vm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ConfigViewModel)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">lib/src/components/config/src/config.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <span class="name"><b>data</b><a href="#data"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>data()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">lib/src/components/config/src/config.component.ts:59</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="scrollHeight"></a>
+                        <span class="name"><b>scrollHeight</b><a href="#scrollHeight"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>scrollHeight()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">lib/src/components/config/src/config.component.ts:63</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {ChangeDetectionStrategy, Component, inject} from &quot;@angular/core&quot;;
+import {TranslocoPipe} from &quot;@ngneat/transloco&quot;;
+import {ConfigService} from &quot;./config.service&quot;;
+import {ButtonModule} from &quot;primeng/button&quot;;
+import {RippleModule} from &quot;primeng/ripple&quot;;
+import {SharedModule} from &quot;primeng/api&quot;;
+import {TableModule} from &quot;primeng/table&quot;;
+import {InputTextModule} from &quot;primeng/inputtext&quot;;
+import {PaginatorModule} from &quot;primeng/paginator&quot;;
+import {ReactiveFormsModule} from &quot;@angular/forms&quot;;
+import {LocalizePipe} from &quot;../../../modules/locale&quot;;
+import {PreloaderComponent, PreloaderDirective} from &quot;../../../modules/preloader&quot;;
+import {ConfigViewModel} from &quot;./config.view-model&quot;;
+
+@Component({
+  selector: &quot;config&quot;,
+  standalone: true,
+  templateUrl: &quot;./config.component.html&quot;,
+  styleUrls: [&quot;./config.component.scss&quot;],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    ConfigViewModel,
+    ConfigService
+  ],
+  imports: [
+    ButtonModule,
+    LocalizePipe,
+    PreloaderComponent,
+    PreloaderDirective,
+    RippleModule,
+    SharedModule,
+    TableModule,
+    TranslocoPipe,
+    InputTextModule,
+    PaginatorModule,
+    ReactiveFormsModule
+  ]
+})
+export class ConfigComponent {
+
+  readonly vm &#x3D; inject(ConfigViewModel);
+
+  get data() {
+    return this.vm.pageableData();
+  }
+
+  get scrollHeight() {
+    return &quot;calc(100vh - var(--header-bar-h) - var(--paginator-h))&quot;;
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@if (data) {
+  &lt;p-table
+    [scrollHeight]&#x3D;&quot;scrollHeight&quot;
+    [value]&#x3D;&quot;data.items&quot;
+    [scrollable]&#x3D;&quot;true&quot;
+    [paginator]&#x3D;&quot;true&quot;
+    [first]&#x3D;&quot;vm.currentPos&quot;
+    [lazy]&#x3D;&quot;true&quot;
+    [rowsPerPageOptions]&#x3D;&quot;[20, 50, 100, 500, 1000]&quot;
+    [rows]&#x3D;&quot;data.pageSize&quot;
+    [totalRecords]&#x3D;&quot;data.totalCount&quot;
+    (onPage)&#x3D;&quot;vm.getData($event)&quot;&gt;
+    &lt;ng-template pTemplate&#x3D;&quot;header&quot;&gt;
+      &lt;tr&gt;
+        &lt;th&gt;
+          &lt;div class&#x3D;&quot;action&quot;&gt;
+            &lt;p-button size&#x3D;&quot;small&quot; severity&#x3D;&quot;info&quot; icon&#x3D;&quot;pi pi-plus&quot; (click)&#x3D;&quot;vm.openPropertyEditor()&quot;/&gt;
+            &lt;div class&#x3D;&quot;p-float-label p-input-icon-right&quot;&gt;
+              &lt;input id&#x3D;&quot;c-search&quot; pInputText class&#x3D;&quot;p-inputtext-xs&quot;
+                     [formControl]&#x3D;&quot;vm.searchCtrl&quot;/&gt;
+              &lt;i class&#x3D;&quot;pi pi-search&quot;&gt;&lt;/i&gt;
+              &lt;label for&#x3D;&quot;c-search&quot;&gt;{{ &#x27;config.key&#x27; | transloco }}&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/th&gt;
+        &lt;th&gt;
+          {{ &quot;config.value&quot; | transloco }}
+        &lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+    &lt;ng-template let-item pTemplate&#x3D;&quot;body&quot;&gt;
+      &lt;tr (click)&#x3D;&quot;vm.openPropertyEditor(item)&quot;&gt;
+        &lt;td&gt;
+          {{ item.key }}
+        &lt;/td&gt;
+        &lt;td&gt;
+          {{ item.value }}
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+  &lt;/p-table&gt;
+}
+
+&lt;preloader *preloading&#x3D;&quot;{state: true, channel: vm.preloaderChannel}&quot;/&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./config.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host {
+  --paginator-h: 10vh;
+
+  ::ng-deep {
+
+    .p-paginator {
+      height: var(--paginator-h);
+    }
+
+    p-paginator .p-element.p-dropdown-label.p-inputtext {
+      padding: 0.75rem 1rem;
+    }
+
+    .p-datatable-thead {
+      th {
+        white-space: nowrap;
+        i {
+          border-radius: 9999px;
+          padding-left: 0.25rem;
+          padding-right: 0.25rem;
+          font-size: 0.75rem;
+          line-height: .75rem;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        cursor: pointer;
+      }
+    }
+
+    .action {
+      display: flex;
+      align-items: center;
+      column-gap: 1rem;
+    }
+
+  }
+
+}
+
+tr {
+  &amp;:hover {
+    background: var(--highlight-bg);
+  }
+}
+
+#c-search + i {
+  margin-top: -0.375rem;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@if (data) {  <p-table    [scrollHeight]="scrollHeight"    [value]="data.items"    [scrollable]="true"    [paginator]="true"    [first]="vm.currentPos"    [lazy]="true"    [rowsPerPageOptions]="[20, 50, 100, 500, 1000]"    [rows]="data.pageSize"    [totalRecords]="data.totalCount"    (onPage)="vm.getData($event)">    <ng-template pTemplate="header">      <tr>        <th>          <div class="action">            <p-button size="small" severity="info" icon="pi pi-plus" (click)="vm.openPropertyEditor()"/>            <div class="p-float-label p-input-icon-right">              <input id="c-search" pInputText class="p-inputtext-xs"                     [formControl]="vm.searchCtrl"/>              <i class="pi pi-search"></i>              <label for="c-search">{{ \'config.key\' | transloco }}</label>            </div>          </div>        </th>        <th>          {{ "config.value" | transloco }}        </th>      </tr>    </ng-template>    <ng-template let-item pTemplate="body">      <tr (click)="vm.openPropertyEditor(item)">        <td>          {{ item.key }}        </td>        <td>          {{ item.value }}        </td>      </tr>    </ng-template>  </p-table>}<preloader *preloading="{state: true, channel: vm.preloaderChannel}"/></div>'
+    var COMPONENTS = [{'name': 'AuthComponent', 'selector': 'auth'},{'name': 'BooleanObjectRendererComponent', 'selector': 'boolean-object-renderer'},{'name': 'BooleanSectionRendererComponent', 'selector': 'boolean-section-renderer'},{'name': 'ConfigComponent', 'selector': 'config'},{'name': 'ConfigPropertyEditorComponent', 'selector': 'config-property-editor'},{'name': 'CreateFileActionDialogComponent', 'selector': 'create-file-action-dialog'},{'name': 'CreateFileActionRendererComponent', 'selector': 'create-file-action-renderer'},{'name': 'CreateMediaActionDialogComponent', 'selector': 'create-media-action-dialog'},{'name': 'CreateMediaActionRendererComponent', 'selector': 'create-media-action-renderer'},{'name': 'DateObjectRendererComponent', 'selector': 'date-object-renderer'},{'name': 'DateSectionRendererComponent', 'selector': 'date-section-renderer'},{'name': 'DeleteFileActionRendererComponent', 'selector': 'delete-file-action-renderer'},{'name': 'DeleteMediaActionRendererComponent', 'selector': 'delete-media-action-renderer'},{'name': 'ExplorerActionRendererComponent', 'selector': 'explorer-action-renderer'},{'name': 'ExplorerObjectComponent', 'selector': 'explorer-object'},{'name': 'ExplorerObjectRendererComponent', 'selector': 'explorer-object-renderer'},{'name': 'ExplorerSectionRendererComponent', 'selector': 'explorer-section-renderer'},{'name': 'FileInputComponent', 'selector': 'file-input'},{'name': 'FileMetadataObjectRendererComponent', 'selector': 'file-metadata-object-renderer'},{'name': 'FileStatMediaObjectRendererComponent', 'selector': 'file-stat-media-object-renderer'},{'name': 'ImagesStatsMediaObjectRendererComponent', 'selector': 'images-stats-media-object-renderer'},{'name': 'LocalizedMediaObjectRendererComponent', 'selector': 'localized-media-object-renderer'},{'name': 'LocalizedStringObjectRendererComponent', 'selector': 'localized-string-object-renderer'},{'name': 'LocalizeMediaInputComponent', 'selector': 'localize-media-input'},{'name': 'LocalizeStringInputComponent', 'selector': 'localize-string-input'},{'name': 'MediaComponent', 'selector': 'media-res'},{'name': 'MediaInputComponent', 'selector': 'media-input'},{'name': 'MediaObjectRendererComponent', 'selector': 'media-object-renderer'},{'name': 'MediaSectionRendererComponent', 'selector': 'media-section-renderer'},{'name': 'NewPasswordObjectRendererComponent', 'selector': 'new-password-object-renderer'},{'name': 'ObjectComponent', 'selector': 'object'},{'name': 'ObjectDetailsColumnEditorComponent', 'selector': 'object-details-column-editor'},{'name': 'ObjectDetailsComponent', 'selector': 'object-details'},{'name': 'PreloaderComponent', 'selector': 'preloader'},{'name': 'ProcessStatsObjectRendererComponent', 'selector': 'process-stats-media-object-renderer'},{'name': 'ProfileComponent', 'selector': 'profile'},{'name': 'ReCreateMediaActionRendererComponent', 'selector': 're-create-media-action-renderer'},{'name': 'ReferenceObjectRendererComponent', 'selector': 'reference-object-renderer'},{'name': 'ReferenceSectionRendererComponent', 'selector': 'reference-section-renderer'},{'name': 'RefInputComponent', 'selector': 'ref-input'},{'name': 'SectionComponent', 'selector': 'section'},{'name': 'SectionFilterDialogComponent', 'selector': 'section-filter-dialog'},{'name': 'StartProcessActionRendererComponent', 'selector': 'start-process-action-renderer'},{'name': 'StopProcessActionRendererComponent', 'selector': 'stop-process-action-renderer'},{'name': 'StringObjectRendererComponent', 'selector': 'string-object-renderer'},{'name': 'StringSectionRendererComponent', 'selector': 'string-section-renderer'},{'name': 'TargetColumnsDialogComponent', 'selector': 'target-columns-dialog'},{'name': 'ToggleProcessActionRendererComponent', 'selector': 'toggle-process-action-renderer'},{'name': 'UpdateMediaFileActionDialogComponent', 'selector': 'update-media-file-action-dialog'},{'name': 'UpdateMediaFileActionRendererComponent', 'selector': 'update-media-file-action-renderer'},{'name': 'VirtualMediaSectionRendererComponent', 'selector': 'virtual-media-section-renderer'},{'name': 'XdbExportDialogComponent', 'selector': 'xdb-export-dialog'},{'name': 'XdbImportComponent', 'selector': 'xdb-import'}];
+    var DIRECTIVES = [{'name': 'PreloaderDirective', 'selector': '[preloading]'},{'name': 'PreventDefaultDirective', 'selector': '[prevent-default]'},{'name': 'StopPropagationDirective', 'selector': '[stop-propagation]'}];
+    var ACTUAL_COMPONENT = {'name': 'ConfigComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ConfigComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1716 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Application documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Application documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ExplorerObjectViewModel</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>lib/src/components/explorer/src/object/explorer-object.view-model.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_entityData" >_entityData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_tabs" >_tabs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_targetData" >_targetData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#actionsDialogVisibility" >actionsDialogVisibility</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#ar" >ar</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#config" >config</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#confirmationService" >confirmationService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#dialogRef" >dialogRef</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#dialogService" >dialogService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#entityForm" >entityForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#explorerService" >explorerService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#fb" >fb</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#localizePipe" >localizePipe</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#restTab" >restTab</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#router" >router</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#store" >store</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#ts" >ts</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#deleteObject" >deleteObject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleDeleteEvent" >handleDeleteEvent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleReceivedTargetData" >handleReceivedTargetData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleSaveEvent" >handleSaveEvent</a>
+                            </li>
+                            <li>
+                                <a href="#initObject" >initObject</a>
+                            </li>
+                            <li>
+                                <a href="#saveObject" >saveObject</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#data" >data</a>
+                                </li>
+                                <li>
+                                    <a href="#entityTargetOrAlias" >entityTargetOrAlias</a>
+                                </li>
+                                <li>
+                                    <a href="#targetData" >targetData</a>
+                                </li>
+                                <li>
+                                    <a href="#entityData" >entityData</a>
+                                </li>
+                                <li>
+                                    <a href="#tabs" >tabs</a>
+                                </li>
+                                <li>
+                                    <a href="#exportDialogConfig" >exportDialogConfig</a>
+                                </li>
+                                <li>
+                                    <a href="#dialogMode" >dialogMode</a>
+                                </li>
+                                <li>
+                                    <a href="#id" >id</a>
+                                </li>
+                                <li>
+                                    <a href="#duplicateId" >duplicateId</a>
+                                </li>
+                                <li>
+                                    <a href="#target" >target</a>
+                                </li>
+                                <li>
+                                    <a href="#preloaderChannel" >preloaderChannel</a>
+                                </li>
+                                <li>
+                                    <a href="#canDeleteObject" >canDeleteObject</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:57</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteObject"></a>
+                    <span class="name">
+                        <span ><b>deleteObject</b></span>
+                        <a href="#deleteObject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteObject()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="138"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:138</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleDeleteEvent"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleDeleteEvent</b></span>
+                        <a href="#handleDeleteEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleDeleteEvent(data: <a href="../injectables/Store.html" target="_self">StoreMessage&lt;ExplorerObjectDto&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="233"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:233</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../injectables/Store.html" target="_self" >StoreMessage&lt;ExplorerObjectDto&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleReceivedTargetData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleReceivedTargetData</b></span>
+                        <a href="#handleReceivedTargetData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleReceivedTargetData(payload: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="171"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:171</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>payload</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSaveEvent"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleSaveEvent</b></span>
+                        <a href="#handleSaveEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleSaveEvent(data: <a href="../injectables/Store.html" target="_self">StoreMessage&lt;ExplorerObjectDto&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="207"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../injectables/Store.html" target="_self" >StoreMessage&lt;ExplorerObjectDto&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initObject"></a>
+                    <span class="name">
+                        <span ><b>initObject</b></span>
+                        <a href="#initObject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initObject()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="149"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:149</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveObject"></a>
+                    <span class="name">
+                        <span ><b>saveObject</b></span>
+                        <a href="#saveObject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>saveObject()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:128</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_entityData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_entityData</b></span>
+                        <a href="#_entityData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;{ [k: string]: unknown }&gt;(undefined)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_tabs"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_tabs</b></span>
+                        <a href="#_tabs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;ExplorerTab[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_targetData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_targetData</b></span>
+                        <a href="#_targetData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;TargetData&gt;(undefined)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actionsDialogVisibility"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>actionsDialogVisibility</b></span>
+                        <a href="#actionsDialogVisibility"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(undefined)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ar"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>ar</b></span>
+                        <a href="#ar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ActivatedRoute)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="config"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>config</b></span>
+                        <a href="#config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(DynamicDialogConfig, {optional: true})</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmationService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>confirmationService</b></span>
+                        <a href="#confirmationService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ConfirmationService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialogRef"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>dialogRef</b></span>
+                        <a href="#dialogRef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(DynamicDialogRef, {optional: true})</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialogService"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>dialogService</b></span>
+                        <a href="#dialogService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(DialogService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="entityForm"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>entityForm</b></span>
+                        <a href="#entityForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.fb.group({})</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="explorerService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>explorerService</b></span>
+                        <a href="#explorerService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ExplorerService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fb"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>fb</b></span>
+                        <a href="#fb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FormBuilder)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="localizePipe"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>localizePipe</b></span>
+                        <a href="#localizePipe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(LocalizePipe)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restTab"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>restTab</b></span>
+                        <a href="#restTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ExplorerObject.RestTab</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Router)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="store"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>store</b></span>
+                        <a href="#store"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Store)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ts"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>ts</b></span>
+                        <a href="#ts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslocoService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <span class="name"><b>data</b><a href="#data"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>data()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:72</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="entityTargetOrAlias"></a>
+                        <span class="name"><b>entityTargetOrAlias</b><a href="#entityTargetOrAlias"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>entityTargetOrAlias()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:76</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="targetData"></a>
+                        <span class="name"><b>targetData</b><a href="#targetData"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>targetData()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:80</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="entityData"></a>
+                        <span class="name"><b>entityData</b><a href="#entityData"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>entityData()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:84</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tabs"></a>
+                        <span class="name"><b>tabs</b><a href="#tabs"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>tabs()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:88</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="exportDialogConfig"></a>
+                        <span class="name"><b>exportDialogConfig</b><a href="#exportDialogConfig"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>exportDialogConfig()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:92</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dialogMode"></a>
+                        <span class="name"><b>dialogMode</b><a href="#dialogMode"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>dialogMode()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:101</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="id"></a>
+                        <span class="name"><b>id</b><a href="#id"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>id()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:105</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="duplicateId"></a>
+                        <span class="name"><b>duplicateId</b><a href="#duplicateId"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>duplicateId()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:109</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="target"></a>
+                        <span class="name"><b>target</b><a href="#target"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>target()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:113</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="preloaderChannel"></a>
+                        <span class="name"><b>preloaderChannel</b><a href="#preloaderChannel"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>preloaderChannel()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:117</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="canDeleteObject"></a>
+                        <span class="name"><b>canDeleteObject</b><a href="#canDeleteObject"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>canDeleteObject()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="121" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:121</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {inject, Injectable, signal} from &quot;@angular/core&quot;;
+import {DialogService, DynamicDialogConfig, DynamicDialogRef} from &quot;primeng/dynamicdialog&quot;;
+import {ActivatedRoute, Router} from &quot;@angular/router&quot;;
+import {ExplorerService} from &quot;../explorer.service&quot;;
+import {FormBuilder, FormControl} from &quot;@angular/forms&quot;;
+import {TranslocoService} from &quot;@ngneat/transloco&quot;;
+import {ConfirmationService} from &quot;primeng/api&quot;;
+import {ExplorerObject} from &quot;./explorer-object.constants&quot;;
+import { ExplorerObjectDto, ExplorerTab, ObjectDialogConfig, TargetData } from &quot;../explorer.types&quot;;
+import {ExplorerEvent} from &quot;./explorer.event&quot;;
+import {takeUntilDestroyed} from &quot;@angular/core/rxjs-interop&quot;;
+import {Explorer} from &quot;../explorer.constants&quot;;
+import {finalize, forkJoin, of, throwError} from &quot;rxjs&quot;;
+import {catchError} from &quot;rxjs/operators&quot;;
+import {LocalizePipe} from &quot;../../../../modules/locale&quot;;
+import {Store, StoreMessage} from &quot;../../../../modules/store&quot;;
+import {XdbExportDialogParams} from &quot;../../../xdb&quot;;
+import {PreloaderEvent} from &quot;../../../../modules/preloader&quot;;
+import {DashboardEvent, ToastEvent, ToastData} from &quot;../../../../global/vars&quot;;
+import DuplicateItemToken &#x3D; Explorer.DuplicateItemToken;
+
+@Injectable()
+export class ExplorerObjectViewModel {
+
+  readonly dialogService &#x3D; inject(DialogService);
+  private readonly dialogRef &#x3D; inject(DynamicDialogRef, {optional: true});
+  private readonly config &#x3D; inject(DynamicDialogConfig, {optional: true});
+  private readonly ar &#x3D; inject(ActivatedRoute);
+  private readonly explorerService &#x3D; inject(ExplorerService);
+  private readonly localizePipe &#x3D; inject(LocalizePipe);
+  private readonly store &#x3D; inject(Store);
+  private readonly fb &#x3D; inject(FormBuilder);
+  private readonly ts &#x3D; inject(TranslocoService);
+  private readonly router &#x3D; inject(Router);
+  private readonly confirmationService &#x3D; inject(ConfirmationService);
+  readonly entityForm &#x3D; this.fb.group({});
+  readonly restTab &#x3D; ExplorerObject.RestTab;
+  readonly actionsDialogVisibility &#x3D; signal&lt;boolean&gt;(undefined);
+  private readonly _targetData &#x3D; signal&lt;TargetData&gt;(undefined);
+  private readonly _entityData &#x3D; signal&lt;{ [k: string]: unknown }&gt;(undefined);
+  private readonly _tabs &#x3D; signal&lt;ExplorerTab[]&gt;([]);
+
+  constructor() {
+    this.store.on&lt;ExplorerObjectDto&gt;(ExplorerEvent.SaveObject).pipe(takeUntilDestroyed())
+      .subscribe(data &#x3D;&gt; this.handleSaveEvent(data));
+    this.store.on&lt;ExplorerObjectDto&gt;(ExplorerEvent.DeleteObject).pipe(takeUntilDestroyed())
+      .subscribe(data &#x3D;&gt; this.handleDeleteEvent(data));
+    this.store.on&lt;void&gt;(ExplorerEvent.ReloadObject).pipe(takeUntilDestroyed())
+      .subscribe(() &#x3D;&gt; {
+        this.actionsDialogVisibility.set(false);
+        this._tabs.set([]);
+        this.initObject();
+      });
+  }
+
+  private get data() {
+    return this.config?.data as ObjectDialogConfig;
+  }
+
+  get entityTargetOrAlias() {
+    return this.targetData.entity.alias || this.targetData.entity.target;
+  }
+
+  get targetData() {
+    return this._targetData();
+  }
+
+  get entityData() {
+    return this._entityData();
+  }
+
+  get tabs() {
+    return this._tabs();
+  }
+
+  get exportDialogConfig(): DynamicDialogConfig {
+    return {
+      header: this.ts.translate(&quot;explorer.export.label&quot;),
+      data: {target: this.targetData, entity: this.entityData} as XdbExportDialogParams,
+      modal: true,
+      position: &quot;center&quot;
+    };
+  }
+
+  get dialogMode() {
+    return !!this.dialogRef;
+  }
+
+  get id() {
+    return this.dialogMode ? this.data.id : this.ar.snapshot.params.id;
+  }
+
+  get duplicateId() {
+    return this.dialogMode ? undefined : this.ar.snapshot.queryParams[DuplicateItemToken];
+  }
+
+  get target() {
+    return this.dialogMode ? this.data.target : this.ar.snapshot.params.target;
+  }
+
+  get preloaderChannel() {
+    return Explorer.ObjectPreloaderCn;
+  }
+
+  get canDeleteObject() {
+    if (!this.entityData) {
+      return false;
+    }
+    return this.entityData[this.targetData?.primaryColumn?.property];
+  }
+
+  saveObject() {
+    const id &#x3D; this.id &#x3D;&#x3D;&#x3D; Explorer.NewItemToken ?
+      undefined : this.entityData[this.targetData.primaryColumn.property] as number;
+    this.store.emit&lt;ExplorerObjectDto&gt;(ExplorerEvent.SaveObject, {
+      id,
+      target: this.targetData.entity.target,
+      entity: this.entityForm.getRawValue()
+    });
+  }
+
+  deleteObject() {
+    this.confirmationService.confirm({
+      accept: () &#x3D;&gt; {
+        this.store.emit&lt;ExplorerObjectDto&gt;(ExplorerEvent.DeleteObject, {
+          id: this.entityData[this.targetData.primaryColumn.property] as number,
+          target: this.targetData.entity.target,
+        });
+      }
+    });
+  }
+
+  initObject() {
+    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
+    const targetObs &#x3D; this.explorerService.getTarget(this.target, &quot;object&quot;);
+    const entityObs &#x3D; this.explorerService.getEntity&lt;{ [k: string]: unknown }&gt;(
+      this.target, this.duplicateId ?? this.id
+    );
+    forkJoin({
+      target: targetObs,
+      entity: this.id &#x3D;&#x3D;&#x3D; Explorer.NewItemToken &amp;&amp; !this.duplicateId ? of(null) : entityObs
+    }).pipe(
+      finalize(() &#x3D;&gt; {
+        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
+      }),
+      catchError((res) &#x3D;&gt; {
+        this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {
+          title: res.error.message, message: res.error.statusCode
+        });
+        return throwError(() &#x3D;&gt; res);
+      })
+    ).subscribe(payload &#x3D;&gt; this.handleReceivedTargetData(payload));
+  }
+
+  private handleReceivedTargetData(payload: { entity: { [k: string]: unknown }; target: TargetData }) {
+    if (payload?.entity &amp;&amp; this.duplicateId) {
+      delete payload.entity[payload.target.primaryColumn.property];
+    }
+    this._targetData.set(payload.target);
+    this._entityData.set(payload.entity);
+    let title &#x3D; this.localizePipe.transform(
+      this.targetData.entity.name, this.targetData.entity.target
+    ) as string;
+    if (this.entityData &amp;&amp; !this.duplicateId) {
+      title +&#x3D; &#x60; #${this.entityData[this.targetData.primaryColumn.property]}&#x60;;
+    } else {
+      title +&#x3D; &quot; #new&quot;;
+    }
+    if (!this.dialogMode) {
+      this.store.emit&lt;string&gt;(DashboardEvent.PatchHeader, title);
+    }
+    const tabs: ExplorerTab[] &#x3D; [];
+    for (const col of this.targetData.entity.columns) {
+      if (!col.tab) {
+        col.tab &#x3D; this.restTab;
+        continue;
+      }
+      if (tabs.find(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; col.tab?.id)) {
+        continue;
+      }
+      tabs.push(col.tab);
+    }
+    tabs.push(this.restTab);
+    this._tabs.set(tabs);
+    this.targetData.entity.columns.forEach(col &#x3D;&gt; this.entityForm.addControl(
+      col.property, new FormControl(this.entityData ? this.entityData[col.property] : undefined))
+    );
+    this.entityForm.patchValue(this.entityData);
+  }
+
+  private handleSaveEvent(data: StoreMessage&lt;ExplorerObjectDto&gt;) {
+    this.actionsDialogVisibility.set(false);
+    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
+    this.explorerService.saveEntity(data.payload.entity, data.payload.target, data.payload.id).pipe(
+      finalize(() &#x3D;&gt; {
+        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
+      }),
+      catchError((res) &#x3D;&gt; {
+        this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {
+          title: res.error.message, message: res.error.statusCode
+        });
+        return throwError(() &#x3D;&gt; res);
+      })
+    ).subscribe((entity) &#x3D;&gt; {
+      this.store.emit&lt;ToastData&gt;(ToastEvent.Success, {
+        title: this.ts.translate(&quot;explorer.msg.object.save.success&quot;)
+      });
+      if (this.id &#x3D;&#x3D;&#x3D; Explorer.NewItemToken) {
+        const p1 &#x3D; this.entityTargetOrAlias;
+        this.router.navigate([
+          &#x60;/object/${p1}/${(entity as { [k: string]: unknown })[this.targetData.primaryColumn.property]}&#x60;
+        ], {replaceUrl: true});
+      }
+    });
+  }
+
+  private handleDeleteEvent(data: StoreMessage&lt;ExplorerObjectDto&gt;) {
+    this.actionsDialogVisibility.set(false);
+    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
+    this.explorerService.removeEntity(data.payload.target, data.payload.id).pipe(
+      finalize(() &#x3D;&gt; {
+        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
+      }),
+      catchError((res) &#x3D;&gt; {
+        this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {
+          title: res.error.message, message: res.error.statusCode
+        });
+        return throwError(() &#x3D;&gt; res);
+      })
+    ).subscribe(() &#x3D;&gt; {
+      this.store.emit&lt;ToastData&gt;(ToastEvent.Success, {
+        title: this.ts.translate(&quot;explorer.msg.object.delete.success&quot;)
+      });
+      this.router.navigate([
+        &#x60;/section/${this.entityTargetOrAlias}&#x60;
+      ], {replaceUrl: true});
+    });
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ExplorerObjectViewModel.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

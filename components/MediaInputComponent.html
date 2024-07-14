@@ -1,0 +1,1995 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Application documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Application documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MediaInputComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>lib/src/modules/media/src/input/media-input.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>ControlValueAccessor</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../injectables/ExplorerService.html" target="_self" >ExplorerService</a></code>
+                            <code>DialogService</code>
+                                <code><a href="../interfaces/Media.html" target="_self" >{
+    provide: NG_VALUE_ACCESSOR, multi: true, useExisting: MediaInputComponent
+}</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>media-input</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../interfaces/File.html" target="_self" >FileUploadModule</a></code>
+                                <code><a href="../interfaces/File.html" target="_self" >FileSizePipe</a></code>
+                                <code><a href="../components/MediaComponent.html" target="_self" >MediaComponent</a></code>
+                            <code>LocalizePipe</code>
+                            <code>TranslocoPipe</code>
+                            <code>NgTemplateOutlet</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./media-input.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./media-input.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#cdr" >cdr</a>
+                            </li>
+                            <li>
+                                <a href="#changeMedia" >changeMedia</a>
+                            </li>
+                            <li>
+                                <a href="#data" >data</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#dialogService" >dialogService</a>
+                            </li>
+                            <li>
+                                <a href="#disabled" >disabled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#explorerService" >explorerService</a>
+                            </li>
+                            <li>
+                                <a href="#galleryEnabled" >galleryEnabled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#localizePipe" >localizePipe</a>
+                            </li>
+                            <li>
+                                <a href="#mediaId" >mediaId</a>
+                            </li>
+                            <li>
+                                <a href="#mediaType" >mediaType</a>
+                            </li>
+                            <li>
+                                <a href="#multi" >multi</a>
+                            </li>
+                            <li>
+                                <a href="#onChange" >onChange</a>
+                            </li>
+                            <li>
+                                <a href="#onTouched" >onTouched</a>
+                            </li>
+                            <li>
+                                <a href="#placeholder" >placeholder</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#store" >store</a>
+                            </li>
+                            <li>
+                                <a href="#targetLoadingState" >targetLoadingState</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#ts" >ts</a>
+                            </li>
+                            <li>
+                                <a href="#uploadedFiles" >uploadedFiles</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onUpload" >onUpload</a>
+                            </li>
+                            <li>
+                                <a href="#onUploadError" >onUploadError</a>
+                            </li>
+                            <li>
+                                <a href="#openMediaSection" >openMediaSection</a>
+                            </li>
+                            <li>
+                                <a href="#registerOnChange" >registerOnChange</a>
+                            </li>
+                            <li>
+                                <a href="#registerOnTouched" >registerOnTouched</a>
+                            </li>
+                            <li>
+                                <a href="#removeUploadedMedia" >removeUploadedMedia</a>
+                            </li>
+                            <li>
+                                <a href="#setDisabledState" >setDisabledState</a>
+                            </li>
+                            <li>
+                                <a href="#synchronize" >synchronize</a>
+                            </li>
+                            <li>
+                                <a href="#writeValue" >writeValue</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#galleryEnabled" >galleryEnabled</a>
+                            </li>
+                            <li>
+                                <a href="#mediaId" >mediaId</a>
+                            </li>
+                            <li>
+                                <a href="#mediaType" >mediaType</a>
+                            </li>
+                            <li>
+                                <a href="#multi" >multi</a>
+                            </li>
+                            <li>
+                                <a href="#placeholder" >placeholder</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#uploadUrl" >uploadUrl</a>
+                                </li>
+                                <li>
+                                    <a href="#multiValue" >multiValue</a>
+                                </li>
+                                <li>
+                                    <a href="#singleValue" >singleValue</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="galleryEnabled"></a>
+                        <b>galleryEnabled</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:72</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mediaId"></a>
+                        <b>mediaId</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:69</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mediaType"></a>
+                        <b>mediaType</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:68</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="multi"></a>
+                        <b>multi</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:71</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="placeholder"></a>
+                        <b>placeholder</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:70</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onUpload"></a>
+                    <span class="name">
+                        <span ><b>onUpload</b></span>
+                        <a href="#onUpload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onUpload(event: <a href="../interfaces/FileUploadEvent.html" target="_self">FileUploadEvent</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:104</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="../interfaces/FileUploadEvent.html" target="_self" >FileUploadEvent</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onUploadError"></a>
+                    <span class="name">
+                        <span ><b>onUploadError</b></span>
+                        <a href="#onUploadError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onUploadError(e: <a href="../interfaces/File.html" target="_self">FileUploadErrorEvent</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="126"
+                                    class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:126</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>e</td>
+                                            <td>
+                                                            <code><a href="../interfaces/File.html" target="_self" >FileUploadErrorEvent</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openMediaSection"></a>
+                    <span class="name">
+                        <span ><b>openMediaSection</b></span>
+                        <a href="#openMediaSection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openMediaSection()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="132"
+                                    class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:132</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerOnChange"></a>
+                    <span class="name">
+                        <span ><b>registerOnChange</b></span>
+                        <a href="#registerOnChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registerOnChange(onChange: () => void)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="178"
+                                    class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:178</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>onChange</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerOnTouched"></a>
+                    <span class="name">
+                        <span ><b>registerOnTouched</b></span>
+                        <a href="#registerOnTouched"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registerOnTouched(onTouched: () => void)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="182"
+                                    class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:182</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>onTouched</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeUploadedMedia"></a>
+                    <span class="name">
+                        <span ><b>removeUploadedMedia</b></span>
+                        <a href="#removeUploadedMedia"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeUploadedMedia(idx: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="163"
+                                    class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:163</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idx</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setDisabledState"></a>
+                    <span class="name">
+                        <span ><b>setDisabledState</b></span>
+                        <a href="#setDisabledState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setDisabledState(disabled: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="186"
+                                    class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:186</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>disabled</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="synchronize"></a>
+                    <span class="name">
+                        <span ><b>synchronize</b></span>
+                        <a href="#synchronize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>synchronize()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="writeValue"></a>
+                    <span class="name">
+                        <span ><b>writeValue</b></span>
+                        <a href="#writeValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>writeValue(res: <a href="../interfaces/Media.html" target="_self">Media | Media[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>res</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Media.html" target="_self" >Media | Media[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cdr"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>cdr</b></span>
+                        <a href="#cdr"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ChangeDetectorRef)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeMedia"></a>
+                    <span class="name">
+                        <span ><b>changeMedia</b></span>
+                        <a href="#changeMedia"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>output&lt;Media | Media[]&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="data"></a>
+                    <span class="name">
+                        <span ><b>data</b></span>
+                        <a href="#data"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Media.html" target="_self" >Media | Media[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialogService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>dialogService</b></span>
+                        <a href="#dialogService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(DialogService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="disabled"></a>
+                    <span class="name">
+                        <span ><b>disabled</b></span>
+                        <a href="#disabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="explorerService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>explorerService</b></span>
+                        <a href="#explorerService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ExplorerService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="galleryEnabled"></a>
+                    <span class="name">
+                        <span ><b>galleryEnabled</b></span>
+                        <a href="#galleryEnabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="localizePipe"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>localizePipe</b></span>
+                        <a href="#localizePipe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(LocalizePipe)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mediaId"></a>
+                    <span class="name">
+                        <span ><b>mediaId</b></span>
+                        <a href="#mediaId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mediaType"></a>
+                    <span class="name">
+                        <span ><b>mediaType</b></span>
+                        <a href="#mediaType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="multi"></a>
+                    <span class="name">
+                        <span ><b>multi</b></span>
+                        <a href="#multi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChange"></a>
+                    <span class="name">
+                        <span ><b>onChange</b></span>
+                        <a href="#onChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="191" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:191</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onTouched"></a>
+                    <span class="name">
+                        <span ><b>onTouched</b></span>
+                        <a href="#onTouched"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="194" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:194</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="placeholder"></a>
+                    <span class="name">
+                        <span ><b>placeholder</b></span>
+                        <a href="#placeholder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="store"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>store</b></span>
+                        <a href="#store"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Store)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="targetLoadingState"></a>
+                    <span class="name">
+                        <span ><b>targetLoadingState</b></span>
+                        <a href="#targetLoadingState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ts"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>ts</b></span>
+                        <a href="#ts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslocoService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadedFiles"></a>
+                    <span class="name">
+                        <span ><b>uploadedFiles</b></span>
+                        <a href="#uploadedFiles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/File.html" target="_self" >File[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="uploadUrl"></a>
+                        <span class="name"><b>uploadUrl</b><a href="#uploadUrl"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>uploadUrl()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:84</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="multiValue"></a>
+                        <span class="name"><b>multiValue</b><a href="#multiValue"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>multiValue()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:88</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="singleValue"></a>
+                        <span class="name"><b>singleValue</b><a href="#singleValue"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>singleValue()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">lib/src/modules/media/src/input/media-input.component.ts:92</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  inject,
+  input,
+  output
+} from &quot;@angular/core&quot;;
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from &quot;@angular/forms&quot;;
+import {FileUploadEvent, Media} from &quot;../media.types&quot;;
+import {FileUploadErrorEvent, FileUploadModule} from &quot;primeng/fileupload&quot;;
+import {NgTemplateOutlet} from &quot;@angular/common&quot;;
+import {HttpResponse} from &quot;@angular/common/http&quot;;
+import {MediaComponent} from &quot;../media.component&quot;;
+import {MediaTypeVariant} from &quot;../media.constants&quot;;
+import {TranslocoPipe, TranslocoService} from &quot;@ngneat/transloco&quot;;
+import {DialogService} from &quot;primeng/dynamicdialog&quot;;
+import {finalize} from &quot;rxjs&quot;;
+import {FileSizePipe} from &quot;../../../file&quot;;
+import {SectionDialogConfig, ExplorerService} from &quot;../../../../components/explorer&quot;;
+import {Store} from &quot;../../../store&quot;;
+import {ToastEvent, ToastData} from &quot;../../../../global/vars&quot;;
+import {LocalizePipe} from &quot;../../../locale&quot;;
+
+@Component({
+  selector: &quot;media-input&quot;,
+  standalone: true,
+  templateUrl: &quot;./media-input.component.html&quot;,
+  styleUrls: [&quot;./media-input.component.scss&quot;],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    FileUploadModule,
+    FileSizePipe,
+    MediaComponent,
+    LocalizePipe,
+    TranslocoPipe,
+    NgTemplateOutlet
+  ],
+  providers: [
+    ExplorerService,
+    DialogService,
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: MediaInputComponent
+    },
+  ]
+})
+export class MediaInputComponent implements ControlValueAccessor {
+
+  changeMedia &#x3D; output&lt;Media | Media[]&gt;();
+  mediaType &#x3D; input.required&lt;MediaTypeVariant&gt;();
+  mediaId &#x3D; input&lt;number&gt;();
+  placeholder &#x3D; input&lt;string&gt;();
+  multi &#x3D; input&lt;boolean&gt;();
+  galleryEnabled &#x3D; input&lt;boolean&gt;(true);
+  disabled &#x3D; false;
+  uploadedFiles: File[];
+  data: Media | Media[];
+  targetLoadingState: boolean;
+  private readonly store &#x3D; inject(Store);
+  private readonly dialogService &#x3D; inject(DialogService);
+  private readonly localizePipe &#x3D; inject(LocalizePipe);
+  private readonly explorerService &#x3D; inject(ExplorerService);
+  private readonly cdr &#x3D; inject(ChangeDetectorRef);
+  private readonly ts &#x3D; inject(TranslocoService);
+
+  get uploadUrl() {
+    return &#x60;/media/upload/${this.mediaType()}${!this.mediaId() ? &quot;&quot; : &#x60;?id&#x3D;${this.mediaId()}&#x60;}&#x60;;
+  }
+
+  get multiValue() {
+    return this.data as Media[];
+  }
+
+  get singleValue() {
+    return this.data as Media;
+  }
+
+  writeValue(res: Media | Media[]) {
+    if (!res) {
+      return;
+    }
+    this.data &#x3D; res;
+    this.cdr.markForCheck();
+  }
+
+  onUpload(event: FileUploadEvent) {
+    this.uploadedFiles &#x3D; [];
+    for (const file of event.files) {
+      this.uploadedFiles.push(file);
+    }
+    const res &#x3D; (event.originalEvent as HttpResponse&lt;Media&gt;).body;
+    if (this.multi()) {
+      if (!this.data) {
+        this.data &#x3D; [];
+      }
+      (this.data as Media[]).push(res);
+    } else {
+      this.data &#x3D; res;
+    }
+    this.synchronize();
+    this.cdr.markForCheck();
+    setTimeout(() &#x3D;&gt; {
+      this.uploadedFiles &#x3D; undefined;
+      this.cdr.markForCheck();
+    }, 3000);
+  }
+
+  onUploadError(e: FileUploadErrorEvent) {
+    this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {
+      title: this.ts.translate(&quot;msg.error&quot;), message: e.error.error?.message || e.error.error?.status
+    });
+  }
+
+  openMediaSection() {
+    this.targetLoadingState &#x3D; true;
+    this.explorerService.getTarget(&quot;MediaEntity&quot;, &quot;section&quot;).pipe(finalize(() &#x3D;&gt; {
+      this.targetLoadingState &#x3D; false;
+      this.cdr.markForCheck();
+    })).subscribe(payload &#x3D;&gt; {
+      import(&quot;../../../../components/explorer&quot;).then(m &#x3D;&gt; {
+        this.dialogService.open(m.SectionComponent, {
+          header: this.localizePipe.transform(payload.entity.name, payload.entity.target) as string,
+          data: {target: payload, multi: this.multi()} as SectionDialogConfig,
+          modal: true,
+          position: &quot;top&quot;,
+        }).onClose.subscribe((res: Media | Media[]) &#x3D;&gt; {
+          if (!res) {
+            return;
+          }
+          if (this.multi()) {
+            if (!this.data) {
+              this.data &#x3D; [];
+            }
+            this.data &#x3D; (this.data as Media[]).concat(res);
+          } else {
+            this.data &#x3D; res;
+          }
+          this.synchronize();
+          this.cdr.markForCheck();
+        });
+      });
+    });
+  }
+
+  removeUploadedMedia(idx: number) {
+    if (!this.multi()) {
+      this.data &#x3D; null;
+    } else {
+      (this.data as Media[]).splice(idx, 1);
+    }
+    this.synchronize();
+    this.cdr.markForCheck();
+  }
+
+  synchronize() {
+    this.onChange(this.data);
+    this.changeMedia.emit(this.data);
+  }
+
+  registerOnChange(onChange: () &#x3D;&gt; void) {
+    this.onChange &#x3D; onChange;
+  }
+
+  registerOnTouched(onTouched: () &#x3D;&gt; void) {
+    this.onTouched &#x3D; onTouched;
+  }
+
+  setDisabledState(disabled: boolean) {
+    this.disabled &#x3D; disabled;
+    this.cdr.markForCheck();
+  }
+
+  onChange &#x3D; (res: Media | Media[]) &#x3D;&gt; {
+  };
+
+  onTouched &#x3D; () &#x3D;&gt; {
+  };
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;p-fileUpload
+  name&#x3D;&quot;file&quot;
+  accept&#x3D;&quot;image/*&quot;
+  chooseIcon&#x3D;&quot;pi pi-folder-open&quot;
+  [disabled]&#x3D;&quot;disabled&quot;
+  [cancelLabel]&#x3D;&quot;&#x27;media.input.cancel&#x27; | transloco&quot;
+  [chooseLabel]&#x3D;&quot;&#x27;media.input.choose&#x27; | transloco&quot;
+  [uploadLabel]&#x3D;&quot;&#x27;media.input.upload&#x27; | transloco&quot;
+  [showCancelButton]&#x3D;&quot;false&quot;
+  [url]&#x3D;&quot;uploadUrl&quot;
+  [multiple]&#x3D;&quot;false&quot;
+  (onError)&#x3D;&quot;onUploadError($event)&quot;
+  (onUpload)&#x3D;&quot;onUpload($event)&quot;&gt;
+  &lt;ng-template pTemplate&#x3D;&quot;toolbar&quot;&gt;
+    @if (galleryEnabled()) {
+      &lt;button pButton class&#x3D;&quot;p-button-success&quot;
+              [disabled]&#x3D;&quot;disabled&quot;
+              [loading]&#x3D;&quot;targetLoadingState&quot;
+              (click)&#x3D;&quot;openMediaSection()&quot;&gt;
+        {{ &quot;media.input.section.open&quot; | transloco }}
+      &lt;/button&gt;
+    }
+  &lt;/ng-template&gt;
+  &lt;ng-template pTemplate&#x3D;&quot;content&quot;&gt;
+    @if (uploadedFiles?.length) {
+      &lt;div class&#x3D;&quot;stats&quot;&gt;
+        {{ &quot;media.input.label.files.success&quot; | transloco }}
+        &lt;ul&gt;
+          @for (file of uploadedFiles; track file.name) {
+            &lt;li&gt;
+              {{ file.name }} - {{ file.size | fileSize }}
+            &lt;/li&gt;
+          }
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    }
+    &lt;h4&gt;{{ placeholder() }}&lt;/h4&gt;
+    &lt;div class&#x3D;&quot;medias&quot;&gt;
+      @if (data) {
+        @if (!multi() &amp;&amp; singleValue) {
+          &lt;div&gt;
+            &lt;ng-container *ngTemplateOutlet&#x3D;&quot;mediaItem; context: {media: singleValue}&quot;/&gt;
+          &lt;/div&gt;
+        }
+        @if (multi() &amp;&amp; multiValue.length) {
+          @for (media of multiValue; track media.id; let i &#x3D; $index) {
+            &lt;ng-container *ngTemplateOutlet&#x3D;&quot;mediaItem; context: {media: media, idx: i}&quot;/&gt;
+          }
+        }
+      } @else {
+        &lt;span class&#x3D;&quot;c-warn&quot;&gt;{{&quot;msg.empty&quot; | transloco}}&lt;/span&gt;
+      }
+    &lt;/div&gt;
+  &lt;/ng-template&gt;
+&lt;/p-fileUpload&gt;
+&lt;ng-template #mediaItem let-media&#x3D;&quot;media&quot; let-idx&#x3D;&quot;idx&quot;&gt;
+  &lt;p-button
+    icon&#x3D;&quot;pi pi-times&quot; severity&#x3D;&quot;danger&quot;
+    [rounded]&#x3D;&quot;true&quot;
+    [text]&#x3D;&quot;true&quot;
+    (click)&#x3D;&quot;removeUploadedMedia(idx)&quot;/&gt;
+  &lt;media-res format&#x3D;&quot;thumb&quot; [src]&#x3D;&quot;media&quot;/&gt;
+  {{ media.name | localize: (media.code ?? &#x27;id_&#x27; + media.id) }}
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./media-input.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host {
+  ::ng-deep {
+    .p-fileupload-content {
+      padding: 0.5rem 0 1rem;
+    }
+
+    .p-button-success {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 0.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .p-fileupload-buttonbar {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+        button {
+          width: 100%;
+        }
+
+        .p-fileupload-choose {
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+}
+
+h4 {
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+}
+
+.medias {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  &amp; &gt; div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    ::ng-deep img {
+      --s: 40px;
+      max-width: var(--s);
+      max-height: var(--s);
+    }
+  }
+}
+
+.stats {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: var(--success-color);
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><p-fileUpload  name="file"  accept="image/*"  chooseIcon="pi pi-folder-open"  [disabled]="disabled"  [cancelLabel]="\'media.input.cancel\' | transloco"  [chooseLabel]="\'media.input.choose\' | transloco"  [uploadLabel]="\'media.input.upload\' | transloco"  [showCancelButton]="false"  [url]="uploadUrl"  [multiple]="false"  (onError)="onUploadError($event)"  (onUpload)="onUpload($event)">  <ng-template pTemplate="toolbar">    @if (galleryEnabled()) {      <button pButton class="p-button-success"              [disabled]="disabled"              [loading]="targetLoadingState"              (click)="openMediaSection()">        {{ "media.input.section.open" | transloco }}      </button>    }  </ng-template>  <ng-template pTemplate="content">    @if (uploadedFiles?.length) {      <div class="stats">        {{ "media.input.label.files.success" | transloco }}        <ul>          @for (file of uploadedFiles; track file.name) {            <li>              {{ file.name }} - {{ file.size | fileSize }}            </li>          }        </ul>      </div>    }    <h4>{{ placeholder() }}</h4>    <div class="medias">      @if (data) {        @if (!multi() && singleValue) {          <div>            <ng-container *ngTemplateOutlet="mediaItem; context: {media: singleValue}"/>          </div>        }        @if (multi() && multiValue.length) {          @for (media of multiValue; track media.id; let i = $index) {            <ng-container *ngTemplateOutlet="mediaItem; context: {media: media, idx: i}"/>          }        }      } @else {        <span class="c-warn">{{"msg.empty" | transloco}}</span>      }    </div>  </ng-template></p-fileUpload><ng-template #mediaItem let-media="media" let-idx="idx">  <p-button    icon="pi pi-times" severity="danger"    [rounded]="true"    [text]="true"    (click)="removeUploadedMedia(idx)"/>  <media-res format="thumb" [src]="media"/>  {{ media.name | localize: (media.code ?? \'id_\' + media.id) }}</ng-template></div>'
+    var COMPONENTS = [{'name': 'AuthComponent', 'selector': 'auth'},{'name': 'BooleanObjectRendererComponent', 'selector': 'boolean-object-renderer'},{'name': 'BooleanSectionRendererComponent', 'selector': 'boolean-section-renderer'},{'name': 'ConfigComponent', 'selector': 'config'},{'name': 'ConfigPropertyEditorComponent', 'selector': 'config-property-editor'},{'name': 'CreateFileActionDialogComponent', 'selector': 'create-file-action-dialog'},{'name': 'CreateFileActionRendererComponent', 'selector': 'create-file-action-renderer'},{'name': 'CreateMediaActionDialogComponent', 'selector': 'create-media-action-dialog'},{'name': 'CreateMediaActionRendererComponent', 'selector': 'create-media-action-renderer'},{'name': 'DateObjectRendererComponent', 'selector': 'date-object-renderer'},{'name': 'DateSectionRendererComponent', 'selector': 'date-section-renderer'},{'name': 'DeleteFileActionRendererComponent', 'selector': 'delete-file-action-renderer'},{'name': 'DeleteMediaActionRendererComponent', 'selector': 'delete-media-action-renderer'},{'name': 'ExplorerActionRendererComponent', 'selector': 'explorer-action-renderer'},{'name': 'ExplorerObjectComponent', 'selector': 'explorer-object'},{'name': 'ExplorerObjectRendererComponent', 'selector': 'explorer-object-renderer'},{'name': 'ExplorerSectionRendererComponent', 'selector': 'explorer-section-renderer'},{'name': 'FileInputComponent', 'selector': 'file-input'},{'name': 'FileMetadataObjectRendererComponent', 'selector': 'file-metadata-object-renderer'},{'name': 'FileStatMediaObjectRendererComponent', 'selector': 'file-stat-media-object-renderer'},{'name': 'ImagesStatsMediaObjectRendererComponent', 'selector': 'images-stats-media-object-renderer'},{'name': 'LocalizedMediaObjectRendererComponent', 'selector': 'localized-media-object-renderer'},{'name': 'LocalizedStringObjectRendererComponent', 'selector': 'localized-string-object-renderer'},{'name': 'LocalizeMediaInputComponent', 'selector': 'localize-media-input'},{'name': 'LocalizeStringInputComponent', 'selector': 'localize-string-input'},{'name': 'MediaComponent', 'selector': 'media-res'},{'name': 'MediaInputComponent', 'selector': 'media-input'},{'name': 'MediaObjectRendererComponent', 'selector': 'media-object-renderer'},{'name': 'MediaSectionRendererComponent', 'selector': 'media-section-renderer'},{'name': 'NewPasswordObjectRendererComponent', 'selector': 'new-password-object-renderer'},{'name': 'ObjectComponent', 'selector': 'object'},{'name': 'ObjectDetailsColumnEditorComponent', 'selector': 'object-details-column-editor'},{'name': 'ObjectDetailsComponent', 'selector': 'object-details'},{'name': 'PreloaderComponent', 'selector': 'preloader'},{'name': 'ProcessStatsObjectRendererComponent', 'selector': 'process-stats-media-object-renderer'},{'name': 'ProfileComponent', 'selector': 'profile'},{'name': 'ReCreateMediaActionRendererComponent', 'selector': 're-create-media-action-renderer'},{'name': 'ReferenceObjectRendererComponent', 'selector': 'reference-object-renderer'},{'name': 'ReferenceSectionRendererComponent', 'selector': 'reference-section-renderer'},{'name': 'RefInputComponent', 'selector': 'ref-input'},{'name': 'SectionComponent', 'selector': 'section'},{'name': 'SectionFilterDialogComponent', 'selector': 'section-filter-dialog'},{'name': 'StartProcessActionRendererComponent', 'selector': 'start-process-action-renderer'},{'name': 'StopProcessActionRendererComponent', 'selector': 'stop-process-action-renderer'},{'name': 'StringObjectRendererComponent', 'selector': 'string-object-renderer'},{'name': 'StringSectionRendererComponent', 'selector': 'string-section-renderer'},{'name': 'TargetColumnsDialogComponent', 'selector': 'target-columns-dialog'},{'name': 'ToggleProcessActionRendererComponent', 'selector': 'toggle-process-action-renderer'},{'name': 'UpdateMediaFileActionDialogComponent', 'selector': 'update-media-file-action-dialog'},{'name': 'UpdateMediaFileActionRendererComponent', 'selector': 'update-media-file-action-renderer'},{'name': 'VirtualMediaSectionRendererComponent', 'selector': 'virtual-media-section-renderer'},{'name': 'XdbExportDialogComponent', 'selector': 'xdb-export-dialog'},{'name': 'XdbImportComponent', 'selector': 'xdb-import'}];
+    var DIRECTIVES = [{'name': 'PreloaderDirective', 'selector': '[preloading]'},{'name': 'PreventDefaultDirective', 'selector': '[prevent-default]'},{'name': 'StopPropagationDirective', 'selector': '[stop-propagation]'}];
+    var ACTUAL_COMPONENT = {'name': 'MediaInputComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MediaInputComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

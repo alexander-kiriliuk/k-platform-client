@@ -1,0 +1,1439 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Application documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Application documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-functions">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Functions</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#clearSpaces" title="lib/src/global/util/src/string.utils.ts" ><b>clearSpaces</b>&nbsp;&nbsp;&nbsp;(lib/.../string.utils.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createColumnForm" title="lib/src/components/object/src/details/object-details.constants.ts" ><b>createColumnForm</b>&nbsp;&nbsp;&nbsp;(lib/.../object-details.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createFieldFilterForm" title="lib/src/components/explorer/src/section/filter/section-filter-dialog.constants.ts" ><b>createFieldFilterForm</b>&nbsp;&nbsp;&nbsp;(lib/.../section-filter-dialog.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createForm" title="lib/src/components/config/src/editor/config-property-editor.constants.ts" ><b>createForm</b>&nbsp;&nbsp;&nbsp;(lib/.../config-property-editor.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createForm" title="lib/src/components/xdb/src/xdb-export/xdb-export-dialog.constants.ts" ><b>createForm</b>&nbsp;&nbsp;&nbsp;(lib/.../xdb-export-dialog.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createLoginForm" title="lib/src/components/auth/src/auth.constants.ts" ><b>createLoginForm</b>&nbsp;&nbsp;&nbsp;(lib/.../auth.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createNewPasswordObjectRendererForm" title="lib/src/components/explorer/src/renderer/custom/object/new-password/new-password-object-renderer.constants.ts" ><b>createNewPasswordObjectRendererForm</b>&nbsp;&nbsp;&nbsp;(lib/.../new-password-object-renderer.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CreateProfileForm" title="lib/src/components/profile/src/profile.constants.ts" ><b>CreateProfileForm</b>&nbsp;&nbsp;&nbsp;(lib/.../profile.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createTabForm" title="lib/src/components/object/src/details/object-details.constants.ts" ><b>createTabForm</b>&nbsp;&nbsp;&nbsp;(lib/.../object-details.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createTargetForm" title="lib/src/components/object/src/details/object-details.constants.ts" ><b>createTargetForm</b>&nbsp;&nbsp;&nbsp;(lib/.../object-details.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#detectWebpSupportFactory" title="lib/src/global/util/src/media.utils.ts" ><b>detectWebpSupportFactory</b>&nbsp;&nbsp;&nbsp;(lib/.../media.utils.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#fieldMatchValidator" title="lib/src/global/validator/src/field-match.validator.ts" ><b>fieldMatchValidator</b>&nbsp;&nbsp;&nbsp;(lib/.../field-match.validator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#fillParams" title="lib/src/global/util/src/string.utils.ts" ><b>fillParams</b>&nbsp;&nbsp;&nbsp;(lib/.../string.utils.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getCurrentTheme" title="lib/src/global/util/src/theme.utils.ts" ><b>getCurrentTheme</b>&nbsp;&nbsp;&nbsp;(lib/.../theme.utils.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getRandomInt" title="lib/src/global/util/src/number.utils.ts" ><b>getRandomInt</b>&nbsp;&nbsp;&nbsp;(lib/.../number.utils.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#handleJsonColumn" title="lib/src/components/object/src/details/object-details.constants.ts" ><b>handleJsonColumn</b>&nbsp;&nbsp;&nbsp;(lib/.../object-details.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#jsonStringValidator" title="lib/src/global/validator/src/json-string.validator.ts" ><b>jsonStringValidator</b>&nbsp;&nbsp;&nbsp;(lib/.../json-string.validator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#notOnlySpacesValidator" title="lib/src/global/validator/src/not-only-spaces.validator.ts" ><b>notOnlySpacesValidator</b>&nbsp;&nbsp;&nbsp;(lib/.../not-only-spaces.validator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#onlyLatinLettersAndNumbersValidator" title="lib/src/global/validator/src/only-latin-letters-and-numbers.validator.ts" ><b>onlyLatinLettersAndNumbersValidator</b>&nbsp;&nbsp;&nbsp;(lib/.../only-latin-letters-and-numbers.validator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#onlyLatinLettersAndNumbersWithHyphensValidator" title="lib/src/global/validator/src/only-latin-letters-and-numbers.validator.ts" ><b>onlyLatinLettersAndNumbersWithHyphensValidator</b>&nbsp;&nbsp;&nbsp;(lib/.../only-latin-letters-and-numbers.validator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#parseParamsString" title="lib/src/global/util/src/string.utils.ts" ><b>parseParamsString</b>&nbsp;&nbsp;&nbsp;(lib/.../string.utils.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#provideExplorerActionRenderers" title="lib/src/components/explorer/src/explorer-action-renderer-providers.ts" ><b>provideExplorerActionRenderers</b>&nbsp;&nbsp;&nbsp;(lib/.../explorer-action-renderer-providers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#provideExplorerObjectRenderers" title="lib/src/components/explorer/src/explorer-object-renderer-providers.ts" ><b>provideExplorerObjectRenderers</b>&nbsp;&nbsp;&nbsp;(lib/.../explorer-object-renderer-providers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#provideExplorerSectionRenderers" title="lib/src/components/explorer/src/explorer-secrion-renderer-providers.ts" ><b>provideExplorerSectionRenderers</b>&nbsp;&nbsp;&nbsp;(lib/.../explorer-secrion-renderer-providers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#setDefaultTheme" title="lib/src/global/util/src/theme.utils.ts" ><b>setDefaultTheme</b>&nbsp;&nbsp;&nbsp;(lib/.../theme.utils.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#setTheme" title="lib/src/global/util/src/theme.utils.ts" ><b>setTheme</b>&nbsp;&nbsp;&nbsp;(lib/.../theme.utils.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#stringifyParamsObject" title="lib/src/global/util/src/string.utils.ts" ><b>stringifyParamsObject</b>&nbsp;&nbsp;&nbsp;(lib/.../string.utils.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>lib/src/global/util/src/string.utils.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearSpaces"></a>
+                    <span class="name">
+                        <span ><b>clearSpaces</b></span>
+                        <a href="#clearSpaces"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clearSpaces(str: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>str</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fillParams"></a>
+                    <span class="name">
+                        <span ><b>fillParams</b></span>
+                        <a href="#fillParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>fillParams(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, ...params: undefined)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parseParamsString"></a>
+                    <span class="name">
+                        <span ><b>parseParamsString</b></span>
+                        <a href="#parseParamsString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>parseParamsString(filterString: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>filterString</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>literal type</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stringifyParamsObject"></a>
+                    <span class="name">
+                        <span ><b>stringifyParamsObject</b></span>
+                        <a href="#stringifyParamsObject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>stringifyParamsObject(filterObject)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>filterObject</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/components/object/src/details/object-details.constants.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createColumnForm"></a>
+                    <span class="name">
+                        <span ><b>createColumnForm</b></span>
+                        <a href="#createColumnForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createColumnForm(payload: <a href="../interfaces/ExplorerColumn.html" target="_self">ExplorerColumn</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>payload</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ExplorerColumn.html" target="_self" >ExplorerColumn</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#ColumnForm" target="_self" >FormGroup&lt;ColumnForm&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createTabForm"></a>
+                    <span class="name">
+                        <span ><b>createTabForm</b></span>
+                        <a href="#createTabForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createTabForm(target: <a href="../interfaces/ExplorerTarget.html" target="_self">ExplorerTarget</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>target</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ExplorerTarget.html" target="_self" >ExplorerTarget</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#TabForm" target="_self" >FormGroup&lt;TabForm&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createTargetForm"></a>
+                    <span class="name">
+                        <span ><b>createTargetForm</b></span>
+                        <a href="#createTargetForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createTargetForm()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/TargetForm.html" target="_self" >FormGroup&lt;TargetForm&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleJsonColumn"></a>
+                    <span class="name">
+                        <span ><b>handleJsonColumn</b></span>
+                        <a href="#handleJsonColumn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleJsonColumn(data)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/components/explorer/src/section/filter/section-filter-dialog.constants.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createFieldFilterForm"></a>
+                    <span class="name">
+                        <span ><b>createFieldFilterForm</b></span>
+                        <a href="#createFieldFilterForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createFieldFilterForm()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/FieldFilterForm.html" target="_self" >FormGroup&lt;FieldFilterForm&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/components/config/src/editor/config-property-editor.constants.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createForm"></a>
+                    <span class="name">
+                        <span ><b>createForm</b></span>
+                        <a href="#createForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createForm()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#ConfigEditorForm" target="_self" >FormGroup&lt;ConfigEditorForm&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/components/xdb/src/xdb-export/xdb-export-dialog.constants.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createForm"></a>
+                    <span class="name">
+                        <span ><b>createForm</b></span>
+                        <a href="#createForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createForm()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#XdbExportForm" target="_self" >FormGroup&lt;XdbExportForm&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/components/auth/src/auth.constants.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createLoginForm"></a>
+                    <span class="name">
+                        <span ><b>createLoginForm</b></span>
+                        <a href="#createLoginForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createLoginForm()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#LoginForm" target="_self" >FormGroup&lt;LoginForm&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/components/explorer/src/renderer/custom/object/new-password/new-password-object-renderer.constants.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewPasswordObjectRendererForm"></a>
+                    <span class="name">
+                        <span ><b>createNewPasswordObjectRendererForm</b></span>
+                        <a href="#createNewPasswordObjectRendererForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNewPasswordObjectRendererForm()</code>
+                </td>
+            </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>    <h3>lib/src/components/profile/src/profile.constants.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CreateProfileForm"></a>
+                    <span class="name">
+                        <span ><b>CreateProfileForm</b></span>
+                        <a href="#CreateProfileForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>CreateProfileForm()</code>
+                </td>
+            </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>    <h3>lib/src/global/util/src/media.utils.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="detectWebpSupportFactory"></a>
+                    <span class="name">
+                        <span ><b>detectWebpSupportFactory</b></span>
+                        <a href="#detectWebpSupportFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>detectWebpSupportFactory(ds: <a href="../interfaces/Device.html" target="_self">DeviceDetectorService</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ds</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Device.html" target="_self" >DeviceDetectorService</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/global/validator/src/field-match.validator.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fieldMatchValidator"></a>
+                    <span class="name">
+                        <span ><b>fieldMatchValidator</b></span>
+                        <a href="#fieldMatchValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>fieldMatchValidator(firstCtrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, secondCtrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>firstCtrl</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>secondCtrl</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/global/util/src/theme.utils.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCurrentTheme"></a>
+                    <span class="name">
+                        <span ><b>getCurrentTheme</b></span>
+                        <a href="#getCurrentTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCurrentTheme()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#SystemTheme" target="_self" >SystemTheme</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setDefaultTheme"></a>
+                    <span class="name">
+                        <span ><b>setDefaultTheme</b></span>
+                        <a href="#setDefaultTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setDefaultTheme()</code>
+                </td>
+            </tr>
+
+
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setTheme"></a>
+                    <span class="name">
+                        <span ><b>setTheme</b></span>
+                        <a href="#setTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setTheme(theme: <a href="../undefineds/SystemTheme.html" target="_self">SystemTheme</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>theme</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#SystemTheme" target="_self" >SystemTheme</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/global/util/src/number.utils.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRandomInt"></a>
+                    <span class="name">
+                        <span ><b>getRandomInt</b></span>
+                        <a href="#getRandomInt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRandomInt(maxVal?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>maxVal</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/global/validator/src/json-string.validator.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="jsonStringValidator"></a>
+                    <span class="name">
+                        <span ><b>jsonStringValidator</b></span>
+                        <a href="#jsonStringValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>jsonStringValidator()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/global/validator/src/not-only-spaces.validator.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notOnlySpacesValidator"></a>
+                    <span class="name">
+                        <span ><b>notOnlySpacesValidator</b></span>
+                        <a href="#notOnlySpacesValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>notOnlySpacesValidator()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/global/validator/src/only-latin-letters-and-numbers.validator.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onlyLatinLettersAndNumbersValidator"></a>
+                    <span class="name">
+                        <span ><b>onlyLatinLettersAndNumbersValidator</b></span>
+                        <a href="#onlyLatinLettersAndNumbersValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onlyLatinLettersAndNumbersValidator()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onlyLatinLettersAndNumbersWithHyphensValidator"></a>
+                    <span class="name">
+                        <span ><b>onlyLatinLettersAndNumbersWithHyphensValidator</b></span>
+                        <a href="#onlyLatinLettersAndNumbersWithHyphensValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onlyLatinLettersAndNumbersWithHyphensValidator()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/components/explorer/src/explorer-action-renderer-providers.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="provideExplorerActionRenderers"></a>
+                    <span class="name">
+                        <span ><b>provideExplorerActionRenderers</b></span>
+                        <a href="#provideExplorerActionRenderers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>provideExplorerActionRenderers()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/ExplorerAction.html" target="_self" >ExplorerActionRendererProvider[]</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/components/explorer/src/explorer-object-renderer-providers.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="provideExplorerObjectRenderers"></a>
+                    <span class="name">
+                        <span ><b>provideExplorerObjectRenderers</b></span>
+                        <a href="#provideExplorerObjectRenderers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>provideExplorerObjectRenderers()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ExplorerRendererProvider[]</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>lib/src/components/explorer/src/explorer-secrion-renderer-providers.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="provideExplorerSectionRenderers"></a>
+                    <span class="name">
+                        <span ><b>provideExplorerSectionRenderers</b></span>
+                        <a href="#provideExplorerSectionRenderers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>provideExplorerSectionRenderers()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ExplorerRendererProvider[]</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-functions';
+            var COMPODOC_CURRENT_PAGE_URL = 'functions.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

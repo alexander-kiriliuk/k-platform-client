@@ -1,0 +1,612 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Application documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Application documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ProfileComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>lib/src/components/profile/src/profile.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../injectables/ProfileViewModel.html" target="_self" >ProfileViewModel</a></code>
+                            <code>LocalizePipe</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>profile</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ButtonModule</code>
+                            <code>TranslocoPipe</code>
+                            <code>InputTextModule</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>PasswordModule</code>
+                            <code>InputSwitchModule</code>
+                            <code>CheckboxModule</code>
+                            <code>LocalizePipe</code>
+                                <code><a href="../components/MediaInputComponent.html" target="_self" >MediaInputComponent</a></code>
+                                <code><a href="../components/PreloaderComponent.html" target="_self" >PreloaderComponent</a></code>
+                                <code><a href="../directives/PreloaderDirective.html" target="_self" >PreloaderDirective</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./profile.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./profile.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#localizePipe" >localizePipe</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#vm" >vm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#roles" >roles</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="localizePipe"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>localizePipe</b></span>
+                        <a href="#localizePipe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(LocalizePipe)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">lib/src/components/profile/src/profile.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="vm"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>vm</b></span>
+                        <a href="#vm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ProfileViewModel)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">lib/src/components/profile/src/profile.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="roles"></a>
+                        <span class="name"><b>roles</b><a href="#roles"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>roles()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">lib/src/components/profile/src/profile.component.ts:59</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {ChangeDetectionStrategy, Component, inject} from &quot;@angular/core&quot;;
+import {ButtonModule} from &quot;primeng/button&quot;;
+import {TranslocoPipe} from &quot;@ngneat/transloco&quot;;
+import {InputTextModule} from &quot;primeng/inputtext&quot;;
+import {ReactiveFormsModule} from &quot;@angular/forms&quot;;
+import {PasswordModule} from &quot;primeng/password&quot;;
+import {InputSwitchModule} from &quot;primeng/inputswitch&quot;;
+import {CheckboxModule} from &quot;primeng/checkbox&quot;;
+import {ProfileViewModel} from &quot;./profile.view-model&quot;;
+import {LocalizePipe} from &quot;../../../modules/locale&quot;;
+import {MediaInputComponent} from &quot;../../../modules/media&quot;;
+import {PreloaderDirective, PreloaderComponent} from &quot;../../../modules/preloader&quot;;
+
+@Component({
+  selector: &quot;profile&quot;,
+  templateUrl: &quot;./profile.component.html&quot;,
+  styleUrls: [&quot;./profile.component.scss&quot;],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  providers: [
+    ProfileViewModel,
+    LocalizePipe
+  ],
+  imports: [
+    ButtonModule,
+    TranslocoPipe,
+    InputTextModule,
+    ReactiveFormsModule,
+    PasswordModule,
+    InputSwitchModule,
+    CheckboxModule,
+    LocalizePipe,
+    MediaInputComponent,
+    PreloaderComponent,
+    PreloaderDirective,
+  ]
+})
+export class ProfileComponent {
+
+  readonly vm &#x3D; inject(ProfileViewModel);
+  private readonly localizePipe &#x3D; inject(LocalizePipe);
+
+  get roles() {
+    const res: string[] &#x3D; [];
+    this.vm.form.controls.roles.value.forEach(role &#x3D;&gt; {
+      res.push(this.localizePipe.transform(role.name, role.code) as string);
+    });
+    return res;
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;wrap&quot; [formGroup]&#x3D;&quot;vm.form&quot;&gt;
+  &lt;div&gt;
+    &lt;div class&#x3D;&quot;p-float-label&quot;&gt;
+      &lt;input pInputText id&#x3D;&quot;id&quot; formControlName&#x3D;&quot;id&quot;/&gt;
+      &lt;label for&#x3D;&quot;id&quot;&gt;{{ &quot;profile.id&quot; | transloco }}&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;p-float-label&quot;&gt;
+      &lt;input pInputText id&#x3D;&quot;login&quot; formControlName&#x3D;&quot;login&quot;/&gt;
+      &lt;label for&#x3D;&quot;login&quot;&gt;{{ &quot;profile.login&quot; | transloco }}&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;media-input
+      mediaType&#x3D;&quot;default&quot;
+      formControlName&#x3D;&quot;avatar&quot;
+      [galleryEnabled]&#x3D;&quot;false&quot;
+      [placeholder]&#x3D;&quot;&#x27;profile.avatar&#x27; | transloco&quot;/&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;div class&#x3D;&quot;p-float-label&quot;&gt;
+      &lt;input pInputText id&#x3D;&quot;firstName&quot; formControlName&#x3D;&quot;firstName&quot;/&gt;
+      &lt;label for&#x3D;&quot;email&quot;&gt;{{ &quot;profile.name.first&quot; | transloco }}&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;p-float-label&quot;&gt;
+      &lt;input pInputText id&#x3D;&quot;lastName&quot; formControlName&#x3D;&quot;lastName&quot;/&gt;
+      &lt;label for&#x3D;&quot;email&quot;&gt;{{ &quot;profile.name.last&quot; | transloco }}&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;p-float-label&quot;&gt;
+      &lt;input pInputText id&#x3D;&quot;email&quot; formControlName&#x3D;&quot;email&quot;/&gt;
+      &lt;label for&#x3D;&quot;email&quot;&gt;{{ &quot;profile.email&quot; | transloco }}&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;p-float-label&quot;&gt;
+      &lt;input pInputText id&#x3D;&quot;phone&quot; formControlName&#x3D;&quot;phone&quot;/&gt;
+      &lt;label for&#x3D;&quot;phone&quot;&gt;{{ &quot;profile.phone&quot; | transloco }}&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;p-float-label&quot;&gt;
+      &lt;p-password
+        formControlName&#x3D;&quot;password&quot;
+        [toggleMask]&#x3D;&quot;false&quot;
+        [feedback]&#x3D;&quot;false&quot;/&gt;
+      &lt;label for&#x3D;&quot;password&quot;&gt;{{ &quot;profile.password&quot; | transloco }}&lt;/label&gt;
+    &lt;/div&gt;
+    @if (roles.length) {
+      &lt;div&gt;
+        {{ &quot;profile.roles&quot; | transloco }}
+        &lt;ul&gt;
+          @for (item of roles; track item) {
+            &lt;li&gt;{{ item }}&lt;/li&gt;
+          }
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    }
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;button pButton (click)&#x3D;&quot;vm.save()&quot;&gt;{{ &quot;profile.save&quot; | transloco }}&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;preloader *preloading&#x3D;&quot;{state: false, channel: vm.preloaderChannel}&quot;/&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./profile.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.wrap {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+  &amp; &gt; div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 1rem;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="wrap" [formGroup]="vm.form">  <div>    <div class="p-float-label">      <input pInputText id="id" formControlName="id"/>      <label for="id">{{ "profile.id" | transloco }}</label>    </div>    <div class="p-float-label">      <input pInputText id="login" formControlName="login"/>      <label for="login">{{ "profile.login" | transloco }}</label>    </div>    <media-input      mediaType="default"      formControlName="avatar"      [galleryEnabled]="false"      [placeholder]="\'profile.avatar\' | transloco"/>  </div>  <div>    <div class="p-float-label">      <input pInputText id="firstName" formControlName="firstName"/>      <label for="email">{{ "profile.name.first" | transloco }}</label>    </div>    <div class="p-float-label">      <input pInputText id="lastName" formControlName="lastName"/>      <label for="email">{{ "profile.name.last" | transloco }}</label>    </div>    <div class="p-float-label">      <input pInputText id="email" formControlName="email"/>      <label for="email">{{ "profile.email" | transloco }}</label>    </div>    <div class="p-float-label">      <input pInputText id="phone" formControlName="phone"/>      <label for="phone">{{ "profile.phone" | transloco }}</label>    </div>    <div class="p-float-label">      <p-password        formControlName="password"        [toggleMask]="false"        [feedback]="false"/>      <label for="password">{{ "profile.password" | transloco }}</label>    </div>    @if (roles.length) {      <div>        {{ "profile.roles" | transloco }}        <ul>          @for (item of roles; track item) {            <li>{{ item }}</li>          }        </ul>      </div>    }  </div></div><div>  <button pButton (click)="vm.save()">{{ "profile.save" | transloco }}</button></div><preloader *preloading="{state: false, channel: vm.preloaderChannel}"/></div>'
+    var COMPONENTS = [{'name': 'AuthComponent', 'selector': 'auth'},{'name': 'BooleanObjectRendererComponent', 'selector': 'boolean-object-renderer'},{'name': 'BooleanSectionRendererComponent', 'selector': 'boolean-section-renderer'},{'name': 'ConfigComponent', 'selector': 'config'},{'name': 'ConfigPropertyEditorComponent', 'selector': 'config-property-editor'},{'name': 'CreateFileActionDialogComponent', 'selector': 'create-file-action-dialog'},{'name': 'CreateFileActionRendererComponent', 'selector': 'create-file-action-renderer'},{'name': 'CreateMediaActionDialogComponent', 'selector': 'create-media-action-dialog'},{'name': 'CreateMediaActionRendererComponent', 'selector': 'create-media-action-renderer'},{'name': 'DateObjectRendererComponent', 'selector': 'date-object-renderer'},{'name': 'DateSectionRendererComponent', 'selector': 'date-section-renderer'},{'name': 'DeleteFileActionRendererComponent', 'selector': 'delete-file-action-renderer'},{'name': 'DeleteMediaActionRendererComponent', 'selector': 'delete-media-action-renderer'},{'name': 'ExplorerActionRendererComponent', 'selector': 'explorer-action-renderer'},{'name': 'ExplorerObjectComponent', 'selector': 'explorer-object'},{'name': 'ExplorerObjectRendererComponent', 'selector': 'explorer-object-renderer'},{'name': 'ExplorerSectionRendererComponent', 'selector': 'explorer-section-renderer'},{'name': 'FileInputComponent', 'selector': 'file-input'},{'name': 'FileMetadataObjectRendererComponent', 'selector': 'file-metadata-object-renderer'},{'name': 'FileStatMediaObjectRendererComponent', 'selector': 'file-stat-media-object-renderer'},{'name': 'ImagesStatsMediaObjectRendererComponent', 'selector': 'images-stats-media-object-renderer'},{'name': 'LocalizedMediaObjectRendererComponent', 'selector': 'localized-media-object-renderer'},{'name': 'LocalizedStringObjectRendererComponent', 'selector': 'localized-string-object-renderer'},{'name': 'LocalizeMediaInputComponent', 'selector': 'localize-media-input'},{'name': 'LocalizeStringInputComponent', 'selector': 'localize-string-input'},{'name': 'MediaComponent', 'selector': 'media-res'},{'name': 'MediaInputComponent', 'selector': 'media-input'},{'name': 'MediaObjectRendererComponent', 'selector': 'media-object-renderer'},{'name': 'MediaSectionRendererComponent', 'selector': 'media-section-renderer'},{'name': 'NewPasswordObjectRendererComponent', 'selector': 'new-password-object-renderer'},{'name': 'ObjectComponent', 'selector': 'object'},{'name': 'ObjectDetailsColumnEditorComponent', 'selector': 'object-details-column-editor'},{'name': 'ObjectDetailsComponent', 'selector': 'object-details'},{'name': 'PreloaderComponent', 'selector': 'preloader'},{'name': 'ProcessStatsObjectRendererComponent', 'selector': 'process-stats-media-object-renderer'},{'name': 'ProfileComponent', 'selector': 'profile'},{'name': 'ReCreateMediaActionRendererComponent', 'selector': 're-create-media-action-renderer'},{'name': 'ReferenceObjectRendererComponent', 'selector': 'reference-object-renderer'},{'name': 'ReferenceSectionRendererComponent', 'selector': 'reference-section-renderer'},{'name': 'RefInputComponent', 'selector': 'ref-input'},{'name': 'SectionComponent', 'selector': 'section'},{'name': 'SectionFilterDialogComponent', 'selector': 'section-filter-dialog'},{'name': 'StartProcessActionRendererComponent', 'selector': 'start-process-action-renderer'},{'name': 'StopProcessActionRendererComponent', 'selector': 'stop-process-action-renderer'},{'name': 'StringObjectRendererComponent', 'selector': 'string-object-renderer'},{'name': 'StringSectionRendererComponent', 'selector': 'string-section-renderer'},{'name': 'TargetColumnsDialogComponent', 'selector': 'target-columns-dialog'},{'name': 'ToggleProcessActionRendererComponent', 'selector': 'toggle-process-action-renderer'},{'name': 'UpdateMediaFileActionDialogComponent', 'selector': 'update-media-file-action-dialog'},{'name': 'UpdateMediaFileActionRendererComponent', 'selector': 'update-media-file-action-renderer'},{'name': 'VirtualMediaSectionRendererComponent', 'selector': 'virtual-media-section-renderer'},{'name': 'XdbExportDialogComponent', 'selector': 'xdb-export-dialog'},{'name': 'XdbImportComponent', 'selector': 'xdb-import'}];
+    var DIRECTIVES = [{'name': 'PreloaderDirective', 'selector': '[preloading]'},{'name': 'PreventDefaultDirective', 'selector': '[prevent-default]'},{'name': 'StopPropagationDirective', 'selector': '[stop-propagation]'}];
+    var ACTUAL_COMPONENT = {'name': 'ProfileComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProfileComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

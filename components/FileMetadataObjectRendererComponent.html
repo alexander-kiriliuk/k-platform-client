@@ -1,0 +1,1257 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Application documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Application documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  FileMetadataObjectRendererComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>lib/src/components/explorer/src/renderer/custom/object/file-metadata/file-metadata-object-renderer.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../classes/AbstractExplorerObjectRenderer.html" target="_self" >AbstractExplorerObjectRenderer</a></code>
+    </p>
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>file-metadata-object-renderer</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>LocalizePipe</code>
+                                <code><a href="../components/ExplorerObjectRendererComponent.html" target="_self" >ExplorerObjectRendererComponent</a></code>
+                            <code>TabViewModule</code>
+                            <code>TranslocoPipe</code>
+                            <code>DatePipe</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./file-metadata-object-renderer.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./file-metadata-object-renderer.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#column" >column</a>
+                            </li>
+                            <li>
+                                <a href="#data" >data</a>
+                            </li>
+                            <li>
+                                <a href="#entityForm" >entityForm</a>
+                            </li>
+                            <li>
+                                <a href="#params" >params</a>
+                            </li>
+                            <li>
+                                <a href="#target" >target</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="column"></a>
+                    <span class="name">
+                        <span ><b>column</b></span>
+                        <a href="#column"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ExplorerColumn.html" target="_self" >ExplorerColumn</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/AbstractExplorerObjectRenderer.html" target="_self" >AbstractExplorerObjectRenderer</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:23</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="data"></a>
+                    <span class="name">
+                        <span ><b>data</b></span>
+                        <a href="#data"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Data</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/AbstractExplorerObjectRenderer.html" target="_self" >AbstractExplorerObjectRenderer</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:25</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="entityForm"></a>
+                    <span class="name">
+                        <span ><b>entityForm</b></span>
+                        <a href="#entityForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/AbstractExplorerObjectRenderer.html" target="_self" >AbstractExplorerObjectRenderer</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:27</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="params"></a>
+                    <span class="name">
+                        <span ><b>params</b></span>
+                        <a href="#params"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Params</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/AbstractExplorerObjectRenderer.html" target="_self" >AbstractExplorerObjectRenderer</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:24</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="target"></a>
+                    <span class="name">
+                        <span ><b>target</b></span>
+                        <a href="#target"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TargetData.html" target="_self" >TargetData</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/AbstractExplorerObjectRenderer.html" target="_self" >AbstractExplorerObjectRenderer</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:26</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {ChangeDetectionStrategy, Component} from &quot;@angular/core&quot;;
+import {DatePipe} from &quot;@angular/common&quot;;
+import {TabViewModule} from &quot;primeng/tabview&quot;;
+import {TranslocoPipe} from &quot;@ngneat/transloco&quot;;
+import {LocalizePipe} from &quot;../../../../../../../modules/locale&quot;;
+import {ExplorerObjectRendererComponent} from &quot;../../../explorer-object-renderer.component&quot;;
+import {AbstractExplorerObjectRenderer} from &quot;../../../default/abstract-explorer-object-renderer&quot;;
+import {FileMetadata} from &quot;../../../../../../../modules/file&quot;;
+
+@Component({
+  selector: &quot;file-metadata-object-renderer&quot;,
+  standalone: true,
+  templateUrl: &quot;./file-metadata-object-renderer.component.html&quot;,
+  styleUrls: [&quot;./file-metadata-object-renderer.component.scss&quot;],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    LocalizePipe,
+    ExplorerObjectRendererComponent,
+    TabViewModule,
+    TranslocoPipe,
+    DatePipe,
+  ],
+})
+export class FileMetadataObjectRendererComponent extends AbstractExplorerObjectRenderer&lt;unknown, FileMetadata&gt; {
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;label&quot;&gt;{{ column.name | localize: column.property }}&lt;/div&gt;
+@if (propertyData) {
+  &lt;p-tabView [scrollable]&#x3D;&quot;true&quot;&gt;
+    @if (propertyData.hash || propertyData.mime || propertyData.ext || propertyData.gps) {
+      &lt;p-tabPanel [header]&#x3D;&quot;&#x27;metadata.common.header&#x27; | transloco&quot;&gt;
+        &lt;table&gt;
+          @if (propertyData.hash) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.common.hash&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.hash }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.mime) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.common.mime&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.mime }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.ext) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.common.ext&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.ext }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.gps) {
+            &lt;tr class&#x3D;&quot;subtitle&quot;&gt;
+              &lt;td colspan&#x3D;&quot;2&quot;&gt;{{ &quot;metadata.gps.header&quot; | transloco }}&lt;/td&gt;
+            &lt;/tr&gt;
+            @if (propertyData.gps.latitude) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.gps.latitude&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.gps.latitude }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.gps.longitude) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.gps.longitude&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.gps.longitude }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.gps.altitude) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.gps.altitude&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.gps.altitude }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+          }
+        &lt;/table&gt;
+      &lt;/p-tabPanel&gt;
+    }
+    @if (propertyData.image || propertyData.icc || propertyData.exif) {
+      &lt;p-tabPanel [header]&#x3D;&quot;&#x27;metadata.image.header&#x27; | transloco&quot;&gt;
+        &lt;table&gt;
+          @if (propertyData.image.dateTime) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.image.date&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.image.dateTime | date: &quot;medium&quot; }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.image.bps) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.image.bps&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.image.bps }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.image.height) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.image.height&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.image.height }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.image.width) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.image.width&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.image.width }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.image.colorComponents) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.image.color.components&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.image.colorComponents }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.image.subsampling) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.image.subsampling&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.image.subsampling }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.image.bitDepth) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.image.bit.depth&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.image.bitDepth }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.image.colorType) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.image.color.type&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.image.colorType }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.image.compression) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.image.compression&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.image.compression }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.image.filter) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.image.filter&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.image.filter }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.image.interlace) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.image.interlace&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.image.interlace }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.icc) {
+            &lt;tr class&#x3D;&quot;subtitle&quot;&gt;
+              &lt;td colspan&#x3D;&quot;2&quot;&gt;{{ &quot;metadata.icc.header&quot; | transloco }}&lt;/td&gt;
+            &lt;/tr&gt;
+            @if (propertyData.icc.profileVersion) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.icc.profile.version&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.icc.profileVersion }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.icc.profileClassName &amp;&amp; propertyData.icc.profileClassValue) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.icc.profile.class&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.icc.profileClassName }} ({{ propertyData.icc.profileClassValue }})&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.icc.connectionSpace) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.icc.connection.space&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.icc.connectionSpace }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.icc.iccSignature) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.icc.signature&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.icc.iccSignature }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.icc.primaryPlatform) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.icc.primary.platform&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.icc.primaryPlatform }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.icc.deviceManufacturer) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.icc.device.manufacturer&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.icc.deviceManufacturer }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.icc.deviceModelNumber) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.icc.device.model.number&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.icc.deviceModelNumber }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.icc.renderingIntentName &amp;&amp; propertyData.icc.renderingIntentValue) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.icc.rendering.intent&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.icc.renderingIntentName }} ({{ propertyData.icc.renderingIntentValue }})&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.icc.profileCreator) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.icc.profile.creator&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.icc.profileCreator }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.icc.iccDescription) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.icc.description&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.icc.iccDescription }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.icc.iccCopyright) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.icc.copyright&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.icc.iccCopyright }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+          }
+          @if (propertyData.exif) {
+            &lt;tr class&#x3D;&quot;subtitle&quot;&gt;
+              &lt;td colspan&#x3D;&quot;2&quot;&gt;{{ &quot;metadata.exif.header&quot; | transloco }}&lt;/td&gt;
+            &lt;/tr&gt;
+            @if (propertyData.exif.make) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.make&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.make }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.model) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.model&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.model }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.orientation) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.orientation&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.orientation }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.resolutionX) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.resolution.x&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.resolutionX }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.resolutionY) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.resolution.y&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.resolutionY }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.resolutionUnit) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.resolution.unit&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.resolutionUnit }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.software) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.software&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.software }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.ycbCrPositioning) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.ycb.cr.positioning&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.ycbCrPositioning }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.exifIfdPointer) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.ifd.pointer&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.exifIfdPointer }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.gpsInfoIfdPointer) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.gps.info.ifd.pointer&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.gpsInfoIfdPointer }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.exposureTime) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.exposure.time&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.exposureTime }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.exposureProgram) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.exposure.program&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.exposureProgram }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.exposureBias) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.exposure.bias&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.exposureBias }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.exposureMode) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.exposure.mode&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.exposureMode }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.fNumber) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.f.number&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.fNumber }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.isoSpeedRatings) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.iso.speed.ratings&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.isoSpeedRatings }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.exifVersion) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.version&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.exifVersion }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.offsetTime) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.offset.time&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.offsetTime }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.shutterSpeedValue) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.shutter.speed.value&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.shutterSpeedValue }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.aperture) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.aperture&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.aperture }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.brightness) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.brightness&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.brightness }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.maxAperture) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.max.aperture&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.maxAperture }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.subjectDistance) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.subject.distance&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.subjectDistance }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.subjectDistanceRange) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.subject.distance.range&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.subjectDistanceRange }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.meteringMode) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.metering.mode&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.meteringMode }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.flash) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.flash&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.flash }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.focalLength) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.focal.length&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.focalLength }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.flashpixVersion) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.flashpix.version&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.flashpixVersion }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.colorSpace) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.color.space&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.colorSpace }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.pixelXDimension) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.pixel.x.dimension&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.pixelXDimension }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.pixelYDimension) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.pixel.y.dimension&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.pixelYDimension }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.interoperabilityIfdPointer) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.interoperability.ifd.pointer&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.interoperabilityIfdPointer }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.sensingMethod) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.sensing.method&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.sensingMethod }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.sceneType) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.scene.type&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.sceneType }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.customRendered) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.custom.rendered&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.customRendered }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.whiteBalance) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.white.balance&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.whiteBalance }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.digitalZoomRatio) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.digital.zoom.ratio&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.digitalZoomRatio }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.sceneCaptureType) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.scene.capture.type&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.sceneCaptureType }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.contrast) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.contrast&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.contrast }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.saturation) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.saturation&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.saturation }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.sharpness) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.sharpness&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.sharpness }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.lensMake) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.lens.make&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.lensMake }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.lensModel) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.lens.model&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.lensModel }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.compositeImage) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.composite.image&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.compositeImage }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.interoperabilityIndex) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.interoperability.index&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.interoperabilityIndex }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+            @if (propertyData.exif.interoperabilityVersion) {
+              &lt;tr&gt;
+                &lt;td&gt;{{ &quot;metadata.exif.interoperability.version&quot; | transloco }}&lt;/td&gt;
+                &lt;td&gt;{{ propertyData.exif.interoperabilityVersion }}&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+          }
+        &lt;/table&gt;
+      &lt;/p-tabPanel&gt;
+    }
+    @if (propertyData.video) {
+      &lt;p-tabPanel [header]&#x3D;&quot;&#x27;metadata.video.header&#x27; | transloco&quot;&gt;
+        &lt;table&gt;
+          @if (propertyData.video.codec) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.video.codec&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.video.codec }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.video.container) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.video.container&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.video.container }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.video.width) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.video.width&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.video.width }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.video.height) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.video.height&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.video.height }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.video.bitrate) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.video.bitrate&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.video.bitrate }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.video.duration) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.video.duration&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.video.duration }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.video.sampleAspectRatio) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.video.sample.aspect.ratio&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.video.sampleAspectRatio }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.video.displayAspectRatio) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.video.display.aspect.ratio&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.video.displayAspectRatio }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.video.colorRange) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.video.color.range&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.video.colorRange }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.video.colorSpace) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.video.color.space&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.video.colorSpace }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.video.frameRate) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.video.frame.rate&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.video.frameRate }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.video.rotate) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.video.rotate&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.video.rotate }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+        &lt;/table&gt;
+      &lt;/p-tabPanel&gt;
+    }
+    @if (propertyData.audio) {
+      &lt;p-tabPanel [header]&#x3D;&quot;&#x27;metadata.audio.header&#x27; | transloco&quot;&gt;
+        &lt;table&gt;
+          @if (propertyData.audio.container) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.audio.container&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.audio.container }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.audio.codec) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.audio.codec&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.audio.codec }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.audio.sampleRate) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.audio.sample.rate&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.audio.sampleRate }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.audio.numberOfChannels) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.audio.number.of.channels&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.audio.numberOfChannels }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.audio.bitrate) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.audio.bitrate&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.audio.bitrate }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.audio.codecProfile) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.audio.codec.profile&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.audio.codecProfile }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.audio.tool) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.audio.tool&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.audio.tool }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.audio.duration) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.audio.duration&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.audio.duration }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.audio.title) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.audio.title&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.audio.title }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.audio.album) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.audio.album&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.audio.album }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.audio.artist) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.audio.artist&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.audio.artist }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.audio.year) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.audio.year&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.audio.year }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.audio.genre) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.audio.genre&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.audio.genre }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+          @if (propertyData.audio.label) {
+            &lt;tr&gt;
+              &lt;td&gt;{{ &quot;metadata.audio.label&quot; | transloco }}&lt;/td&gt;
+              &lt;td&gt;{{ propertyData.audio.label }}&lt;/td&gt;
+            &lt;/tr&gt;
+          }
+        &lt;/table&gt;
+      &lt;/p-tabPanel&gt;
+    }
+  &lt;/p-tabView&gt;
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./file-metadata-object-renderer.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host {
+  display: block;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  padding: 1rem;
+  border-color: var(--surface-d);
+}
+
+.label {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+table {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  td {
+    padding: 0.25rem 0.5rem;
+    &amp;:last-child {
+      word-break: break-all;
+    }
+  }
+}
+
+.subtitle {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--accent-color);
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="label">{{ column.name | localize: column.property }}</div>@if (propertyData) {  <p-tabView [scrollable]="true">    @if (propertyData.hash || propertyData.mime || propertyData.ext || propertyData.gps) {      <p-tabPanel [header]="\'metadata.common.header\' | transloco">        <table>          @if (propertyData.hash) {            <tr>              <td>{{ "metadata.common.hash" | transloco }}</td>              <td>{{ propertyData.hash }}</td>            </tr>          }          @if (propertyData.mime) {            <tr>              <td>{{ "metadata.common.mime" | transloco }}</td>              <td>{{ propertyData.mime }}</td>            </tr>          }          @if (propertyData.ext) {            <tr>              <td>{{ "metadata.common.ext" | transloco }}</td>              <td>{{ propertyData.ext }}</td>            </tr>          }          @if (propertyData.gps) {            <tr class="subtitle">              <td colspan="2">{{ "metadata.gps.header" | transloco }}</td>            </tr>            @if (propertyData.gps.latitude) {              <tr>                <td>{{ "metadata.gps.latitude" | transloco }}</td>                <td>{{ propertyData.gps.latitude }}</td>              </tr>            }            @if (propertyData.gps.longitude) {              <tr>                <td>{{ "metadata.gps.longitude" | transloco }}</td>                <td>{{ propertyData.gps.longitude }}</td>              </tr>            }            @if (propertyData.gps.altitude) {              <tr>                <td>{{ "metadata.gps.altitude" | transloco }}</td>                <td>{{ propertyData.gps.altitude }}</td>              </tr>            }          }        </table>      </p-tabPanel>    }    @if (propertyData.image || propertyData.icc || propertyData.exif) {      <p-tabPanel [header]="\'metadata.image.header\' | transloco">        <table>          @if (propertyData.image.dateTime) {            <tr>              <td>{{ "metadata.image.date" | transloco }}</td>              <td>{{ propertyData.image.dateTime | date: "medium" }}</td>            </tr>          }          @if (propertyData.image.bps) {            <tr>              <td>{{ "metadata.image.bps" | transloco }}</td>              <td>{{ propertyData.image.bps }}</td>            </tr>          }          @if (propertyData.image.height) {            <tr>              <td>{{ "metadata.image.height" | transloco }}</td>              <td>{{ propertyData.image.height }}</td>            </tr>          }          @if (propertyData.image.width) {            <tr>              <td>{{ "metadata.image.width" | transloco }}</td>              <td>{{ propertyData.image.width }}</td>            </tr>          }          @if (propertyData.image.colorComponents) {            <tr>              <td>{{ "metadata.image.color.components" | transloco }}</td>              <td>{{ propertyData.image.colorComponents }}</td>            </tr>          }          @if (propertyData.image.subsampling) {            <tr>              <td>{{ "metadata.image.subsampling" | transloco }}</td>              <td>{{ propertyData.image.subsampling }}</td>            </tr>          }          @if (propertyData.image.bitDepth) {            <tr>              <td>{{ "metadata.image.bit.depth" | transloco }}</td>              <td>{{ propertyData.image.bitDepth }}</td>            </tr>          }          @if (propertyData.image.colorType) {            <tr>              <td>{{ "metadata.image.color.type" | transloco }}</td>              <td>{{ propertyData.image.colorType }}</td>            </tr>          }          @if (propertyData.image.compression) {            <tr>              <td>{{ "metadata.image.compression" | transloco }}</td>              <td>{{ propertyData.image.compression }}</td>            </tr>          }          @if (propertyData.image.filter) {            <tr>              <td>{{ "metadata.image.filter" | transloco }}</td>              <td>{{ propertyData.image.filter }}</td>            </tr>          }          @if (propertyData.image.interlace) {            <tr>              <td>{{ "metadata.image.interlace" | transloco }}</td>              <td>{{ propertyData.image.interlace }}</td>            </tr>          }          @if (propertyData.icc) {            <tr class="subtitle">              <td colspan="2">{{ "metadata.icc.header" | transloco }}</td>            </tr>            @if (propertyData.icc.profileVersion) {              <tr>                <td>{{ "metadata.icc.profile.version" | transloco }}</td>                <td>{{ propertyData.icc.profileVersion }}</td>              </tr>            }            @if (propertyData.icc.profileClassName && propertyData.icc.profileClassValue) {              <tr>                <td>{{ "metadata.icc.profile.class" | transloco }}</td>                <td>{{ propertyData.icc.profileClassName }} ({{ propertyData.icc.profileClassValue }})</td>              </tr>            }            @if (propertyData.icc.connectionSpace) {              <tr>                <td>{{ "metadata.icc.connection.space" | transloco }}</td>                <td>{{ propertyData.icc.connectionSpace }}</td>              </tr>            }            @if (propertyData.icc.iccSignature) {              <tr>                <td>{{ "metadata.icc.signature" | transloco }}</td>                <td>{{ propertyData.icc.iccSignature }}</td>              </tr>            }            @if (propertyData.icc.primaryPlatform) {              <tr>                <td>{{ "metadata.icc.primary.platform" | transloco }}</td>                <td>{{ propertyData.icc.primaryPlatform }}</td>              </tr>            }            @if (propertyData.icc.deviceManufacturer) {              <tr>                <td>{{ "metadata.icc.device.manufacturer" | transloco }}</td>                <td>{{ propertyData.icc.deviceManufacturer }}</td>              </tr>            }            @if (propertyData.icc.deviceModelNumber) {              <tr>                <td>{{ "metadata.icc.device.model.number" | transloco }}</td>                <td>{{ propertyData.icc.deviceModelNumber }}</td>              </tr>            }            @if (propertyData.icc.renderingIntentName && propertyData.icc.renderingIntentValue) {              <tr>                <td>{{ "metadata.icc.rendering.intent" | transloco }}</td>                <td>{{ propertyData.icc.renderingIntentName }} ({{ propertyData.icc.renderingIntentValue }})</td>              </tr>            }            @if (propertyData.icc.profileCreator) {              <tr>                <td>{{ "metadata.icc.profile.creator" | transloco }}</td>                <td>{{ propertyData.icc.profileCreator }}</td>              </tr>            }            @if (propertyData.icc.iccDescription) {              <tr>                <td>{{ "metadata.icc.description" | transloco }}</td>                <td>{{ propertyData.icc.iccDescription }}</td>              </tr>            }            @if (propertyData.icc.iccCopyright) {              <tr>                <td>{{ "metadata.icc.copyright" | transloco }}</td>                <td>{{ propertyData.icc.iccCopyright }}</td>              </tr>            }          }          @if (propertyData.exif) {            <tr class="subtitle">              <td colspan="2">{{ "metadata.exif.header" | transloco }}</td>            </tr>            @if (propertyData.exif.make) {              <tr>                <td>{{ "metadata.exif.make" | transloco }}</td>                <td>{{ propertyData.exif.make }}</td>              </tr>            }            @if (propertyData.exif.model) {              <tr>                <td>{{ "metadata.exif.model" | transloco }}</td>                <td>{{ propertyData.exif.model }}</td>              </tr>            }            @if (propertyData.exif.orientation) {              <tr>                <td>{{ "metadata.exif.orientation" | transloco }}</td>                <td>{{ propertyData.exif.orientation }}</td>              </tr>            }            @if (propertyData.exif.resolutionX) {              <tr>                <td>{{ "metadata.exif.resolution.x" | transloco }}</td>                <td>{{ propertyData.exif.resolutionX }}</td>              </tr>            }            @if (propertyData.exif.resolutionY) {              <tr>                <td>{{ "metadata.exif.resolution.y" | transloco }}</td>                <td>{{ propertyData.exif.resolutionY }}</td>              </tr>            }            @if (propertyData.exif.resolutionUnit) {              <tr>                <td>{{ "metadata.exif.resolution.unit" | transloco }}</td>                <td>{{ propertyData.exif.resolutionUnit }}</td>              </tr>            }            @if (propertyData.exif.software) {              <tr>                <td>{{ "metadata.exif.software" | transloco }}</td>                <td>{{ propertyData.exif.software }}</td>              </tr>            }            @if (propertyData.exif.ycbCrPositioning) {              <tr>                <td>{{ "metadata.exif.ycb.cr.positioning" | transloco }}</td>                <td>{{ propertyData.exif.ycbCrPositioning }}</td>              </tr>            }            @if (propertyData.exif.exifIfdPointer) {              <tr>                <td>{{ "metadata.exif.ifd.pointer" | transloco }}</td>                <td>{{ propertyData.exif.exifIfdPointer }}</td>              </tr>            }            @if (propertyData.exif.gpsInfoIfdPointer) {              <tr>                <td>{{ "metadata.exif.gps.info.ifd.pointer" | transloco }}</td>                <td>{{ propertyData.exif.gpsInfoIfdPointer }}</td>              </tr>            }            @if (propertyData.exif.exposureTime) {              <tr>                <td>{{ "metadata.exif.exposure.time" | transloco }}</td>                <td>{{ propertyData.exif.exposureTime }}</td>              </tr>            }            @if (propertyData.exif.exposureProgram) {              <tr>                <td>{{ "metadata.exif.exposure.program" | transloco }}</td>                <td>{{ propertyData.exif.exposureProgram }}</td>              </tr>            }            @if (propertyData.exif.exposureBias) {              <tr>                <td>{{ "metadata.exif.exposure.bias" | transloco }}</td>                <td>{{ propertyData.exif.exposureBias }}</td>              </tr>            }            @if (propertyData.exif.exposureMode) {              <tr>                <td>{{ "metadata.exif.exposure.mode" | transloco }}</td>                <td>{{ propertyData.exif.exposureMode }}</td>              </tr>            }            @if (propertyData.exif.fNumber) {              <tr>                <td>{{ "metadata.exif.f.number" | transloco }}</td>                <td>{{ propertyData.exif.fNumber }}</td>              </tr>            }            @if (propertyData.exif.isoSpeedRatings) {              <tr>                <td>{{ "metadata.exif.iso.speed.ratings" | transloco }}</td>                <td>{{ propertyData.exif.isoSpeedRatings }}</td>              </tr>            }            @if (propertyData.exif.exifVersion) {              <tr>                <td>{{ "metadata.exif.version" | transloco }}</td>                <td>{{ propertyData.exif.exifVersion }}</td>              </tr>            }            @if (propertyData.exif.offsetTime) {              <tr>                <td>{{ "metadata.exif.offset.time" | transloco }}</td>                <td>{{ propertyData.exif.offsetTime }}</td>              </tr>            }            @if (propertyData.exif.shutterSpeedValue) {              <tr>                <td>{{ "metadata.exif.shutter.speed.value" | transloco }}</td>                <td>{{ propertyData.exif.shutterSpeedValue }}</td>              </tr>            }            @if (propertyData.exif.aperture) {              <tr>                <td>{{ "metadata.exif.aperture" | transloco }}</td>                <td>{{ propertyData.exif.aperture }}</td>              </tr>            }            @if (propertyData.exif.brightness) {              <tr>                <td>{{ "metadata.exif.brightness" | transloco }}</td>                <td>{{ propertyData.exif.brightness }}</td>              </tr>            }            @if (propertyData.exif.maxAperture) {              <tr>                <td>{{ "metadata.exif.max.aperture" | transloco }}</td>                <td>{{ propertyData.exif.maxAperture }}</td>              </tr>            }            @if (propertyData.exif.subjectDistance) {              <tr>                <td>{{ "metadata.exif.subject.distance" | transloco }}</td>                <td>{{ propertyData.exif.subjectDistance }}</td>              </tr>            }            @if (propertyData.exif.subjectDistanceRange) {              <tr>                <td>{{ "metadata.exif.subject.distance.range" | transloco }}</td>                <td>{{ propertyData.exif.subjectDistanceRange }}</td>              </tr>            }            @if (propertyData.exif.meteringMode) {              <tr>                <td>{{ "metadata.exif.metering.mode" | transloco }}</td>                <td>{{ propertyData.exif.meteringMode }}</td>              </tr>            }            @if (propertyData.exif.flash) {              <tr>                <td>{{ "metadata.exif.flash" | transloco }}</td>                <td>{{ propertyData.exif.flash }}</td>              </tr>            }            @if (propertyData.exif.focalLength) {              <tr>                <td>{{ "metadata.exif.focal.length" | transloco }}</td>                <td>{{ propertyData.exif.focalLength }}</td>              </tr>            }            @if (propertyData.exif.flashpixVersion) {              <tr>                <td>{{ "metadata.exif.flashpix.version" | transloco }}</td>                <td>{{ propertyData.exif.flashpixVersion }}</td>              </tr>            }            @if (propertyData.exif.colorSpace) {              <tr>                <td>{{ "metadata.exif.color.space" | transloco }}</td>                <td>{{ propertyData.exif.colorSpace }}</td>              </tr>            }            @if (propertyData.exif.pixelXDimension) {              <tr>                <td>{{ "metadata.exif.pixel.x.dimension" | transloco }}</td>                <td>{{ propertyData.exif.pixelXDimension }}</td>              </tr>            }            @if (propertyData.exif.pixelYDimension) {              <tr>                <td>{{ "metadata.exif.pixel.y.dimension" | transloco }}</td>                <td>{{ propertyData.exif.pixelYDimension }}</td>              </tr>            }            @if (propertyData.exif.interoperabilityIfdPointer) {              <tr>                <td>{{ "metadata.exif.interoperability.ifd.pointer" | transloco }}</td>                <td>{{ propertyData.exif.interoperabilityIfdPointer }}</td>              </tr>            }            @if (propertyData.exif.sensingMethod) {              <tr>                <td>{{ "metadata.exif.sensing.method" | transloco }}</td>                <td>{{ propertyData.exif.sensingMethod }}</td>              </tr>            }            @if (propertyData.exif.sceneType) {              <tr>                <td>{{ "metadata.exif.scene.type" | transloco }}</td>                <td>{{ propertyData.exif.sceneType }}</td>              </tr>            }            @if (propertyData.exif.customRendered) {              <tr>                <td>{{ "metadata.exif.custom.rendered" | transloco }}</td>                <td>{{ propertyData.exif.customRendered }}</td>              </tr>            }            @if (propertyData.exif.whiteBalance) {              <tr>                <td>{{ "metadata.exif.white.balance" | transloco }}</td>                <td>{{ propertyData.exif.whiteBalance }}</td>              </tr>            }            @if (propertyData.exif.digitalZoomRatio) {              <tr>                <td>{{ "metadata.exif.digital.zoom.ratio" | transloco }}</td>                <td>{{ propertyData.exif.digitalZoomRatio }}</td>              </tr>            }            @if (propertyData.exif.sceneCaptureType) {              <tr>                <td>{{ "metadata.exif.scene.capture.type" | transloco }}</td>                <td>{{ propertyData.exif.sceneCaptureType }}</td>              </tr>            }            @if (propertyData.exif.contrast) {              <tr>                <td>{{ "metadata.exif.contrast" | transloco }}</td>                <td>{{ propertyData.exif.contrast }}</td>              </tr>            }            @if (propertyData.exif.saturation) {              <tr>                <td>{{ "metadata.exif.saturation" | transloco }}</td>                <td>{{ propertyData.exif.saturation }}</td>              </tr>            }            @if (propertyData.exif.sharpness) {              <tr>                <td>{{ "metadata.exif.sharpness" | transloco }}</td>                <td>{{ propertyData.exif.sharpness }}</td>              </tr>            }            @if (propertyData.exif.lensMake) {              <tr>                <td>{{ "metadata.exif.lens.make" | transloco }}</td>                <td>{{ propertyData.exif.lensMake }}</td>              </tr>            }            @if (propertyData.exif.lensModel) {              <tr>                <td>{{ "metadata.exif.lens.model" | transloco }}</td>                <td>{{ propertyData.exif.lensModel }}</td>              </tr>            }            @if (propertyData.exif.compositeImage) {              <tr>                <td>{{ "metadata.exif.composite.image" | transloco }}</td>                <td>{{ propertyData.exif.compositeImage }}</td>              </tr>            }            @if (propertyData.exif.interoperabilityIndex) {              <tr>                <td>{{ "metadata.exif.interoperability.index" | transloco }}</td>                <td>{{ propertyData.exif.interoperabilityIndex }}</td>              </tr>            }            @if (propertyData.exif.interoperabilityVersion) {              <tr>                <td>{{ "metadata.exif.interoperability.version" | transloco }}</td>                <td>{{ propertyData.exif.interoperabilityVersion }}</td>              </tr>            }          }        </table>      </p-tabPanel>    }    @if (propertyData.video) {      <p-tabPanel [header]="\'metadata.video.header\' | transloco">        <table>          @if (propertyData.video.codec) {            <tr>              <td>{{ "metadata.video.codec" | transloco }}</td>              <td>{{ propertyData.video.codec }}</td>            </tr>          }          @if (propertyData.video.container) {            <tr>              <td>{{ "metadata.video.container" | transloco }}</td>              <td>{{ propertyData.video.container }}</td>            </tr>          }          @if (propertyData.video.width) {            <tr>              <td>{{ "metadata.video.width" | transloco }}</td>              <td>{{ propertyData.video.width }}</td>            </tr>          }          @if (propertyData.video.height) {            <tr>              <td>{{ "metadata.video.height" | transloco }}</td>              <td>{{ propertyData.video.height }}</td>            </tr>          }          @if (propertyData.video.bitrate) {            <tr>              <td>{{ "metadata.video.bitrate" | transloco }}</td>              <td>{{ propertyData.video.bitrate }}</td>            </tr>          }          @if (propertyData.video.duration) {            <tr>              <td>{{ "metadata.video.duration" | transloco }}</td>              <td>{{ propertyData.video.duration }}</td>            </tr>          }          @if (propertyData.video.sampleAspectRatio) {            <tr>              <td>{{ "metadata.video.sample.aspect.ratio" | transloco }}</td>              <td>{{ propertyData.video.sampleAspectRatio }}</td>            </tr>          }          @if (propertyData.video.displayAspectRatio) {            <tr>              <td>{{ "metadata.video.display.aspect.ratio" | transloco }}</td>              <td>{{ propertyData.video.displayAspectRatio }}</td>            </tr>          }          @if (propertyData.video.colorRange) {            <tr>              <td>{{ "metadata.video.color.range" | transloco }}</td>              <td>{{ propertyData.video.colorRange }}</td>            </tr>          }          @if (propertyData.video.colorSpace) {            <tr>              <td>{{ "metadata.video.color.space" | transloco }}</td>              <td>{{ propertyData.video.colorSpace }}</td>            </tr>          }          @if (propertyData.video.frameRate) {            <tr>              <td>{{ "metadata.video.frame.rate" | transloco }}</td>              <td>{{ propertyData.video.frameRate }}</td>            </tr>          }          @if (propertyData.video.rotate) {            <tr>              <td>{{ "metadata.video.rotate" | transloco }}</td>              <td>{{ propertyData.video.rotate }}</td>            </tr>          }        </table>      </p-tabPanel>    }    @if (propertyData.audio) {      <p-tabPanel [header]="\'metadata.audio.header\' | transloco">        <table>          @if (propertyData.audio.container) {            <tr>              <td>{{ "metadata.audio.container" | transloco }}</td>              <td>{{ propertyData.audio.container }}</td>            </tr>          }          @if (propertyData.audio.codec) {            <tr>              <td>{{ "metadata.audio.codec" | transloco }}</td>              <td>{{ propertyData.audio.codec }}</td>            </tr>          }          @if (propertyData.audio.sampleRate) {            <tr>              <td>{{ "metadata.audio.sample.rate" | transloco }}</td>              <td>{{ propertyData.audio.sampleRate }}</td>            </tr>          }          @if (propertyData.audio.numberOfChannels) {            <tr>              <td>{{ "metadata.audio.number.of.channels" | transloco }}</td>              <td>{{ propertyData.audio.numberOfChannels }}</td>            </tr>          }          @if (propertyData.audio.bitrate) {            <tr>              <td>{{ "metadata.audio.bitrate" | transloco }}</td>              <td>{{ propertyData.audio.bitrate }}</td>            </tr>          }          @if (propertyData.audio.codecProfile) {            <tr>              <td>{{ "metadata.audio.codec.profile" | transloco }}</td>              <td>{{ propertyData.audio.codecProfile }}</td>            </tr>          }          @if (propertyData.audio.tool) {            <tr>              <td>{{ "metadata.audio.tool" | transloco }}</td>              <td>{{ propertyData.audio.tool }}</td>            </tr>          }          @if (propertyData.audio.duration) {            <tr>              <td>{{ "metadata.audio.duration" | transloco }}</td>              <td>{{ propertyData.audio.duration }}</td>            </tr>          }          @if (propertyData.audio.title) {            <tr>              <td>{{ "metadata.audio.title" | transloco }}</td>              <td>{{ propertyData.audio.title }}</td>            </tr>          }          @if (propertyData.audio.album) {            <tr>              <td>{{ "metadata.audio.album" | transloco }}</td>              <td>{{ propertyData.audio.album }}</td>            </tr>          }          @if (propertyData.audio.artist) {            <tr>              <td>{{ "metadata.audio.artist" | transloco }}</td>              <td>{{ propertyData.audio.artist }}</td>            </tr>          }          @if (propertyData.audio.year) {            <tr>              <td>{{ "metadata.audio.year" | transloco }}</td>              <td>{{ propertyData.audio.year }}</td>            </tr>          }          @if (propertyData.audio.genre) {            <tr>              <td>{{ "metadata.audio.genre" | transloco }}</td>              <td>{{ propertyData.audio.genre }}</td>            </tr>          }          @if (propertyData.audio.label) {            <tr>              <td>{{ "metadata.audio.label" | transloco }}</td>              <td>{{ propertyData.audio.label }}</td>            </tr>          }        </table>      </p-tabPanel>    }  </p-tabView>}</div>'
+    var COMPONENTS = [{'name': 'AuthComponent', 'selector': 'auth'},{'name': 'BooleanObjectRendererComponent', 'selector': 'boolean-object-renderer'},{'name': 'BooleanSectionRendererComponent', 'selector': 'boolean-section-renderer'},{'name': 'ConfigComponent', 'selector': 'config'},{'name': 'ConfigPropertyEditorComponent', 'selector': 'config-property-editor'},{'name': 'CreateFileActionDialogComponent', 'selector': 'create-file-action-dialog'},{'name': 'CreateFileActionRendererComponent', 'selector': 'create-file-action-renderer'},{'name': 'CreateMediaActionDialogComponent', 'selector': 'create-media-action-dialog'},{'name': 'CreateMediaActionRendererComponent', 'selector': 'create-media-action-renderer'},{'name': 'DateObjectRendererComponent', 'selector': 'date-object-renderer'},{'name': 'DateSectionRendererComponent', 'selector': 'date-section-renderer'},{'name': 'DeleteFileActionRendererComponent', 'selector': 'delete-file-action-renderer'},{'name': 'DeleteMediaActionRendererComponent', 'selector': 'delete-media-action-renderer'},{'name': 'ExplorerActionRendererComponent', 'selector': 'explorer-action-renderer'},{'name': 'ExplorerObjectComponent', 'selector': 'explorer-object'},{'name': 'ExplorerObjectRendererComponent', 'selector': 'explorer-object-renderer'},{'name': 'ExplorerSectionRendererComponent', 'selector': 'explorer-section-renderer'},{'name': 'FileInputComponent', 'selector': 'file-input'},{'name': 'FileMetadataObjectRendererComponent', 'selector': 'file-metadata-object-renderer'},{'name': 'FileStatMediaObjectRendererComponent', 'selector': 'file-stat-media-object-renderer'},{'name': 'ImagesStatsMediaObjectRendererComponent', 'selector': 'images-stats-media-object-renderer'},{'name': 'LocalizedMediaObjectRendererComponent', 'selector': 'localized-media-object-renderer'},{'name': 'LocalizedStringObjectRendererComponent', 'selector': 'localized-string-object-renderer'},{'name': 'LocalizeMediaInputComponent', 'selector': 'localize-media-input'},{'name': 'LocalizeStringInputComponent', 'selector': 'localize-string-input'},{'name': 'MediaComponent', 'selector': 'media-res'},{'name': 'MediaInputComponent', 'selector': 'media-input'},{'name': 'MediaObjectRendererComponent', 'selector': 'media-object-renderer'},{'name': 'MediaSectionRendererComponent', 'selector': 'media-section-renderer'},{'name': 'NewPasswordObjectRendererComponent', 'selector': 'new-password-object-renderer'},{'name': 'ObjectComponent', 'selector': 'object'},{'name': 'ObjectDetailsColumnEditorComponent', 'selector': 'object-details-column-editor'},{'name': 'ObjectDetailsComponent', 'selector': 'object-details'},{'name': 'PreloaderComponent', 'selector': 'preloader'},{'name': 'ProcessStatsObjectRendererComponent', 'selector': 'process-stats-media-object-renderer'},{'name': 'ProfileComponent', 'selector': 'profile'},{'name': 'ReCreateMediaActionRendererComponent', 'selector': 're-create-media-action-renderer'},{'name': 'ReferenceObjectRendererComponent', 'selector': 'reference-object-renderer'},{'name': 'ReferenceSectionRendererComponent', 'selector': 'reference-section-renderer'},{'name': 'RefInputComponent', 'selector': 'ref-input'},{'name': 'SectionComponent', 'selector': 'section'},{'name': 'SectionFilterDialogComponent', 'selector': 'section-filter-dialog'},{'name': 'StartProcessActionRendererComponent', 'selector': 'start-process-action-renderer'},{'name': 'StopProcessActionRendererComponent', 'selector': 'stop-process-action-renderer'},{'name': 'StringObjectRendererComponent', 'selector': 'string-object-renderer'},{'name': 'StringSectionRendererComponent', 'selector': 'string-section-renderer'},{'name': 'TargetColumnsDialogComponent', 'selector': 'target-columns-dialog'},{'name': 'ToggleProcessActionRendererComponent', 'selector': 'toggle-process-action-renderer'},{'name': 'UpdateMediaFileActionDialogComponent', 'selector': 'update-media-file-action-dialog'},{'name': 'UpdateMediaFileActionRendererComponent', 'selector': 'update-media-file-action-renderer'},{'name': 'VirtualMediaSectionRendererComponent', 'selector': 'virtual-media-section-renderer'},{'name': 'XdbExportDialogComponent', 'selector': 'xdb-export-dialog'},{'name': 'XdbImportComponent', 'selector': 'xdb-import'}];
+    var DIRECTIVES = [{'name': 'PreloaderDirective', 'selector': '[preloading]'},{'name': 'PreventDefaultDirective', 'selector': '[prevent-default]'},{'name': 'StopPropagationDirective', 'selector': '[stop-propagation]'}];
+    var ACTUAL_COMPONENT = {'name': 'FileMetadataObjectRendererComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FileMetadataObjectRendererComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

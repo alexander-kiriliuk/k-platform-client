@@ -1,0 +1,1368 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Application documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Application documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >SectionFilterDialogViewModel</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_referencedColumn" >_referencedColumn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_referencedTarget" >_referencedTarget</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#config" >config</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#dialogService" >dialogService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#explorerService" >explorerService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#localizePipe" >localizePipe</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#ref" >ref</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#store" >store</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#applyFilter" >applyFilter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#doNavigate" >doNavigate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getReferenceTarget" >getReferenceTarget</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initUi" >initUi</a>
+                            </li>
+                            <li>
+                                <a href="#openSectionDialog" >openSectionDialog</a>
+                            </li>
+                            <li>
+                                <a href="#setOrder" >setOrder</a>
+                            </li>
+                            <li>
+                                <a href="#showRefTargetDialog" >showRefTargetDialog</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#dialogConfig" >dialogConfig</a>
+                                </li>
+                                <li>
+                                    <a href="#referencedTarget" >referencedTarget</a>
+                                </li>
+                                <li>
+                                    <a href="#queryParamsSnapshot" >queryParamsSnapshot</a>
+                                </li>
+                                <li>
+                                    <a href="#referencedColumn" >referencedColumn</a>
+                                </li>
+                                <li>
+                                    <a href="#preloaderChannel" >preloaderChannel</a>
+                                </li>
+                                <li>
+                                    <a href="#column" >column</a>
+                                </li>
+                                <li>
+                                    <a href="#isReference" >isReference</a>
+                                </li>
+                                <li>
+                                    <a href="#referenceField" >referenceField</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:49</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyFilter"></a>
+                    <span class="name">
+                        <span ><b>applyFilter</b></span>
+                        <a href="#applyFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>applyFilter()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="114"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:114</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="doNavigate"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>doNavigate</b></span>
+                        <a href="#doNavigate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>doNavigate(queryParams: Params, queryParamsHandling?: QueryParamsHandling)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="232"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:232</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>queryParams</td>
+                                            <td>
+                                                        <code>Params</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>queryParamsHandling</td>
+                                            <td>
+                                                        <code>QueryParamsHandling</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getReferenceTarget"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getReferenceTarget</b></span>
+                        <a href="#getReferenceTarget"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getReferenceTarget()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="218"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:218</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initUi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initUi</b></span>
+                        <a href="#initUi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initUi()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="188"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:188</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openSectionDialog"></a>
+                    <span class="name">
+                        <span ><b>openSectionDialog</b></span>
+                        <a href="#openSectionDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openSectionDialog()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="171"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:171</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setOrder"></a>
+                    <span class="name">
+                        <span ><b>setOrder</b></span>
+                        <a href="#setOrder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setOrder(order: <a href="../undefineds/SortOrder.html" target="_self">SortOrder</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>order</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#SortOrder" target="_self" >SortOrder</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showRefTargetDialog"></a>
+                    <span class="name">
+                        <span ><b>showRefTargetDialog</b></span>
+                        <a href="#showRefTargetDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showRefTargetDialog()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="143"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:143</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_referencedColumn"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_referencedColumn</b></span>
+                        <a href="#_referencedColumn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;ExplorerColumn&gt;(undefined)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_referencedTarget"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_referencedTarget</b></span>
+                        <a href="#_referencedTarget"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;TargetData&gt;(undefined)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="config"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>config</b></span>
+                        <a href="#config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(DynamicDialogConfig)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialogService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>dialogService</b></span>
+                        <a href="#dialogService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(DialogService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="explorerService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>explorerService</b></span>
+                        <a href="#explorerService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ExplorerService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFieldFilterForm()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="localizePipe"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>localizePipe</b></span>
+                        <a href="#localizePipe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(LocalizePipe)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ref"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>ref</b></span>
+                        <a href="#ref"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(DynamicDialogRef)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="store"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>store</b></span>
+                        <a href="#store"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Store)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dialogConfig"></a>
+                        <span class="name"><b>dialogConfig</b><a href="#dialogConfig"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>dialogConfig()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:59</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="referencedTarget"></a>
+                        <span class="name"><b>referencedTarget</b><a href="#referencedTarget"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>referencedTarget()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:63</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="queryParamsSnapshot"></a>
+                        <span class="name"><b>queryParamsSnapshot</b><a href="#queryParamsSnapshot"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>queryParamsSnapshot()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:67</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="referencedColumn"></a>
+                        <span class="name"><b>referencedColumn</b><a href="#referencedColumn"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>referencedColumn()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:71</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="preloaderChannel"></a>
+                        <span class="name"><b>preloaderChannel</b><a href="#preloaderChannel"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>preloaderChannel()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:75</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="column"></a>
+                        <span class="name"><b>column</b><a href="#column"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>column()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:79</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isReference"></a>
+                        <span class="name"><b>isReference</b><a href="#isReference"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isReference()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:83</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="referenceField"></a>
+                        <span class="name"><b>referenceField</b><a href="#referenceField"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>referenceField()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">lib/src/components/explorer/src/section/filter/section-filter-dialog.view-model.ts:87</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {inject, Injectable, signal} from &quot;@angular/core&quot;;
+import {DialogService, DynamicDialogConfig, DynamicDialogRef} from &quot;primeng/dynamicdialog&quot;;
+import {
+  ExplorerService,
+  ExplorerColumn,
+  SectionDialogConfig,
+  SectionFilterDialogConfig,
+  TargetData
+} from &quot;../../../../explorer&quot;;
+import {SectionFilter} from &quot;./section-filter-dialog.constants&quot;;
+import {finalize} from &quot;rxjs&quot;;
+import {Params, QueryParamsHandling} from &quot;@angular/router&quot;;
+import {StringUtils} from &quot;../../../../../global/util&quot;;
+import {Store} from &quot;../../../../../modules/store&quot;;
+import {LocalizePipe} from &quot;../../../../../modules/locale&quot;;
+import {SortOrder} from &quot;../../../../../global/vars&quot;;
+import {PreloaderEvent} from &quot;../../../../../modules/preloader&quot;;
+import parseParamsString &#x3D; StringUtils.parseParamsString;
+import stringifyParamsObject &#x3D; StringUtils.stringifyParamsObject;
+import createFieldFilterForm &#x3D; SectionFilter.createFieldFilterForm;
+
+@Injectable()
+export class SectionFilterDialogViewModel {
+
+  private readonly _referencedTarget &#x3D; signal&lt;TargetData&gt;(undefined);
+  private readonly _referencedColumn &#x3D; signal&lt;ExplorerColumn&gt;(undefined);
+  private readonly config &#x3D; inject(DynamicDialogConfig);
+  private readonly ref &#x3D; inject(DynamicDialogRef);
+  private readonly dialogService &#x3D; inject(DialogService);
+  private readonly explorerService &#x3D; inject(ExplorerService);
+  private readonly store &#x3D; inject(Store);
+  private readonly localizePipe &#x3D; inject(LocalizePipe);
+  readonly form &#x3D; createFieldFilterForm();
+
+  constructor() {
+    if (this.isReference) {
+      this.getReferenceTarget();
+      return;
+    }
+    this.initUi();
+  }
+
+  private get dialogConfig() {
+    return this.config.data as SectionFilterDialogConfig;
+  }
+
+  private get referencedTarget() {
+    return this._referencedTarget();
+  }
+
+  get queryParamsSnapshot() {
+    return this.dialogConfig.paramsSnapshot();
+  }
+
+  get referencedColumn() {
+    return this._referencedColumn();
+  }
+
+  get preloaderChannel() {
+    return SectionFilter.PreloaderCn;
+  }
+
+  get column() {
+    return this.dialogConfig.column;
+  }
+
+  get isReference() {
+    return this.column.type &#x3D;&#x3D;&#x3D; &quot;reference&quot;;
+  }
+
+  get referenceField() {
+    if (this.referencedColumn) {
+      return {value: &quot;&quot;, ref: &#x60;${this.referencedTarget.entity.target}.${this.referencedColumn.property}&#x60;};
+    }
+    const queryParams &#x3D; {...this.queryParamsSnapshot};
+    if (!queryParams.filter?.length) {
+      return undefined;
+    }
+    const filter &#x3D; parseParamsString(queryParams.filter);
+    const value &#x3D; filter[this.column.property];
+    if (!value?.length) {
+      return undefined;
+    }
+    const clearValue &#x3D; value.replace(/\{[^}]*}/g, &quot;&quot;);
+    const match &#x3D; value.match(/\{([^}]*)}/);
+    return {value: clearValue, ref: match[1]};
+  }
+
+  setOrder(order: SortOrder) {
+    const queryParams &#x3D; {...this.queryParamsSnapshot};
+    queryParams.sort &#x3D; this.column.property;
+    queryParams.order &#x3D; order;
+    queryParams.page &#x3D; 1;
+    this.doNavigate(queryParams);
+    this.ref.close();
+  }
+
+  applyFilter() {
+    const data &#x3D; this.form.value;
+    let value &#x3D; data.value;
+    if (this.column.type &#x3D;&#x3D;&#x3D; &quot;date&quot; || this.referencedColumn?.type &#x3D;&#x3D;&#x3D; &quot;date&quot;) {
+      const val &#x3D; value as Date[];
+      value &#x3D; &#x60;FROM${val[0].getTime()}TO${val[1].getTime()}&#x60;;
+    } else if (!data.exactMatch) {
+      value &#x3D; &#x60;%${data.value}%&#x60;;
+    }
+    const queryParams &#x3D; {...this.queryParamsSnapshot};
+    queryParams.page &#x3D; 1;
+    if (!queryParams.filter?.length) {
+      queryParams.filter &#x3D; &#x60;::${data.name}:${value}&#x60;;
+      if (this.isReference) {
+        queryParams.filter +&#x3D; &#x60;{${this.referenceField.ref}}&#x60;;
+      }
+    } else {
+      const filter &#x3D; parseParamsString(queryParams.filter);
+      if (this.isReference) {
+        filter[this.column.property] &#x3D; &#x60;${value}{${this.referenceField.ref}}&#x60;;
+      } else {
+        filter[this.column.property] &#x3D; value as string;
+      }
+      queryParams.filter &#x3D; stringifyParamsObject(filter);
+    }
+    this.doNavigate(queryParams);
+    this.ref.close();
+  }
+
+  showRefTargetDialog() {
+    let selectedCol: string;
+    if (this.referenceField?.ref) {
+      const parts &#x3D; this.referenceField.ref.split(&quot;.&quot;);
+      selectedCol &#x3D; parts[1];
+    }
+    import(&quot;./target/target-columns-dialog.component&quot;).then(m &#x3D;&gt; {
+      this.dialogService.open(m.TargetColumnsDialogComponent, {
+        header: this.localizePipe.transform(
+          this.referencedTarget.entity.name, this.referencedTarget.entity.target
+        ) as string,
+        data: {target: this.referencedTarget, selected: selectedCol},
+        modal: true,
+        position: &quot;top&quot;,
+      }).onClose.subscribe((col: ExplorerColumn) &#x3D;&gt; {
+        if (!col) {
+          return;
+        }
+        this._referencedColumn.set(col);
+        const type &#x3D; this.referencedColumn.type;
+        this.form.controls.value.reset();
+        if (type &#x3D;&#x3D;&#x3D; &quot;boolean&quot; || type &#x3D;&#x3D;&#x3D; &quot;date&quot;) {
+          this.form.controls.exactMatch.setValue(true);
+        }
+      });
+    });
+  }
+
+  openSectionDialog() {
+    import(&quot;../section.component&quot;).then(m &#x3D;&gt; {
+      const entity &#x3D; this.referencedTarget.entity;
+      this.dialogService.open(m.SectionComponent, {
+        header: this.localizePipe.transform(entity.name, entity.target) as string,
+        data: {target: this.referencedTarget} as SectionDialogConfig,
+        modal: true,
+        position: &quot;top&quot;,
+      }).onClose.subscribe(payload &#x3D;&gt; {
+        if (!payload) {
+          return;
+        }
+        this.form.controls.value.setValue(payload[this.referencedColumn.property]);
+      });
+    });
+  }
+
+  private initUi() {
+    this.form.controls.name.setValue(this.column.property);
+    const queryParams &#x3D; {...this.queryParamsSnapshot};
+    if (queryParams.filter?.length) {
+      const filter &#x3D; parseParamsString(queryParams.filter);
+      let value &#x3D; filter[this.column.property]?.replace(/\{[^}]*}/g, &quot;&quot;);
+      if (value?.length) {
+        if (value.startsWith(&quot;%&quot;) &amp;&amp; value.endsWith(&quot;%&quot;)) {
+          this.form.controls.exactMatch.setValue(false);
+          value &#x3D; value.substring(1, value.length - 1);
+        } else {
+          this.form.controls.exactMatch.setValue(true);
+        }
+        if (this.column.type &#x3D;&#x3D;&#x3D; &quot;date&quot; || this.referencedColumn?.type &#x3D;&#x3D;&#x3D; &quot;date&quot;) {
+          const match &#x3D; value.match(/FROM(\d+)TO(\d+)/);
+          const fromTimestamp &#x3D; match[1];
+          const toTimestamp &#x3D; match[2];
+          const fromDate &#x3D; new Date(parseInt(fromTimestamp, 10));
+          const toDate &#x3D; new Date(parseInt(toTimestamp, 10));
+          this.form.controls.value.setValue([fromDate, toDate]);
+        } else {
+          this.form.controls.value.setValue(this.column.type &#x3D;&#x3D;&#x3D; &quot;boolean&quot; ? value &#x3D;&#x3D;&#x3D; &quot;true&quot; : value);
+        }
+      }
+    }
+    if (this.column.type &#x3D;&#x3D;&#x3D; &quot;boolean&quot; || this.column.type &#x3D;&#x3D;&#x3D; &quot;date&quot;) {
+      this.form.controls.exactMatch.setValue(true);
+    }
+  }
+
+  private getReferenceTarget() {
+    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
+    this.explorerService.getTarget(this.column.referencedEntityName, &quot;section&quot;).pipe(finalize(() &#x3D;&gt; {
+      this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
+    })).subscribe(v &#x3D;&gt; {
+      this._referencedTarget.set(v);
+      if (this.isReference &amp;&amp; this.referenceField?.ref) {
+        const parts &#x3D; this.referenceField.ref.split(&quot;.&quot;);
+        this._referencedColumn.set(this.referencedTarget.entity.columns.find(c &#x3D;&gt; c.property &#x3D;&#x3D;&#x3D; parts[1]));
+      }
+      this.initUi();
+    });
+  }
+
+  private doNavigate(queryParams: Params, queryParamsHandling?: QueryParamsHandling) {
+    return this.dialogConfig.navigate(queryParams, queryParamsHandling);
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'SectionFilterDialogViewModel.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
