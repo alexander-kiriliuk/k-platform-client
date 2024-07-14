@@ -1,5 +1,5 @@
 <h1>
-    <img src="https://github.com/alexander-kiriliuk/k-platform-client/tree/master/guide/res/kp-logo.png" alt="logo" height="20"/> K-Platform client
+    <img src="https://raw.githubusercontent.com/alexander-kiriliuk/k-platform-client/master/guide/res/kp-logo.png" alt="logo" height="20"/> K-Platform client
 </h1>
 
 __This is a client application, which is an administrative panel for managing a platform-based system [@k-platform](https://github.com/alexander-kiriliuk/k-platform-core).__
@@ -20,9 +20,9 @@ After you have installed and successfully launched the [backend of the platform]
 ### Based on
 
 <a target="_blank" href="https://angular.dev" rel="nofollow">
-    <img height="30" title="Angular" src="https://github.com/alexander-kiriliuk/k-platform-client/tree/master/guide/res/angular-logo.svg"/>
+    <img height="30" title="Angular" src="https://raw.githubusercontent.com/alexander-kiriliuk/k-platform-client/master/guide/res/angular-logo.svg"/>
 </a>
 &nbsp; &nbsp; &nbsp; &nbsp;
 <a target="_blank" href="https://primeng.org" rel="nofollow">
-    <img height="30" title="primeng" src="https://github.com/alexander-kiriliuk/k-platform-client/tree/master/guide/res/primeng-logo.svg"/> 
+    <img height="30" title="primeng" src="https://raw.githubusercontent.com/alexander-kiriliuk/k-platform-client/master/guide/res/primeng-logo.svg"/> 
 </a>
