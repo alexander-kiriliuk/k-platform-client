@@ -8,9 +8,7 @@ import {TranslocoPipe} from "@ngneat/transloco";
 import {InputTextModule} from "primeng/inputtext";
 import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {ButtonModule} from "primeng/button";
-import {
-  LocalizeStringInputComponent
-} from "../../../../../modules/locale";
+import { LocalizeStringInputComponent } from "../../../../../modules/locale";
 import {RefInputComponent} from "../../../../../modules/ref-input";
 import {ColumnForm} from "../../object.types";
 import {Explorer, ExplorerService} from "../../../../explorer";

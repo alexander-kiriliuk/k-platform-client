@@ -22,7 +22,13 @@ import {catchError} from "rxjs/operators";
 import {TranslocoService} from "@ngneat/transloco";
 import {DialogService} from "primeng/dynamicdialog";
 import {FormControl} from "@angular/forms";
-import {PageableData, PageableParams, ToastData, DashboardEvent, ToastEvent} from "../../../global/vars";
+import {
+  PageableData,
+  PageableParams,
+  ToastData,
+  DashboardEvent,
+  ToastEvent
+} from "../../../global/vars";
 import {ConfigItem, ConfigPropertyEditorResult} from "./config.types";
 import {Store} from "../../../modules/store";
 import {ConfigService} from "./config.service";

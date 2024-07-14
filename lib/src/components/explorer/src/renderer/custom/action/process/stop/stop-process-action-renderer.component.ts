@@ -35,7 +35,12 @@ import {
   AbstractExplorerActionRenderer
 } from "../../../../default/abstract-explorer-action-renderer";
 import {Store} from "../../../../../../../../modules/store";
-import {ToastEvent, ProcessStatus, ProcessUnit, ToastData} from "../../../../../../../../global/vars";
+import {
+  ToastEvent,
+  ProcessStatus,
+  ProcessUnit,
+  ToastData
+} from "../../../../../../../../global/vars";
 import {PreloaderEvent} from "../../../../../../../../modules/preloader";
 import {Explorer, ExplorerEvent} from "../../../../../../../explorer";
 

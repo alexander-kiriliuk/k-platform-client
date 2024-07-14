@@ -8,6 +8,8 @@
     "start:example:admin": "ng serve k-platform-admin",
     "build:example:admin": "ng build k-platform-admin",
     "lint": "eslint --fix --ext .js,.ts,.html .",
+    "docs:build": "npx compodoc -c compodoc.json",
+    "docs:serve": "npx compodoc -c compodoc.json -s -w",
     "analyze:example:admin": "ng build k-platform-admin --configuration development --stats-json && webpack-bundle-analyzer dist/examples/admin/stats.json"
   },
   "dependencies": {
@@ -39,6 +41,7 @@
     "@typescript-eslint/eslint-plugin": "7.13.0",
     "@typescript-eslint/parser": "7.13.0",
     "autoprefixer": "10.4.19",
+    "@compodoc/compodoc": "1.1.25",
     "eslint": "8.57.0",
     "eslint-plugin-html": "8.1.1",
     "eslint-plugin-import-newlines": "1.4.0",

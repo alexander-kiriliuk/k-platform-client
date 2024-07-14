@@ -1,0 +1,6 @@
+{
+  "tsconfig": "tsconfig.doc.json",
+  "output": "./dist/docs",
+  "hideGenerator": "true",
+  "customFavicon": "./guide/res/kp-logo.png"
+}

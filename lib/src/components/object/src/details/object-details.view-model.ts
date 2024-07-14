@@ -27,7 +27,13 @@ import {Store} from "../../../../modules/store";
 import {ColumnForm, TabForm} from "../object.types";
 import {onlyLatinLettersAndNumbersValidator} from "../../../../global/validator";
 import {PreloaderEvent} from "../../../../modules/preloader";
-import {ExplorerColumn, ExplorerService, ExplorerTab, ExplorerTarget, SectionDialogConfig} from "../../../explorer";
+import {
+  ExplorerColumn,
+  ExplorerService,
+  ExplorerTab,
+  ExplorerTarget,
+  SectionDialogConfig
+} from "../../../explorer";
 import {ToastData, ToastEvent} from "../../../../global/vars";
 import createTargetForm = ObjectDetails.createTargetForm;
 import createColumnForm = ObjectDetails.createColumnForm;

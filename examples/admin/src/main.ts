@@ -90,12 +90,12 @@ document.addEventListener("DOMContentLoaded", () => {
         useFactory: () => {
           const lang = LangUtils.getCurrentLang();
           switch (lang) {
-            case "ru":
-              import("@angular/common/locales/ru").then(setNgTranslation);
-              break;
-            case "en":
-              import("@angular/common/locales/en").then(setNgTranslation);
-              break;
+          case "ru":
+            import("@angular/common/locales/ru").then(setNgTranslation);
+            break;
+          case "en":
+            import("@angular/common/locales/en").then(setNgTranslation);
+            break;
           }
           return navigator.language;
         },

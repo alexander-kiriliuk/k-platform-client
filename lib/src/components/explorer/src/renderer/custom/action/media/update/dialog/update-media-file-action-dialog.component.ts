@@ -19,9 +19,7 @@ import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {TranslocoPipe} from "@ngneat/transloco";
 import {ReactiveFormsModule} from "@angular/forms";
 import {ExplorerService} from "../../../../../../../../explorer";
-import {
-  MediaInputComponent, Media
-} from "../../../../../../../../../modules/media";
+import { MediaInputComponent, Media } from "../../../../../../../../../modules/media";
 import {RefInputComponent} from "../../../../../../../../../modules/ref-input";
 
 @Component({

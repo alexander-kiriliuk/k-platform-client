@@ -32,7 +32,14 @@ import {TablePageEvent} from "primeng/table";
 import {StringUtils} from "../../../../global/util";
 import {Store} from "../../../../modules/store";
 import {LocalizePipe} from "../../../../modules/locale";
-import {PageableData, PageableParams, PlainObject, ToastData,DashboardEvent, ToastEvent} from "../../../../global/vars";
+import {
+  PageableData,
+  PageableParams,
+  PlainObject,
+  ToastData,
+  DashboardEvent,
+  ToastEvent
+} from "../../../../global/vars";
 import {PreloaderEvent} from "../../../../modules/preloader";
 import parseParamsString = StringUtils.parseParamsString;
 import stringifyParamsObject = StringUtils.stringifyParamsObject;

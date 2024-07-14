@@ -17,10 +17,7 @@
 import {ChangeDetectionStrategy, Component} from "@angular/core";
 import {TranslocoPipe} from "@ngneat/transloco";
 import {ReactiveFormsModule} from "@angular/forms";
-import {
-  LocalizeStringInputComponent,
-  LocalizePipe
-} from "../../../../../../../modules/locale";
+import { LocalizeStringInputComponent, LocalizePipe } from "../../../../../../../modules/locale";
 import {RefInputComponent} from "../../../../../../../modules/ref-input";
 import {AbstractExplorerObjectRenderer} from "../../abstract-explorer-object-renderer";
 
