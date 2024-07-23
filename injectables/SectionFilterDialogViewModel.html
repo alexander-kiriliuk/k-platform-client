@@ -1212,9 +1212,9 @@ export class SectionFilterDialogViewModel {
   }
 
   openSectionDialog() {
-    import(&quot;../section.component&quot;).then(m &#x3D;&gt; {
+    import(&quot;../explorer-section.component&quot;).then(m &#x3D;&gt; {
       const entity &#x3D; this.referencedTarget.entity;
-      this.dialogService.open(m.SectionComponent, {
+      this.dialogService.open(m.ExplorerSectionComponent, {
         header: this.localizePipe.transform(entity.name, entity.target) as string,
         data: {target: this.referencedTarget} as SectionDialogConfig,
         modal: true,

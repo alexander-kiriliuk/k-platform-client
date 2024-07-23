@@ -107,6 +107,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/ExplorerObjectRendererComponent.html" data-type="entity-link" >ExplorerObjectRendererComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/ExplorerSectionComponent.html" data-type="entity-link" >ExplorerSectionComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/ExplorerSectionRendererComponent.html" data-type="entity-link" >ExplorerSectionRendererComponent</a>
                             </li>
                             <li class="link">
@@ -177,9 +180,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="components/RefInputComponent.html" data-type="entity-link" >RefInputComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/SectionComponent.html" data-type="entity-link" >SectionComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/SectionFilterDialogComponent.html" data-type="entity-link" >SectionFilterDialogComponent</a>
@@ -314,6 +314,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/ExplorerObjectViewModel.html" data-type="entity-link" >ExplorerObjectViewModel</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/ExplorerSectionViewModel.html" data-type="entity-link" >ExplorerSectionViewModel</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/ExplorerService.html" data-type="entity-link" >ExplorerService</a>
                                 </li>
                                 <li class="link">
@@ -333,9 +336,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/SectionFilterDialogViewModel.html" data-type="entity-link" >SectionFilterDialogViewModel</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/SectionViewModel.html" data-type="entity-link" >SectionViewModel</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/Store.html" data-type="entity-link" >Store</a>
