@@ -6,7 +6,7 @@ __This is a client application, which is an administrative panel for managing a 
 
 ## Documentation
 
-This application is fully customisable and easily extensible. Please navigate to [guides folder](guide/index.md) for read detailed documentations of application and also visit [codebase documentations website](https://alexander-kiriliuk.github.io/k-platform-client).
+This application is fully customisable and easily extensible. Please navigate to [guides folder]((https://github.com/alexander-kiriliuk/k-platform-client/tree/master/guide/index.md) for read detailed documentations of application and also visit [codebase documentations website](https://alexander-kiriliuk.github.io/k-platform-client).
 
 ## Fast start
 
