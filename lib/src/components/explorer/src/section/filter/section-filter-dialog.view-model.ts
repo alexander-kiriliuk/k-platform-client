@@ -169,9 +169,9 @@ export class SectionFilterDialogViewModel {
   }
 
   openSectionDialog() {
-    import("../section.component").then(m => {
+    import("../explorer-section.component").then(m => {
       const entity = this.referencedTarget.entity;
-      this.dialogService.open(m.SectionComponent, {
+      this.dialogService.open(m.ExplorerSectionComponent, {
         header: this.localizePipe.transform(entity.name, entity.target) as string,
         data: {target: this.referencedTarget} as SectionDialogConfig,
         modal: true,

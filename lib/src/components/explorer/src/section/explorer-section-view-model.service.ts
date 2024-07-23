@@ -22,7 +22,7 @@ import {
   TargetData
 } from "../explorer.types";
 import {DialogService, DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
-import {ExplorerService, Explorer} from "../../../explorer";
+import {ExplorerService, Explorer, ExplorerSectionComponent} from "../../../explorer";
 import {ActivatedRoute, Params, QueryParamsHandling, Router} from "@angular/router";
 import {TranslocoService} from "@ngneat/transloco";
 import {BehaviorSubject, finalize, skip, Subscription, throwError} from "rxjs";
@@ -45,7 +45,7 @@ import parseParamsString = StringUtils.parseParamsString;
 import stringifyParamsObject = StringUtils.stringifyParamsObject;
 
 @Injectable()
-export class SectionViewModel {
+export class ExplorerSectionViewModel {
 
   readonly selectedRows = signal<{ [pk: string | number]: unknown }>({});
   private readonly dialogRef = inject(DynamicDialogRef, {optional: true});

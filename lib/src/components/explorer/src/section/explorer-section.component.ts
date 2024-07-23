@@ -23,7 +23,7 @@ import {NgClass} from "@angular/common";
 import {ButtonModule} from "primeng/button";
 import {ExplorerSectionRendererComponent} from "../renderer/explorer-section-renderer.component";
 import {ExplorerActionRendererComponent} from "../renderer/explorer-action-renderer.component";
-import {SectionViewModel} from "./section.view-model";
+import {ExplorerSectionViewModel} from "./explorer-section-view-model.service";
 import {PreloaderComponent, PreloaderDirective} from "../../../../modules/preloader";
 import {LocalizePipe} from "../../../../modules/locale";
 import {StopPropagationDirective} from "../../../../modules/events";
@@ -32,8 +32,8 @@ import {PlainObject} from "../../../../global/vars";
 @Component({
   selector: "section",
   standalone: true,
-  templateUrl: "./section.component.html",
-  styleUrls: ["./section.component.scss"],
+  templateUrl: "./explorer-section.component.html",
+  styleUrls: ["./explorer-section.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     PreloaderComponent,
@@ -49,13 +49,13 @@ import {PlainObject} from "../../../../global/vars";
     StopPropagationDirective,
   ],
   providers: [
-    SectionViewModel,
+    ExplorerSectionViewModel,
     ExplorerService
   ]
 })
-export class SectionComponent {
+export class ExplorerSectionComponent {
 
-  readonly vm = inject(SectionViewModel);
+  readonly vm = inject(ExplorerSectionViewModel);
 
   @HostBinding("class.dialogMode")
   get cssClass() {

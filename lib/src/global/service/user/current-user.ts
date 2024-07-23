@@ -18,14 +18,12 @@ import {inject, Injectable} from "@angular/core";
 import {BehaviorSubject} from "rxjs";
 import {Roles, AppConfig, User, CurrentUserEvent} from "../../vars";
 import {Store} from "../../../modules/store";
-import {LocalizePipe} from "../../../modules/locale";
 
 @Injectable({providedIn: "root"})
 export class CurrentUser {
 
   private readonly sub = new BehaviorSubject<User>(null);
   private readonly store = inject(Store);
-  private readonly localizePipe = inject(LocalizePipe);
   readonly asObservable = this.sub.asObservable();
   readonly config: AppConfig = {} as AppConfig;
 

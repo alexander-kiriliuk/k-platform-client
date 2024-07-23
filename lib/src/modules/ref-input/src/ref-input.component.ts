@@ -101,7 +101,7 @@ export class RefInputComponent implements ControlValueAccessor, OnInit {
 
   openSection() {
     import("../../../components/explorer").then(m => {
-      this.dialogService.open(m.SectionComponent, {
+      this.dialogService.open(m.ExplorerSectionComponent, {
         header: this.localizePipe.transform(this.targetData.entity.name, this.targetData.entity.target) as string,
         data: {
           target: this.targetData, multi: this.multi(), initialPageableParams: this.params()

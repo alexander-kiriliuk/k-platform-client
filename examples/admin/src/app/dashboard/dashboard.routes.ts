@@ -25,7 +25,7 @@ export const DashboardRoutes: Routes = [
       {
         path: "section/:target",
         loadComponent: () => import("@k-platform/client")
-          .then(m => m.SectionComponent)
+          .then(m => m.ExplorerSectionComponent)
       },
       {
         path: "object/:target/:id",

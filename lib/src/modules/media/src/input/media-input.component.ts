@@ -136,7 +136,7 @@ export class MediaInputComponent implements ControlValueAccessor {
       this.cdr.markForCheck();
     })).subscribe(payload => {
       import("../../../../components/explorer").then(m => {
-        this.dialogService.open(m.SectionComponent, {
+        this.dialogService.open(m.ExplorerSectionComponent, {
           header: this.localizePipe.transform(payload.entity.name, payload.entity.target) as string,
           data: {target: payload, multi: this.multi()} as SectionDialogConfig,
           modal: true,

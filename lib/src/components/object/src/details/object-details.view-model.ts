@@ -83,7 +83,7 @@ export class ObjectDetailsViewModel {
       finalize(() => this.store.emit(PreloaderEvent.Hide, this.preloaderChannel)),
     ).subscribe(targetData => {
       import("../../../explorer").then(m => {
-        this.dialogService.open(m.SectionComponent, {
+        this.dialogService.open(m.ExplorerSectionComponent, {
           header: this.localizePipe.transform(targetData.entity.name, targetData.entity.target) as string,
           data: {
             target: targetData,

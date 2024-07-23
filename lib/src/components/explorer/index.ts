@@ -18,7 +18,7 @@ export * from "./providers";
 export * from "./src/explorer.constants";
 export * from "./src/explorer.service";
 export * from "./src/explorer.types";
-export * from "./src/section/section.component";
+export * from "./src/section/explorer-section.component";
 export * from "./src/cached-explorer.service";
 export * from "./src/section/filter/section-filter-dialog.component";
 export * from "./src/section/filter/section-filter-dialog.constants";
