@@ -33,23 +33,34 @@ The following describes some modules, services and utilities on which the applic
 
 ## Embedded UI components
 
-- ### FileInputComponent
+- ### [FileInputComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/file)
+  TODO
 
-- ### LocalizeMediaInputComponent
+- ### [LocalizeMediaInputComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/locale/src/media-input)
+  TODO
 
-- ### MediaComponent
+- ### [LocalizeStringInputComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/locale/src/string-input)
+  TODO
 
-- ### MediaInputComponent
+- ### [MediaComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/media)
+  TODO
 
-- ### RefInputComponent
+- ### [MediaInputComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/media/src/input)
+  TODO
 
-- ### PreloaderComponent
+- ### [RefInputComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/ref-input)
+  TODO
 
+- ### [PreloaderComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/preloader)
+  TODO
 
 ## Common embedded services and utilities
 
-- ### CurrentUser
+- ### [CurrentUser](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/global/service/user/current-user.ts)
+  TODO
 
-- ### Store
+- ### [Store](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/store)
+  TODO
 
-- ### Device
+- ### [Device](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/device)
+  TODO
