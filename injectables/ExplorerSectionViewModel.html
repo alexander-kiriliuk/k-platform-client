@@ -1605,7 +1605,7 @@ import {
   TargetData
 } from &quot;../explorer.types&quot;;
 import {DialogService, DynamicDialogConfig, DynamicDialogRef} from &quot;primeng/dynamicdialog&quot;;
-import {ExplorerService, Explorer, ExplorerSectionComponent} from &quot;../../../explorer&quot;;
+import {Explorer, ExplorerService} from &quot;../../../explorer&quot;;
 import {ActivatedRoute, Params, QueryParamsHandling, Router} from &quot;@angular/router&quot;;
 import {TranslocoService} from &quot;@ngneat/transloco&quot;;
 import {BehaviorSubject, finalize, skip, Subscription, throwError} from &quot;rxjs&quot;;
@@ -1616,11 +1616,11 @@ import {StringUtils} from &quot;../../../../global/util&quot;;
 import {Store} from &quot;../../../../modules/store&quot;;
 import {LocalizePipe} from &quot;../../../../modules/locale&quot;;
 import {
+  DashboardEvent,
   PageableData,
   PageableParams,
   PlainObject,
   ToastData,
-  DashboardEvent,
   ToastEvent
 } from &quot;../../../../global/vars&quot;;
 import {PreloaderEvent} from &quot;../../../../modules/preloader&quot;;
