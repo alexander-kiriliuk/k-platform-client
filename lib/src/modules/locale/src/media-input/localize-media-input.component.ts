@@ -109,7 +109,7 @@ export class LocalizeMediaInputComponent implements ControlValueAccessor {
     this.cdr.markForCheck();
   }
 
-  onChange = (res: LocalizedMedia[]) => {
+  onChange = (_: LocalizedMedia[]) => {
   };
 
   onTouched = () => {

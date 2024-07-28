@@ -160,7 +160,7 @@ export class RefInputComponent implements ControlValueAccessor, OnInit {
     this.cdr.markForCheck();
   }
 
-  onChange = (res: unknown | unknown[]) => {
+  onChange = (_: unknown | unknown[]) => {
   };
 
   onTouched = () => {

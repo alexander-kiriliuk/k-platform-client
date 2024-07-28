@@ -191,7 +191,7 @@ export class FileInputComponent implements ControlValueAccessor, OnChanges {
     this.cdr.markForCheck();
   }
 
-  onChange = (res: KFile | KFile[]) => {
+  onChange = (_: KFile | KFile[]) => {
   };
 
   onTouched = () => {

@@ -70,10 +70,13 @@ module.exports = {
       ],
       rules: {
         "@typescript-eslint/no-unused-vars": [
-          "warn"
+          "warn", {
+            varsIgnorePattern: '^_',
+            argsIgnorePattern: '^_'
+          }
         ],
         "@typescript-eslint/no-namespace": "off",
-        "import-newlines/enforce": ["error", { items: 40, "max-len": 100 }],
+        "import-newlines/enforce": ["error", {items: 40, "max-len": 100}],
         "max-len": [
           "error",
           {code: 115}

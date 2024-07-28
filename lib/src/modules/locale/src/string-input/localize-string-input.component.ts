@@ -99,7 +99,7 @@ export class LocalizeStringInputComponent implements ControlValueAccessor {
     this.cdr.markForCheck();
   }
 
-  onChange = (res: LocalizedString[]) => {
+  onChange = (_: LocalizedString[]) => {
   };
 
   onTouched = () => {

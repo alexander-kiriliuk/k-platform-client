@@ -22,7 +22,7 @@ import {
   TargetData
 } from "../explorer.types";
 import {DialogService, DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
-import {ExplorerService, Explorer, ExplorerSectionComponent} from "../../../explorer";
+import {Explorer, ExplorerService} from "../../../explorer";
 import {ActivatedRoute, Params, QueryParamsHandling, Router} from "@angular/router";
 import {TranslocoService} from "@ngneat/transloco";
 import {BehaviorSubject, finalize, skip, Subscription, throwError} from "rxjs";
@@ -33,11 +33,11 @@ import {StringUtils} from "../../../../global/util";
 import {Store} from "../../../../modules/store";
 import {LocalizePipe} from "../../../../modules/locale";
 import {
+  DashboardEvent,
   PageableData,
   PageableParams,
   PlainObject,
   ToastData,
-  DashboardEvent,
   ToastEvent
 } from "../../../../global/vars";
 import {PreloaderEvent} from "../../../../modules/preloader";

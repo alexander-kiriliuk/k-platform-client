@@ -188,7 +188,7 @@ export class MediaInputComponent implements ControlValueAccessor {
     this.cdr.markForCheck();
   }
 
-  onChange = (res: Media | Media[]) => {
+  onChange = (_: Media | Media[]) => {
   };
 
   onTouched = () => {
