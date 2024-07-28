@@ -19,14 +19,17 @@ The following describes some modules, services and utilities on which the applic
 
   This module is responsible for displaying all database entities. It allows you to edit the metadata of all entity columns, manage renderers, create virtual columns, manage read and edit access by users roles, adjust the display order and customise the tabbed UI for editing an entity. You can [read more here](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/guide/object/object.md).
 
-- ### Auth
+- ### [Auth](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/components/auth)
+  This module provides an authorisation form and two types of captcha: normal and google recaptcha. Read more about [captcha](https://alexander-kiriliuk.github.io/k-platform-core/additional-documentation/properties/captcha.properties.html), [authorisation](https://alexander-kiriliuk.github.io/k-platform-core/additional-documentation/properties/auth.properties.html) and [bruteforce](https://alexander-kiriliuk.github.io/k-platform-core/additional-documentation/properties/bruteforce.properties.html) protection settings.
 
-- ### Config
+- ### [Config](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/components/config)
+  UI module for [configuration](https://github.com/alexander-kiriliuk/k-platform-core/blob/master/guide/config/index.md) of application. Allows real-time control of application settings, default data is stored in redis, initial settings are read from `.properties` files.
 
-- ### Profile
+- ### [Profile](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/components/profile)
+  This UI is designed to manage the current user's data.
 
-- ### XDB
-
+- ### [XDB](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/components/xdb)
+  This UI for working with [XML data-bridge](https://github.com/alexander-kiriliuk/k-platform-core/blob/master/guide/xml-data-bridge/index.md). It allows you to import xml-schema or configuration file as zip-archive.
 
 ## Embedded UI components
 

@@ -2,7 +2,8 @@
 
 The `/system/objects` section contains a list of all entities in the system and allows you to search for an entity.
 
-UI of object-editor looks like this
+#### UI of object-editor looks like this:
+
 ![object-editor.png](https://raw.githubusercontent.com/alexander-kiriliuk/k-platform-client/master/guide/res/object-editor.png)
 
 1. An entity alias, allows you to search by it, using for example these references: `/section/media`, `/object/media/:id`.
@@ -18,7 +19,8 @@ UI of object-editor looks like this
 11. Flags to adjust the default display/hide actions.
 12. UI for setting read and write restrictions by user role.
 
-UI of column-editor looks like this
+#### UI of column-editor looks like this:
+
 ![object-editor.png](https://raw.githubusercontent.com/alexander-kiriliuk/k-platform-client/master/guide/res/object-editor.png)
 
 1. UI of setting renderers for the field in objects and sections. If the field is empty, default renderers are assigned to the field according to the entity field data type.
