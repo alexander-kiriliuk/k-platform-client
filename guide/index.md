@@ -34,25 +34,25 @@ The following describes some modules, services and utilities on which the applic
 ## Embedded UI components
 
 - ### [FileInputComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/file)
-  TODO
-
-- ### [LocalizeMediaInputComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/locale/src/media-input)
-  TODO
-
-- ### [LocalizeStringInputComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/locale/src/string-input)
-  TODO
+  Displays a list of files, tied to entities fields with type `File`. Supports working with lists of files. Allows files to be downloaded from the user's device or selected from previously downloaded files.
 
 - ### [MediaComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/media)
-  TODO
+  The component displays images, tied to entities with type `Media`.
 
 - ### [MediaInputComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/media/src/input)
-  TODO
+  Displays a list of medias, tied to entities fields with type `Media`. Supports working with lists of images. Allows images to be downloaded from the user's device or selected from previously downloaded.
 
 - ### [RefInputComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/ref-input)
-  TODO
+  Allows any entity to be used as a reference, i.e. if a field of one entity refers to another (or many others, there is support for working with lists), then this component provides a UI to make this connection.
+
+- ### [LocalizeStringInputComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/locale/src/string-input)
+  An internationalised input field that handles string values for different locales.
+
+- ### [LocalizeMediaInputComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/locale/src/media-input)
+  An internationalised media-input that handles string values for different locales.
 
 - ### [PreloaderComponent](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/preloader)
-  TODO
+  The component displaying the loading animation is tied to the use of its own [directive](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/preloader/src/preloader.directive.ts). It is controlled with [`Store`](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/store) commands.
 
 ## Common embedded services and utilities
 

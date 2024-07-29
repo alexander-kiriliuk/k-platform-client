@@ -210,7 +210,7 @@
         "success": "Files uploaded successfully"
       }
     },
-    "dialogue": {
+    "dialog": {
       "title": "Create file",
       "choose.file": "File",
       "public": "Public"
