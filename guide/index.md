@@ -57,10 +57,10 @@ The following describes some modules, services and utilities on which the applic
 ## Common embedded services and utilities
 
 - ### [CurrentUser](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/global/service/user/current-user.ts)
-  TODO
+  This is a singleton-class that stores data about the current user in the system and some settings from the configuration. Has some methods to manage on user data.
 
 - ### [Store](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/store)
-  TODO
+  It is a global event bus that allows sending and subscribing to messages. It allows to implement event-driven architecture in an application.
 
 - ### [Device](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/modules/device)
-  TODO
+  This is a singleton-class that stores information about the client based on user-agent. It has several methods for determining client parameters. It is based on the `ngx-device-detector` package.
