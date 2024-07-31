@@ -16,24 +16,24 @@
 
 import {inject, Injectable, signal} from "@angular/core";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
-import {debounceTime, distinctUntilChanged, finalize, throwError} from "rxjs";
+import {debounceTime, distinctUntilChanged, throwError} from "rxjs";
 import {TablePageEvent} from "primeng/table";
 import {catchError} from "rxjs/operators";
 import {TranslocoService} from "@ngneat/transloco";
 import {DialogService} from "primeng/dynamicdialog";
 import {FormControl} from "@angular/forms";
 import {
+  DashboardEvent,
   PageableData,
   PageableParams,
   ToastData,
-  DashboardEvent,
   ToastEvent
 } from "../../../global/vars";
 import {ConfigItem, ConfigPropertyEditorResult} from "./config.types";
 import {Store} from "../../../modules/store";
 import {ConfigService} from "./config.service";
 import {Config} from "./config.constants";
-import {PreloaderEvent} from "../../../modules/preloader";
+import {usePreloader} from "../../../modules/preloader/src/use-preloader";
 
 @Injectable()
 export class ConfigViewModel {
@@ -74,11 +74,9 @@ export class ConfigViewModel {
       params.page = e.first / e.rows + 1;
       params.limit = e.rows;
     }
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.configService.pageableData(params).pipe(
-      finalize(() => {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-      })).subscribe(payload => {
+      usePreloader(this.store, this.preloaderChannel),
+    ).subscribe(payload => {
       this.pageableData.set(payload);
     });
   }
@@ -109,40 +107,38 @@ export class ConfigViewModel {
   }
 
   private deleteProperty(data: ConfigItem) {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.configService.removeProperty(data.key).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) => {
         this.store.emit<ToastData>(ToastEvent.Error, {message: res.error.message});
         return throwError(res);
-      }),
-      finalize(() => this.store.emit(PreloaderEvent.Hide, this.preloaderChannel)))
-      .subscribe(() => {
-        const payload = this.pageableData();
-        const idx = payload.items.findIndex(v => v.key === data.key);
-        payload.items.splice(idx, 1);
-        this.pageableData.set({...payload});
-        this.store.emit<ToastData>(ToastEvent.Success, {message: this.ts.translate("config.property.deleted")});
-      });
+      })
+    ).subscribe(() => {
+      const payload = this.pageableData();
+      const idx = payload.items.findIndex(v => v.key === data.key);
+      payload.items.splice(idx, 1);
+      this.pageableData.set({...payload});
+      this.store.emit<ToastData>(ToastEvent.Success, {message: this.ts.translate("config.property.deleted")});
+    });
   }
 
   private saveProperty(data: ConfigItem) {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.configService.setProperty(data).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) => {
         this.store.emit<ToastData>(ToastEvent.Error, {message: res.error.message});
         return throwError(res);
       }),
-      finalize(() => this.store.emit(PreloaderEvent.Hide, this.preloaderChannel)))
-      .subscribe(() => {
-        const payload = this.pageableData();
-        const idx = payload.items.findIndex(v => v.key === data.key);
-        if (idx !== -1) {
-          payload.items.splice(idx, 1);
-        }
-        payload.items.unshift(data);
-        this.pageableData.set({...payload});
-        this.store.emit<ToastData>(ToastEvent.Success, {message: this.ts.translate("config.property.saved")});
-      });
+    ).subscribe(() => {
+      const payload = this.pageableData();
+      const idx = payload.items.findIndex(v => v.key === data.key);
+      if (idx !== -1) {
+        payload.items.splice(idx, 1);
+      }
+      payload.items.unshift(data);
+      this.pageableData.set({...payload});
+      this.store.emit<ToastData>(ToastEvent.Success, {message: this.ts.translate("config.property.saved")});
+    });
   }
 
 }

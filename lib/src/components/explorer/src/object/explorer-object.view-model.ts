@@ -22,17 +22,17 @@ import {FormBuilder, FormControl} from "@angular/forms";
 import {TranslocoService} from "@ngneat/transloco";
 import {ConfirmationService} from "primeng/api";
 import {ExplorerObject} from "./explorer-object.constants";
-import { ExplorerObjectDto, ExplorerTab, ObjectDialogConfig, TargetData } from "../explorer.types";
+import {ExplorerObjectDto, ExplorerTab, ObjectDialogConfig, TargetData} from "../explorer.types";
 import {ExplorerEvent} from "./explorer.event";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {Explorer} from "../explorer.constants";
-import {finalize, forkJoin, of, throwError} from "rxjs";
+import {forkJoin, of, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
 import {LocalizePipe} from "../../../../modules/locale";
 import {Store, StoreMessage} from "../../../../modules/store";
 import {XdbExportDialogParams} from "../../../xdb";
-import {PreloaderEvent} from "../../../../modules/preloader";
-import {DashboardEvent, ToastEvent, ToastData} from "../../../../global/vars";
+import {DashboardEvent, ToastData, ToastEvent} from "../../../../global/vars";
+import {usePreloader} from "../../../../modules/preloader/src/use-preloader";
 import DuplicateItemToken = Explorer.DuplicateItemToken;
 
 @Injectable()
@@ -147,7 +147,6 @@ export class ExplorerObjectViewModel {
   }
 
   initObject() {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     const targetObs = this.explorerService.getTarget(this.target, "object");
     const entityObs = this.explorerService.getEntity<{ [k: string]: unknown }>(
       this.target, this.duplicateId ?? this.id
@@ -156,9 +155,7 @@ export class ExplorerObjectViewModel {
       target: targetObs,
       entity: this.id === Explorer.NewItemToken && !this.duplicateId ? of(null) : entityObs
     }).pipe(
-      finalize(() => {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-      }),
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) => {
         this.store.emit<ToastData>(ToastEvent.Error, {
           title: res.error.message, message: res.error.statusCode
@@ -206,11 +203,8 @@ export class ExplorerObjectViewModel {
 
   private handleSaveEvent(data: StoreMessage<ExplorerObjectDto>) {
     this.actionsDialogVisibility.set(false);
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.explorerService.saveEntity(data.payload.entity, data.payload.target, data.payload.id).pipe(
-      finalize(() => {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-      }),
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) => {
         this.store.emit<ToastData>(ToastEvent.Error, {
           title: res.error.message, message: res.error.statusCode
@@ -232,11 +226,8 @@ export class ExplorerObjectViewModel {
 
   private handleDeleteEvent(data: StoreMessage<ExplorerObjectDto>) {
     this.actionsDialogVisibility.set(false);
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.explorerService.removeEntity(data.payload.target, data.payload.id).pipe(
-      finalize(() => {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-      }),
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) => {
         this.store.emit<ToastData>(ToastEvent.Error, {
           title: res.error.message, message: res.error.statusCode

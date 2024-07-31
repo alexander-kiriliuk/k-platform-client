@@ -18,7 +18,7 @@ import {ChangeDetectionStrategy, Component, inject} from "@angular/core";
 import {RippleModule} from "primeng/ripple";
 import {ButtonModule} from "primeng/button";
 import {DeleteFileActionRendererService} from "./delete-file-action-renderer.service";
-import {finalize, throwError} from "rxjs";
+import {throwError} from "rxjs";
 import {Router} from "@angular/router";
 import {ConfirmDialogModule} from "primeng/confirmdialog";
 import {TranslocoPipe} from "@ngneat/transloco";
@@ -30,8 +30,8 @@ import {
 } from "../../../../default/abstract-explorer-action-renderer";
 import {Store} from "../../../../../../../../modules/store";
 import {Explorer} from "../../../../../../../explorer";
-import {PreloaderEvent} from "../../../../../../../../modules/preloader";
 import {ToastData, ToastEvent} from "../../../../../../../../global/vars";
+import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
 
 @Component({
   selector: "delete-file-action-renderer",
@@ -63,14 +63,13 @@ export class DeleteFileActionRendererComponent extends AbstractExplorerActionRen
     this.confirmationService.confirm({
       key: this.dialogKey,
       accept: () => {
-        this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
         this.service.remove(this.entityForm().controls.id.value).pipe(
+          usePreloader(this.store, this.preloaderChannel),
           catchError((res) => {
             this.store.emit<ToastData>(ToastEvent.Error, {message: res.error.message});
             return throwError(res);
-          }),finalize(() => {
-            this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-          })).subscribe(() => {
+          })
+        ).subscribe(() => {
           this.router.navigate(["/section/files"], {replaceUrl: true});
         });
       }

@@ -20,7 +20,7 @@ import {ButtonModule} from "primeng/button";
 import {ConfirmDialogModule} from "primeng/confirmdialog";
 import {TranslocoPipe} from "@ngneat/transloco";
 import {ConfirmationService} from "primeng/api";
-import {finalize, throwError} from "rxjs";
+import {throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
 import {
   AbstractExplorerActionRenderer
@@ -29,9 +29,9 @@ import {PreloaderComponent} from "../../../../../../../../modules/preloader";
 import {LocalizePipe} from "../../../../../../../../modules/locale";
 import {Store} from "../../../../../../../../modules/store";
 import {MediaService} from "../../../../../../../../modules/media";
-import {ExplorerEvent, Explorer} from "../../../../../../../explorer";
-import {PreloaderEvent} from "../../../../../../../../modules/preloader";
+import {Explorer, ExplorerEvent} from "../../../../../../../explorer";
 import {ToastData, ToastEvent} from "../../../../../../../../global/vars";
+import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
 
 @Component({
   selector: "re-create-media-action-renderer",
@@ -63,15 +63,13 @@ export class ReCreateMediaActionRendererComponent extends AbstractExplorerAction
     this.confirmationService.confirm({
       key: this.dialogKey,
       accept: () => {
-        this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
         this.service.reCreate(this.entityForm().controls.id.value).pipe(
+          usePreloader(this.store, this.preloaderChannel),
           catchError((res) => {
             this.store.emit<ToastData>(ToastEvent.Error, {message: res.error.message});
             return throwError(res);
-          }),
-          finalize(() => {
-            this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-          })).subscribe(() => {
+          })
+        ).subscribe(() => {
           this.store.emit(ExplorerEvent.ReloadObject);
         });
       }

@@ -20,7 +20,7 @@ import {Router} from "@angular/router";
 import {finalize} from "rxjs";
 import {Dashboard} from "../dashboard.constants";
 import {AppService} from "../../global/service/app.service";
-import {PreloaderEvent,Store,Category, DashboardEvent} from "@k-platform/client";
+import {Category, DashboardEvent, PreloaderEvent, Store} from "@k-platform/client";
 
 
 @Injectable()
@@ -33,22 +33,24 @@ export class MenuTreeViewModel {
   private readonly _data = signal<Category<{ iconClass: string }>[]>([]);
 
   constructor() {
-    this.appService.getMenu().pipe(finalize(() => {
-      this.store.emit(PreloaderEvent.Hide, Dashboard.MenuPreloaderCn);
-      const payload = localStorage.getItem(MENU_STORE_KEY);
-      if (payload) {
-        this._openedNodes.set(JSON.parse(payload));
-      }
-    })).subscribe(v => {
+    this.appService.getMenu().pipe(
+      finalize(() => {
+        this.store.emit(PreloaderEvent.Hide, Dashboard.MenuPreloaderCn);
+        const payload = localStorage.getItem(MENU_STORE_KEY);
+        if (payload) {
+          this._openedNodes.set(JSON.parse(payload));
+        }
+      })
+    ).subscribe(v => {
       this._data.set(v.children);
     });
   }
 
-  get openedNodes(){
+  get openedNodes() {
     return this._openedNodes();
   }
 
-  get data(){
+  get data() {
     return this._data();
   }
 

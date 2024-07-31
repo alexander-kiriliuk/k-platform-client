@@ -17,20 +17,19 @@
 import {inject, Injectable, signal} from "@angular/core";
 import {DialogService, DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {
-  ExplorerService,
   ExplorerColumn,
+  ExplorerService,
   SectionDialogConfig,
   SectionFilterDialogConfig,
   TargetData
 } from "../../../../explorer";
 import {SectionFilter} from "./section-filter-dialog.constants";
-import {finalize} from "rxjs";
 import {Params, QueryParamsHandling} from "@angular/router";
 import {StringUtils} from "../../../../../global/util";
 import {Store} from "../../../../../modules/store";
 import {LocalizePipe} from "../../../../../modules/locale";
 import {SortOrder} from "../../../../../global/vars";
-import {PreloaderEvent} from "../../../../../modules/preloader";
+import {usePreloader} from "../../../../../modules/preloader/src/use-preloader";
 import parseParamsString = StringUtils.parseParamsString;
 import stringifyParamsObject = StringUtils.stringifyParamsObject;
 import createFieldFilterForm = SectionFilter.createFieldFilterForm;
@@ -216,10 +215,9 @@ export class SectionFilterDialogViewModel {
   }
 
   private getReferenceTarget() {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
-    this.explorerService.getTarget(this.column.referencedEntityName, "section").pipe(finalize(() => {
-      this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-    })).subscribe(v => {
+    this.explorerService.getTarget(this.column.referencedEntityName, "section").pipe(
+      usePreloader(this.store, this.preloaderChannel),
+    ).subscribe(v => {
       this._referencedTarget.set(v);
       if (this.isReference && this.referenceField?.ref) {
         const parts = this.referenceField.ref.split(".");

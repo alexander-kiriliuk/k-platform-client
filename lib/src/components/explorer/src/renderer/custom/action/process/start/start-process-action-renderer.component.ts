@@ -27,7 +27,7 @@ import {RippleModule} from "primeng/ripple";
 import {ButtonModule} from "primeng/button";
 import {TranslocoPipe} from "@ngneat/transloco";
 import {catchError} from "rxjs/operators";
-import {finalize, throwError} from "rxjs";
+import {throwError} from "rxjs";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {ProcessService} from "../../../../../../../../global/service";
 import {LocalizePipe} from "../../../../../../../../modules/locale";
@@ -35,10 +35,14 @@ import {
   AbstractExplorerActionRenderer
 } from "../../../../default/abstract-explorer-action-renderer";
 import {Store} from "../../../../../../../../modules/store";
-import {ExplorerEvent, Explorer} from "../../../../../../../explorer";
-import {ProcessStatus, ProcessUnit, ToastData} from "../../../../../../../../global/vars";
-import {PreloaderEvent} from "../../../../../../../../modules/preloader";
-import {ToastEvent} from "../../../../../../../../global/vars";
+import {Explorer, ExplorerEvent} from "../../../../../../../explorer";
+import {
+  ProcessStatus,
+  ProcessUnit,
+  ToastData,
+  ToastEvent
+} from "../../../../../../../../global/vars";
+import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
 
 @Component({
   selector: "start-process-action-renderer",
@@ -84,15 +88,12 @@ export class StartProcessActionRendererComponent extends AbstractExplorerActionR
   }
 
   start() {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.service.start((this.data() as ProcessUnit).code).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) => {
         this.store.emit<ToastData>(ToastEvent.Error, {message: res.error.message});
         return throwError(res);
-      }),
-      finalize(() => {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-      }),
+      })
     ).subscribe(() => {
       this.store.emit(ExplorerEvent.ReloadObject);
     });

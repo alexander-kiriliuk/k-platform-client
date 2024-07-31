@@ -16,14 +16,14 @@
 
 import {inject, Injectable} from "@angular/core";
 import {catchError} from "rxjs/operators";
-import {finalize, throwError} from "rxjs";
+import {throwError} from "rxjs";
 import {DynamicDialogRef} from "primeng/dynamicdialog";
 import {CreateProfileForm, Profile} from "./profile.constants";
 import {ProfileService} from "./profile.service";
 import {Store} from "../../../modules/store";
 import {CurrentUser} from "../../../global/service";
-import {PreloaderEvent} from "../../../modules/preloader";
 import {ToastData, ToastEvent, User} from "../../../global/vars";
+import {usePreloader} from "../../../modules/preloader/src/use-preloader";
 
 
 @Injectable()
@@ -44,15 +44,13 @@ export class ProfileViewModel {
   }
 
   save() {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.profileService.updateUser(this.form.value as User).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) => {
         this.store.emit<ToastData>(ToastEvent.Error, {message: res.error.message});
         return throwError(res);
-      }),
-      finalize(() => {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-      })).subscribe(user => {
+      })
+    ).subscribe(user => {
       this.ref.close(user);
     });
   }

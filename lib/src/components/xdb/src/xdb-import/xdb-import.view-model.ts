@@ -16,14 +16,15 @@
 
 import {inject, Injectable} from "@angular/core";
 import {FileUploadErrorEvent, FileUploadEvent} from "primeng/fileupload";
-import {finalize, throwError} from "rxjs";
+import {throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
 import {TranslocoService} from "@ngneat/transloco";
-import {DashboardEvent, ToastEvent, ToastData} from "../../../../global/vars";
+import {DashboardEvent, ToastData, ToastEvent} from "../../../../global/vars";
 import {Store} from "../../../../modules/store";
 import {Xdb} from "../xdb.constants";
 import {XdbService} from "../xdb.service";
 import {PreloaderEvent} from "../../../../modules/preloader";
+import {usePreloader} from "../../../../modules/preloader/src/use-preloader";
 
 
 @Injectable()
@@ -60,11 +61,8 @@ export class XDBImportViewModel {
   }
 
   doImport(value: string) {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.xdbService.importData(value).pipe(
-      finalize(() => {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-      }),
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) => {
         this.store.emit<ToastData>(ToastEvent.Error, {
           title: res.error.message, message: res.error.statusCode

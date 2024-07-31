@@ -17,7 +17,7 @@
 import {ChangeDetectionStrategy, Component, inject} from "@angular/core";
 import {TranslocoPipe, TranslocoService} from "@ngneat/transloco";
 import {AsyncPipe} from "@angular/common";
-import {debounceTime, distinctUntilChanged, finalize, of, startWith, switchMap, tap} from "rxjs";
+import {debounceTime, distinctUntilChanged, of, startWith, switchMap, tap} from "rxjs";
 import {CardModule} from "primeng/card";
 import {BadgeModule} from "primeng/badge";
 import {InputTextModule} from "primeng/inputtext";
@@ -29,10 +29,10 @@ import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {LocalizePipe} from "../../../modules/locale";
 import {MediaComponent} from "../../../modules/media";
 import {PreloaderComponent, PreloaderDirective} from "../../../modules/preloader";
-import {ExplorerTarget, ExplorerService} from "../../explorer";
+import {ExplorerService, ExplorerTarget} from "../../explorer";
 import {Store} from "../../../modules/store";
-import {PreloaderEvent} from "../../../modules/preloader";
 import {DashboardEvent} from "../../../global/vars";
+import {usePreloader} from "../../../modules/preloader/src/use-preloader";
 
 @Component({
   selector: "object",
@@ -75,11 +75,10 @@ export class ObjectComponent {
     switchMap(filterValue => {
       if (this.targetsCache.length === 0) {
         return this.explorerService.getTargetList().pipe(
+          usePreloader(this.store, this.preloaderChannel),
           tap(targets => {
             this.targetsCache = targets;
-            this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
           }),
-          finalize(() => this.store.emit(PreloaderEvent.Hide, this.preloaderChannel)),
           map(targetList => this.findTarget(targetList, filterValue))
         );
       } else {

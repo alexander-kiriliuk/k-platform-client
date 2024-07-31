@@ -40,7 +40,7 @@ import {
   ToastData,
   ToastEvent
 } from "../../../../global/vars";
-import {PreloaderEvent} from "../../../../modules/preloader";
+import {usePreloader} from "../../../../modules/preloader/src/use-preloader";
 import parseParamsString = StringUtils.parseParamsString;
 import stringifyParamsObject = StringUtils.stringifyParamsObject;
 
@@ -226,11 +226,10 @@ export class ExplorerSectionViewModel {
   }
 
   private getSection(params?: PageableParams) {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.sectionSub?.unsubscribe();
     this.sectionSub = this.explorerService.getSectionList(this.target, params).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       finalize(() => {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
         if (this.dialogMode) {
           return;
         }

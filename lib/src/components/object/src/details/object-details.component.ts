@@ -26,7 +26,7 @@ import {ConfirmationService} from "primeng/api";
 import {InputNumberModule} from "primeng/inputnumber";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {CheckboxModule} from "primeng/checkbox";
-import {finalize, Observable, tap} from "rxjs";
+import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {ObjectDetails} from "./object-details.constants";
 import {PreloaderComponent, PreloaderDirective} from "../../../../modules/preloader";
@@ -35,8 +35,8 @@ import {MediaInputComponent} from "../../../../modules/media";
 import {RefInputComponent} from "../../../../modules/ref-input";
 import {ObjectDetailsViewModel} from "./object-details.view-model";
 import {Store} from "../../../../modules/store";
-import {PreloaderEvent} from "../../../../modules/preloader";
 import {ExplorerService, TargetData} from "../../../../components/explorer";
+import {usePreloader} from "../../../../modules/preloader/src/use-preloader";
 import createColumnForm = ObjectDetails.createColumnForm;
 
 @Component({
@@ -79,13 +79,12 @@ export class ObjectDetailsComponent {
 
   constructor() {
     this.target$ = this.explorerService.getTarget(this.vm.target).pipe(
-      tap(() => this.store.emit(PreloaderEvent.Show, this.vm.preloaderChannel)),
+      usePreloader(this.store, this.vm.preloaderChannel),
       map(target => {
         this.vm.targetForm.patchValue(target.entity);
         target.entity.columns.forEach(col => this.vm.targetForm.controls.columns.push(createColumnForm(col)));
         return target;
       }),
-      finalize(() => this.store.emit(PreloaderEvent.Hide, this.vm.preloaderChannel)),
     );
   }
 

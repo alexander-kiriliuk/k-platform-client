@@ -16,7 +16,7 @@
 
 import {inject, Injectable} from "@angular/core";
 import {catchError} from "rxjs/operators";
-import {finalize, throwError} from "rxjs";
+import {throwError} from "rxjs";
 import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {TranslocoService} from "@ngneat/transloco";
 import {XdbExportDialog} from "./xdb-export-dialog.constants";
@@ -24,8 +24,8 @@ import {Store} from "../../../../modules/store";
 import {XdbService} from "../xdb.service";
 import {XdbExportDialogParams} from "../xdb.types";
 import {Xdb} from "../xdb.constants";
-import {PreloaderEvent} from "../../../../modules/preloader";
-import {ToastData, TMP_URL, ToastEvent} from "../../../../global/vars";
+import {TMP_URL, ToastData, ToastEvent} from "../../../../global/vars";
+import {usePreloader} from "../../../../modules/preloader/src/use-preloader";
 import createForm = XdbExportDialog.createForm;
 
 @Injectable()
@@ -48,13 +48,12 @@ export class XdbExportDialogViewModel {
   }
 
   export() {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.xdbService.exportData(this.form.getRawValue()).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) => {
         this.store.emit<ToastData>(ToastEvent.Error, {message: res.error.message});
         return throwError(() => res);
       }),
-      finalize(() => this.store.emit(PreloaderEvent.Hide, this.preloaderChannel))
     ).subscribe(v => {
       this.store.emit<ToastData>(ToastEvent.Success, {message: this.ts.translate("xdb.export.success")});
       if (v.file) {

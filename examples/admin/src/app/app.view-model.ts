@@ -51,6 +51,7 @@ export class AppViewModel {
   private _ready: boolean;
 
   constructor() {
+    this.doc.body.classList.remove("pending");
     this.store.on<JwtDto>(AuthEvent.Success)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.checkProfile());
@@ -66,9 +67,10 @@ export class AppViewModel {
   }
 
   checkProfile() {
+    this._ready = false;
+    this.cdr.markForCheck();
     this.profileService.getUser().pipe(
       finalize(() => {
-        this.doc.body.classList.remove("pending");
         this._ready = true;
         this.cdr.markForCheck();
       }),
@@ -85,10 +87,16 @@ export class AppViewModel {
   }
 
   private logout() {
+    this._ready = false;
+    this.cdr.markForCheck();
     this.authService.logout().pipe(
       catchError((res) => {
         this.store.emit<ToastData>(ToastEvent.Error, {message: res.error.message});
         return throwError(() => res);
+      }),
+      finalize(() => {
+        this._ready = true;
+        this.cdr.markForCheck();
       })
     ).subscribe(() => {
       this.router.navigate(["/auth"]);

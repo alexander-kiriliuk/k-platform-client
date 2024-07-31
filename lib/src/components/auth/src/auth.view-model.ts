@@ -15,18 +15,18 @@
  */
 
 import {inject, Injectable, signal} from "@angular/core";
-import {finalize, throwError} from "rxjs";
+import {throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
-import getCurrentTheme = ThemeUtils.getCurrentTheme;
 import {ThemeUtils} from "../../../global/util";
 import {CaptchaResponse, ToastData, ToastEvent} from "../../../global/vars";
 import {Auth} from "./auth.constants";
 import {Store} from "../../../modules/store";
 import {AuthService} from "./auth.service";
-import {PreloaderEvent} from "../../../modules/preloader";
 import {LoginPayload} from "./auth.types";
 import {AuthEvent} from "./auth.event";
 import {CaptchaService} from "../../../global/service";
+import {usePreloader} from "../../../modules/preloader/src/use-preloader";
+import getCurrentTheme = ThemeUtils.getCurrentTheme;
 
 @Injectable()
 export class AuthViewModel {
@@ -51,9 +51,8 @@ export class AuthViewModel {
   }
 
   getCaptcha() {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.captchaService.getCaptcha().pipe(
-      finalize(() => this.store.emit(PreloaderEvent.Hide, this.preloaderChannel))
+      usePreloader(this.store, this.preloaderChannel),
     ).subscribe(payload => {
       this.captchaConfig.set(payload);
       if (payload.enabled) {
@@ -65,6 +64,7 @@ export class AuthViewModel {
 
   doLogin() {
     this.authService.login(this.form.value as LoginPayload).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) => {
         this.store.emit<ToastData>(ToastEvent.Error, {message: res.error.message});
         if (this.isReCaptcha) {

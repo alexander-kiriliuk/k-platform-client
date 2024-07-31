@@ -18,7 +18,7 @@ import {ChangeDetectorRef, inject, Injectable} from "@angular/core";
 import {DialogService, DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {ConfirmationService} from "primeng/api";
 import {TranslocoService} from "@ngneat/transloco";
-import {finalize, tap, throwError} from "rxjs";
+import {throwError} from "rxjs";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {catchError} from "rxjs/operators";
 import {ObjectDetails} from "./object-details.constants";
@@ -26,7 +26,6 @@ import {LocalizePipe} from "../../../../modules/locale";
 import {Store} from "../../../../modules/store";
 import {ColumnForm, TabForm} from "../object.types";
 import {onlyLatinLettersAndNumbersValidator} from "../../../../global/validator";
-import {PreloaderEvent} from "../../../../modules/preloader";
 import {
   ExplorerColumn,
   ExplorerService,
@@ -35,6 +34,7 @@ import {
   SectionDialogConfig
 } from "../../../explorer";
 import {ToastData, ToastEvent} from "../../../../global/vars";
+import {usePreloader} from "../../../../modules/preloader/src/use-preloader";
 import createTargetForm = ObjectDetails.createTargetForm;
 import createColumnForm = ObjectDetails.createColumnForm;
 import createTabForm = ObjectDetails.createTabForm;
@@ -79,8 +79,7 @@ export class ObjectDetailsViewModel {
 
   openTabFinder(colForm: FormGroup<ColumnForm>) {
     this.explorerService.getTarget("ExplorerTabEntity").pipe(
-      tap(() => this.store.emit(PreloaderEvent.Show, this.preloaderChannel)),
-      finalize(() => this.store.emit(PreloaderEvent.Hide, this.preloaderChannel)),
+      usePreloader(this.store, this.preloaderChannel),
     ).subscribe(targetData => {
       import("../../../explorer").then(m => {
         this.dialogService.open(m.ExplorerSectionComponent, {
@@ -108,17 +107,16 @@ export class ObjectDetailsViewModel {
     this.confirmationService.confirm({
       key: this.newTabDialogKey,
       accept: () => {
-        this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
         const payload = this.tabForm.getRawValue();
         this.explorerService.saveEntity(payload, "ExplorerTabEntity")
           .pipe(
+            usePreloader(this.store, this.preloaderChannel),
             catchError((res) => {
               this.store.emit<ToastData>(ToastEvent.Error, {
                 title: this.ts.translate("object.details.tab.error")
               });
               return throwError(res);
             }),
-            finalize(() => this.store.emit(PreloaderEvent.Hide, this.preloaderChannel))
           )
           .subscribe(() => {
             this.tabForm.reset();
@@ -131,8 +129,8 @@ export class ObjectDetailsViewModel {
   }
 
   saveObject() {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.explorerService.saveTarget(this.targetForm.getRawValue()).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) => {
         this.store.emit<ToastData>(ToastEvent.Error, {
           title: this.ts.translate("object.details.error"),
@@ -140,7 +138,6 @@ export class ObjectDetailsViewModel {
         });
         return throwError(res);
       }),
-      finalize(() => this.store.emit(PreloaderEvent.Hide, this.preloaderChannel))
     ).subscribe(v => {
       this.targetForm.patchValue(v);
       v.columns.forEach(col => this.targetForm.controls.columns.push(createColumnForm(col)));

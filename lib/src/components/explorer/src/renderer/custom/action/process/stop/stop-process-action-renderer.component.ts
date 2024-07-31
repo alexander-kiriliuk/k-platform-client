@@ -27,7 +27,7 @@ import {RippleModule} from "primeng/ripple";
 import {ButtonModule} from "primeng/button";
 import {TranslocoPipe} from "@ngneat/transloco";
 import {catchError} from "rxjs/operators";
-import {finalize, throwError} from "rxjs";
+import {throwError} from "rxjs";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {ProcessService} from "../../../../../../../../global/service";
 import {LocalizePipe} from "../../../../../../../../modules/locale";
@@ -36,13 +36,13 @@ import {
 } from "../../../../default/abstract-explorer-action-renderer";
 import {Store} from "../../../../../../../../modules/store";
 import {
-  ToastEvent,
   ProcessStatus,
   ProcessUnit,
-  ToastData
+  ToastData,
+  ToastEvent
 } from "../../../../../../../../global/vars";
-import {PreloaderEvent} from "../../../../../../../../modules/preloader";
 import {Explorer, ExplorerEvent} from "../../../../../../../explorer";
+import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
 
 @Component({
   selector: "stop-process-action-renderer",
@@ -88,14 +88,11 @@ export class StopProcessActionRendererComponent extends AbstractExplorerActionRe
   }
 
   stop() {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.service.stop((this.data() as ProcessUnit).code).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) => {
         this.store.emit<ToastData>(ToastEvent.Error, {message: res.error.message});
         return throwError(res);
-      }),
-      finalize(() => {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
       }),
     ).subscribe(() => {
       this.store.emit(ExplorerEvent.ReloadObject);
