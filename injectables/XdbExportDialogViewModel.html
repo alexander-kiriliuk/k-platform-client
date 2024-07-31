@@ -506,7 +506,7 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {inject, Injectable} from &quot;@angular/core&quot;;
 import {catchError} from &quot;rxjs/operators&quot;;
-import {finalize, throwError} from &quot;rxjs&quot;;
+import {throwError} from &quot;rxjs&quot;;
 import {DynamicDialogConfig, DynamicDialogRef} from &quot;primeng/dynamicdialog&quot;;
 import {TranslocoService} from &quot;@ngneat/transloco&quot;;
 import {XdbExportDialog} from &quot;./xdb-export-dialog.constants&quot;;
@@ -514,8 +514,8 @@ import {Store} from &quot;../../../../modules/store&quot;;
 import {XdbService} from &quot;../xdb.service&quot;;
 import {XdbExportDialogParams} from &quot;../xdb.types&quot;;
 import {Xdb} from &quot;../xdb.constants&quot;;
-import {PreloaderEvent} from &quot;../../../../modules/preloader&quot;;
-import {ToastData, TMP_URL, ToastEvent} from &quot;../../../../global/vars&quot;;
+import {TMP_URL, ToastData, ToastEvent} from &quot;../../../../global/vars&quot;;
+import {usePreloader} from &quot;../../../../modules/preloader/src/use-preloader&quot;;
 import createForm &#x3D; XdbExportDialog.createForm;
 
 @Injectable()
@@ -538,13 +538,12 @@ export class XdbExportDialogViewModel {
   }
 
   export() {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.xdbService.exportData(this.form.getRawValue()).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) &#x3D;&gt; {
         this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {message: res.error.message});
         return throwError(() &#x3D;&gt; res);
       }),
-      finalize(() &#x3D;&gt; this.store.emit(PreloaderEvent.Hide, this.preloaderChannel))
     ).subscribe(v &#x3D;&gt; {
       this.store.emit&lt;ToastData&gt;(ToastEvent.Success, {message: this.ts.translate(&quot;xdb.export.success&quot;)});
       if (v.file) {

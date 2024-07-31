@@ -210,7 +210,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -243,8 +243,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="62"
-                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:62</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -310,8 +310,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="44"
-                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:44</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -347,8 +347,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="55"
-                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:55</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -414,8 +414,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="48"
-                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:48</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -487,7 +487,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -514,7 +514,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -541,7 +541,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -570,7 +570,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:41</a></div>
                                 </td>
                             </tr>
 
@@ -583,14 +583,15 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {inject, Injectable} from &quot;@angular/core&quot;;
 import {FileUploadErrorEvent, FileUploadEvent} from &quot;primeng/fileupload&quot;;
-import {finalize, throwError} from &quot;rxjs&quot;;
+import {throwError} from &quot;rxjs&quot;;
 import {catchError} from &quot;rxjs/operators&quot;;
 import {TranslocoService} from &quot;@ngneat/transloco&quot;;
-import {DashboardEvent, ToastEvent, ToastData} from &quot;../../../../global/vars&quot;;
+import {DashboardEvent, ToastData, ToastEvent} from &quot;../../../../global/vars&quot;;
 import {Store} from &quot;../../../../modules/store&quot;;
 import {Xdb} from &quot;../xdb.constants&quot;;
 import {XdbService} from &quot;../xdb.service&quot;;
 import {PreloaderEvent} from &quot;../../../../modules/preloader&quot;;
+import {usePreloader} from &quot;../../../../modules/preloader/src/use-preloader&quot;;
 
 
 @Injectable()
@@ -627,11 +628,8 @@ export class XDBImportViewModel {
   }
 
   doImport(value: string) {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.xdbService.importData(value).pipe(
-      finalize(() &#x3D;&gt; {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-      }),
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) &#x3D;&gt; {
         this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {
           title: res.error.message, message: res.error.statusCode

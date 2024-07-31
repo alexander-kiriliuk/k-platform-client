@@ -387,8 +387,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="269"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:269</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="268"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:268</a></div>
                         </td>
                     </tr>
 
@@ -641,8 +641,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="253"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:253</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="252"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:252</a></div>
                         </td>
                     </tr>
 
@@ -1623,7 +1623,7 @@ import {
   ToastData,
   ToastEvent
 } from &quot;../../../../global/vars&quot;;
-import {PreloaderEvent} from &quot;../../../../modules/preloader&quot;;
+import {usePreloader} from &quot;../../../../modules/preloader/src/use-preloader&quot;;
 import parseParamsString &#x3D; StringUtils.parseParamsString;
 import stringifyParamsObject &#x3D; StringUtils.stringifyParamsObject;
 
@@ -1809,11 +1809,10 @@ export class ExplorerSectionViewModel {
   }
 
   private getSection(params?: PageableParams) {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.sectionSub?.unsubscribe();
     this.sectionSub &#x3D; this.explorerService.getSectionList(this.target, params).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       finalize(() &#x3D;&gt; {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
         if (this.dialogMode) {
           return;
         }

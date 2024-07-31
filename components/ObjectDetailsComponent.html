@@ -409,7 +409,7 @@ import {ConfirmationService} from &quot;primeng/api&quot;;
 import {InputNumberModule} from &quot;primeng/inputnumber&quot;;
 import {InputTextareaModule} from &quot;primeng/inputtextarea&quot;;
 import {CheckboxModule} from &quot;primeng/checkbox&quot;;
-import {finalize, Observable, tap} from &quot;rxjs&quot;;
+import {Observable} from &quot;rxjs&quot;;
 import {map} from &quot;rxjs/operators&quot;;
 import {ObjectDetails} from &quot;./object-details.constants&quot;;
 import {PreloaderComponent, PreloaderDirective} from &quot;../../../../modules/preloader&quot;;
@@ -418,8 +418,8 @@ import {MediaInputComponent} from &quot;../../../../modules/media&quot;;
 import {RefInputComponent} from &quot;../../../../modules/ref-input&quot;;
 import {ObjectDetailsViewModel} from &quot;./object-details.view-model&quot;;
 import {Store} from &quot;../../../../modules/store&quot;;
-import {PreloaderEvent} from &quot;../../../../modules/preloader&quot;;
 import {ExplorerService, TargetData} from &quot;../../../../components/explorer&quot;;
+import {usePreloader} from &quot;../../../../modules/preloader/src/use-preloader&quot;;
 import createColumnForm &#x3D; ObjectDetails.createColumnForm;
 
 @Component({
@@ -462,13 +462,12 @@ export class ObjectDetailsComponent {
 
   constructor() {
     this.target$ &#x3D; this.explorerService.getTarget(this.vm.target).pipe(
-      tap(() &#x3D;&gt; this.store.emit(PreloaderEvent.Show, this.vm.preloaderChannel)),
+      usePreloader(this.store, this.vm.preloaderChannel),
       map(target &#x3D;&gt; {
         this.vm.targetForm.patchValue(target.entity);
         target.entity.columns.forEach(col &#x3D;&gt; this.vm.targetForm.controls.columns.push(createColumnForm(col)));
         return target;
       }),
-      finalize(() &#x3D;&gt; this.store.emit(PreloaderEvent.Hide, this.vm.preloaderChannel)),
     );
   }
 

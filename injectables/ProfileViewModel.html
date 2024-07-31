@@ -435,14 +435,14 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {inject, Injectable} from &quot;@angular/core&quot;;
 import {catchError} from &quot;rxjs/operators&quot;;
-import {finalize, throwError} from &quot;rxjs&quot;;
+import {throwError} from &quot;rxjs&quot;;
 import {DynamicDialogRef} from &quot;primeng/dynamicdialog&quot;;
 import {CreateProfileForm, Profile} from &quot;./profile.constants&quot;;
 import {ProfileService} from &quot;./profile.service&quot;;
 import {Store} from &quot;../../../modules/store&quot;;
 import {CurrentUser} from &quot;../../../global/service&quot;;
-import {PreloaderEvent} from &quot;../../../modules/preloader&quot;;
 import {ToastData, ToastEvent, User} from &quot;../../../global/vars&quot;;
+import {usePreloader} from &quot;../../../modules/preloader/src/use-preloader&quot;;
 
 
 @Injectable()
@@ -463,15 +463,13 @@ export class ProfileViewModel {
   }
 
   save() {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.profileService.updateUser(this.form.value as User).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) &#x3D;&gt; {
         this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {message: res.error.message});
         return throwError(res);
-      }),
-      finalize(() &#x3D;&gt; {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-      })).subscribe(user &#x3D;&gt; {
+      })
+    ).subscribe(user &#x3D;&gt; {
       this.ref.close(user);
     });
   }

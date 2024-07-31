@@ -646,7 +646,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {ChangeDetectionStrategy, Component, inject} from &quot;@angular/core&quot;;
 import {RippleModule} from &quot;primeng/ripple&quot;;
 import {ButtonModule} from &quot;primeng/button&quot;;
-import {finalize, throwError} from &quot;rxjs&quot;;
+import {throwError} from &quot;rxjs&quot;;
 import {Router} from &quot;@angular/router&quot;;
 import {ConfirmDialogModule} from &quot;primeng/confirmdialog&quot;;
 import {TranslocoPipe} from &quot;@ngneat/transloco&quot;;
@@ -659,8 +659,8 @@ import {
 } from &quot;../../../../default/abstract-explorer-action-renderer&quot;;
 import {Store} from &quot;../../../../../../../../modules/store&quot;;
 import {Explorer} from &quot;../../../../../../../explorer&quot;;
-import {PreloaderEvent} from &quot;../../../../../../../../modules/preloader&quot;;
-import {ToastEvent, ToastData} from &quot;../../../../../../../../global/vars&quot;;
+import {ToastData, ToastEvent} from &quot;../../../../../../../../global/vars&quot;;
+import {usePreloader} from &quot;../../../../../../../../modules/preloader/src/use-preloader&quot;;
 
 @Component({
   selector: &quot;delete-media-action-renderer&quot;,
@@ -692,14 +692,13 @@ export class DeleteMediaActionRendererComponent extends AbstractExplorerActionRe
     this.confirmationService.confirm({
       key: this.dialogKey,
       accept: () &#x3D;&gt; {
-        this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
         this.service.remove(this.entityForm().controls.id.value).pipe(
+          usePreloader(this.store, this.preloaderChannel),
           catchError((res) &#x3D;&gt; {
             this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {message: res.error.message});
             return throwError(res);
-          }), finalize(() &#x3D;&gt; {
-            this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-          })).subscribe(() &#x3D;&gt; {
+          })
+        ).subscribe(() &#x3D;&gt; {
           this.router.navigate([&quot;/section/media&quot;], {replaceUrl: true});
         });
       }

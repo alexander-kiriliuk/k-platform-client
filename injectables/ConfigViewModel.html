@@ -263,8 +263,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="111"
-                                    class="link-to-prism">lib/src/components/config/src/config.view-model.ts:111</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">lib/src/components/config/src/config.view-model.ts:109</a></div>
                         </td>
                     </tr>
 
@@ -397,8 +397,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="86"
-                                    class="link-to-prism">lib/src/components/config/src/config.view-model.ts:86</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">lib/src/components/config/src/config.view-model.ts:84</a></div>
                         </td>
                     </tr>
 
@@ -466,8 +466,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="128"
-                                    class="link-to-prism">lib/src/components/config/src/config.view-model.ts:128</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="125"
+                                    class="link-to-prism">lib/src/components/config/src/config.view-model.ts:125</a></div>
                         </td>
                     </tr>
 
@@ -742,24 +742,24 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {inject, Injectable, signal} from &quot;@angular/core&quot;;
 import {takeUntilDestroyed} from &quot;@angular/core/rxjs-interop&quot;;
-import {debounceTime, distinctUntilChanged, finalize, throwError} from &quot;rxjs&quot;;
+import {debounceTime, distinctUntilChanged, throwError} from &quot;rxjs&quot;;
 import {TablePageEvent} from &quot;primeng/table&quot;;
 import {catchError} from &quot;rxjs/operators&quot;;
 import {TranslocoService} from &quot;@ngneat/transloco&quot;;
 import {DialogService} from &quot;primeng/dynamicdialog&quot;;
 import {FormControl} from &quot;@angular/forms&quot;;
 import {
+  DashboardEvent,
   PageableData,
   PageableParams,
   ToastData,
-  DashboardEvent,
   ToastEvent
 } from &quot;../../../global/vars&quot;;
 import {ConfigItem, ConfigPropertyEditorResult} from &quot;./config.types&quot;;
 import {Store} from &quot;../../../modules/store&quot;;
 import {ConfigService} from &quot;./config.service&quot;;
 import {Config} from &quot;./config.constants&quot;;
-import {PreloaderEvent} from &quot;../../../modules/preloader&quot;;
+import {usePreloader} from &quot;../../../modules/preloader/src/use-preloader&quot;;
 
 @Injectable()
 export class ConfigViewModel {
@@ -800,11 +800,9 @@ export class ConfigViewModel {
       params.page &#x3D; e.first / e.rows + 1;
       params.limit &#x3D; e.rows;
     }
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.configService.pageableData(params).pipe(
-      finalize(() &#x3D;&gt; {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-      })).subscribe(payload &#x3D;&gt; {
+      usePreloader(this.store, this.preloaderChannel),
+    ).subscribe(payload &#x3D;&gt; {
       this.pageableData.set(payload);
     });
   }
@@ -835,40 +833,38 @@ export class ConfigViewModel {
   }
 
   private deleteProperty(data: ConfigItem) {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.configService.removeProperty(data.key).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) &#x3D;&gt; {
         this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {message: res.error.message});
         return throwError(res);
-      }),
-      finalize(() &#x3D;&gt; this.store.emit(PreloaderEvent.Hide, this.preloaderChannel)))
-      .subscribe(() &#x3D;&gt; {
-        const payload &#x3D; this.pageableData();
-        const idx &#x3D; payload.items.findIndex(v &#x3D;&gt; v.key &#x3D;&#x3D;&#x3D; data.key);
-        payload.items.splice(idx, 1);
-        this.pageableData.set({...payload});
-        this.store.emit&lt;ToastData&gt;(ToastEvent.Success, {message: this.ts.translate(&quot;config.property.deleted&quot;)});
-      });
+      })
+    ).subscribe(() &#x3D;&gt; {
+      const payload &#x3D; this.pageableData();
+      const idx &#x3D; payload.items.findIndex(v &#x3D;&gt; v.key &#x3D;&#x3D;&#x3D; data.key);
+      payload.items.splice(idx, 1);
+      this.pageableData.set({...payload});
+      this.store.emit&lt;ToastData&gt;(ToastEvent.Success, {message: this.ts.translate(&quot;config.property.deleted&quot;)});
+    });
   }
 
   private saveProperty(data: ConfigItem) {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.configService.setProperty(data).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) &#x3D;&gt; {
         this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {message: res.error.message});
         return throwError(res);
       }),
-      finalize(() &#x3D;&gt; this.store.emit(PreloaderEvent.Hide, this.preloaderChannel)))
-      .subscribe(() &#x3D;&gt; {
-        const payload &#x3D; this.pageableData();
-        const idx &#x3D; payload.items.findIndex(v &#x3D;&gt; v.key &#x3D;&#x3D;&#x3D; data.key);
-        if (idx !&#x3D;&#x3D; -1) {
-          payload.items.splice(idx, 1);
-        }
-        payload.items.unshift(data);
-        this.pageableData.set({...payload});
-        this.store.emit&lt;ToastData&gt;(ToastEvent.Success, {message: this.ts.translate(&quot;config.property.saved&quot;)});
-      });
+    ).subscribe(() &#x3D;&gt; {
+      const payload &#x3D; this.pageableData();
+      const idx &#x3D; payload.items.findIndex(v &#x3D;&gt; v.key &#x3D;&#x3D;&#x3D; data.key);
+      if (idx !&#x3D;&#x3D; -1) {
+        payload.items.splice(idx, 1);
+      }
+      payload.items.unshift(data);
+      this.pageableData.set({...payload});
+      this.store.emit&lt;ToastData&gt;(ToastEvent.Success, {message: this.ts.translate(&quot;config.property.saved&quot;)});
+    });
   }
 
 }

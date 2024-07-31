@@ -390,8 +390,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="233"
-                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:233</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="227"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:227</a></div>
                         </td>
                     </tr>
 
@@ -459,8 +459,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="171"
-                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:171</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="168"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:168</a></div>
                         </td>
                     </tr>
 
@@ -528,8 +528,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="207"
-                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:207</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="204"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:204</a></div>
                         </td>
                     </tr>
 
@@ -1393,17 +1393,17 @@ import {FormBuilder, FormControl} from &quot;@angular/forms&quot;;
 import {TranslocoService} from &quot;@ngneat/transloco&quot;;
 import {ConfirmationService} from &quot;primeng/api&quot;;
 import {ExplorerObject} from &quot;./explorer-object.constants&quot;;
-import { ExplorerObjectDto, ExplorerTab, ObjectDialogConfig, TargetData } from &quot;../explorer.types&quot;;
+import {ExplorerObjectDto, ExplorerTab, ObjectDialogConfig, TargetData} from &quot;../explorer.types&quot;;
 import {ExplorerEvent} from &quot;./explorer.event&quot;;
 import {takeUntilDestroyed} from &quot;@angular/core/rxjs-interop&quot;;
 import {Explorer} from &quot;../explorer.constants&quot;;
-import {finalize, forkJoin, of, throwError} from &quot;rxjs&quot;;
+import {forkJoin, of, throwError} from &quot;rxjs&quot;;
 import {catchError} from &quot;rxjs/operators&quot;;
 import {LocalizePipe} from &quot;../../../../modules/locale&quot;;
 import {Store, StoreMessage} from &quot;../../../../modules/store&quot;;
 import {XdbExportDialogParams} from &quot;../../../xdb&quot;;
-import {PreloaderEvent} from &quot;../../../../modules/preloader&quot;;
-import {DashboardEvent, ToastEvent, ToastData} from &quot;../../../../global/vars&quot;;
+import {DashboardEvent, ToastData, ToastEvent} from &quot;../../../../global/vars&quot;;
+import {usePreloader} from &quot;../../../../modules/preloader/src/use-preloader&quot;;
 import DuplicateItemToken &#x3D; Explorer.DuplicateItemToken;
 
 @Injectable()
@@ -1518,7 +1518,6 @@ export class ExplorerObjectViewModel {
   }
 
   initObject() {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     const targetObs &#x3D; this.explorerService.getTarget(this.target, &quot;object&quot;);
     const entityObs &#x3D; this.explorerService.getEntity&lt;{ [k: string]: unknown }&gt;(
       this.target, this.duplicateId ?? this.id
@@ -1527,9 +1526,7 @@ export class ExplorerObjectViewModel {
       target: targetObs,
       entity: this.id &#x3D;&#x3D;&#x3D; Explorer.NewItemToken &amp;&amp; !this.duplicateId ? of(null) : entityObs
     }).pipe(
-      finalize(() &#x3D;&gt; {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-      }),
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) &#x3D;&gt; {
         this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {
           title: res.error.message, message: res.error.statusCode
@@ -1577,11 +1574,8 @@ export class ExplorerObjectViewModel {
 
   private handleSaveEvent(data: StoreMessage&lt;ExplorerObjectDto&gt;) {
     this.actionsDialogVisibility.set(false);
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.explorerService.saveEntity(data.payload.entity, data.payload.target, data.payload.id).pipe(
-      finalize(() &#x3D;&gt; {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-      }),
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) &#x3D;&gt; {
         this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {
           title: res.error.message, message: res.error.statusCode
@@ -1603,11 +1597,8 @@ export class ExplorerObjectViewModel {
 
   private handleDeleteEvent(data: StoreMessage&lt;ExplorerObjectDto&gt;) {
     this.actionsDialogVisibility.set(false);
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.explorerService.removeEntity(data.payload.target, data.payload.id).pipe(
-      finalize(() &#x3D;&gt; {
-        this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
-      }),
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) &#x3D;&gt; {
         this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {
           title: res.error.message, message: res.error.statusCode

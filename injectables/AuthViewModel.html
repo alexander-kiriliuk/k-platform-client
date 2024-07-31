@@ -240,8 +240,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="66"
-                                    class="link-to-prism">lib/src/components/auth/src/auth.view-model.ts:66</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">lib/src/components/auth/src/auth.view-model.ts:65</a></div>
                         </td>
                     </tr>
 
@@ -604,18 +604,18 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {inject, Injectable, signal} from &quot;@angular/core&quot;;
-import {finalize, throwError} from &quot;rxjs&quot;;
+import {throwError} from &quot;rxjs&quot;;
 import {catchError} from &quot;rxjs/operators&quot;;
-import getCurrentTheme &#x3D; ThemeUtils.getCurrentTheme;
 import {ThemeUtils} from &quot;../../../global/util&quot;;
 import {CaptchaResponse, ToastData, ToastEvent} from &quot;../../../global/vars&quot;;
 import {Auth} from &quot;./auth.constants&quot;;
 import {Store} from &quot;../../../modules/store&quot;;
 import {AuthService} from &quot;./auth.service&quot;;
-import {PreloaderEvent} from &quot;../../../modules/preloader&quot;;
 import {LoginPayload} from &quot;./auth.types&quot;;
 import {AuthEvent} from &quot;./auth.event&quot;;
 import {CaptchaService} from &quot;../../../global/service&quot;;
+import {usePreloader} from &quot;../../../modules/preloader/src/use-preloader&quot;;
+import getCurrentTheme &#x3D; ThemeUtils.getCurrentTheme;
 
 @Injectable()
 export class AuthViewModel {
@@ -640,9 +640,8 @@ export class AuthViewModel {
   }
 
   getCaptcha() {
-    this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
     this.captchaService.getCaptcha().pipe(
-      finalize(() &#x3D;&gt; this.store.emit(PreloaderEvent.Hide, this.preloaderChannel))
+      usePreloader(this.store, this.preloaderChannel),
     ).subscribe(payload &#x3D;&gt; {
       this.captchaConfig.set(payload);
       if (payload.enabled) {
@@ -654,6 +653,7 @@ export class AuthViewModel {
 
   doLogin() {
     this.authService.login(this.form.value as LoginPayload).pipe(
+      usePreloader(this.store, this.preloaderChannel),
       catchError((res) &#x3D;&gt; {
         this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {message: res.error.message});
         if (this.isReCaptcha) {
