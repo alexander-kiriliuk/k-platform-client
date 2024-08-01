@@ -126,6 +126,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface representing the JWT and user data.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -276,10 +283,16 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {FormControl} from &quot;@angular/forms&quot;;
 import {User} from &quot;../../../global/vars&quot;;
 
+/**
+ * Type representing the login form.
+ */
 export type LoginForm &#x3D; {
   [K in keyof LoginPayload]: FormControl&lt;LoginPayload[K]&gt;;
 }
 
+/**
+ * Interface representing the login data.
+ */
 export interface LoginPayload {
   login: string;
   password: string;
@@ -287,6 +300,9 @@ export interface LoginPayload {
   captchaPayload?: string;
 }
 
+/**
+ * Interface representing the JWT and user data.
+ */
 export interface JwtDto {
   user: User;
   accessToken: string;

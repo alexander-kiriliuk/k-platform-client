@@ -124,6 +124,15 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component for user authentication. It includes a form for entering username and password,
+as well as a Captcha mechanism for protection against automated requests. The component
+interacts with the ViewModel and services to perform authentication and handle Captcha.</p>
+
+    </p>
 
 
     <p class="comment">
@@ -284,10 +293,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">lib/src/components/auth/src/auth.component.ts:60</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">lib/src/components/auth/src/auth.component.ts:68</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Subscribes to the Captcha resolve event and resets it if necessary.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -321,14 +336,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="76"
-                                    class="link-to-prism">lib/src/components/auth/src/auth.component.ts:76</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">lib/src/components/auth/src/auth.component.ts:95</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Initializes the component.
+Requests Captcha configuration via the ViewModel.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -374,10 +392,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">lib/src/components/auth/src/auth.component.ts:59</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">lib/src/components/auth/src/auth.component.ts:65</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>ReCaptcha component reference</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -400,10 +424,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">lib/src/components/auth/src/auth.component.ts:60</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">lib/src/components/auth/src/auth.component.ts:68</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>ViewModel for interacting with data and service</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -429,9 +459,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">lib/src/components/auth/src/auth.component.ts:72</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">lib/src/components/auth/src/auth.component.ts:87</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the Captcha configuration from the ViewModel.</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -453,9 +492,14 @@ import {RecaptchaComponent, RecaptchaModule} from &quot;ng-recaptcha-2&quot;;
 import {takeUntilDestroyed, toObservable} from &quot;@angular/core/rxjs-interop&quot;;
 import {skip} from &quot;rxjs&quot;;
 import {AuthViewModel} from &quot;./auth.view-model&quot;;
-import {PreloaderDirective, PreloaderComponent} from &quot;../../../modules/preloader&quot;;
+import {PreloaderComponent, PreloaderDirective} from &quot;../../../modules/preloader&quot;;
 import {CaptchaService} from &quot;../../../global/service&quot;;
 
+/**
+ * Component for user authentication. It includes a form for entering username and password,
+ * as well as a Captcha mechanism for protection against automated requests. The component
+ * interacts with the ViewModel and services to perform authentication and handle Captcha.
+ */
 @Component({
   selector: &quot;auth&quot;,
   standalone: true,
@@ -482,9 +526,15 @@ import {CaptchaService} from &quot;../../../global/service&quot;;
 })
 export class AuthComponent implements OnInit {
 
+  /** ReCaptcha component reference */
   @ViewChild(RecaptchaComponent) readonly recaptcha: RecaptchaComponent;
+
+  /** ViewModel for interacting with data and service */
   readonly vm &#x3D; inject(AuthViewModel);
 
+  /**
+   * Subscribes to the Captcha resolve event and resets it if necessary.
+   */
   constructor() {
     toObservable(this.vm.reCaptchaResolved)
       .pipe(takeUntilDestroyed(), skip(1))
@@ -495,10 +545,18 @@ export class AuthComponent implements OnInit {
       });
   }
 
+  /**
+   * Gets the Captcha configuration from the ViewModel.
+   * @returns Captcha configuration
+   */
   get captchaConfig() {
     return this.vm.captchaConfig();
   }
 
+  /**
+   * Initializes the component.
+   * Requests Captcha configuration via the ViewModel.
+   */
   ngOnInit(): void {
     this.vm.getCaptcha();
   }

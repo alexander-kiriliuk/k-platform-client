@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Service for performing user authentication.</p>
+
+            </p>
 
 
 
@@ -195,14 +202,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">lib/src/components/auth/src/auth.service.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">lib/src/components/auth/src/auth.service.ts:35</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Sends a login request for the user.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -213,6 +222,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -227,6 +237,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Login data (username, password, Captcha).</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -236,7 +250,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Observable with JWT.</p>
+
                             </div>
                 </td>
             </tr>
@@ -262,19 +277,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="30"
-                                    class="link-to-prism">lib/src/components/auth/src/auth.service.ts:30</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">lib/src/components/auth/src/auth.service.ts:43</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Sends a logout request for the user.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Observable<void></p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -305,7 +326,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">lib/src/components/auth/src/auth.service.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">lib/src/components/auth/src/auth.service.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -322,15 +343,28 @@
 import {HttpClient} from &quot;@angular/common/http&quot;;
 import {JwtDto, LoginPayload} from &quot;./auth.types&quot;;
 
+
+/**
+ * Service for performing user authentication.
+ */
 @Injectable({providedIn: &quot;root&quot;})
 export class AuthService {
 
   private readonly http &#x3D; inject(HttpClient);
 
+  /**
+   * Sends a login request for the user.
+   * @param payload Login data (username, password, Captcha).
+   * @returns Observable with JWT.
+   */
   login(payload: LoginPayload) {
     return this.http.post&lt;JwtDto&gt;(&quot;/auth/login&quot;, payload);
   }
 
+  /**
+   * Sends a logout request for the user.
+   * @returns Observable&lt;void&gt;
+   */
   logout() {
     return this.http.post&lt;void&gt;(&quot;/auth/logout&quot;, null);
   }
