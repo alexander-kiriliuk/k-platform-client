@@ -28,12 +28,22 @@ import {CaptchaService} from "../../../global/service";
 import {usePreloader} from "../../../modules/preloader/src/use-preloader";
 import getCurrentTheme = ThemeUtils.getCurrentTheme;
 
+/**
+ * ViewModel for the authentication component. Handles Captcha interaction, login execution,
+ * and form state management.
+ */
 @Injectable()
 export class AuthViewModel {
 
+  /** Signal indicating if ReCaptcha is resolved */
   readonly reCaptchaResolved = signal<boolean>(undefined);
+
+  /** Signal containing Captcha configuration */
   readonly captchaConfig = signal<CaptchaResponse>(undefined);
+
+  /** Login form object */
   readonly form = Auth.createLoginForm();
+
   private readonly store = inject(Store);
   private readonly authService = inject(AuthService);
   private readonly captchaService = inject(CaptchaService);
@@ -46,10 +56,16 @@ export class AuthViewModel {
     return getCurrentTheme();
   }
 
+  /**
+   * Checks if the current Captcha is Google ReCaptcha
+   * */
   get isReCaptcha() {
     return this.captchaConfig().type === "google";
   }
 
+  /**
+   * Requests Captcha configuration and updates the form.
+   * */
   getCaptcha() {
     this.captchaService.getCaptcha().pipe(
       usePreloader(this.store, this.preloaderChannel),
@@ -62,6 +78,9 @@ export class AuthViewModel {
     });
   }
 
+  /**
+   * Performs user login using the form data. Handles errors and resets Captcha if necessary.
+   * */
   doLogin() {
     this.authService.login(this.form.value as LoginPayload).pipe(
       usePreloader(this.store, this.preloaderChannel),
@@ -80,6 +99,10 @@ export class AuthViewModel {
     });
   }
 
+  /**
+   * Handles Captcha resolved event.
+   * @param payload String representing the Captcha resolution result.
+   */
   onCaptchaResolved(payload: string) {
     this.form.controls.captchaPayload.setValue(payload);
     this.reCaptchaResolved.set(true);

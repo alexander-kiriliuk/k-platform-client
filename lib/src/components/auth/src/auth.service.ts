@@ -18,15 +18,28 @@ import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {JwtDto, LoginPayload} from "./auth.types";
 
+
+/**
+ * Service for performing user authentication.
+ */
 @Injectable({providedIn: "root"})
 export class AuthService {
 
   private readonly http = inject(HttpClient);
 
+  /**
+   * Sends a login request for the user.
+   * @param payload Login data (username, password, Captcha).
+   * @returns Observable with JWT.
+   */
   login(payload: LoginPayload) {
     return this.http.post<JwtDto>("/auth/login", payload);
   }
 
+  /**
+   * Sends a logout request for the user.
+   * @returns Observable<void>
+   */
   logout() {
     return this.http.post<void>("/auth/logout", null);
   }

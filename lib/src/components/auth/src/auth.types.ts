@@ -17,10 +17,16 @@
 import {FormControl} from "@angular/forms";
 import {User} from "../../../global/vars";
 
+/**
+ * Type representing the login form.
+ */
 export type LoginForm = {
   [K in keyof LoginPayload]: FormControl<LoginPayload[K]>;
 }
 
+/**
+ * Interface representing the login data.
+ */
 export interface LoginPayload {
   login: string;
   password: string;
@@ -28,6 +34,9 @@ export interface LoginPayload {
   captchaPayload?: string;
 }
 
+/**
+ * Interface representing the JWT and user data.
+ */
 export interface JwtDto {
   user: User;
   accessToken: string;

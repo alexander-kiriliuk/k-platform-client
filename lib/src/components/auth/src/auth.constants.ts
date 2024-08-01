@@ -19,8 +19,13 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 export namespace Auth {
 
+  /** Preloader channel for authentication */
   export const PreloaderCn = "auth-cn";
 
+  /**
+   * Creates a login form.
+   * @returns FormGroup with fields for login, password, and Captcha.
+   */
   export function createLoginForm(): FormGroup<LoginForm> {
     return new FormGroup<LoginForm>({
       login: new FormControl<string>("", [Validators.required]),

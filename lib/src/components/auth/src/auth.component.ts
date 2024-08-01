@@ -27,9 +27,14 @@ import {RecaptchaComponent, RecaptchaModule} from "ng-recaptcha-2";
 import {takeUntilDestroyed, toObservable} from "@angular/core/rxjs-interop";
 import {skip} from "rxjs";
 import {AuthViewModel} from "./auth.view-model";
-import {PreloaderDirective, PreloaderComponent} from "../../../modules/preloader";
+import {PreloaderComponent, PreloaderDirective} from "../../../modules/preloader";
 import {CaptchaService} from "../../../global/service";
 
+/**
+ * Component for user authentication. It includes a form for entering username and password,
+ * as well as a Captcha mechanism for protection against automated requests. The component
+ * interacts with the ViewModel and services to perform authentication and handle Captcha.
+ */
 @Component({
   selector: "auth",
   standalone: true,
@@ -56,9 +61,15 @@ import {CaptchaService} from "../../../global/service";
 })
 export class AuthComponent implements OnInit {
 
+  /** ReCaptcha component reference */
   @ViewChild(RecaptchaComponent) readonly recaptcha: RecaptchaComponent;
+
+  /** ViewModel for interacting with data and service */
   readonly vm = inject(AuthViewModel);
 
+  /**
+   * Subscribes to the Captcha resolve event and resets it if necessary.
+   */
   constructor() {
     toObservable(this.vm.reCaptchaResolved)
       .pipe(takeUntilDestroyed(), skip(1))
@@ -69,10 +80,18 @@ export class AuthComponent implements OnInit {
       });
   }
 
+  /**
+   * Gets the Captcha configuration from the ViewModel.
+   * @returns Captcha configuration
+   */
   get captchaConfig() {
     return this.vm.captchaConfig();
   }
 
+  /**
+   * Initializes the component.
+   * Requests Captcha configuration via the ViewModel.
+   */
   ngOnInit(): void {
     this.vm.getCaptcha();
   }

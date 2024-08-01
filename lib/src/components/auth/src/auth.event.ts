@@ -14,6 +14,10 @@
  * limitations under the License.
  */
 
+
+/**
+ * Enumeration of authentication events.
+ */
 export enum AuthEvent {
   Success = "auth:success",
   Logout = "auth:logout"
