@@ -39,6 +39,9 @@ import {Explorer, ExplorerEvent} from "../../../../../../../explorer";
 import {ProcessUnit, ToastData, ToastEvent} from "../../../../../../../../global/vars";
 import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
 
+/**
+ * This component allows users to enable or disable a process and handles state changes.
+ */
 @Component({
   selector: "toggle-process-action-renderer",
   standalone: true,
@@ -60,14 +63,25 @@ export class ToggleProcessActionRendererComponent extends AbstractExplorerAction
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly injector = inject(Injector);
 
+  /**
+   * Gets the value of the enabled control from the entity form.
+   * @returns The enabled control value.
+   */
   get enabledCtrlValue() {
     return this.entityForm().controls.enabled.value as boolean;
   }
 
+  /**
+   * Gets the channel for the preloader.
+   * @returns The preloader channel identifier.
+   */
   get preloaderChannel() {
     return Explorer.ObjectPreloaderCn;
   }
 
+  /**
+   * Initializes the component and subscribes to control value changes.
+   */
   ngOnInit() {
     runInInjectionContext(this.injector, () => {
       this.entityForm().controls.enabled.valueChanges
@@ -78,6 +92,9 @@ export class ToggleProcessActionRendererComponent extends AbstractExplorerAction
     });
   }
 
+  /**
+   * Toggles the enabled state of the associated process.
+   */
   toggle() {
     this.service.toggle((this.data() as ProcessUnit).code).pipe(
       usePreloader(this.store, this.preloaderChannel),

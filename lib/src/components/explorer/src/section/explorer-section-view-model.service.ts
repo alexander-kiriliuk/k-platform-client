@@ -25,7 +25,7 @@ import {DialogService, DynamicDialogConfig, DynamicDialogRef} from "primeng/dyna
 import {Explorer, ExplorerService} from "../../../explorer";
 import {ActivatedRoute, Params, QueryParamsHandling, Router} from "@angular/router";
 import {TranslocoService} from "@ngneat/transloco";
-import {BehaviorSubject, finalize, skip, Subscription, throwError} from "rxjs";
+import {BehaviorSubject, finalize, Observable, skip, Subscription, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {TablePageEvent} from "primeng/table";
@@ -44,10 +44,19 @@ import {usePreloader} from "../../../../modules/preloader/src/use-preloader";
 import parseParamsString = StringUtils.parseParamsString;
 import stringifyParamsObject = StringUtils.stringifyParamsObject;
 
+/**
+ * ViewModel for the Explorer Section Component.
+ * This service handles the logic of the explorer section, including
+ * state management for selected rows, navigation, and data retrieval.
+ */
 @Injectable()
 export class ExplorerSectionViewModel {
 
+  /**
+   * A signal representing the currently selected rows.
+   */
   readonly selectedRows = signal<{ [pk: string | number]: unknown }>({});
+
   private readonly dialogRef = inject(DynamicDialogRef, {optional: true});
   private readonly config = inject(DynamicDialogConfig, {optional: true});
   private readonly explorerService = inject(ExplorerService);
@@ -63,6 +72,10 @@ export class ExplorerSectionViewModel {
   private target: string;
   private sectionSub: Subscription;
 
+  /**
+   * Constructor for the ExplorerSectionViewModel.
+   * Initializes the view model and subscribes to necessary services.
+   */
   constructor() {
     if (this.data?.target) {
       this._targetData.set(this.data.target);
@@ -81,38 +94,74 @@ export class ExplorerSectionViewModel {
     });
   }
 
-  get targetData() {
+  /**
+   * Gets the target data.
+   * @returns {TargetData} The target data.
+   */
+  get targetData(): TargetData {
     return this._targetData();
   }
 
-  get pageableData() {
+  /**
+   * Gets the pageable data.
+   * @returns {PageableData} The pageable data.
+   */
+  get pageableData(): PageableData {
     return this._pageableData();
   }
 
-  get preloaderChannel() {
+  /**
+   * Gets the preloader channel for the section.
+   * @returns {string} The preloader channel.
+   */
+  get preloaderChannel(): string {
     return Explorer.SectionPreloaderCn;
   }
 
-  get data() {
+  /**
+   * Gets the configuration data for the section.
+   * @returns {SectionDialogConfig} The section configuration data.
+   */
+  get data(): SectionDialogConfig {
     return this.config?.data as SectionDialogConfig;
   }
 
-  get multiselect() {
+  /**
+   * Checks if multiselect is enabled.
+   * @returns {boolean} True if multiselect is enabled, otherwise false.
+   */
+  get multiselect(): boolean {
     return this.data?.multi;
   }
 
-  get dialogMode() {
+  /**
+   * Checks if the component view is in dialog mode.
+   * @returns {boolean} True if in dialog mode, otherwise false.
+   */
+  get dialogMode(): boolean {
     return !!this.dialogRef;
   }
 
-  get queryParams$() {
+  /**
+   * Gets the observable for query parameters.
+   * @returns {Observable<Params>} The observable of query parameters.
+   */
+  get queryParams$(): Observable<Params> {
     return this.dialogMode ? this.paramsSub.asObservable() : this.ar.queryParams;
   }
 
+  /**
+   * Gets the snapshot of query parameters.
+   * @returns {Params} The snapshot of query parameters.
+   */
   get queryParamsSnapshot(): Params {
     return this.dialogMode ? this.paramsSub.value : this.ar.snapshot.queryParams;
   }
 
+  /**
+   * Gets items based on table pagination event.
+   * @param e The pagination event.
+   */
   getItems(e: TablePageEvent) {
     const params = {} as PageableParams;
     Object.assign(params, this.queryParamsSnapshot);
@@ -121,6 +170,10 @@ export class ExplorerSectionViewModel {
     this.doNavigate(params, Object.keys(params).length ? "merge" : undefined);
   }
 
+  /**
+   * Opens the filter dialog for a specific column.
+   * @param column The column for which to show the filter dialog.
+   */
   showFilterDialog(column: ExplorerColumn) {
     import("./filter/section-filter-dialog.component").then(c => {
       this.dialogService.open(c.SectionFilterDialogComponent, {
@@ -142,6 +195,9 @@ export class ExplorerSectionViewModel {
     });
   }
 
+  /**
+   * Removes sorting from the current query parameters.
+   */
   removeSorting() {
     const queryParams = {...this.queryParamsSnapshot};
     delete queryParams.sort;
@@ -150,6 +206,10 @@ export class ExplorerSectionViewModel {
     this.doNavigate(queryParams);
   }
 
+  /**
+   * Removes a filter from the specified property.
+   * @param property The property from which to remove the filter.
+   */
   removeFilter(property: string) {
     const queryParams = {...this.queryParamsSnapshot};
     queryParams.page = 1;
@@ -163,6 +223,10 @@ export class ExplorerSectionViewModel {
     this.doNavigate(queryParams);
   }
 
+  /**
+   * Selects an entity and closes the dialog.
+   * @param item The entity to select.
+   */
   selectEntityAndCloseDialog(item: PlainObject) {
     if (!this.multiselect) {
       this.dialogRef.close(item);
@@ -178,6 +242,9 @@ export class ExplorerSectionViewModel {
     this.selectedRows.set({...selectedRows});
   }
 
+  /**
+   * Applies selected rows and closes the dialog.
+   */
   applySelectedRows() {
     const selectedRows = this.selectedRows();
     const res: unknown[] = [];
@@ -187,6 +254,10 @@ export class ExplorerSectionViewModel {
     this.dialogRef.close(res);
   }
 
+  /**
+   * Opens the UI for a specific object.
+   * @param item The object to open.
+   */
   openObjectUi(item: { [pk: string | number]: unknown }) {
     const entity = this.targetData.entity;
     const id = item[this.targetData.primaryColumn.property];
@@ -210,6 +281,9 @@ export class ExplorerSectionViewModel {
     ]);
   }
 
+  /**
+   * Navigates to the UI for creating a new item.
+   */
   navToCreateNewItemUi() {
     const entity = this.targetData.entity;
     this.router.navigate([
@@ -217,7 +291,11 @@ export class ExplorerSectionViewModel {
     ]);
   }
 
-  getParsedFilter() {
+  /**
+   * Parses the current filters from the query parameters.
+   * @returns {Record<string, string>} The parsed filters.
+   */
+  getParsedFilter(): Record<string, string> {
     const filter = this.queryParamsSnapshot.filter;
     if (!filter) {
       return undefined;
@@ -225,6 +303,10 @@ export class ExplorerSectionViewModel {
     return parseParamsString(filter);
   }
 
+  /**
+   * Retrieves the section data based on the given parameters.
+   * @param params Optional parameters for the section query.
+   */
   private getSection(params?: PageableParams) {
     this.sectionSub?.unsubscribe();
     this.sectionSub = this.explorerService.getSectionList(this.target, params).pipe(
@@ -249,6 +331,9 @@ export class ExplorerSectionViewModel {
     });
   }
 
+  /**
+   * Retrieves target data based on the current configuration.
+   */
   private getTarget() {
     this._pageableData.set(undefined);
     this._targetData.set(undefined);
@@ -265,6 +350,11 @@ export class ExplorerSectionViewModel {
     });
   }
 
+  /**
+   * Navigates to a specific query parameter state.
+   * @param queryParams The query parameters to navigate to.
+   * @param queryParamsHandling Optional handling of query parameters.
+   */
   private doNavigate(queryParams: Params, queryParamsHandling?: QueryParamsHandling) {
     if (this.dialogMode) {
       this.paramsSub.next(queryParams);

@@ -40,6 +40,10 @@ import {ProcessLog, ProcessStatus, ProcessUnit} from "../../../../../../../../gl
 import {Store} from "../../../../../../../../modules/store";
 import {ExplorerEvent} from "../../../../../../../explorer";
 
+/**
+ * This component allows for the display of process unit statistics and logs,
+ * subscribing to updates based on the status of the process.
+ */
 @Component({
   selector: "process-stats-media-object-renderer",
   standalone: true,
@@ -67,16 +71,28 @@ export class ProcessStatsObjectRendererComponent extends AbstractExplorerObjectR
   private readonly service = inject(ProcessService);
   private readonly store = inject(Store);
   private readonly injector = inject(Injector);
+  /** Subscription for logs. */
   private logsSub: Subscription;
+  /** Subscription for statistics. */
   private statsSub: Subscription;
+  /** The last known status value of the process. */
   private lastStatusValue: ProcessStatus;
+  /** Index of the currently active tab. */
   activeTabIndex = 0;
+  /** List of logs associated with the process. */
   logsList: ProcessLog[] = [];
 
+  /**
+   * Gets the current status control value from the form.
+   * @returns The current status of the process.
+   */
   get statusControlValue() {
     return this.entityForm.controls.status.value as ProcessStatus;
   }
 
+  /**
+   * Initializes the component and subscribes to the necessary data sources.
+   */
   ngOnInit(): void {
     if (!this.data.enabled) {
       this.getStats();
@@ -85,6 +101,9 @@ export class ProcessStatsObjectRendererComponent extends AbstractExplorerObjectR
     }
   }
 
+  /**
+   * Fetches the statistics for the process unit.
+   */
   private getStats() {
     this.service.stats(this.data.code)
       .subscribe(payload => {
@@ -92,6 +111,9 @@ export class ProcessStatsObjectRendererComponent extends AbstractExplorerObjectR
       });
   }
 
+  /**
+   * Subscribes to a polling mechanism for continuous updates on process statistics.
+   */
   private subscribeToPoller() {
     runInInjectionContext(this.injector, () => {
       this.statsSub = this.service.statsPolling(this.data.code)
@@ -102,14 +124,20 @@ export class ProcessStatsObjectRendererComponent extends AbstractExplorerObjectR
     });
   }
 
+  /**
+   * Handles the reception of updated statistics.
+   * @param {ProcessUnit} payload - The payload containing updated statistics.
+   */
   private onStatsReceived(payload: ProcessUnit) {
-    this.logsList = payload.logs;
+    this.logsList = payload.logs; // Update logs list with received payload
     this.cdr.markForCheck();
+    // If process status is "execute" and was not previously known, subscribe to logs.
     if (!this.lastStatusValue && payload.status === "execute") {
       this.statsSub.unsubscribe();
       this.subscribeToActiveLog();
       return;
     }
+    // Check if the status has changed and update form controls accordingly.
     const statusWasChanged = this.lastStatusValue && this.lastStatusValue !== payload.status;
     this.lastStatusValue = payload.status;
     if (statusWasChanged) {
@@ -120,6 +148,9 @@ export class ProcessStatsObjectRendererComponent extends AbstractExplorerObjectR
     }
   }
 
+  /**
+   * Subscribes to updates of the active log based on the logs list.
+   */
   private subscribeToActiveLog() {
     if (!this.logsList.length) {
       return;

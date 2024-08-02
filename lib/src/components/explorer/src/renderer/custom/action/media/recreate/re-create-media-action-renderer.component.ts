@@ -33,6 +33,11 @@ import {Explorer, ExplorerEvent} from "../../../../../../../explorer";
 import {ToastData, ToastEvent} from "../../../../../../../../global/vars";
 import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
 
+/**
+ * This component provides functionality to confirm and re-create a media file
+ * after user interaction. It relies on a confirmation dialog to ensure the user
+ * intends to proceed with the action.
+ */
 @Component({
   selector: "re-create-media-action-renderer",
   standalone: true,
@@ -49,16 +54,28 @@ import {usePreloader} from "../../../../../../../../modules/preloader/src/use-pr
   ],
 })
 export class ReCreateMediaActionRendererComponent extends AbstractExplorerActionRenderer {
+  /** Key for the confirmation dialog. */
 
   readonly dialogKey = "recreate-media-action-dialog";
   private readonly confirmationService = inject(ConfirmationService);
   private readonly store = inject(Store);
   private readonly service = inject(MediaService);
 
+  /**
+   * This method returns the channel used for indicating loading state
+   * during the media re-creation process.
+   * @returns The preloader channel identifier.
+   */
   private get preloaderChannel() {
     return Explorer.ObjectPreloaderCn;
   }
 
+  /**
+   * This method displays a confirmation dialog, and upon acceptance,
+   * it calls the media service to re-create the media file using its ID.
+   * It also manages the loading state during the operation and emits
+   * events based on the outcome of the re-creation process.
+   */
   reCreateMedia() {
     this.confirmationService.confirm({
       key: this.dialogKey,

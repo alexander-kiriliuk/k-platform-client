@@ -22,13 +22,22 @@ import {LocalizedString} from "../../../modules/locale";
 import {Media} from "../../../modules/media";
 import {PageableParams, UserRole} from "../../../global/vars";
 
+/**
+ * Defines the possible data types for columns in the explorer.
+ */
 export type ColumnDataType = "string" | "number" | "boolean" | "date" | "reference" | "unknown";
 
+/**
+ * Defines the possible renderer identifiers used in the explorer.
+ */
 export type RendererId = "string-section-renderer" | "boolean-section-renderer" | "date-section-renderer" |
   "media-section-renderer" | "reference-section-renderer" | "string-object-renderer" | "boolean-object-renderer" |
   "date-object-renderer" | "reference-object-renderer" | "media-object-renderer" | "localized-string-renderer" |
   "localized-media-renderer" | string;
 
+/**
+ * Represents a target in the explorer.
+ */
 export interface ExplorerTarget {
   alias: string;
   target: string;
@@ -47,6 +56,9 @@ export interface ExplorerTarget {
   size?: number;
 }
 
+/**
+ * Represents a column in the explorer.
+ */
 export interface ExplorerColumn {
   id: string;
   property: string;
@@ -72,6 +84,9 @@ export interface ExplorerColumn {
   tab: ExplorerTab;
 }
 
+/**
+ * @description Represents an action in the explorer.
+ */
 export class ExplorerAction {
   code: string;
   name: LocalizedString[];
@@ -80,11 +95,17 @@ export class ExplorerAction {
   params: object;
 }
 
+/**
+ * Represents the size of a tab in the explorer.
+ */
 export interface ExplorerTabSize {
   tablet: number;
   desktop: number;
 }
 
+/**
+ * Represents a tab in the explorer.
+ */
 export interface ExplorerTab {
   id: string;
   name: LocalizedString[];
@@ -93,8 +114,15 @@ export interface ExplorerTab {
   target: ExplorerTarget;
 }
 
+/**
+ * Defines the possible variations in the explorer (as example for actions).
+ */
 export type ExplorerVariation = "section" | "object";
 
+
+/**
+ * Represents a renderer for a column in the explorer.
+ */
 export class ExplorerColumnRenderer {
   code: string;
   name: LocalizedString[];
@@ -103,35 +131,53 @@ export class ExplorerColumnRenderer {
   params: object;
 }
 
+/**
+ * Represents data related to a target in the explorer.
+ */
 export interface TargetData {
   primaryColumn: ExplorerColumn;
   namedColumn: ExplorerColumn;
   entity: ExplorerTarget;
 }
 
+/**
+ * Represents the configuration for a section filter dialog.
+ */
 export interface SectionFilterDialogConfig {
   column: ExplorerColumn;
   paramsSnapshot: () => Params;
   navigate: (queryParams: Params, queryParamsHandling?: QueryParamsHandling) => void;
 }
 
+/**
+ * Represents the configuration for a section dialog.
+ */
 export interface SectionDialogConfig {
   target: TargetData;
   multi?: boolean;
   initialPageableParams?: PageableParams;
 }
 
+/**
+ * Represents the configuration for an object dialog.
+ */
 export interface ObjectDialogConfig {
   id: string;
   target: string;
 }
 
+/**
+ * Represents a DTO for an explorer object.
+ */
 export interface ExplorerObjectDto<T = unknown> {
   target: string;
   entity?: T;
   id?: number;
 }
 
+/**
+ * Represents a renderer in the explorer.
+ */
 export interface ExplorerRenderer<Data = unknown, Params = unknown> {
   target: TargetData;
   column: ExplorerColumn;
@@ -140,15 +186,24 @@ export interface ExplorerRenderer<Data = unknown, Params = unknown> {
   entityForm?: FormGroup;
 }
 
+/**
+ * Represents a loader for an explorer renderer.
+ */
 export type ExplorerRendererLoader = {
   code: RendererId;
   load: Promise<Type<ExplorerRenderer>>;
 }
 
+/**
+ * Represents a provider for an explorer renderer.
+ */
 export interface ExplorerRendererProvider extends ValueProvider {
   useValue: ExplorerRendererLoader;
 }
 
+/**
+ * Represents an action renderer in the explorer.
+ */
 export interface ExplorerActionRenderer<Data = unknown> {
   target: InputSignal<TargetData>;
   action: ExplorerAction;
@@ -156,11 +211,17 @@ export interface ExplorerActionRenderer<Data = unknown> {
   entityForm?: InputSignal<FormGroup>;
 }
 
+/**
+ * Represents a loader for an explorer action renderer.
+ */
 export type ExplorerActionRendererLoader = {
   code: string;
   load: Promise<Type<ExplorerActionRenderer>>;
 }
 
+/**
+ * Represents a provider for an explorer action renderer.
+ */
 export interface ExplorerActionRendererProvider extends ValueProvider {
   useValue: ExplorerActionRendererLoader;
 }

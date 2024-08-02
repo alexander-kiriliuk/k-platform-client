@@ -17,15 +17,24 @@
 
 import {FormControl} from "@angular/forms";
 
+/**
+ * Interface representing a configuration item.
+ */
 export interface ConfigItem {
   key: string;
   value: string;
 }
 
+/**
+ * Type representing the configuration editor form.
+ */
 export type ConfigEditorForm = {
   [K in keyof ConfigItem]: FormControl<ConfigItem[K]>;
 }
 
+/**
+ * Type representing the result of editing a configuration property.
+ */
 export type ConfigPropertyEditorResult = {
   cmd: "delete" | "save",
   data: ConfigItem

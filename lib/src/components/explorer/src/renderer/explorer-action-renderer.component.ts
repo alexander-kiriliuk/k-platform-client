@@ -37,6 +37,13 @@ import {
 import {AbstractExplorerActionRenderer} from "./default/abstract-explorer-action-renderer";
 import {FormGroup} from "@angular/forms";
 
+
+/**
+ * Component that renders actions in the explorer.
+ * This component is responsible for dynamically rendering actions
+ * based on the provided action definitions. It utilizes renderers
+ * to display various actions associated with the target data.
+ */
 @Component({
   selector: "explorer-action-renderer",
   standalone: true,
@@ -46,29 +53,51 @@ import {FormGroup} from "@angular/forms";
 })
 export class ExplorerActionRendererComponent extends AbstractExplorerActionRenderer implements OnInit, OnChanges {
 
+  /** The list of actions to be rendered. */
   actions = input.required<ExplorerAction[]>();
+  /** The target data associated with the actions. */
   override target = input.required<TargetData>();
+  /** The data associated with the actions. */
   override data = input.required<unknown | unknown[]>();
+  /** The form group for managing the entity data associated with actions. */
   override entityForm = input<FormGroup>();
   protected viewContainer = inject(ViewContainerRef);
   protected readonly renderers = inject(EXPLORER_ACTION_RENDERER);
+  /** References to the dynamically created action components. */
   private refs: ComponentRef<ExplorerActionRenderer>[] = [];
 
+  /**
+   * This lifecycle method is invoked when any input properties
+   * change. It performs actions if the target has changed and updates
+   * the component with the new data.
+   * @param changes - An object that contains the current and previous
+   * state of input properties.
+   */
   ngOnChanges(changes: SimpleChanges) {
     if (changes.target && !changes.target.firstChange &&
       (changes.target.previousValue.entity.target != changes.target.currentValue.entity.target)) {
-      this.performActions();
+      this.performActions(); // Perform actions if the target has changed
     }
     if (changes.data.firstChange) {
-      return;
+      return; // Skip the first change to avoid unnecessary updates
     }
-    this.patchComponentData();
+    this.patchComponentData(); // Update component data
   }
 
+  /**
+   * This lifecycle method is called once the component has been
+   * initialized. It invokes the method to render actions based on
+   * the provided action definitions.
+   */
   ngOnInit(): void {
     this.performActions();
   }
 
+  /**
+   * This method iterates over the list of actions and creates
+   * corresponding components using the available renderers. It
+   * cleans up any previous references before rendering new components.
+   */
   private performActions() {
     for (const ref of this.refs) {
       ref.destroy();
@@ -85,6 +114,13 @@ export class ExplorerActionRendererComponent extends AbstractExplorerActionRende
     }
   }
 
+  /**
+   * This method loads the specified renderer and creates an instance
+   * of the action component. It appends the component to the view
+   * container and initializes it with the action data.
+   * @param renderer - The renderer to be used for creating the action component.
+   * @param action - The action to be rendered.
+   */
   private drawComponent(renderer: ExplorerActionRendererLoader, action: ExplorerAction) {
     renderer.load.then(component => {
       const ref = this.viewContainer.createComponent(component);
@@ -96,6 +132,11 @@ export class ExplorerActionRendererComponent extends AbstractExplorerActionRende
     });
   }
 
+  /**
+   * This method iterates over all the dynamically created components
+   * and updates their data and properties based on the current state
+   * of the parent component.
+   */
   private patchComponentData() {
     for (const ref of this.refs) {
       ref.instance.target = this.target;

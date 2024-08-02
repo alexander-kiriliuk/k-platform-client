@@ -18,6 +18,10 @@ import {ChangeDetectionStrategy, Component} from "@angular/core";
 import {AbstractExplorerSectionRenderer} from "../../abstract-explorer-section-renderer";
 import {Media, MediaComponent} from "../../../../../../../modules/media";
 
+/**
+ * This component extends AbstractExplorerSectionRenderer specifically
+ * for media types and provides methods to manage and display media data.
+ */
 @Component({
   selector: "media-section-renderer",
   standalone: true,
@@ -29,7 +33,11 @@ import {Media, MediaComponent} from "../../../../../../../modules/media";
 })
 export class MediaSectionRendererComponent extends AbstractExplorerSectionRenderer<Media | Media[]> {
 
-  get dataSet() {
+  /**
+   * Retrieves the dataset to be rendered based on whether the column allows multiple entries.
+   * @returns {Media[]} An array of media data to be displayed.
+   */
+  get dataSet(): Media[] {
     if (!this.column.multiple) {
       return [this.data[this.column.property]] as Media[];
     }

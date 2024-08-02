@@ -40,6 +40,12 @@ import {DEVICE} from "../../../../modules/device";
 import {CurrentUser} from "../../../../global/service";
 import {Roles} from "../../../../global/vars";
 
+/**
+ * A component that represents an explorer object in the application.
+ * This component provides functionality for viewing, editing,
+ * duplicating, and deleting objects within an explorer interface.
+ * It utilizes a ViewModel to manage state and communicate with services.
+ */
 @Component({
   selector: "explorer-object",
   standalone: true,
@@ -73,11 +79,19 @@ import {Roles} from "../../../../global/vars";
 })
 export class ExplorerObjectComponent implements OnInit {
 
+  /** The index of the currently active tab. */
   activeTabIndex = 0;
+  /** The ViewModel instance for managing state and logic. */
   readonly vm = inject(ExplorerObjectViewModel);
   readonly device = inject(DEVICE);
   private readonly currentUser = inject(CurrentUser);
 
+  /**
+   * Returns the CSS class name for the current tab based on its size.
+   * This getter computes the class name for responsive design based on
+   * the current device type (desktop or tablet) and the size of the active tab.
+   * @returns The CSS class name for the active tab, or null if not applicable.
+   */
   get tabClassName() {
     const tabSize = this.vm.tabs[this.activeTabIndex]?.size;
     if (!tabSize) {
@@ -90,34 +104,73 @@ export class ExplorerObjectComponent implements OnInit {
     return `col-${tabSize[key]}`;
   }
 
-  get canExport() {
+  /**
+   * Checks if the current user has the ability to export the object.
+   * The user can export the object if they have permission to delete
+   * the object and have an ADMIN role.
+   * @returns {boolean} True if the user can export, otherwise false.
+   */
+  get canExport(): boolean {
     if (!this.vm.canDeleteObject) {
       return false;
     }
     return this.currentUser.hasSomeRole(Roles.ADMIN);
   }
 
-  get canDuplicate() {
+  /**
+   * Checks if the object can be duplicated.
+   * The object can be duplicated if there is no existing duplicate ID
+   * and if the default action for duplication is enabled.
+   * @returns {boolean} True if the object can be duplicated, otherwise false.
+   */
+  get canDuplicate(): boolean {
     return !this.vm.duplicateId && this.vm.targetData.entity.defaultActionDuplicate;
   }
 
+  /**
+   * Initializes the component when it is created.
+   * This lifecycle method is called once the component has been initialized.
+   * It triggers the ViewModel to initialize the object being explored.
+   */
   ngOnInit(): void {
     this.vm.initObject();
   }
 
+  /**
+   * Navigates back to the previous page in the history stack.
+   * This method is typically used to allow users to return to the
+   * previous view without having to implement custom navigation logic.
+   */
   navBack() {
     history.back();
   }
 
+  /**
+   * Checks if the specified tab has columns associated with it.
+   * This method checks if there are any columns in the target data entity
+   * that belong to the provided tab.
+   * @param {ExplorerTab} tab - The tab to check for associated columns.
+   * @returns Column if the tab has columns.
+   */
   hasColumns(tab: ExplorerTab) {
     return this.vm.targetData.entity.columns.find(v => v.tab.id === tab.id);
   }
 
+  /**
+   * Initiates the export process for the object.
+   * This method dynamically imports the XdbExportDialogComponent
+   * and opens it with the necessary configuration from the ViewModel.
+   */
   exportObject() {
     import("../../../xdb").then(c =>
       this.vm.dialogService.open(c.XdbExportDialogComponent, this.vm.exportDialogConfig));
   }
 
+  /**
+   * Duplicates the current object and opens it in a new tab.
+   * This method constructs a URL for the new object based on the
+   * current object's properties and opens it in a new browser tab.
+   */
   duplicateObject() {
     const p1 = this.vm.entityTargetOrAlias;
     const prop = this.vm.targetData.primaryColumn.property;

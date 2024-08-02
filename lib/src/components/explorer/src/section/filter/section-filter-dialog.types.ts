@@ -16,6 +16,9 @@
 
 import {FormControl} from "@angular/forms";
 
+/**
+ * Represents the structure of the field filter form.
+ */
 export interface FieldFilterForm {
   name: FormControl<string>;
   value: FormControl<string | number | boolean | Date[]>;

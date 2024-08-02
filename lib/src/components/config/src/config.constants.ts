@@ -16,6 +16,7 @@
 
 export namespace Config {
 
+  /** Preloader channel for configuration */
   export const PreloaderCn = "config-cn";
 
 }

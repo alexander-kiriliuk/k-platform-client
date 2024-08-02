@@ -14,6 +14,13 @@
  * limitations under the License.
  */
 
+/**
+ * Parameters for configuring the StringObjectRenderer component.
+ * @property {boolean} readonly - Indicates if the input field is read-only.
+ * @property {boolean} disabled - Indicates if the input field is disabled.
+ * @property {boolean} textarea - Indicates if the input should be rendered as a textarea.
+ * @property {boolean} textareaAutoResize - Indicates if the textarea should automatically resize.
+ */
 export interface StringObjectRendererParams {
   readonly: boolean;
   disabled: boolean;

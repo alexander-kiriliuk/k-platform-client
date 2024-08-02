@@ -23,16 +23,34 @@ import {
 import {ChangeDetectorRef, ComponentRef, InputSignal, ViewContainerRef} from "@angular/core";
 import {FormGroup} from "@angular/forms";
 
+/**
+ * Abstract class that provides common functionality for renderer components.
+ * This abstract class defines the required properties and methods for
+ * rendering components in the explorer. It handles the merging of
+ * parameters and updating of data for child components.
+ */
 export abstract class AbstractExplorerRendererComponent {
 
+  /** The target data to be rendered. */
   abstract target: InputSignal<TargetData>;
+  /** The column definition for the data being rendered. */
   abstract column: InputSignal<ExplorerColumn>;
+  /** The data to be displayed in the component. */
   abstract data: InputSignal<{ [k: string]: unknown }>;
+  /** The form group for managing entity data. */
   entityForm: InputSignal<FormGroup>;
   protected abstract viewContainer: ViewContainerRef;
   protected abstract readonly renderers: ExplorerRendererLoader[];
+  /** Reference to the created component for rendering. */
   private ref: ComponentRef<ExplorerRenderer>;
 
+  /**
+   * This method assigns renderer parameters and creates an instance of
+   * the renderer component, updating the view container accordingly.
+   * @param renderer - The renderer loader to use for creating the component.
+   * @param rendererParams - The parameters specific to the renderer.
+   * @param columnRendererParams - Additional parameters from the column definition.
+   */
   protected mergeParamsAndDrawComponent(
     renderer: ExplorerRendererLoader, rendererParams: object, columnRendererParams: object) {
     Object.assign(rendererParams, columnRendererParams);
@@ -44,7 +62,10 @@ export abstract class AbstractExplorerRendererComponent {
       this.patchComponentData();
     });
   }
-
+  /**
+   * This method sets the current target, data, and form for the child
+   * component and triggers change detection to ensure the UI is updated.
+   */
   protected patchComponentData() {
     this.ref.instance.column = this.column();
     this.ref.instance.target = this.target();

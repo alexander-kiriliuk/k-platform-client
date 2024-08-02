@@ -18,13 +18,22 @@ import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {StringUtils} from "../../../../../../../../global/util";
 import fillParams = StringUtils.fillParams;
+import {Observable} from "rxjs";
 
+/**
+ * This service provides methods for file deletion operations.
+ */
 @Injectable()
 export class DeleteFileActionRendererService {
 
   private readonly http = inject(HttpClient);
 
-  remove(id: string) {
+  /**
+   * Removes a file by its ID.
+   * @param id - The ID of the file to remove.
+   * @returns {Observable<File>} An observable representing the delete operation.
+   */
+  remove(id: string): Observable<File> {
     return this.http.delete<File>(fillParams("/file/:id", id));
   }
 

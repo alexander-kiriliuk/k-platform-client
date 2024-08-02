@@ -26,6 +26,9 @@ import {
 } from "../../../../default/abstract-explorer-action-renderer";
 import {File} from "../../../../../../../../modules/file";
 
+/**
+ * This component provides functionality to open a dialog for creating a new file.
+ */
 @Component({
   selector: "create-file-action-renderer",
   standalone: true,
@@ -43,6 +46,10 @@ export class CreateFileActionRendererComponent extends AbstractExplorerActionRen
   private readonly ts = inject(TranslocoService);
   private readonly router = inject(Router);
 
+  /**
+   * This method loads the dialog component dynamically and opens it.
+   * It subscribes to the dialog's close event to navigate to the new file's details page.
+   */
   createMedia() {
     import("./dialog/create-file-action-dialog.component").then(m => {
       this.dialogService.open(m.CreateFileActionDialogComponent, {

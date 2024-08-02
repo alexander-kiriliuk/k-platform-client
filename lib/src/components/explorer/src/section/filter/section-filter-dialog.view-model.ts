@@ -34,19 +34,32 @@ import parseParamsString = StringUtils.parseParamsString;
 import stringifyParamsObject = StringUtils.stringifyParamsObject;
 import createFieldFilterForm = SectionFilter.createFieldFilterForm;
 
+/**
+ * ViewModel for the Section Filter Dialog.
+ * This service handles the logic of the filter dialog, including
+ * managing the filter form state and applying filters to the query.
+ */
 @Injectable()
 export class SectionFilterDialogViewModel {
 
+  /** The filter form for the section filter dialog. **/
+  readonly form = createFieldFilterForm();
+  /** A signal representing the referenced target data. **/
   private readonly _referencedTarget = signal<TargetData>(undefined);
+  /** A signal representing the referenced column data. **/
   private readonly _referencedColumn = signal<ExplorerColumn>(undefined);
+
   private readonly config = inject(DynamicDialogConfig);
   private readonly ref = inject(DynamicDialogRef);
   private readonly dialogService = inject(DialogService);
   private readonly explorerService = inject(ExplorerService);
   private readonly store = inject(Store);
   private readonly localizePipe = inject(LocalizePipe);
-  readonly form = createFieldFilterForm();
 
+  /**
+   * Constructor for the SectionFilterDialogViewModel.
+   * Initializes the dialog view model and retrieves reference targets if needed.
+   */
   constructor() {
     if (this.isReference) {
       this.getReferenceTarget();
@@ -55,35 +68,67 @@ export class SectionFilterDialogViewModel {
     this.initUi();
   }
 
-  private get dialogConfig() {
+  /**
+   * Gets the dialog configuration data.
+   * @returns {SectionFilterDialogConfig} The dialog configuration data.
+   */
+  private get dialogConfig(): SectionFilterDialogConfig {
     return this.config.data as SectionFilterDialogConfig;
   }
 
-  private get referencedTarget() {
+  /**
+   * Gets the referenced target data.
+   * @returns {TargetData} The referenced target data.
+   */
+  private get referencedTarget(): TargetData {
     return this._referencedTarget();
   }
 
-  get queryParamsSnapshot() {
+  /**
+   * Gets the current snapshot of query parameters.
+   * @returns {Params} The query parameters snapshot.
+   */
+  get queryParamsSnapshot(): Params {
     return this.dialogConfig.paramsSnapshot();
   }
 
-  get referencedColumn() {
+  /**
+   * Gets the referenced column data.
+   * @returns {ExplorerColumn} The referenced column data.
+   */
+  get referencedColumn(): ExplorerColumn {
     return this._referencedColumn();
   }
 
-  get preloaderChannel() {
+  /**
+   * Gets the preloader channel for the section filter.
+   * @returns {string} The preloader channel.
+   */
+  get preloaderChannel(): string {
     return SectionFilter.PreloaderCn;
   }
 
-  get column() {
+  /**
+   * Gets the current column for filtering.
+   * @returns {ExplorerColumn} The column to filter by.
+   */
+  get column(): ExplorerColumn {
     return this.dialogConfig.column;
   }
 
-  get isReference() {
+  /**
+   * Checks if the column is a reference type.
+   * @returns {boolean} True if the column is a reference, otherwise false.
+   */
+  get isReference(): boolean {
     return this.column.type === "reference";
   }
 
-  get referenceField() {
+  /**
+   * Gets the reference field for the filter.
+   * @returns {value: string, ref: string} The reference field or undefined if not applicable.
+   */
+  get referenceField(): { value: string, ref: string } {
     if (this.referencedColumn) {
       return {value: "", ref: `${this.referencedTarget.entity.target}.${this.referencedColumn.property}`};
     }
@@ -101,6 +146,10 @@ export class SectionFilterDialogViewModel {
     return {value: clearValue, ref: match[1]};
   }
 
+  /**
+   * Sets the order for sorting based on the specified order.
+   * @param order The sort order to apply.
+   */
   setOrder(order: SortOrder) {
     const queryParams = {...this.queryParamsSnapshot};
     queryParams.sort = this.column.property;
@@ -110,6 +159,9 @@ export class SectionFilterDialogViewModel {
     this.ref.close();
   }
 
+  /**
+   * Applies the current filter and navigates to the new state.
+   */
   applyFilter() {
     const data = this.form.value;
     let value = data.value;
@@ -139,6 +191,9 @@ export class SectionFilterDialogViewModel {
     this.ref.close();
   }
 
+  /**
+   * Opens a dialog for selecting a reference target.
+   */
   showRefTargetDialog() {
     let selectedCol: string;
     if (this.referenceField?.ref) {
@@ -167,6 +222,9 @@ export class SectionFilterDialogViewModel {
     });
   }
 
+  /**
+   * Opens a dialog for selecting a section.
+   */
   openSectionDialog() {
     import("../explorer-section.component").then(m => {
       const entity = this.referencedTarget.entity;
@@ -184,6 +242,9 @@ export class SectionFilterDialogViewModel {
     });
   }
 
+  /**
+   * Initializes the UI for the filter dialog.
+   */
   private initUi() {
     this.form.controls.name.setValue(this.column.property);
     const queryParams = {...this.queryParamsSnapshot};
@@ -214,6 +275,9 @@ export class SectionFilterDialogViewModel {
     }
   }
 
+  /**
+   * Retrieves the reference target based on the current column.
+   */
   private getReferenceTarget() {
     this.explorerService.getTarget(this.column.referencedEntityName, "section").pipe(
       usePreloader(this.store, this.preloaderChannel),
@@ -227,6 +291,11 @@ export class SectionFilterDialogViewModel {
     });
   }
 
+  /**
+   * Navigates to a specific query parameter state.
+   * @param queryParams The query parameters to navigate to.
+   * @param queryParamsHandling Optional handling of query parameters.
+   */
   private doNavigate(queryParams: Params, queryParamsHandling?: QueryParamsHandling) {
     return this.dialogConfig.navigate(queryParams, queryParamsHandling);
   }

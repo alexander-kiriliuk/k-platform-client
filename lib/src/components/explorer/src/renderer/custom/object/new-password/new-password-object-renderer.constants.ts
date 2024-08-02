@@ -17,6 +17,10 @@
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {fieldMatchValidator} from "../../../../../../../global/validator";
 
+/**
+ * Creates a new form group for password input.
+ * @returns The newly created form group for password inputs.
+ */
 export function createNewPasswordObjectRendererForm() {
   return new FormGroup({
     newPassword: new FormControl<string>("", [Validators.required]),

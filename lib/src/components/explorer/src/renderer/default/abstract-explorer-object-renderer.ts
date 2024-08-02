@@ -18,18 +18,39 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ExplorerColumn, ExplorerRenderer, TargetData} from "../../../../explorer";
 import {PlainObject} from "../../../../../global/vars";
 
+/**
+ * Abstract base class for rendering objects in the explorer.
+ * This class provides common properties and methods for object
+ * renderers, including handling entity forms and accessing property data
+ * based on the specified column definition.
+ */
 export abstract class AbstractExplorerObjectRenderer<Data = unknown, Property = unknown, Params = unknown>
 implements ExplorerRenderer<Data, Params> {
+
+  /** The column definition used for rendering the object. */
   column: ExplorerColumn;
+  /** Parameters for customizing the renderer's behavior. */
   params: Params;
+  /** The data for the object to be rendered. */
   data: Data;
+  /** The entity data associated with this object. */
   target: TargetData;
+  /** The form group associated with the entity. */
   entityForm: FormGroup;
 
+
+  /**
+   * Gets the control corresponding to the column property in the entity form.
+   * @returns The form control for the column property.
+   */
   get ctrl() {
     return this.entityForm.controls[this.column.property] as FormControl;
   }
 
+  /**
+   * Retrieves the data corresponding to the specified column property.
+   * @returns The value of the column property, or undefined if no data exists.
+   */
   get propertyData() {
     if (!this.data) {
       return undefined;

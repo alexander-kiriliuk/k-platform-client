@@ -31,7 +31,12 @@ import {SectionFilterDialogViewModel} from "./section-filter-dialog.view-model";
 import {CurrentUser} from "../../../../../global/service";
 import {SortOrder} from "../../../../../global/vars";
 
-
+/**
+ * A dialog component for filtering sections.
+ * This component provides a user interface for applying filters to sections.
+ * It utilizes reactive forms to manage the state of the filter form,
+ * and incorporates localization support for internationalization.
+ */
 @Component({
   selector: "section-filter-dialog",
   standalone: true,
@@ -63,19 +68,39 @@ export class SectionFilterDialogComponent {
 
   private readonly datePipe = inject(DatePipe);
   private readonly currentUser = inject(CurrentUser);
+
+  /** ViewModel for the section filter dialog. */
   readonly vm = inject(SectionFilterDialogViewModel);
 
-  get isSortAscActive() {
+  /**
+   * Checks if the ascending sort option is active for the current column.
+   * This getter returns true if the current sort property matches
+   * the column's property and the sort order is set to 'ASC'.
+   * @returns {boolean} True if ascending sort is active, otherwise false.
+   */
+  get isSortAscActive(): boolean {
     return this.vm.queryParamsSnapshot.sort === this.vm.column.property
       && (this.vm.queryParamsSnapshot.order as SortOrder) === "ASC";
   }
 
-  get isSortDescActive() {
+  /**
+   * Checks if the descending sort option is active for the current column.
+   * This getter returns true if the current sort property matches
+   * the column's property and the sort order is set to 'DESC'.
+   * @returns {boolean} True if descending sort is active, otherwise false.
+   */
+  get isSortDescActive(): boolean {
     return this.vm.queryParamsSnapshot.sort === this.vm.column.property
       && (this.vm.queryParamsSnapshot.order as SortOrder) === "DESC";
   }
 
-  get applyButtonEnabled() {
+  /**
+   * Determines if the apply button for the filter is enabled.
+   * The button is enabled if the form is valid. If the column type
+   * is 'date', it also checks that both date values are not null.
+   * @returns {boolean} True if the apply button is enabled, otherwise false.
+   */
+  get applyButtonEnabled(): boolean {
     if (this.vm.column.type === "date") {
       for (const v of (this.vm.form.value.value as Date[])) {
         if (v === null) {
@@ -86,6 +111,13 @@ export class SectionFilterDialogComponent {
     return this.vm.form.valid;
   }
 
+  /**
+   * Retrieves the current value of the filter data for display.
+   * If the date range is specified, it returns a formatted string
+   * representing the selected dates. If no dates are selected,
+   * it returns undefined.
+   * @returns A formatted string of dates or undefined.
+   */
   get currentDataValue() {
     const dates = this.vm.form.controls.value.value as Date[];
     if (!dates?.length) {

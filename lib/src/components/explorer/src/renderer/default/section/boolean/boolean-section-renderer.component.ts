@@ -18,7 +18,10 @@ import {ChangeDetectionStrategy, Component} from "@angular/core";
 import {NgClass} from "@angular/common";
 import {AbstractExplorerSectionRenderer} from "../../abstract-explorer-section-renderer";
 
-
+/**
+ * This component extends AbstractExplorerSectionRenderer specifically
+ * for boolean types and provides rendering based on boolean values.
+ */
 @Component({
   selector: "boolean-section-renderer",
   standalone: true,
@@ -31,7 +34,11 @@ import {AbstractExplorerSectionRenderer} from "../../abstract-explorer-section-r
 })
 export class BooleanSectionRendererComponent extends AbstractExplorerSectionRenderer {
 
-  get cssClassName() {
+  /**
+   * Gets the CSS class name based on the boolean value of the property.
+   * @returns {string} The CSS class name corresponding to the boolean value.
+   */
+  get cssClassName(): string {
     switch (this.data[this.column.property]) {
     case true:
       return "pi-check";

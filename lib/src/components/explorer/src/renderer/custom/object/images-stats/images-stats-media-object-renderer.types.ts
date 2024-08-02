@@ -17,6 +17,11 @@
 
 import {MediaFile} from "../../../../../../../modules/media";
 
+
+/**
+ * Interface representing an image statistics file item.
+ * This interface extends the MediaFile interface to include a duplicate field.
+ */
 export interface ImagesStatFileItem extends MediaFile {
   duplicate: MediaFile;
 }

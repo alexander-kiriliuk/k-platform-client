@@ -20,6 +20,9 @@ import {ExplorerColumn, TargetData} from "../../../explorer.types";
 import {NgClass} from "@angular/common";
 import {LocalizePipe} from "../../../../../../modules/locale";
 
+/**
+ * Component for displaying a dialog to select target columns.
+ */
 @Component({
   selector: "target-columns-dialog",
   standalone: true,
@@ -36,10 +39,18 @@ export class TargetColumnsDialogComponent {
   private readonly config = inject(DynamicDialogConfig);
   private readonly ref = inject(DynamicDialogRef);
 
+  /**
+   * Retrieves the data passed to this dialog.
+   * @returns The target data and selected column.
+   */
   get data() {
     return this.config.data as { target: TargetData, selected: string };
   }
 
+  /**
+   * Sets the selected column and closes the dialog.
+   * @param col The column to set.
+   */
   setColumn(col: ExplorerColumn) {
     this.ref.close(col);
   }

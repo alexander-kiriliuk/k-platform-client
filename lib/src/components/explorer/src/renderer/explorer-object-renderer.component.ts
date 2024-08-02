@@ -34,6 +34,11 @@ import {
 import {AbstractExplorerRendererComponent} from "./abstract-explorer-renderer.component";
 import {FormGroup} from "@angular/forms";
 
+/**
+ * Similar to the ExplorerSectionRendererComponent, this component is
+ * responsible for dynamically rendering objects based on the provided
+ * column definition and data.
+ */
 @Component({
   selector: "explorer-object-renderer",
   template: "",
@@ -43,13 +48,24 @@ import {FormGroup} from "@angular/forms";
 export class ExplorerObjectRendererComponent extends AbstractExplorerRendererComponent
   implements OnInit, OnChanges {
 
+  /** The target data to be rendered for this object. */
   target = input.required<TargetData>();
+  /** The column definition for the object. */
   column = input.required<ExplorerColumn>();
+  /** The data to be displayed for the object. */
   data = input.required<{ [k: string]: unknown }>();
+  /** The form group for managing the object's entity data. */
   override entityForm = input.required<FormGroup>();
   protected viewContainer = inject(ViewContainerRef);
   protected readonly renderers = inject(EXPLORER_OBJECT_RENDERER);
 
+  /**
+   * This lifecycle method is invoked when any input properties
+   * change. If this is not the first change for data, it updates
+   * the component with the new data.
+   * @param changes - An object that contains the current and previous
+   * state of input properties.
+   */
   ngOnChanges(changes: SimpleChanges) {
     if (changes.data.firstChange) {
       return;
@@ -57,27 +73,45 @@ export class ExplorerObjectRendererComponent extends AbstractExplorerRendererCom
     this.patchComponentData();
   }
 
+  /**
+   * This lifecycle method is called once the component has been
+   * initialized. It retrieves the renderer based on the column's
+   * configuration and draws the component accordingly.
+   */
   ngOnInit(): void {
     let renderer: ExplorerRendererLoader;
-    const code = this.column().objectRenderer?.code;
+    const code = this.column().objectRenderer?.code; // Get the renderer code
+    // Select renderer based on the column's renderer code or data type
     if (code) {
       renderer = this.getRendererByCode(code);
     } else {
       renderer = this.getRendererByDataType(this.column().type as ColumnDataType);
     }
+    // Fallback to default renderer if not found
     if (!renderer) {
       console.warn(`Renderer with ${code ? `code ${code}` : `type ${this.column().type}`} is not found`);
       renderer = this.getRendererByCode("string-object-renderer");
     }
+    // Merge parameters and draw the component
     const rendererParams = this.column()?.objectRenderer?.params ?? {};
     const columnRendererParams = this.column()?.objectRendererParams ?? {};
     this.mergeParamsAndDrawComponent(renderer, rendererParams, columnRendererParams);
   }
 
+  /**
+   * Retrieves the renderer corresponding to the specified code.
+   * @param code - The code of the renderer to be retrieved.
+   * @returns {ExplorerRendererLoader} The renderer associated with the provided code.
+   */
   private getRendererByCode(code: string): ExplorerRendererLoader {
     return this.renderers.find(v => v.code === code);
   }
 
+  /**
+   * Retrieves the appropriate renderer based on the column's data type.
+   * @param type - The data type of the column.
+   * @returns {ExplorerRendererLoader} The renderer associated with the specified data type.
+   */
   private getRendererByDataType(type: ColumnDataType): ExplorerRendererLoader {
     let code = "string-object-renderer";
     switch (type) {

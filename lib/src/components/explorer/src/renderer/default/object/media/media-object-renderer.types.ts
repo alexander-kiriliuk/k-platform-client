@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
-
+/**
+ * Parameters for configuring the MediaObjectRenderer component.
+ * @property {string} type - The type of media being rendered.
+ */
 export interface MediaObjectRendererParams {
   type: string;
 }

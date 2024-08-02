@@ -17,6 +17,10 @@
 import {ChangeDetectionStrategy, Component} from "@angular/core";
 import {AbstractExplorerSectionRenderer} from "../../abstract-explorer-section-renderer";
 
+/**
+ * This component inherits from the AbstractExplorerSectionRenderer
+ * and provides rendering for string-based data.
+ */
 @Component({
   selector: "string-section-renderer",
   standalone: true,

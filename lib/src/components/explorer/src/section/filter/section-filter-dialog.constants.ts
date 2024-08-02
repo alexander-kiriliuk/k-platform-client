@@ -23,6 +23,10 @@ export namespace SectionFilter {
 
   export const PreloaderCn = "section-filter-cn";
 
+  /**
+   * Creates a new instance of the field filter form.
+   * @returns {FormGroup<FieldFilterForm>} The created field filter form.
+   */
   export function createFieldFilterForm(): FormGroup<FieldFilterForm> {
     return new FormGroup<FieldFilterForm>({
       name: new FormControl<string>("", [Validators.required]),

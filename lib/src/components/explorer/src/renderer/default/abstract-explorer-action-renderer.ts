@@ -18,10 +18,19 @@ import {ExplorerAction, ExplorerActionRenderer, TargetData} from "../../../../ex
 import {FormGroup} from "@angular/forms";
 import {InputSignal} from "@angular/core";
 
+/**
+ * Abstract base class for rendering actions in the explorer.
+ * This class provides common properties for action renderers,
+ * including the target data, action data, and form management.
+ */
 export abstract class AbstractExplorerActionRenderer<Data = unknown> implements ExplorerActionRenderer<Data> {
+  /** The target data associated with the actions. */
   target: InputSignal<TargetData>;
+  /** The data for the actions to be rendered. */
   data: InputSignal<Data | Data[]>;
+  /** The form group managing the entity data associated with the actions. */
   entityForm: InputSignal<FormGroup>;
+  /** The action-data to be rendered. */
   action: ExplorerAction;
 }
 

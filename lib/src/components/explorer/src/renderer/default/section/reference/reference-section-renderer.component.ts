@@ -21,6 +21,11 @@ import {LocalizePipe} from "../../../../../../../modules/locale";
 import {TargetData} from "../../../../../../explorer";
 import {LocalizedString} from "../../../../../../../modules/locale";
 
+/**
+ * This component inherits from the AbstractExplorerSectionRenderer
+ * and handles references to other entities. It retrieves the
+ * referenced entity data and formats it for display.
+ */
 @Component({
   selector: "reference-section-renderer",
   standalone: true,
@@ -33,8 +38,13 @@ export class ReferenceSectionRendererComponent extends AbstractExplorerSectionRe
   private readonly cachedExplorerService = inject(CachedExplorerService);
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly localizePipe = inject(LocalizePipe);
+  /** The reference target data for the entity. */
   private refTarget: TargetData;
 
+  /**
+   * Retrieves the formatted value for the referenced entity data.
+   * @returns The formatted value for the referenced data.
+   */
   get value() {
     if (!this.refTarget) {
       this.checkTarget();
@@ -82,10 +92,18 @@ export class ReferenceSectionRendererComponent extends AbstractExplorerSectionRe
     }
   }
 
+  /**
+   * This lifecycle method is called once the component has been
+   * initialized and ensures that the reference target is set.
+   */
   ngOnInit(): void {
     this.checkTarget();
   }
 
+  /**
+   * This method fetches the target data based on the column's referenced
+   * entity name and updates the component state accordingly.
+   */
   private checkTarget() {
     this.cachedExplorerService.getTarget(this.column.referencedEntityName, "section").subscribe(refTarget => {
       this.refTarget = refTarget;

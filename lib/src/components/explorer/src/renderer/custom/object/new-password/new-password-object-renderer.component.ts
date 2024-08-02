@@ -31,6 +31,10 @@ import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {LocalizePipe} from "../../../../../../../modules/locale";
 import {AbstractExplorerObjectRenderer} from "../../../default/abstract-explorer-object-renderer";
 
+/**
+ * This component allows users to set a new password with validation
+ * and checks for matching passwords.
+ */
 @Component({
   selector: "new-password-object-renderer",
   standalone: true,
@@ -47,12 +51,17 @@ import {AbstractExplorerObjectRenderer} from "../../../default/abstract-explorer
 export class NewPasswordObjectRendererComponent
   extends AbstractExplorerObjectRenderer<string, unknown, NewPasswordObjectRendererParams> implements OnInit {
 
+  /** Form group for managing password inputs. */
   readonly form = createNewPasswordObjectRendererForm();
+  /** Parameters for rendering the new password input. */
   rendererParams: NewPasswordObjectRendererParams = {
     minLength: 4
   };
   private readonly injector = inject(Injector);
 
+  /**
+   * Initializes the component and sets up validation rules for the password fields.
+   */
   ngOnInit(): void {
     if (this.params) {
       Object.assign(this.rendererParams, this.params);

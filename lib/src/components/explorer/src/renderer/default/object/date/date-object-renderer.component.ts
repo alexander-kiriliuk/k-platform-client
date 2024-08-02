@@ -24,6 +24,10 @@ import {LocalizePipe} from "../../../../../../../modules/locale";
 import {AbstractExplorerObjectRenderer} from "../../abstract-explorer-object-renderer";
 import {NumberUtils} from "../../../../../../../global/util";
 
+/**
+ * This component provides date input functionality and configuration
+ * options for displaying dates and times.
+ */
 @Component({
   selector: "date-object-renderer",
   standalone: true,
@@ -42,7 +46,9 @@ import {NumberUtils} from "../../../../../../../global/util";
 export class DateObjectRendererComponent
   extends AbstractExplorerObjectRenderer<string, unknown, DateObjectRendererParams> implements OnInit {
 
+  /** Unique identifier for the component instance. */
   readonly id = NumberUtils.getRandomInt().toString();
+  /** Parameters for rendering the date object. */
   rendererParams: DateObjectRendererParams = {
     showCalendar: true,
     dateFormat: "medium",
@@ -53,10 +59,18 @@ export class DateObjectRendererComponent
     inline: true
   };
 
+  /**
+   * Gets the current date.
+   * @returns The current date.
+   */
   get currentDate(){
     return new Date();
   }
 
+  /**
+   * Initializes the component by setting the initial date value and
+   * configuring the input based on the parameters.
+   */
   ngOnInit(): void {
     this.ctrl.setValue(this.ctrl.value ? new Date(this.ctrl.value) : this.currentDate);
     if (this.params) {

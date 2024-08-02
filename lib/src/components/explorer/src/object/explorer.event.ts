@@ -14,6 +14,10 @@
  * limitations under the License.
  */
 
+
+/**
+ * Enumeration of events related to the explorer object.
+ */
 export enum ExplorerEvent {
   SaveObject = "explorer:object:save",
   DeleteObject = "explorer:object:delete",

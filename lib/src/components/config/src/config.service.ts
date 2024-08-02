@@ -19,19 +19,37 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {ConfigItem} from "./config.types";
 import {PageableData, PageableParams} from "../../../global/vars";
 
+/**
+ * Service for managing configuration properties.
+ */
 @Injectable()
 export class ConfigService {
 
   private readonly http = inject(HttpClient);
 
+  /**
+   * Retrieves pageable configuration data.
+   * @param params Optional pagination parameters
+   * @returns Observable with pageable configuration data
+   */
   pageableData(params?: PageableParams) {
     return this.http.get<PageableData<ConfigItem>>("/config", {params: params as unknown as HttpParams});
   }
 
+  /**
+   * Sets a configuration property.
+   * @param body Configuration item data
+   * @returns Observable with success status
+   */
   setProperty(body: ConfigItem) {
     return this.http.post<boolean>("/config", body);
   }
 
+  /**
+   * Removes a configuration property by key.
+   * @param key Property key
+   * @returns Observable with success status
+   */
   removeProperty(key: string) {
     return this.http.delete<boolean>("/config", {params: {key}});
   }

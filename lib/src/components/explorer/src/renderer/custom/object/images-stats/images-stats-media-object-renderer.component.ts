@@ -26,6 +26,10 @@ import {ReservedMediaFormat} from "../../../../../../../modules/media";
 import {Media} from "../../../../../../../modules/media";
 import {MEDIA_URL} from "../../../../../../../global/vars";
 
+
+/**
+ * This component displays media file statistics and handles duplicates.
+ */
 @Component({
   selector: "images-stats-media-object-renderer",
   standalone: true,
@@ -42,22 +46,41 @@ import {MEDIA_URL} from "../../../../../../../global/vars";
 })
 export class ImagesStatsMediaObjectRendererComponent extends AbstractExplorerObjectRenderer {
 
+  /** The base URL for media resources. */
   private readonly mediaUrl = inject(MEDIA_URL);
+  /** Pipe for transforming media URLs. */
   private readonly mediaUrlPipe = inject(MediaUrlPipe);
 
+  /**
+   * Gets the thumbnail URL for the media object.
+   * @returns The transformed thumbnail URL.
+   */
   get thumbUrl() {
     return this.mediaUrlPipe.transform(this.media, ReservedMediaFormat.THUMB);
   }
 
+  /**
+   * Gets the URL for the media object.
+   * @returns The constructed media URL.
+   */
   get url() {
     return `${this.mediaUrl}/${this.media.id}`;
   }
 
+
+  /**
+   * Retrieves the media object being rendered.
+   * @returns The media object.
+   */
   get media() {
     return this.data as unknown as Media;
   }
 
-  get files() {
+  /**
+   * Gets a list of files associated with the media, including duplicates.
+   * @returns {ImagesStatFileItem[]} The list of media files with duplicates.
+   */
+  get files(): ImagesStatFileItem[] {
     const res: ImagesStatFileItem[] = [];
     if (!this.media?.files) {
       return res;

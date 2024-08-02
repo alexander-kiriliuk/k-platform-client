@@ -27,6 +27,9 @@ import {Store} from "../../../../../../../../modules/store";
 import {Media} from "../../../../../../../../modules/media";
 import {ExplorerEvent} from "../../../../../../../explorer";
 
+/**
+ * This component provides functionality to open a dialog for updating a media file.
+ */
 @Component({
   selector: "update-media-file-action-renderer",
   standalone: true,
@@ -44,6 +47,11 @@ export class UpdateMediaFileActionRendererComponent extends AbstractExplorerActi
   private readonly ts = inject(TranslocoService);
   private readonly store = inject(Store);
 
+  /**
+   * This method loads the dialog component dynamically and opens it,
+   * passing the current media data as dialog data. It subscribes to
+   * the dialog's close event to reload the object in the explorer.
+   */
   updateMedia() {
     import("./dialog/update-media-file-action-dialog.component").then(m => {
       this.dialogService.open(m.UpdateMediaFileActionDialogComponent, {

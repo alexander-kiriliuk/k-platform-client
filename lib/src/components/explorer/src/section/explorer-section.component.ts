@@ -29,6 +29,11 @@ import {LocalizePipe} from "../../../../modules/locale";
 import {StopPropagationDirective} from "../../../../modules/events";
 import {PlainObject} from "../../../../global/vars";
 
+/**
+ * This component is responsible for rendering the explorer section UI,
+ * managing the state of selected rows, and providing methods for
+ * navigation and filtering of the displayed data.
+ */
 @Component({
   selector: "section",
   standalone: true,
@@ -55,26 +60,50 @@ import {PlainObject} from "../../../../global/vars";
 })
 export class ExplorerSectionComponent {
 
+  /**
+   * ViewModel for the explorer section component.
+   */
   readonly vm = inject(ExplorerSectionViewModel);
 
+  /**
+   * Class binding for dialog mode.
+   * @returns {boolean} Indicates if the component is in dialog mode.
+   */
   @HostBinding("class.dialogMode")
-  get cssClass() {
+  get cssClass(): boolean {
     return this.vm.dialogMode;
   }
 
-  get selectedRowsCount() {
+  /**
+   * Gets the count of selected rows.
+   * @returns {number} The count of selected rows.
+   */
+  get selectedRowsCount(): number {
     return Object.keys(this.vm.selectedRows()).length;
   }
 
-  get scrollHeight() {
+  /**
+   * Gets the scroll height of the section.
+   * @returns {string | undefined} The calculated height based on dialog mode.
+   */
+  get scrollHeight(): string {
     return this.vm.dialogMode ? undefined : "calc(100vh - var(--header-bar-h) - var(--paginator-h))";
   }
 
-  get currentPos() {
+  /**
+   * Gets the current position in the paginated data.
+   * @returns {number} The current position.
+   */
+  get currentPos(): number {
     return ((this.vm.pageableData?.currentPage ?? 1) - 1) * (this.vm.pageableData?.pageSize ?? 0);
   }
 
-  isSelected(item: PlainObject) {
+  /**
+   * Checks if an item is selected.
+   * @param item The item to check for selection.
+   * @returns {boolean} True if the item is selected, otherwise false.
+   */
+  isSelected(item: PlainObject): boolean {
     if (!this.vm.multiselect) {
       return false;
     }
@@ -82,7 +111,12 @@ export class ExplorerSectionComponent {
     return this.vm.selectedRows()[pk] !== undefined;
   }
 
-  propertyFilter(propName: string) {
+  /**
+   * Gets the filter value for a specified property.
+   * @param propName The name of the property to filter by.
+   * @returns {string | undefined} The filter value or undefined if not set.
+   */
+  propertyFilter(propName: string): string {
     const filterObject = this.vm.getParsedFilter();
     if (!filterObject || !filterObject[propName]) {
       return undefined;

@@ -17,6 +17,11 @@
 import {ExplorerRendererProvider} from "./explorer.types";
 import {EXPLORER_OBJECT_RENDERER} from "./explorer.constants";
 
+/**
+ * Provides an array of object renderers for the explorer.
+ * Each renderer is defined with a unique code and a dynamic import for the corresponding component.
+ * @returns {ExplorerRendererProvider[]} An array of object renderer providers.
+ */
 export function provideExplorerObjectRenderers(): ExplorerRendererProvider[] {
   return [
     {

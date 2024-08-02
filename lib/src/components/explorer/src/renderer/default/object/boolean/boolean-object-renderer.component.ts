@@ -21,6 +21,10 @@ import {LocalizePipe} from "../../../../../../../modules/locale";
 import {AbstractExplorerObjectRenderer} from "../../abstract-explorer-object-renderer";
 import {NumberUtils} from "../../../../../../../global/util";
 
+/**
+ * This component allows for input of boolean values, represented
+ * visually with checkboxes.
+ */
 @Component({
   selector: "boolean-object-renderer",
   standalone: true,
@@ -34,5 +38,6 @@ import {NumberUtils} from "../../../../../../../global/util";
   ]
 })
 export class BooleanObjectRendererComponent extends AbstractExplorerObjectRenderer {
+  /** Unique identifier for the component instance. */
   readonly id = NumberUtils.getRandomInt().toString();
 }

@@ -17,6 +17,11 @@
 import {EXPLORER_ACTION_RENDERER} from "./explorer.constants";
 import {ExplorerActionRendererProvider} from "./explorer.types";
 
+/**
+ * Provides an array of action renderers for the explorer.
+ * Each renderer is defined with a unique code and a dynamic import for the corresponding component.
+ * @returns {ExplorerActionRendererProvider[]} An array of action renderer providers.
+ */
 export function provideExplorerActionRenderers(): ExplorerActionRendererProvider[] {
   return [
     {

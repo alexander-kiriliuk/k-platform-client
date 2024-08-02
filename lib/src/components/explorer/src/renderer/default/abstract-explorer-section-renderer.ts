@@ -17,9 +17,21 @@
 
 import {ExplorerColumn, ExplorerRenderer, TargetData} from "../../../../explorer";
 
+/**
+ * Abstract base class for rendering sections in the explorer.
+ *
+ * This class provides common properties for section renderers, such as
+ * column definitions, rendering parameters, data to be displayed, and
+ * the target data reference. It acts as a blueprint for specific
+ * section renderer implementations.
+ */
 export abstract class AbstractExplorerSectionRenderer<T = unknown> implements ExplorerRenderer {
+  /** The column definition used to configure the rendering of the section. */
   column: ExplorerColumn;
+  /** Parameters that customize the behavior or appearance of the renderer. */
   params: unknown;
+  /** The data to be displayed in the section */
   data: { [p: string]: T };
+  /** The target data reference associated with this renderer. */
   target: TargetData;
 }

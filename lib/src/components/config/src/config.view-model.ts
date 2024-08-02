@@ -35,16 +35,28 @@ import {ConfigService} from "./config.service";
 import {Config} from "./config.constants";
 import {usePreloader} from "../../../modules/preloader/src/use-preloader";
 
+
+/**
+ * ViewModel for the configuration component. Handles data retrieval, search functionality,
+ * and property editing.
+ */
 @Injectable()
 export class ConfigViewModel {
 
+  /** Signal containing pageable configuration data */
   readonly pageableData = signal<PageableData<ConfigItem>>(undefined);
+  /** Form control for search input */
   readonly searchCtrl: FormControl<string> = new FormControl();
+
   private readonly ts = inject(TranslocoService);
   private readonly store = inject(Store);
   private readonly configService = inject(ConfigService);
   private readonly dialogService = inject(DialogService);
 
+  /**
+   * Constructor initializes the search control and subscribes to its value changes.
+   * Also sets the header title and retrieves initial data.
+   */
   constructor() {
     this.searchCtrl.valueChanges.pipe(
       takeUntilDestroyed(),
@@ -61,10 +73,15 @@ export class ConfigViewModel {
     return Config.PreloaderCn;
   }
 
+  /** Calculates the current position in the pageable data */
   get currentPos() {
     return ((this.pageableData()?.currentPage ?? 1) - 1) * (this.pageableData()?.pageSize ?? 0);
   }
 
+  /**
+   * Retrieves configuration data based on pagination and search parameters.
+   * @param e Optional table page event for pagination
+   */
   getData(e?: TablePageEvent) {
     const params = {} as PageableParams;
     if (this.searchCtrl.value) {
@@ -81,6 +98,10 @@ export class ConfigViewModel {
     });
   }
 
+  /**
+   * Opens the property editor dialog for adding or editing a configuration property.
+   * @param item Optional configuration item to edit
+   */
   openPropertyEditor(item?: ConfigItem) {
     import("./editor/config-property-editor.component").then(c => {
       this.dialogService.open(c.ConfigPropertyEditorComponent, {
@@ -106,6 +127,10 @@ export class ConfigViewModel {
     });
   }
 
+  /**
+   * Deletes a configuration property and updates the pageable data.
+   * @param data Configuration item to delete
+   */
   private deleteProperty(data: ConfigItem) {
     this.configService.removeProperty(data.key).pipe(
       usePreloader(this.store, this.preloaderChannel),
@@ -122,6 +147,10 @@ export class ConfigViewModel {
     });
   }
 
+  /**
+   * Saves a configuration property and updates the pageable data.
+   * @param data Configuration item to save
+   */
   private saveProperty(data: ConfigItem) {
     this.configService.setProperty(data).pipe(
       usePreloader(this.store, this.preloaderChannel),

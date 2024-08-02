@@ -17,6 +17,11 @@
 import {EXPLORER_SECTION_RENDERER} from "./explorer.constants";
 import {ExplorerRendererProvider} from "./explorer.types";
 
+/**
+ * Provides an array of section renderers for the explorer.
+ * Each renderer is defined with a unique code and a dynamic import for the corresponding component.
+ * @returns {ExplorerRendererProvider[]} An array of section renderer providers.
+ */
 export function provideExplorerSectionRenderers(): ExplorerRendererProvider[] {
   return [
     {

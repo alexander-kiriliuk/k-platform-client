@@ -28,6 +28,11 @@ import {LocalizePipe} from "../../../modules/locale";
 import {PreloaderComponent, PreloaderDirective} from "../../../modules/preloader";
 import {ConfigViewModel} from "./config.view-model";
 
+/**
+ * Component for managing configuration properties. It provides a table view for the configuration items,
+ * allows searching, editing, and deleting properties. The component interacts with the ViewModel and service
+ * to perform these operations and handle pagination.
+ */
 @Component({
   selector: "config",
   standalone: true,
@@ -54,12 +59,21 @@ import {ConfigViewModel} from "./config.view-model";
 })
 export class ConfigComponent {
 
+  /** ViewModel for interacting with data and service */
   readonly vm = inject(ConfigViewModel);
 
+  /**
+   * Gets the pageable data from the ViewModel.
+   * @returns Pageable data
+   */
   get data() {
     return this.vm.pageableData();
   }
 
+  /**
+   * Gets the calculated scroll height for the table.
+   * @returns Scroll height string
+   */
   get scrollHeight() {
     return "calc(100vh - var(--header-bar-h) - var(--paginator-h))";
   }

@@ -21,6 +21,9 @@ import {RefInputComponent} from "../../../../../../../modules/ref-input";
 import {LocalizePipe} from "../../../../../../../modules/locale";
 import {AbstractExplorerObjectRenderer} from "../../abstract-explorer-object-renderer";
 
+/**
+ * This component displays a reference input field for linking to other entities.
+ */
 @Component({
   selector: "reference-object-renderer",
   standalone: true,

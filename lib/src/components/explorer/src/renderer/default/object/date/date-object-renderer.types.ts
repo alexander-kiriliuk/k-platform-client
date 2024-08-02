@@ -14,7 +14,16 @@
  * limitations under the License.
  */
 
-
+/**
+ * Parameters for configuring the DateObjectRenderer component.
+ * @property {number} firstDayOfWeek - The first day of the week (0-6).
+ * @property {boolean} showCalendar - Indicates if the calendar should be displayed.
+ * @property {boolean} showTime - Indicates if the time input should be displayed.
+ * @property {boolean} showSeconds - Indicates if the seconds input should be displayed.
+ * @property {boolean} readonlyInput - Indicates if the input is read-only.
+ * @property {boolean} inline - Indicates if the date picker should be inline.
+ * @property {string} dateFormat - The format in which the date should be displayed.
+ */
 export class DateObjectRendererParams {
   firstDayOfWeek: number;
   showCalendar: boolean;

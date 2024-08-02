@@ -23,6 +23,10 @@ import {LocalizeMediaInputComponent, LocalizePipe} from "../../../../../../../mo
 import {AbstractExplorerObjectRenderer} from "../../abstract-explorer-object-renderer";
 import {LocalizedMedia} from "../../../../../../../modules/locale";
 
+/**
+ * This component allows for input of localized media and provides
+ * configuration options for different media types.
+ */
 @Component({
   selector: "localized-media-object-renderer",
   standalone: true,
@@ -40,8 +44,12 @@ export class LocalizedMediaObjectRendererComponent
   extends AbstractExplorerObjectRenderer <LocalizedMedia, unknown, LocalizedMediaObjectRendererTypes>
   implements OnInit {
 
+  /** The current media type being rendered. */
   mediaType = "default";
 
+  /**
+   * Initializes the component and sets the media type based on parameters.
+   */
   ngOnInit(): void {
     if (this.params?.type) {
       this.mediaType = this.params.type;

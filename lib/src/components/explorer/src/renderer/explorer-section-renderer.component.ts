@@ -33,6 +33,11 @@ import {
 } from "../explorer.types";
 import {AbstractExplorerRendererComponent} from "./abstract-explorer-renderer.component";
 
+/**
+ * This component is responsible for dynamically rendering sections
+ * based on the provided column definition and data. It uses different
+ * renderers depending on the column type or specified renderer code.
+ */
 @Component({
   selector: "explorer-section-renderer",
   template: "",
@@ -42,12 +47,22 @@ import {AbstractExplorerRendererComponent} from "./abstract-explorer-renderer.co
 export class ExplorerSectionRendererComponent extends AbstractExplorerRendererComponent
   implements OnInit, OnChanges {
 
+  /** The target data to be rendered in this section. */
   target = input.required<TargetData>();
+  /** The column definition that dictates how the data should be rendered. */
   column = input.required<ExplorerColumn>();
+  /** The data to be displayed in the section. */
   data = input.required<{ [k: string]: unknown }>();
   protected viewContainer = inject(ViewContainerRef);
   protected readonly renderers = inject(EXPLORER_SECTION_RENDERER);
 
+  /**
+   * This lifecycle method is invoked when any input properties
+   * change. If this is not the first change for data, it updates
+   * the component with the new data.
+   * @param changes - An object that contains the current and previous
+   * state of input properties.
+   */
   ngOnChanges(changes: SimpleChanges) {
     if (changes.data.firstChange) {
       return;
@@ -55,27 +70,45 @@ export class ExplorerSectionRendererComponent extends AbstractExplorerRendererCo
     this.patchComponentData();
   }
 
+  /**
+   * This lifecycle method is called once the component has been
+   * initialized. It retrieves the renderer based on the column's
+   * configuration and draws the component accordingly.
+   */
   ngOnInit(): void {
     let renderer: ExplorerRendererLoader;
-    const code = this.column().sectionRenderer?.code;
+    const code = this.column().sectionRenderer?.code; // Get the renderer code
+    // Select renderer based on the column's renderer code or data type
     if (code) {
       renderer = this.getRendererByCode(code);
     } else {
       renderer = this.getRendererByDataType(this.column().type as ColumnDataType);
     }
+    // Fallback to default renderer if not found
     if (!renderer) {
       console.warn(`Renderer with ${code ? `code ${code}` : `type ${this.column().type}`} is not found`);
       renderer = this.getRendererByCode("string-section-renderer");
     }
+    // Merge parameters and draw the component
     const rendererParams = this.column()?.sectionRenderer?.params ?? {};
     const columnRendererParams = this.column()?.sectionRendererParams ?? {};
     this.mergeParamsAndDrawComponent(renderer, rendererParams, columnRendererParams);
   }
 
+  /**
+   * Retrieves the renderer corresponding to the specified code.
+   * @param code - The code of the renderer to be retrieved.
+   * @returns {ExplorerRendererLoader} The renderer associated with the provided code.
+   */
   private getRendererByCode(code: string): ExplorerRendererLoader {
     return this.renderers.find(v => v.code === code);
   }
 
+  /**
+   * Retrieves the appropriate renderer based on the column's data type.
+   * @param type - The data type of the column.
+   * @returns {ExplorerRendererLoader} The renderer associated with the specified data type.
+   */
   private getRendererByDataType(type: ColumnDataType): ExplorerRendererLoader {
     let code = "string-section-renderer";
     switch (type) {

@@ -18,6 +18,10 @@ import {ChangeDetectionStrategy, Component} from "@angular/core";
 import {DatePipe} from "@angular/common";
 import {AbstractExplorerSectionRenderer} from "../../abstract-explorer-section-renderer";
 
+/**
+ * This component extends AbstractExplorerSectionRenderer specifically
+ * for date types and provides rendering for date-time data.
+ */
 @Component({
   selector: "date-section-renderer",
   standalone: true,

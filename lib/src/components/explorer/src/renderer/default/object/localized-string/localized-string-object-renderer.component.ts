@@ -21,6 +21,9 @@ import { LocalizeStringInputComponent, LocalizePipe } from "../../../../../../..
 import {RefInputComponent} from "../../../../../../../modules/ref-input";
 import {AbstractExplorerObjectRenderer} from "../../abstract-explorer-object-renderer";
 
+/**
+ * This component allows for input of strings in various languages or localizations.
+ */
 @Component({
   selector: "localized-string-object-renderer",
   standalone: true,

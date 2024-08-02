@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
-
+/**
+ * Parameters for configuring the LocalizedMediaObjectRenderer component.
+ * @property {string} type - The type of localized media being rendered.
+ */
 export interface LocalizedMediaObjectRendererTypes {
   type: string;
 }

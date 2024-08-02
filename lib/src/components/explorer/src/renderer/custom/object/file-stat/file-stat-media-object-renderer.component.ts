@@ -22,6 +22,9 @@ import {AbstractExplorerObjectRenderer} from "../../../default/abstract-explorer
 import {File} from "../../../../../../../modules/file";
 import {API_URL, FILE_URL} from "../../../../../../../global/vars";
 
+/**
+ * This component displays file details and provides the URL for access.
+ */
 @Component({
   selector: "file-stat-media-object-renderer",
   standalone: true,
@@ -36,9 +39,15 @@ import {API_URL, FILE_URL} from "../../../../../../../global/vars";
 })
 export class FileStatMediaObjectRendererComponent extends AbstractExplorerObjectRenderer<File> {
 
+  /** The base URL for API requests. */
   private readonly apiUrl = inject(API_URL);
+  /** The base URL for file access. */
   private readonly fileUrl = inject(FILE_URL);
 
+  /**
+   * Gets the URL for the file object.
+   * @returns  The constructed file URL.
+   */
   get url() {
     if (this.data.public) {
       return `${this.fileUrl}/${this.data.id}/${this.data.path}`;

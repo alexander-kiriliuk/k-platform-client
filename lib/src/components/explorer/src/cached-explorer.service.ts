@@ -20,12 +20,25 @@ import {BehaviorSubject, finalize, Observable, of, shareReplay, tap} from "rxjs"
 import {TargetData} from "./explorer.types";
 import {RefInput} from "../../../modules/ref-input";
 
+/**
+ * Service for caching data retrieved from ExplorerService.
+ * Uses a Map to store cached data.
+ */
 @Injectable()
 export class CachedExplorerService {
 
+  /**
+   * A static cache to store fetched target data.
+   */
   private static readonly cache = new Map<string, RefInput.Cache>();
   private readonly explorerService = inject(ExplorerService);
 
+  /**
+   * Retrieves target data of the specified type and caches it.
+   * @param target - The target identifier.
+   * @param type - The type of target, either "section" or "object".
+   * @returns An observable emitting the target data.
+   */
   getTarget(target: string, type: "section" | "object"): Observable<TargetData> {
     const cacheKey = `target:${target}:${type}`;
     if (!CachedExplorerService.cache.has(cacheKey)) {

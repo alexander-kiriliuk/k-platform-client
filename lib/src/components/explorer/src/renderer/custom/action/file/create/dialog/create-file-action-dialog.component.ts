@@ -23,6 +23,9 @@ import {RefInputComponent} from "../../../../../../../../../modules/ref-input";
 import {File, FileInputComponent} from "../../../../../../../../../modules/file";
 import {ExplorerService} from "../../../../../../../../../components/explorer";
 
+/**
+ * This component allows users to input details for a new file.
+ */
 @Component({
   selector: "create-file-action-dialog",
   standalone: true,
@@ -42,9 +45,14 @@ import {ExplorerService} from "../../../../../../../../../components/explorer";
 })
 export class CreateFileActionDialogComponent {
 
+  /** Control for determining if the file is public. */
   readonly isPublic: FormControl<boolean> = new FormControl(true);
   private readonly dialogRef = inject(DynamicDialogRef);
 
+  /**
+   * Closes the dialog and returns the new file data.
+   * @param media - The created file or an array of file items.
+   */
   onChange(media: File | File[]) {
     this.dialogRef.close(media);
   }

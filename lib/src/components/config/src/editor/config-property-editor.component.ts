@@ -26,6 +26,10 @@ import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
 import createForm = ConfigPropertyEditor.createForm;
 
+/**
+ * Component for editing a configuration property. It provides a form for entering the key and value
+ * of the property, with validation to ensure proper input.
+ */
 @Component({
   selector: "config-property-editor",
   standalone: true,
@@ -43,30 +47,44 @@ import createForm = ConfigPropertyEditor.createForm;
 })
 export class ConfigPropertyEditorComponent implements OnInit {
 
+  /** Form for editing a configuration property */
   readonly form = createForm();
+
   private readonly config = inject(DynamicDialogConfig);
   private readonly ref = inject(DynamicDialogRef);
 
+  /** Data passed to the editor component */
   get data() {
     return this.config.data as ConfigItem;
   }
 
+  /** Checks if the save button should be enabled */
   get isSaveBtnEnabled() {
     return this.form.valid && this.form.dirty;
   }
 
+  /** Checks if the delete button should be enabled */
   get isDeleteBtnEnabled() {
     return this.form.valid && !this.form.touched && !this.form.dirty;
   }
 
+  /**
+   * Initializes the component and patches the form with the data
+   **/
   ngOnInit(): void {
     this.form.patchValue(this.data);
   }
 
+  /**
+   * Closes the dialog with a delete command
+   **/
   deleteProperty() {
     this.ref.close({cmd: "delete", data: this.form.value});
   }
 
+  /**
+   * Closes the dialog with a save command
+   **/
   saveProperty() {
     this.ref.close({cmd: "save", data: this.form.value});
   }

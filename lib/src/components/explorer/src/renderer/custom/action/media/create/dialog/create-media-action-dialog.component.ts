@@ -22,6 +22,9 @@ import {ExplorerService} from "../../../../../../../../explorer";
 import {RefInputComponent} from "../../../../../../../../../modules/ref-input";
 import {Media, MediaType, MediaInputComponent} from "../../../../../../../../../modules/media";
 
+/**
+ * This component allows users to input details for a new media file.
+ */
 @Component({
   selector: "create-media-action-dialog",
   standalone: true,
@@ -40,9 +43,14 @@ import {Media, MediaType, MediaInputComponent} from "../../../../../../../../../
 })
 export class CreateMediaActionDialogComponent {
 
+  /** Control for determining if the media is public. */
   readonly typeCtrl: FormControl<MediaType> = new FormControl();
   private readonly dialogRef = inject(DynamicDialogRef);
 
+  /**
+   * Closes the dialog and returns the new media data.
+   * @param media - The created media or an array of media items.
+   */
   onChange(media: Media | Media[]) {
     this.dialogRef.close(media);
   }

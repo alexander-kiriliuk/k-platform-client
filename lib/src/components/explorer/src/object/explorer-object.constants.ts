@@ -18,6 +18,7 @@ import {ExplorerTab} from "../explorer.types";
 
 export namespace ExplorerObject {
 
+  /** Represents a REST tab for the explorer. */
   export const RestTab: ExplorerTab = { id: "rest-ex-tab" } as ExplorerTab;
 
 }

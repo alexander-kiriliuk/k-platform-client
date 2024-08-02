@@ -35,6 +35,11 @@ import {DashboardEvent, ToastData, ToastEvent} from "../../../../global/vars";
 import {usePreloader} from "../../../../modules/preloader/src/use-preloader";
 import DuplicateItemToken = Explorer.DuplicateItemToken;
 
+/**
+ * ViewModel for the ExplorerObject component.
+ * This ViewModel manages the logic and state for the ExplorerObjectComponent,
+ * handling operations such as saving, deleting, and initializing objects.
+ */
 @Injectable()
 export class ExplorerObjectViewModel {
 
@@ -49,14 +54,23 @@ export class ExplorerObjectViewModel {
   private readonly ts = inject(TranslocoService);
   private readonly router = inject(Router);
   private readonly confirmationService = inject(ConfirmationService);
+  /** The form used for the entity. */
   readonly entityForm = this.fb.group({});
   readonly restTab = ExplorerObject.RestTab;
+  /** Visibility state of action dialogs. */
   readonly actionsDialogVisibility = signal<boolean>(undefined);
+  /** Signal for storing target data. */
   private readonly _targetData = signal<TargetData>(undefined);
+  /** Signal for storing entity data. */
   private readonly _entityData = signal<{ [k: string]: unknown }>(undefined);
+  /** Signal for storing the tabs associated with the entity. */
   private readonly _tabs = signal<ExplorerTab[]>([]);
 
+  /**
+   * Initializes the ViewModel by subscribing to relevant store events.
+   */
   constructor() {
+    // Subscribe to store events for object save, delete, and reload actions
     this.store.on<ExplorerObjectDto>(ExplorerEvent.SaveObject).pipe(takeUntilDestroyed())
       .subscribe(data => this.handleSaveEvent(data));
     this.store.on<ExplorerObjectDto>(ExplorerEvent.DeleteObject).pipe(takeUntilDestroyed())
@@ -69,26 +83,47 @@ export class ExplorerObjectViewModel {
       });
   }
 
+  /** Gets the data configuration from the dynamic dialog. */
   private get data() {
     return this.config?.data as ObjectDialogConfig;
   }
 
-  get entityTargetOrAlias() {
+  /**
+   * Retrieves the target entity or alias for the current object.
+   * @returns {string} The target entity or alias.
+   */
+  get entityTargetOrAlias(): string {
     return this.targetData.entity.alias || this.targetData.entity.target;
   }
 
-  get targetData() {
+  /**
+   * Retrieves the target data for the current object.
+   * @returns {TargetData} The target data.
+   */
+  get targetData(): TargetData {
     return this._targetData();
   }
 
+  /**
+   * Retrieves the entity data for the current object.
+   * @returns The entity data.
+   */
   get entityData() {
     return this._entityData();
   }
 
-  get tabs() {
+  /**
+   * Retrieves the tabs associated with the current object.
+   * @returns {ExplorerTab[]} The array of tabs.
+   */
+  get tabs(): ExplorerTab[] {
     return this._tabs();
   }
 
+  /**
+   * Configuration for the export dialog.
+   * @returns {DynamicDialogConfig} The configuration object for the export dialog.
+   */
   get exportDialogConfig(): DynamicDialogConfig {
     return {
       header: this.ts.translate("explorer.export.label"),
@@ -98,26 +133,50 @@ export class ExplorerObjectViewModel {
     };
   }
 
-  get dialogMode() {
+  /**
+   * Indicates whether the ViewModel is operating in dialog mode.
+   * @returns {boolean} True if in dialog mode, otherwise false.
+   */
+  get dialogMode(): boolean {
     return !!this.dialogRef;
   }
 
+  /**
+   * Retrieves the ID for the current object.
+   * @returns The ID of the object or undefined.
+   */
   get id() {
     return this.dialogMode ? this.data.id : this.ar.snapshot.params.id;
   }
 
+  /**
+   * Retrieves the duplicate ID if in dialog mode.
+   * @returns The duplicate ID or undefined.
+   */
   get duplicateId() {
     return this.dialogMode ? undefined : this.ar.snapshot.queryParams[DuplicateItemToken];
   }
 
-  get target() {
+  /**
+   * Retrieves the target for the current object.
+   * @returns {string} The target string.
+   */
+  get target(): string {
     return this.dialogMode ? this.data.target : this.ar.snapshot.params.target;
   }
 
-  get preloaderChannel() {
+  /**
+   * Returns the channel identifier for the preloader.
+   * @returns {string} The preloader channel identifier.
+   */
+  get preloaderChannel(): string {
     return Explorer.ObjectPreloaderCn;
   }
 
+  /**
+   * Checks if the current user can delete the object.
+   * @returns primary column property if the user can delete the object, otherwise false.
+   */
   get canDeleteObject() {
     if (!this.entityData) {
       return false;
@@ -125,6 +184,11 @@ export class ExplorerObjectViewModel {
     return this.entityData[this.targetData?.primaryColumn?.property];
   }
 
+  /**
+   * Saves the current object state to the store.
+   * This method triggers a save event in the store with the current
+   * entity data and its target.
+   */
   saveObject() {
     const id = this.id === Explorer.NewItemToken ?
       undefined : this.entityData[this.targetData.primaryColumn.property] as number;
@@ -135,6 +199,11 @@ export class ExplorerObjectViewModel {
     });
   }
 
+  /**
+   * Deletes the current object after user confirmation.
+   * This method shows a confirmation dialog and, upon acceptance,
+   * emits a delete event in the store with the current entity's ID and target.
+   */
   deleteObject() {
     this.confirmationService.confirm({
       accept: () => {
@@ -146,6 +215,11 @@ export class ExplorerObjectViewModel {
     });
   }
 
+  /**
+   * Initializes the object by fetching target and entity data.
+   * This method retrieves the necessary data from the explorer service
+   * and sets up the reactive form with the fetched entity data.
+   */
   initObject() {
     const targetObs = this.explorerService.getTarget(this.target, "object");
     const entityObs = this.explorerService.getEntity<{ [k: string]: unknown }>(
@@ -165,6 +239,12 @@ export class ExplorerObjectViewModel {
     ).subscribe(payload => this.handleReceivedTargetData(payload));
   }
 
+  /**
+   * Handles the received target data and updates the ViewModel state.
+   * This method processes the fetched target and entity data,
+   * updates the form controls, and emits the title for the header.
+   * @param payload - The payload containing target and entity data.
+   */
   private handleReceivedTargetData(payload: { entity: { [k: string]: unknown }; target: TargetData }) {
     if (payload?.entity && this.duplicateId) {
       delete payload.entity[payload.target.primaryColumn.property];
@@ -201,6 +281,12 @@ export class ExplorerObjectViewModel {
     this.entityForm.patchValue(this.entityData);
   }
 
+  /**
+   * Handles the save event from the store and processes the result.
+   * This method updates the UI based on the success or failure of the
+   * save operation, and navigates to the newly created object if applicable.
+   * @param data - The data from the save event.
+   */
   private handleSaveEvent(data: StoreMessage<ExplorerObjectDto>) {
     this.actionsDialogVisibility.set(false);
     this.explorerService.saveEntity(data.payload.entity, data.payload.target, data.payload.id).pipe(
@@ -224,6 +310,12 @@ export class ExplorerObjectViewModel {
     });
   }
 
+  /**
+   * Handles the delete event from the store and processes the result.
+   * This method updates the UI based on the success of the delete operation
+   * and navigates back to the section view.
+   * @param data - The data from the delete event.
+   */
   private handleDeleteEvent(data: StoreMessage<ExplorerObjectDto>) {
     this.actionsDialogVisibility.set(false);
     this.explorerService.removeEntity(data.payload.target, data.payload.id).pipe(

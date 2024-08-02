@@ -44,6 +44,9 @@ import {
 import {Explorer, ExplorerEvent} from "../../../../../../../explorer";
 import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
 
+/**
+ * This component allows users to stop a running process and handle the action state.
+ */
 @Component({
   selector: "stop-process-action-renderer",
   standalone: true,
@@ -65,18 +68,33 @@ export class StopProcessActionRendererComponent extends AbstractExplorerActionRe
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly injector = inject(Injector);
 
+  /**
+   * Gets the value of the enabled control from the entity form.
+   * @returns The enabled control value.
+   */
   get enabledCtrlValue() {
     return this.entityForm().controls.enabled.value as boolean;
   }
 
+  /**
+   * Gets the current status control value from the entity form.
+   * @returns The current status of the process.
+   */
   get statusControlValue() {
     return this.entityForm().controls.status.value as ProcessStatus;
   }
 
+  /**
+   * Gets the channel for the preloader.
+   * @returns The preloader channel identifier.
+   */
   get preloaderChannel() {
     return Explorer.ObjectPreloaderCn;
   }
 
+  /**
+   * Initializes the component and subscribes to control value changes.
+   */
   ngOnInit() {
     runInInjectionContext(this.injector, () => {
       this.entityForm().controls.status.valueChanges
@@ -87,6 +105,9 @@ export class StopProcessActionRendererComponent extends AbstractExplorerActionRe
     });
   }
 
+  /**
+   * Stops the associated process.
+   */
   stop() {
     this.service.stop((this.data() as ProcessUnit).code).pipe(
       usePreloader(this.store, this.preloaderChannel),

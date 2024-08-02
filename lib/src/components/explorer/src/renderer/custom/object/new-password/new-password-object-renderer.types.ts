@@ -14,6 +14,10 @@
  * limitations under the License.
  */
 
+/**
+ * Parameters for configuring the NewPasswordObjectRenderer component.
+ * @property {number} minLength - The minimum length required for the password.
+ */
 export interface NewPasswordObjectRendererParams {
   minLength: number
 }

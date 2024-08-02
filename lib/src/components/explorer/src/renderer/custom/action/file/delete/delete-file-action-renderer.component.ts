@@ -33,6 +33,9 @@ import {Explorer} from "../../../../../../../explorer";
 import {ToastData, ToastEvent} from "../../../../../../../../global/vars";
 import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
 
+/**
+ * This component provides functionality to confirm and delete a file.
+ */
 @Component({
   selector: "delete-file-action-renderer",
   standalone: true,
@@ -49,16 +52,25 @@ import {usePreloader} from "../../../../../../../../modules/preloader/src/use-pr
 })
 export class DeleteFileActionRendererComponent extends AbstractExplorerActionRenderer {
 
+  /** Key for the confirmation dialog. */
   readonly dialogKey = "del-file-action-dialog";
   private readonly confirmationService = inject(ConfirmationService);
   private readonly service = inject(DeleteFileActionRendererService);
   private readonly store = inject(Store);
   private readonly router = inject(Router);
 
+  /**
+   * Gets the preloader channel identifier.
+   * @returns {string} The preloader channel identifier.
+   */
   private get preloaderChannel() {
     return Explorer.ObjectPreloaderCn;
   }
 
+  /**
+   * This method displays a confirmation dialog, and upon acceptance,
+   * it deletes the file and navigates back to the files section.
+   */
   deleteFile() {
     this.confirmationService.confirm({
       key: this.dialogKey,

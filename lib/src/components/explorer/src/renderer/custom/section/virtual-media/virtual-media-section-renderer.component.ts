@@ -18,6 +18,10 @@ import {ChangeDetectionStrategy, Component} from "@angular/core";
 import {AbstractExplorerSectionRenderer} from "../../../default/abstract-explorer-section-renderer";
 import {MediaComponent, Media} from "../../../../../../../modules/media";
 
+/**
+ * This component extends the AbstractExplorerSectionRenderer and
+ * provides access to the media data for display.
+ */
 @Component({
   selector: "virtual-media-section-renderer",
   standalone: true,
@@ -29,6 +33,10 @@ import {MediaComponent, Media} from "../../../../../../../modules/media";
 })
 export class VirtualMediaSectionRendererComponent extends AbstractExplorerSectionRenderer<Media> {
 
+  /**
+   * Retrieves the media data associated with this renderer.
+   * @returns The media data.
+   */
   get media() {
     return this.data as unknown as Media;
   }

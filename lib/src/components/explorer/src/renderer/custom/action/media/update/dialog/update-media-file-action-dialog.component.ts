@@ -22,6 +22,9 @@ import {ExplorerService} from "../../../../../../../../explorer";
 import { MediaInputComponent, Media } from "../../../../../../../../../modules/media";
 import {RefInputComponent} from "../../../../../../../../../modules/ref-input";
 
+/**
+ * This component allows users to change the details of a media file.
+ */
 @Component({
   selector: "update-media-file-action-dialog",
   standalone: true,
@@ -43,10 +46,18 @@ export class UpdateMediaFileActionDialogComponent {
   private readonly config = inject(DynamicDialogConfig);
   private readonly dialogRef = inject(DynamicDialogRef);
 
+  /**
+   * Gets the media data passed to the dialog.
+   * @returns The media data.
+   */
   get data() {
     return this.config.data as Media;
   }
 
+  /**
+   * Closes the dialog and returns the updated media data.
+   * @param media - The updated media or an array of media items.
+   */
   onChange(media: Media | Media[]) {
     this.dialogRef.close(media);
   }

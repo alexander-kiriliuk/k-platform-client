@@ -20,6 +20,10 @@ import {notOnlySpacesValidator} from "../../../../global/validator";
 
 export namespace ConfigPropertyEditor {
 
+  /**
+   * Creates a form for editing a configuration property.
+   * @returns FormGroup with controls for key and value
+   */
   export function createForm(): FormGroup<ConfigEditorForm> {
     return new FormGroup<ConfigEditorForm>({
       key: new FormControl<string>("", [Validators.required, notOnlySpacesValidator()]),

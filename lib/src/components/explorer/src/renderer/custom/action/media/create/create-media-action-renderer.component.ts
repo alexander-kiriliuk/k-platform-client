@@ -26,6 +26,9 @@ import {
 import {LocalizePipe} from "../../../../../../../../modules/locale";
 import {Media} from "../../../../../../../../modules/media";
 
+/**
+ * This component provides functionality to open a dialog for creating a new media file.
+ */
 @Component({
   selector: "create-media-action-renderer",
   standalone: true,
@@ -43,6 +46,10 @@ export class CreateMediaActionRendererComponent extends AbstractExplorerActionRe
   private readonly ts = inject(TranslocoService);
   private readonly router = inject(Router);
 
+  /**
+   * This method loads the dialog component dynamically and opens it.
+   * It subscribes to the dialog's close event to navigate to the new media's details page.
+   */
   createMedia() {
     import("./dialog/create-media-action-dialog.component").then(m => {
       this.dialogService.open(m.CreateMediaActionDialogComponent, {

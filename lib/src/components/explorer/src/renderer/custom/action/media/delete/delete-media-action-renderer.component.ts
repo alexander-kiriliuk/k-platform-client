@@ -33,6 +33,9 @@ import {Explorer} from "../../../../../../../explorer";
 import {ToastData, ToastEvent} from "../../../../../../../../global/vars";
 import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
 
+/**
+ * This component provides functionality to confirm and delete a media file.
+ */
 @Component({
   selector: "delete-media-action-renderer",
   standalone: true,
@@ -49,16 +52,25 @@ import {usePreloader} from "../../../../../../../../modules/preloader/src/use-pr
 })
 export class DeleteMediaActionRendererComponent extends AbstractExplorerActionRenderer {
 
+  /** Key for the confirmation dialog. */
   readonly dialogKey = "del-media-action-dialog";
   private readonly confirmationService = inject(ConfirmationService);
   private readonly service = inject(MediaService);
   private readonly store = inject(Store);
   private readonly router = inject(Router);
 
+  /**
+   * Gets the preloader channel identifier.
+   * @returns The preloader channel identifier.
+   */
   private get preloaderChannel() {
     return Explorer.ObjectPreloaderCn;
   }
 
+  /**
+   * This method displays a confirmation dialog, and upon acceptance,
+   * it deletes the media file and navigates back to the media section.
+   */
   deleteMedia() {
     this.confirmationService.confirm({
       key: this.dialogKey,

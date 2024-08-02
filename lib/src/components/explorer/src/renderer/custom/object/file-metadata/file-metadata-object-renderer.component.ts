@@ -23,6 +23,9 @@ import {ExplorerObjectRendererComponent} from "../../../explorer-object-renderer
 import {AbstractExplorerObjectRenderer} from "../../../default/abstract-explorer-object-renderer";
 import {FileMetadata} from "../../../../../../../modules/file";
 
+/**
+ * This component displays various metadata details about a file.
+ */
 @Component({
   selector: "file-metadata-object-renderer",
   standalone: true,
