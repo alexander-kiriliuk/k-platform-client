@@ -124,6 +124,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This component extends AbstractExplorerSectionRenderer specifically
+for date types and provides rendering for date-time data.</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -267,11 +275,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:21</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:30</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The column definition used to configure the rendering of the section.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -300,11 +314,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:23</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:34</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The data to be displayed in the section</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -327,11 +347,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:22</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:32</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Parameters that customize the behavior or appearance of the renderer.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -360,11 +386,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:24</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:36</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The target data reference associated with this renderer.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -378,6 +410,10 @@
 import {DatePipe} from &quot;@angular/common&quot;;
 import {AbstractExplorerSectionRenderer} from &quot;../../abstract-explorer-section-renderer&quot;;
 
+/**
+ * This component extends AbstractExplorerSectionRenderer specifically
+ * for date types and provides rendering for date-time data.
+ */
 @Component({
   selector: &quot;date-section-renderer&quot;,
   standalone: true,

@@ -124,6 +124,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component for displaying a dialog to select target columns.</p>
+
+    </p>
 
 
 
@@ -282,14 +289,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="43"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/filter/target/target-columns-dialog.component.ts:43</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/filter/target/target-columns-dialog.component.ts:54</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Sets the selected column and closes the dialog.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -300,6 +309,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -314,6 +324,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>The column to set.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -355,7 +369,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">lib/src/components/explorer/src/section/filter/target/target-columns-dialog.component.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">lib/src/components/explorer/src/section/filter/target/target-columns-dialog.component.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -382,7 +396,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">lib/src/components/explorer/src/section/filter/target/target-columns-dialog.component.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">lib/src/components/explorer/src/section/filter/target/target-columns-dialog.component.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -411,9 +425,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">lib/src/components/explorer/src/section/filter/target/target-columns-dialog.component.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/components/explorer/src/section/filter/target/target-columns-dialog.component.ts:46</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Retrieves the data passed to this dialog.</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -428,6 +451,9 @@ import {ExplorerColumn, TargetData} from &quot;../../../explorer.types&quot;;
 import {NgClass} from &quot;@angular/common&quot;;
 import {LocalizePipe} from &quot;../../../../../../modules/locale&quot;;
 
+/**
+ * Component for displaying a dialog to select target columns.
+ */
 @Component({
   selector: &quot;target-columns-dialog&quot;,
   standalone: true,
@@ -444,10 +470,18 @@ export class TargetColumnsDialogComponent {
   private readonly config &#x3D; inject(DynamicDialogConfig);
   private readonly ref &#x3D; inject(DynamicDialogRef);
 
+  /**
+   * Retrieves the data passed to this dialog.
+   * @returns The target data and selected column.
+   */
   get data() {
     return this.config.data as { target: TargetData, selected: string };
   }
 
+  /**
+   * Sets the selected column and closes the dialog.
+   * @param col The column to set.
+   */
   setColumn(col: ExplorerColumn) {
     this.ref.close(col);
   }

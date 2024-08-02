@@ -124,6 +124,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This component allows users to change the details of a media file.</p>
+
+    </p>
 
 
 
@@ -290,14 +297,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="50"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/media/update/dialog/update-media-file-action-dialog.component.ts:50</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/media/update/dialog/update-media-file-action-dialog.component.ts:61</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Closes the dialog and returns the updated media data.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -308,6 +317,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -322,6 +332,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The updated media or an array of media items.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -363,7 +379,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/media/update/dialog/update-media-file-action-dialog.component.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/media/update/dialog/update-media-file-action-dialog.component.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -390,7 +406,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/media/update/dialog/update-media-file-action-dialog.component.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/media/update/dialog/update-media-file-action-dialog.component.ts:47</a></div>
                         </td>
                     </tr>
 
@@ -419,9 +435,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/media/update/dialog/update-media-file-action-dialog.component.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/media/update/dialog/update-media-file-action-dialog.component.ts:53</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the media data passed to the dialog.</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -438,6 +463,9 @@ import {ExplorerService} from &quot;../../../../../../../../explorer&quot;;
 import { MediaInputComponent, Media } from &quot;../../../../../../../../../modules/media&quot;;
 import {RefInputComponent} from &quot;../../../../../../../../../modules/ref-input&quot;;
 
+/**
+ * This component allows users to change the details of a media file.
+ */
 @Component({
   selector: &quot;update-media-file-action-dialog&quot;,
   standalone: true,
@@ -459,10 +487,18 @@ export class UpdateMediaFileActionDialogComponent {
   private readonly config &#x3D; inject(DynamicDialogConfig);
   private readonly dialogRef &#x3D; inject(DynamicDialogRef);
 
+  /**
+   * Gets the media data passed to the dialog.
+   * @returns The media data.
+   */
   get data() {
     return this.config.data as Media;
   }
 
+  /**
+   * Closes the dialog and returns the updated media data.
+   * @param media - The updated media or an array of media items.
+   */
   onChange(media: Media | Media[]) {
     this.dialogRef.close(media);
   }

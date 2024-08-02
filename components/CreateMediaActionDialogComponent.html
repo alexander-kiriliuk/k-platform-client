@@ -124,6 +124,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This component allows users to input details for a new media file.</p>
+
+    </p>
 
 
 
@@ -275,14 +282,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="46"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/media/create/dialog/create-media-action-dialog.component.ts:46</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/media/create/dialog/create-media-action-dialog.component.ts:54</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Closes the dialog and returns the new media data.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -293,6 +302,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -307,6 +317,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The created media or an array of media items.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -348,7 +364,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/media/create/dialog/create-media-action-dialog.component.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/media/create/dialog/create-media-action-dialog.component.ts:48</a></div>
                         </td>
                     </tr>
 
@@ -380,10 +396,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/media/create/dialog/create-media-action-dialog.component.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/media/create/dialog/create-media-action-dialog.component.ts:47</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Control for determining if the media is public.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -401,6 +423,9 @@ import {ExplorerService} from &quot;../../../../../../../../explorer&quot;;
 import {RefInputComponent} from &quot;../../../../../../../../../modules/ref-input&quot;;
 import {Media, MediaType, MediaInputComponent} from &quot;../../../../../../../../../modules/media&quot;;
 
+/**
+ * This component allows users to input details for a new media file.
+ */
 @Component({
   selector: &quot;create-media-action-dialog&quot;,
   standalone: true,
@@ -419,9 +444,14 @@ import {Media, MediaType, MediaInputComponent} from &quot;../../../../../../../.
 })
 export class CreateMediaActionDialogComponent {
 
+  /** Control for determining if the media is public. */
   readonly typeCtrl: FormControl&lt;MediaType&gt; &#x3D; new FormControl();
   private readonly dialogRef &#x3D; inject(DynamicDialogRef);
 
+  /**
+   * Closes the dialog and returns the new media data.
+   * @param media - The created media or an array of media items.
+   */
   onChange(media: Media | Media[]) {
     this.dialogRef.close(media);
   }

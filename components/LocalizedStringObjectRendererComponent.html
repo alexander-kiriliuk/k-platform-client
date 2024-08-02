@@ -120,6 +120,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This component allows for input of strings in various languages or localizations.</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -266,11 +273,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:23</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:31</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The column definition used for rendering the object.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -299,11 +312,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:25</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:35</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The data for the object to be rendered.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -332,11 +351,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:27</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:39</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The form group associated with the entity.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -365,11 +390,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:24</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:33</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Parameters for customizing the renderer&#39;s behavior.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -398,11 +429,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:26</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:37</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The entity data associated with this object.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -419,6 +456,9 @@ import { LocalizeStringInputComponent, LocalizePipe } from &quot;../../../../../
 import {RefInputComponent} from &quot;../../../../../../../modules/ref-input&quot;;
 import {AbstractExplorerObjectRenderer} from &quot;../../abstract-explorer-object-renderer&quot;;
 
+/**
+ * This component allows for input of strings in various languages or localizations.
+ */
 @Component({
   selector: &quot;localized-string-object-renderer&quot;,
   standalone: true,

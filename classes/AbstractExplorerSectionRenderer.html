@@ -123,6 +123,17 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Abstract base class for rendering sections in the explorer.</p>
+<p>This class provides common properties for section renderers, such as
+column definitions, rendering parameters, data to be displayed, and
+the target data reference. It acts as a blueprint for specific
+section renderer implementations.</p>
+
+            </p>
 
 
             <p class="comment">
@@ -195,10 +206,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-section-renderer.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-section-renderer.ts:30</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The column definition used to configure the rendering of the section.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -221,10 +238,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-section-renderer.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-section-renderer.ts:34</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The data to be displayed in the section</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -241,10 +264,16 @@
             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-section-renderer.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-section-renderer.ts:32</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Parameters that customize the behavior or appearance of the renderer.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -267,10 +296,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-section-renderer.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-section-renderer.ts:36</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The target data reference associated with this renderer.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -288,10 +323,22 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {ExplorerColumn, ExplorerRenderer, TargetData} from &quot;../../../../explorer&quot;;
 
+/**
+ * Abstract base class for rendering sections in the explorer.
+ *
+ * This class provides common properties for section renderers, such as
+ * column definitions, rendering parameters, data to be displayed, and
+ * the target data reference. It acts as a blueprint for specific
+ * section renderer implementations.
+ */
 export abstract class AbstractExplorerSectionRenderer&lt;T &#x3D; unknown&gt; implements ExplorerRenderer {
+  /** The column definition used to configure the rendering of the section. */
   column: ExplorerColumn;
+  /** Parameters that customize the behavior or appearance of the renderer. */
   params: unknown;
+  /** The data to be displayed in the section */
   data: { [p: string]: T };
+  /** The target data reference associated with this renderer. */
   target: TargetData;
 }
 </code></pre>

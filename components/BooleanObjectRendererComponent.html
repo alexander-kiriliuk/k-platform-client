@@ -124,6 +124,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This component allows for input of boolean values, represented
+visually with checkboxes.</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -270,10 +278,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">lib/src/components/explorer/src/renderer/default/object/boolean/boolean-object-renderer.component.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">lib/src/components/explorer/src/renderer/default/object/boolean/boolean-object-renderer.component.ts:42</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Unique identifier for the component instance.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -302,11 +316,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:23</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:31</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The column definition used for rendering the object.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -335,11 +355,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:25</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:35</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The data for the object to be rendered.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -368,11 +394,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:27</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:39</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The form group associated with the entity.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -401,11 +433,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:24</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:33</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Parameters for customizing the renderer&#39;s behavior.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -434,11 +472,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:26</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:37</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The entity data associated with this object.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -455,6 +499,10 @@ import {LocalizePipe} from &quot;../../../../../../../modules/locale&quot;;
 import {AbstractExplorerObjectRenderer} from &quot;../../abstract-explorer-object-renderer&quot;;
 import {NumberUtils} from &quot;../../../../../../../global/util&quot;;
 
+/**
+ * This component allows for input of boolean values, represented
+ * visually with checkboxes.
+ */
 @Component({
   selector: &quot;boolean-object-renderer&quot;,
   standalone: true,
@@ -468,6 +516,7 @@ import {NumberUtils} from &quot;../../../../../../../global/util&quot;;
   ]
 })
 export class BooleanObjectRendererComponent extends AbstractExplorerObjectRenderer {
+  /** Unique identifier for the component instance. */
   readonly id &#x3D; NumberUtils.getRandomInt().toString();
 }
 </code></pre>

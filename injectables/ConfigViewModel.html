@@ -119,6 +119,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>ViewModel for the configuration component. Handles data retrieval, search functionality,
+and property editing.</p>
+
+            </p>
 
 
 
@@ -228,10 +236,17 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:54</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor initializes the search control and subscribes to its value changes.
+Also sets the header title and retrieves initial data.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -263,14 +278,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="109"
-                                    class="link-to-prism">lib/src/components/config/src/config.view-model.ts:109</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">lib/src/components/config/src/config.view-model.ts:134</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Deletes a configuration property and updates the pageable data.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -281,6 +298,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -295,6 +313,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Configuration item to delete</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -330,14 +352,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="68"
-                                    class="link-to-prism">lib/src/components/config/src/config.view-model.ts:68</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">lib/src/components/config/src/config.view-model.ts:85</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves configuration data based on pagination and search parameters.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -348,6 +372,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -362,6 +387,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Optional table page event for pagination</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -397,14 +426,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="84"
-                                    class="link-to-prism">lib/src/components/config/src/config.view-model.ts:84</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">lib/src/components/config/src/config.view-model.ts:105</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Opens the property editor dialog for adding or editing a configuration property.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -415,6 +446,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -429,6 +461,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Optional configuration item to edit</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -466,14 +502,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="125"
-                                    class="link-to-prism">lib/src/components/config/src/config.view-model.ts:125</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="154"
+                                    class="link-to-prism">lib/src/components/config/src/config.view-model.ts:154</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Saves a configuration property and updates the pageable data.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -484,6 +522,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -498,6 +537,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Configuration item to save</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -539,7 +582,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:45</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:53</a></div>
                         </td>
                     </tr>
 
@@ -566,7 +609,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -592,10 +635,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:47</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Signal containing pageable configuration data</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -624,10 +673,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:49</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Form control for search input</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -651,7 +706,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:52</a></div>
                         </td>
                     </tr>
 
@@ -678,7 +733,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:51</a></div>
                         </td>
                     </tr>
 
@@ -707,7 +762,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:60</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:72</a></div>
                                 </td>
                             </tr>
 
@@ -729,9 +784,16 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:64</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">lib/src/components/config/src/config.view-model.ts:77</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Calculates the current position in the pageable data</p>
+</div>
+
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -761,16 +823,28 @@ import {ConfigService} from &quot;./config.service&quot;;
 import {Config} from &quot;./config.constants&quot;;
 import {usePreloader} from &quot;../../../modules/preloader/src/use-preloader&quot;;
 
+
+/**
+ * ViewModel for the configuration component. Handles data retrieval, search functionality,
+ * and property editing.
+ */
 @Injectable()
 export class ConfigViewModel {
 
+  /** Signal containing pageable configuration data */
   readonly pageableData &#x3D; signal&lt;PageableData&lt;ConfigItem&gt;&gt;(undefined);
+  /** Form control for search input */
   readonly searchCtrl: FormControl&lt;string&gt; &#x3D; new FormControl();
+
   private readonly ts &#x3D; inject(TranslocoService);
   private readonly store &#x3D; inject(Store);
   private readonly configService &#x3D; inject(ConfigService);
   private readonly dialogService &#x3D; inject(DialogService);
 
+  /**
+   * Constructor initializes the search control and subscribes to its value changes.
+   * Also sets the header title and retrieves initial data.
+   */
   constructor() {
     this.searchCtrl.valueChanges.pipe(
       takeUntilDestroyed(),
@@ -787,10 +861,15 @@ export class ConfigViewModel {
     return Config.PreloaderCn;
   }
 
+  /** Calculates the current position in the pageable data */
   get currentPos() {
     return ((this.pageableData()?.currentPage ?? 1) - 1) * (this.pageableData()?.pageSize ?? 0);
   }
 
+  /**
+   * Retrieves configuration data based on pagination and search parameters.
+   * @param e Optional table page event for pagination
+   */
   getData(e?: TablePageEvent) {
     const params &#x3D; {} as PageableParams;
     if (this.searchCtrl.value) {
@@ -807,6 +886,10 @@ export class ConfigViewModel {
     });
   }
 
+  /**
+   * Opens the property editor dialog for adding or editing a configuration property.
+   * @param item Optional configuration item to edit
+   */
   openPropertyEditor(item?: ConfigItem) {
     import(&quot;./editor/config-property-editor.component&quot;).then(c &#x3D;&gt; {
       this.dialogService.open(c.ConfigPropertyEditorComponent, {
@@ -832,6 +915,10 @@ export class ConfigViewModel {
     });
   }
 
+  /**
+   * Deletes a configuration property and updates the pageable data.
+   * @param data Configuration item to delete
+   */
   private deleteProperty(data: ConfigItem) {
     this.configService.removeProperty(data.key).pipe(
       usePreloader(this.store, this.preloaderChannel),
@@ -848,6 +935,10 @@ export class ConfigViewModel {
     });
   }
 
+  /**
+   * Saves a configuration property and updates the pageable data.
+   * @param data Configuration item to save
+   */
   private saveProperty(data: ConfigItem) {
     this.configService.setProperty(data).pipe(
       usePreloader(this.store, this.preloaderChannel),

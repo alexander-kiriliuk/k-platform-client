@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>This service provides methods for file deletion operations.</p>
+
+            </p>
 
 
 
@@ -192,14 +199,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="27"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/delete/delete-file-action-renderer.service.ts:27</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/delete/delete-file-action-renderer.service.ts:36</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Removes a file by its ID.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -210,6 +219,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -224,16 +234,23 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the file to remove.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>        <code><a href="../interfaces/File.html" target="_self" >Observable&lt;File&gt;</a></code>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An observable representing the delete operation.</p>
+
                             </div>
                 </td>
             </tr>
@@ -265,7 +282,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/delete/delete-file-action-renderer.service.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/delete/delete-file-action-renderer.service.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -282,13 +299,22 @@
 import {HttpClient} from &quot;@angular/common/http&quot;;
 import {StringUtils} from &quot;../../../../../../../../global/util&quot;;
 import fillParams &#x3D; StringUtils.fillParams;
+import {Observable} from &quot;rxjs&quot;;
 
+/**
+ * This service provides methods for file deletion operations.
+ */
 @Injectable()
 export class DeleteFileActionRendererService {
 
   private readonly http &#x3D; inject(HttpClient);
 
-  remove(id: string) {
+  /**
+   * Removes a file by its ID.
+   * @param id - The ID of the file to remove.
+   * @returns {Observable&lt;File&gt;} An observable representing the delete operation.
+   */
+  remove(id: string): Observable&lt;File&gt; {
     return this.http.delete&lt;File&gt;(fillParams(&quot;/file/:id&quot;, id));
   }
 

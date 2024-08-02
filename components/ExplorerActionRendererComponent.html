@@ -116,6 +116,16 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component that renders actions in the explorer.
+This component is responsible for dynamically rendering actions
+based on the provided action definitions. It utilizes renderers
+to display various actions associated with the target data.</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -306,10 +316,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:52</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:63</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The form group for managing the entity data associated with actions.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -333,10 +349,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:50</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:59</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The target data associated with the actions.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -370,14 +392,18 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="88"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:88</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:124</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>This method loads the specified renderer and creates an instance
+of the action component. It appends the component to the view
+container and initializes it with the action data.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -388,6 +414,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -402,6 +429,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The renderer to be used for creating the action component.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>action</td>
@@ -414,6 +447,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The action to be rendered.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -449,14 +488,19 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="57"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:57</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:76</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>This lifecycle method is invoked when any input properties
+change. It performs actions if the target has changed and updates
+the component with the new data.
+state of input properties.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -467,6 +511,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -481,6 +526,13 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>An object that contains the current and previous
+state of input properties.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -516,14 +568,18 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="68"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:68</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:92</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>This lifecycle method is called once the component has been
+initialized. It invokes the method to render actions based on
+the provided action definitions.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -555,14 +611,18 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="99"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:99</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:140</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>This method iterates over all the dynamically created components
+and updates their data and properties based on the current state
+of the parent component.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -594,14 +654,18 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="72"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:72</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:101</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>This method iterates over the list of actions and creates
+corresponding components using the available renderers. It
+cleans up any previous references before rendering new components.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -635,10 +699,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:49</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:57</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The list of actions to be rendered.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -667,11 +737,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:51</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:61</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The data associated with the actions.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -695,11 +771,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:52</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:63</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The form group for managing the entity data associated with actions.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -728,10 +810,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:55</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:67</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>References to the dynamically created action components.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -755,7 +843,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:54</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:65</a></div>
                         </td>
                     </tr>
 
@@ -782,11 +870,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:50</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:59</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The target data associated with the actions.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -809,7 +903,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:53</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-action-renderer.component.ts:64</a></div>
                         </td>
                     </tr>
 
@@ -841,11 +935,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:25</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:34</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The action-data to be rendered.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -878,6 +978,13 @@ import {
 import {AbstractExplorerActionRenderer} from &quot;./default/abstract-explorer-action-renderer&quot;;
 import {FormGroup} from &quot;@angular/forms&quot;;
 
+
+/**
+ * Component that renders actions in the explorer.
+ * This component is responsible for dynamically rendering actions
+ * based on the provided action definitions. It utilizes renderers
+ * to display various actions associated with the target data.
+ */
 @Component({
   selector: &quot;explorer-action-renderer&quot;,
   standalone: true,
@@ -887,29 +994,51 @@ import {FormGroup} from &quot;@angular/forms&quot;;
 })
 export class ExplorerActionRendererComponent extends AbstractExplorerActionRenderer implements OnInit, OnChanges {
 
+  /** The list of actions to be rendered. */
   actions &#x3D; input.required&lt;ExplorerAction[]&gt;();
+  /** The target data associated with the actions. */
   override target &#x3D; input.required&lt;TargetData&gt;();
+  /** The data associated with the actions. */
   override data &#x3D; input.required&lt;unknown | unknown[]&gt;();
+  /** The form group for managing the entity data associated with actions. */
   override entityForm &#x3D; input&lt;FormGroup&gt;();
   protected viewContainer &#x3D; inject(ViewContainerRef);
   protected readonly renderers &#x3D; inject(EXPLORER_ACTION_RENDERER);
+  /** References to the dynamically created action components. */
   private refs: ComponentRef&lt;ExplorerActionRenderer&gt;[] &#x3D; [];
 
+  /**
+   * This lifecycle method is invoked when any input properties
+   * change. It performs actions if the target has changed and updates
+   * the component with the new data.
+   * @param changes - An object that contains the current and previous
+   * state of input properties.
+   */
   ngOnChanges(changes: SimpleChanges) {
     if (changes.target &amp;&amp; !changes.target.firstChange &amp;&amp;
       (changes.target.previousValue.entity.target !&#x3D; changes.target.currentValue.entity.target)) {
-      this.performActions();
+      this.performActions(); // Perform actions if the target has changed
     }
     if (changes.data.firstChange) {
-      return;
+      return; // Skip the first change to avoid unnecessary updates
     }
-    this.patchComponentData();
+    this.patchComponentData(); // Update component data
   }
 
+  /**
+   * This lifecycle method is called once the component has been
+   * initialized. It invokes the method to render actions based on
+   * the provided action definitions.
+   */
   ngOnInit(): void {
     this.performActions();
   }
 
+  /**
+   * This method iterates over the list of actions and creates
+   * corresponding components using the available renderers. It
+   * cleans up any previous references before rendering new components.
+   */
   private performActions() {
     for (const ref of this.refs) {
       ref.destroy();
@@ -926,6 +1055,13 @@ export class ExplorerActionRendererComponent extends AbstractExplorerActionRende
     }
   }
 
+  /**
+   * This method loads the specified renderer and creates an instance
+   * of the action component. It appends the component to the view
+   * container and initializes it with the action data.
+   * @param renderer - The renderer to be used for creating the action component.
+   * @param action - The action to be rendered.
+   */
   private drawComponent(renderer: ExplorerActionRendererLoader, action: ExplorerAction) {
     renderer.load.then(component &#x3D;&gt; {
       const ref &#x3D; this.viewContainer.createComponent(component);
@@ -937,6 +1073,11 @@ export class ExplorerActionRendererComponent extends AbstractExplorerActionRende
     });
   }
 
+  /**
+   * This method iterates over all the dynamically created components
+   * and updates their data and properties based on the current state
+   * of the parent component.
+   */
   private patchComponentData() {
     for (const ref of this.refs) {
       ref.instance.target &#x3D; this.target;

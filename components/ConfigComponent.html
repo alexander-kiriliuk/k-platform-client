@@ -124,6 +124,15 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component for managing configuration properties. It provides a table view for the configuration items,
+allows searching, editing, and deleting properties. The component interacts with the ViewModel and service
+to perform these operations and handle pagination.</p>
+
+    </p>
 
 
 
@@ -281,10 +290,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">lib/src/components/config/src/config.component.ts:57</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">lib/src/components/config/src/config.component.ts:63</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>ViewModel for interacting with data and service</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -310,9 +325,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">lib/src/components/config/src/config.component.ts:59</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">lib/src/components/config/src/config.component.ts:69</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the pageable data from the ViewModel.</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -332,9 +356,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">lib/src/components/config/src/config.component.ts:63</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">lib/src/components/config/src/config.component.ts:77</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the calculated scroll height for the table.</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -357,6 +390,11 @@ import {LocalizePipe} from &quot;../../../modules/locale&quot;;
 import {PreloaderComponent, PreloaderDirective} from &quot;../../../modules/preloader&quot;;
 import {ConfigViewModel} from &quot;./config.view-model&quot;;
 
+/**
+ * Component for managing configuration properties. It provides a table view for the configuration items,
+ * allows searching, editing, and deleting properties. The component interacts with the ViewModel and service
+ * to perform these operations and handle pagination.
+ */
 @Component({
   selector: &quot;config&quot;,
   standalone: true,
@@ -383,12 +421,21 @@ import {ConfigViewModel} from &quot;./config.view-model&quot;;
 })
 export class ConfigComponent {
 
+  /** ViewModel for interacting with data and service */
   readonly vm &#x3D; inject(ConfigViewModel);
 
+  /**
+   * Gets the pageable data from the ViewModel.
+   * @returns Pageable data
+   */
   get data() {
     return this.vm.pageableData();
   }
 
+  /**
+   * Gets the calculated scroll height for the table.
+   * @returns Scroll height string
+   */
   get scrollHeight() {
     return &quot;calc(100vh - var(--header-bar-h) - var(--paginator-h))&quot;;
   }

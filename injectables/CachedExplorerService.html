@@ -119,6 +119,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Service for caching data retrieved from ExplorerService.
+Uses a Map to store cached data.</p>
+
+            </p>
 
 
 
@@ -198,14 +206,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="29"
-                                    class="link-to-prism">lib/src/components/explorer/src/cached-explorer.service.ts:29</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">lib/src/components/explorer/src/cached-explorer.service.ts:42</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves target data of the specified type and caches it.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -216,6 +226,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -230,6 +241,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The target identifier.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>type</td>
@@ -242,6 +259,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The type of target, either &quot;section&quot; or &quot;object&quot;.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -251,7 +274,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An observable emitting the target data.</p>
+
                             </div>
                 </td>
             </tr>
@@ -284,10 +308,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">lib/src/components/explorer/src/cached-explorer.service.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">lib/src/components/explorer/src/cached-explorer.service.ts:33</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A static cache to store fetched target data.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -311,7 +341,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">lib/src/components/explorer/src/cached-explorer.service.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">lib/src/components/explorer/src/cached-explorer.service.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -330,12 +360,25 @@ import {BehaviorSubject, finalize, Observable, of, shareReplay, tap} from &quot;
 import {TargetData} from &quot;./explorer.types&quot;;
 import {RefInput} from &quot;../../../modules/ref-input&quot;;
 
+/**
+ * Service for caching data retrieved from ExplorerService.
+ * Uses a Map to store cached data.
+ */
 @Injectable()
 export class CachedExplorerService {
 
+  /**
+   * A static cache to store fetched target data.
+   */
   private static readonly cache &#x3D; new Map&lt;string, RefInput.Cache&gt;();
   private readonly explorerService &#x3D; inject(ExplorerService);
 
+  /**
+   * Retrieves target data of the specified type and caches it.
+   * @param target - The target identifier.
+   * @param type - The type of target, either &quot;section&quot; or &quot;object&quot;.
+   * @returns An observable emitting the target data.
+   */
   getTarget(target: string, type: &quot;section&quot; | &quot;object&quot;): Observable&lt;TargetData&gt; {
     const cacheKey &#x3D; &#x60;target:${target}:${type}&#x60;;
     if (!CachedExplorerService.cache.has(cacheKey)) {

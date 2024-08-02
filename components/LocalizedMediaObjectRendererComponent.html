@@ -120,6 +120,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This component allows for input of localized media and provides
+configuration options for different media types.</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -283,14 +291,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="45"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/default/object/localized-media/localized-media-object-renderer.component.ts:45</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/default/object/localized-media/localized-media-object-renderer.component.ts:53</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Initializes the component and sets the media type based on parameters.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -330,10 +340,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">lib/src/components/explorer/src/renderer/default/object/localized-media/localized-media-object-renderer.component.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">lib/src/components/explorer/src/renderer/default/object/localized-media/localized-media-object-renderer.component.ts:48</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The current media type being rendered.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -362,11 +378,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:23</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:31</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The column definition used for rendering the object.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -395,11 +417,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:25</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:35</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The data for the object to be rendered.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -428,11 +456,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:27</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:39</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The form group associated with the entity.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -461,11 +495,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:24</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:33</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Parameters for customizing the renderer&#39;s behavior.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -494,11 +534,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:26</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerObjectRenderer.html#source" target="_self" >AbstractExplorerObjectRenderer:37</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The entity data associated with this object.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -517,6 +563,10 @@ import {LocalizeMediaInputComponent, LocalizePipe} from &quot;../../../../../../
 import {AbstractExplorerObjectRenderer} from &quot;../../abstract-explorer-object-renderer&quot;;
 import {LocalizedMedia} from &quot;../../../../../../../modules/locale&quot;;
 
+/**
+ * This component allows for input of localized media and provides
+ * configuration options for different media types.
+ */
 @Component({
   selector: &quot;localized-media-object-renderer&quot;,
   standalone: true,
@@ -534,8 +584,12 @@ export class LocalizedMediaObjectRendererComponent
   extends AbstractExplorerObjectRenderer &lt;LocalizedMedia, unknown, LocalizedMediaObjectRendererTypes&gt;
   implements OnInit {
 
+  /** The current media type being rendered. */
   mediaType &#x3D; &quot;default&quot;;
 
+  /**
+   * Initializes the component and sets the media type based on parameters.
+   */
   ngOnInit(): void {
     if (this.params?.type) {
       this.mediaType &#x3D; this.params.type;

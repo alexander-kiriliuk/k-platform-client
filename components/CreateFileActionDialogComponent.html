@@ -124,6 +124,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This component allows users to input details for a new file.</p>
+
+    </p>
 
 
 
@@ -276,14 +283,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="48"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/create/dialog/create-file-action-dialog.component.ts:48</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/create/dialog/create-file-action-dialog.component.ts:56</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Closes the dialog and returns the new file data.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -294,6 +303,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -308,6 +318,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The created file or an array of file items.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -349,7 +365,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/create/dialog/create-file-action-dialog.component.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/create/dialog/create-file-action-dialog.component.ts:50</a></div>
                         </td>
                     </tr>
 
@@ -381,10 +397,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/create/dialog/create-file-action-dialog.component.ts:45</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/create/dialog/create-file-action-dialog.component.ts:49</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Control for determining if the file is public.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -403,6 +425,9 @@ import {RefInputComponent} from &quot;../../../../../../../../../modules/ref-inp
 import {File, FileInputComponent} from &quot;../../../../../../../../../modules/file&quot;;
 import {ExplorerService} from &quot;../../../../../../../../../components/explorer&quot;;
 
+/**
+ * This component allows users to input details for a new file.
+ */
 @Component({
   selector: &quot;create-file-action-dialog&quot;,
   standalone: true,
@@ -422,9 +447,14 @@ import {ExplorerService} from &quot;../../../../../../../../../components/explor
 })
 export class CreateFileActionDialogComponent {
 
+  /** Control for determining if the file is public. */
   readonly isPublic: FormControl&lt;boolean&gt; &#x3D; new FormControl(true);
   private readonly dialogRef &#x3D; inject(DynamicDialogRef);
 
+  /**
+   * Closes the dialog and returns the new file data.
+   * @param media - The created file or an array of file items.
+   */
   onChange(media: File | File[]) {
     this.dialogRef.close(media);
   }

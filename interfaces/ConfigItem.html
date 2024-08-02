@@ -126,6 +126,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface representing a configuration item.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -236,15 +243,24 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {FormControl} from &quot;@angular/forms&quot;;
 
+/**
+ * Interface representing a configuration item.
+ */
 export interface ConfigItem {
   key: string;
   value: string;
 }
 
+/**
+ * Type representing the configuration editor form.
+ */
 export type ConfigEditorForm &#x3D; {
   [K in keyof ConfigItem]: FormControl&lt;ConfigItem[K]&gt;;
 }
 
+/**
+ * Type representing the result of editing a configuration property.
+ */
 export type ConfigPropertyEditorResult &#x3D; {
   cmd: &quot;delete&quot; | &quot;save&quot;,
   data: ConfigItem

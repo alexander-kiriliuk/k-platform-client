@@ -123,6 +123,16 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Abstract base class for rendering objects in the explorer.
+This class provides common properties and methods for object
+renderers, including handling entity forms and accessing property data
+based on the specified column definition.</p>
+
+            </p>
 
 
             <p class="comment">
@@ -215,10 +225,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-object-renderer.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-object-renderer.ts:31</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The column definition used for rendering the object.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -241,10 +257,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-object-renderer.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-object-renderer.ts:35</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The data for the object to be rendered.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -267,10 +289,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-object-renderer.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-object-renderer.ts:39</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The form group associated with the entity.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -293,10 +321,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-object-renderer.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-object-renderer.ts:33</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Parameters for customizing the renderer&#39;s behavior.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -319,10 +353,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-object-renderer.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-object-renderer.ts:37</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The entity data associated with this object.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -354,9 +394,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-object-renderer.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-object-renderer.ts:46</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the control corresponding to the column property in the entity form.</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -376,9 +425,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-object-renderer.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">lib/src/components/explorer/src/renderer/default/abstract-explorer-object-renderer.ts:54</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Retrieves the data corresponding to the specified column property.</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -391,18 +449,39 @@
 import {ExplorerColumn, ExplorerRenderer, TargetData} from &quot;../../../../explorer&quot;;
 import {PlainObject} from &quot;../../../../../global/vars&quot;;
 
+/**
+ * Abstract base class for rendering objects in the explorer.
+ * This class provides common properties and methods for object
+ * renderers, including handling entity forms and accessing property data
+ * based on the specified column definition.
+ */
 export abstract class AbstractExplorerObjectRenderer&lt;Data &#x3D; unknown, Property &#x3D; unknown, Params &#x3D; unknown&gt;
 implements ExplorerRenderer&lt;Data, Params&gt; {
+
+  /** The column definition used for rendering the object. */
   column: ExplorerColumn;
+  /** Parameters for customizing the renderer&#x27;s behavior. */
   params: Params;
+  /** The data for the object to be rendered. */
   data: Data;
+  /** The entity data associated with this object. */
   target: TargetData;
+  /** The form group associated with the entity. */
   entityForm: FormGroup;
 
+
+  /**
+   * Gets the control corresponding to the column property in the entity form.
+   * @returns The form control for the column property.
+   */
   get ctrl() {
     return this.entityForm.controls[this.column.property] as FormControl;
   }
 
+  /**
+   * Retrieves the data corresponding to the specified column property.
+   * @returns The value of the column property, or undefined if no data exists.
+   */
   get propertyData() {
     if (!this.data) {
       return undefined;

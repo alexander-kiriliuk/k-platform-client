@@ -124,6 +124,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This component extends AbstractExplorerSectionRenderer specifically
+for boolean types and provides rendering based on boolean values.</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -281,11 +289,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:21</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:30</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The column definition used to configure the rendering of the section.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -314,11 +328,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:23</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:34</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The data to be displayed in the section</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -341,11 +361,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:22</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:32</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Parameters that customize the behavior or appearance of the renderer.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -374,11 +400,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:24</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:36</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The target data reference associated with this renderer.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -404,9 +436,22 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">lib/src/components/explorer/src/renderer/default/section/boolean/boolean-section-renderer.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">lib/src/components/explorer/src/renderer/default/section/boolean/boolean-section-renderer.component.ts:41</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the CSS class name based on the boolean value of the property.</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -419,7 +464,10 @@
 import {NgClass} from &quot;@angular/common&quot;;
 import {AbstractExplorerSectionRenderer} from &quot;../../abstract-explorer-section-renderer&quot;;
 
-
+/**
+ * This component extends AbstractExplorerSectionRenderer specifically
+ * for boolean types and provides rendering based on boolean values.
+ */
 @Component({
   selector: &quot;boolean-section-renderer&quot;,
   standalone: true,
@@ -432,7 +480,11 @@ import {AbstractExplorerSectionRenderer} from &quot;../../abstract-explorer-sect
 })
 export class BooleanSectionRendererComponent extends AbstractExplorerSectionRenderer {
 
-  get cssClassName() {
+  /**
+   * Gets the CSS class name based on the boolean value of the property.
+   * @returns {string} The CSS class name corresponding to the boolean value.
+   */
+  get cssClassName(): string {
     switch (this.data[this.column.property]) {
     case true:
       return &quot;pi-check&quot;;

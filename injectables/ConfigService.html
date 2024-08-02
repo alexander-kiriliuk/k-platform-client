@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Service for managing configuration properties.</p>
+
+            </p>
 
 
 
@@ -198,14 +205,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="27"
-                                    class="link-to-prism">lib/src/components/config/src/config.service.ts:27</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">lib/src/components/config/src/config.service.ts:35</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves pageable configuration data.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -216,6 +225,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -230,6 +240,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Optional pagination parameters</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -239,7 +253,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Observable with pageable configuration data</p>
+
                             </div>
                 </td>
             </tr>
@@ -265,14 +280,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="35"
-                                    class="link-to-prism">lib/src/components/config/src/config.service.ts:35</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">lib/src/components/config/src/config.service.ts:53</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Removes a configuration property by key.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -283,6 +300,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -297,6 +315,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Property key</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -306,7 +328,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Observable with success status</p>
+
                             </div>
                 </td>
             </tr>
@@ -332,14 +355,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="31"
-                                    class="link-to-prism">lib/src/components/config/src/config.service.ts:31</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="44"
+                                    class="link-to-prism">lib/src/components/config/src/config.service.ts:44</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Sets a configuration property.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -350,6 +375,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -364,6 +390,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Configuration item data</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -373,7 +403,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Observable with success status</p>
+
                             </div>
                 </td>
             </tr>
@@ -405,7 +436,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">lib/src/components/config/src/config.service.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">lib/src/components/config/src/config.service.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -423,19 +454,37 @@ import {HttpClient, HttpParams} from &quot;@angular/common/http&quot;;
 import {ConfigItem} from &quot;./config.types&quot;;
 import {PageableData, PageableParams} from &quot;../../../global/vars&quot;;
 
+/**
+ * Service for managing configuration properties.
+ */
 @Injectable()
 export class ConfigService {
 
   private readonly http &#x3D; inject(HttpClient);
 
+  /**
+   * Retrieves pageable configuration data.
+   * @param params Optional pagination parameters
+   * @returns Observable with pageable configuration data
+   */
   pageableData(params?: PageableParams) {
     return this.http.get&lt;PageableData&lt;ConfigItem&gt;&gt;(&quot;/config&quot;, {params: params as unknown as HttpParams});
   }
 
+  /**
+   * Sets a configuration property.
+   * @param body Configuration item data
+   * @returns Observable with success status
+   */
   setProperty(body: ConfigItem) {
     return this.http.post&lt;boolean&gt;(&quot;/config&quot;, body);
   }
 
+  /**
+   * Removes a configuration property by key.
+   * @param key Property key
+   * @returns Observable with success status
+   */
   removeProperty(key: string) {
     return this.http.delete&lt;boolean&gt;(&quot;/config&quot;, {params: {key}});
   }

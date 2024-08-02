@@ -123,6 +123,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Represents a renderer for a column in the explorer.</p>
+
+            </p>
 
 
 
@@ -192,7 +199,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">lib/src/components/explorer/src/explorer.types.ts:99</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">lib/src/components/explorer/src/explorer.types.ts:127</a></div>
                         </td>
                     </tr>
 
@@ -218,7 +225,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">lib/src/components/explorer/src/explorer.types.ts:101</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">lib/src/components/explorer/src/explorer.types.ts:129</a></div>
                         </td>
                     </tr>
 
@@ -244,7 +251,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">lib/src/components/explorer/src/explorer.types.ts:100</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">lib/src/components/explorer/src/explorer.types.ts:128</a></div>
                         </td>
                     </tr>
 
@@ -270,7 +277,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">lib/src/components/explorer/src/explorer.types.ts:103</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">lib/src/components/explorer/src/explorer.types.ts:131</a></div>
                         </td>
                     </tr>
 
@@ -296,7 +303,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">lib/src/components/explorer/src/explorer.types.ts:102</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">lib/src/components/explorer/src/explorer.types.ts:130</a></div>
                         </td>
                     </tr>
 
@@ -322,13 +329,22 @@ import {LocalizedString} from &quot;../../../modules/locale&quot;;
 import {Media} from &quot;../../../modules/media&quot;;
 import {PageableParams, UserRole} from &quot;../../../global/vars&quot;;
 
+/**
+ * Defines the possible data types for columns in the explorer.
+ */
 export type ColumnDataType &#x3D; &quot;string&quot; | &quot;number&quot; | &quot;boolean&quot; | &quot;date&quot; | &quot;reference&quot; | &quot;unknown&quot;;
 
+/**
+ * Defines the possible renderer identifiers used in the explorer.
+ */
 export type RendererId &#x3D; &quot;string-section-renderer&quot; | &quot;boolean-section-renderer&quot; | &quot;date-section-renderer&quot; |
   &quot;media-section-renderer&quot; | &quot;reference-section-renderer&quot; | &quot;string-object-renderer&quot; | &quot;boolean-object-renderer&quot; |
   &quot;date-object-renderer&quot; | &quot;reference-object-renderer&quot; | &quot;media-object-renderer&quot; | &quot;localized-string-renderer&quot; |
   &quot;localized-media-renderer&quot; | string;
 
+/**
+ * Represents a target in the explorer.
+ */
 export interface ExplorerTarget {
   alias: string;
   target: string;
@@ -347,6 +363,9 @@ export interface ExplorerTarget {
   size?: number;
 }
 
+/**
+ * Represents a column in the explorer.
+ */
 export interface ExplorerColumn {
   id: string;
   property: string;
@@ -372,6 +391,9 @@ export interface ExplorerColumn {
   tab: ExplorerTab;
 }
 
+/**
+ * @description Represents an action in the explorer.
+ */
 export class ExplorerAction {
   code: string;
   name: LocalizedString[];
@@ -380,11 +402,17 @@ export class ExplorerAction {
   params: object;
 }
 
+/**
+ * Represents the size of a tab in the explorer.
+ */
 export interface ExplorerTabSize {
   tablet: number;
   desktop: number;
 }
 
+/**
+ * Represents a tab in the explorer.
+ */
 export interface ExplorerTab {
   id: string;
   name: LocalizedString[];
@@ -393,8 +421,15 @@ export interface ExplorerTab {
   target: ExplorerTarget;
 }
 
+/**
+ * Defines the possible variations in the explorer (as example for actions).
+ */
 export type ExplorerVariation &#x3D; &quot;section&quot; | &quot;object&quot;;
 
+
+/**
+ * Represents a renderer for a column in the explorer.
+ */
 export class ExplorerColumnRenderer {
   code: string;
   name: LocalizedString[];
@@ -403,35 +438,53 @@ export class ExplorerColumnRenderer {
   params: object;
 }
 
+/**
+ * Represents data related to a target in the explorer.
+ */
 export interface TargetData {
   primaryColumn: ExplorerColumn;
   namedColumn: ExplorerColumn;
   entity: ExplorerTarget;
 }
 
+/**
+ * Represents the configuration for a section filter dialog.
+ */
 export interface SectionFilterDialogConfig {
   column: ExplorerColumn;
   paramsSnapshot: () &#x3D;&gt; Params;
   navigate: (queryParams: Params, queryParamsHandling?: QueryParamsHandling) &#x3D;&gt; void;
 }
 
+/**
+ * Represents the configuration for a section dialog.
+ */
 export interface SectionDialogConfig {
   target: TargetData;
   multi?: boolean;
   initialPageableParams?: PageableParams;
 }
 
+/**
+ * Represents the configuration for an object dialog.
+ */
 export interface ObjectDialogConfig {
   id: string;
   target: string;
 }
 
+/**
+ * Represents a DTO for an explorer object.
+ */
 export interface ExplorerObjectDto&lt;T &#x3D; unknown&gt; {
   target: string;
   entity?: T;
   id?: number;
 }
 
+/**
+ * Represents a renderer in the explorer.
+ */
 export interface ExplorerRenderer&lt;Data &#x3D; unknown, Params &#x3D; unknown&gt; {
   target: TargetData;
   column: ExplorerColumn;
@@ -440,15 +493,24 @@ export interface ExplorerRenderer&lt;Data &#x3D; unknown, Params &#x3D; unknown&
   entityForm?: FormGroup;
 }
 
+/**
+ * Represents a loader for an explorer renderer.
+ */
 export type ExplorerRendererLoader &#x3D; {
   code: RendererId;
   load: Promise&lt;Type&lt;ExplorerRenderer&gt;&gt;;
 }
 
+/**
+ * Represents a provider for an explorer renderer.
+ */
 export interface ExplorerRendererProvider extends ValueProvider {
   useValue: ExplorerRendererLoader;
 }
 
+/**
+ * Represents an action renderer in the explorer.
+ */
 export interface ExplorerActionRenderer&lt;Data &#x3D; unknown&gt; {
   target: InputSignal&lt;TargetData&gt;;
   action: ExplorerAction;
@@ -456,11 +518,17 @@ export interface ExplorerActionRenderer&lt;Data &#x3D; unknown&gt; {
   entityForm?: InputSignal&lt;FormGroup&gt;;
 }
 
+/**
+ * Represents a loader for an explorer action renderer.
+ */
 export type ExplorerActionRendererLoader &#x3D; {
   code: string;
   load: Promise&lt;Type&lt;ExplorerActionRenderer&gt;&gt;;
 }
 
+/**
+ * Represents a provider for an explorer action renderer.
+ */
 export interface ExplorerActionRendererProvider extends ValueProvider {
   useValue: ExplorerActionRendererLoader;
 }

@@ -120,6 +120,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This component extends the AbstractExplorerSectionRenderer and
+provides access to the media data for display.</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -273,11 +281,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:21</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:30</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The column definition used to configure the rendering of the section.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -306,11 +320,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:23</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:34</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The data to be displayed in the section</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -333,11 +353,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:22</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:32</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Parameters that customize the behavior or appearance of the renderer.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -366,11 +392,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:24</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerSectionRenderer.html#source" target="_self" >AbstractExplorerSectionRenderer:36</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The target data reference associated with this renderer.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -396,9 +428,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/section/virtual-media/virtual-media-section-renderer.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/section/virtual-media/virtual-media-section-renderer.component.ts:40</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Retrieves the media data associated with this renderer.</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -411,6 +452,10 @@
 import {AbstractExplorerSectionRenderer} from &quot;../../../default/abstract-explorer-section-renderer&quot;;
 import {MediaComponent, Media} from &quot;../../../../../../../modules/media&quot;;
 
+/**
+ * This component extends the AbstractExplorerSectionRenderer and
+ * provides access to the media data for display.
+ */
 @Component({
   selector: &quot;virtual-media-section-renderer&quot;,
   standalone: true,
@@ -422,6 +467,10 @@ import {MediaComponent, Media} from &quot;../../../../../../../modules/media&quo
 })
 export class VirtualMediaSectionRendererComponent extends AbstractExplorerSectionRenderer&lt;Media&gt; {
 
+  /**
+   * Retrieves the media data associated with this renderer.
+   * @returns The media data.
+   */
   get media() {
     return this.data as unknown as Media;
   }

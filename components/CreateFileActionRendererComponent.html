@@ -120,6 +120,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This component provides functionality to open a dialog for creating a new file.</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -284,14 +291,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="46"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/create/create-file-action-renderer.component.ts:46</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/create/create-file-action-renderer.component.ts:53</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>This method loads the dialog component dynamically and opens it.
+It subscribes to the dialog&#39;s close event to navigate to the new file&#39;s details page.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -327,7 +337,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/create/create-file-action-renderer.component.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/create/create-file-action-renderer.component.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -354,7 +364,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/create/create-file-action-renderer.component.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/create/create-file-action-renderer.component.ts:47</a></div>
                         </td>
                     </tr>
 
@@ -381,7 +391,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/create/create-file-action-renderer.component.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/components/explorer/src/renderer/custom/action/file/create/create-file-action-renderer.component.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -413,11 +423,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:25</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:34</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The action-data to be rendered.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -446,11 +462,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:23</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:30</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The data for the actions to be rendered.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -479,11 +501,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:24</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:32</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The form group managing the entity data associated with the actions.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -512,11 +540,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:22</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerActionRenderer.html#source" target="_self" >AbstractExplorerActionRenderer:28</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The target data associated with the actions.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -538,6 +572,9 @@ import {
 } from &quot;../../../../default/abstract-explorer-action-renderer&quot;;
 import {File} from &quot;../../../../../../../../modules/file&quot;;
 
+/**
+ * This component provides functionality to open a dialog for creating a new file.
+ */
 @Component({
   selector: &quot;create-file-action-renderer&quot;,
   standalone: true,
@@ -555,6 +592,10 @@ export class CreateFileActionRendererComponent extends AbstractExplorerActionRen
   private readonly ts &#x3D; inject(TranslocoService);
   private readonly router &#x3D; inject(Router);
 
+  /**
+   * This method loads the dialog component dynamically and opens it.
+   * It subscribes to the dialog&#x27;s close event to navigate to the new file&#x27;s details page.
+   */
   createMedia() {
     import(&quot;./dialog/create-file-action-dialog.component&quot;).then(m &#x3D;&gt; {
       this.dialogService.open(m.CreateFileActionDialogComponent, {

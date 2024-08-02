@@ -119,6 +119,15 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>ViewModel for the Explorer Section Component.
+This service handles the logic of the explorer section, including
+state management for selected rows, navigation, and data retrieval.</p>
+
+            </p>
 
 
 
@@ -315,10 +324,17 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:64</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:73</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor for the ExplorerSectionViewModel.
+Initializes the view model and subscribes to necessary services.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -348,14 +364,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="181"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:181</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="248"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:248</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Applies selected rows and closes the dialog.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -387,14 +405,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="268"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:268</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="358"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:358</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Navigates to a specific query parameter state.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -405,6 +425,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -419,6 +440,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>The query parameters to navigate to.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>queryParamsHandling</td>
@@ -431,6 +456,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Optional handling of query parameters.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -466,14 +495,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="116"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:116</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="165"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:165</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Gets items based on table pagination event.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -484,6 +515,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -498,6 +530,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>The pagination event.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -533,19 +569,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="220"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:220</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="298"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:298</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Parses the current filters from the query parameters.</p>
+</div>
 
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>    <code>Record&lt;string, string&gt;</code>
 
                         </div>
+                            <div class="io-description">
+                                <p>The parsed filters.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -572,14 +614,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="228"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:228</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="310"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:310</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves the section data based on the given parameters.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -590,6 +634,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -604,6 +649,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Optional parameters for the section query.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -641,14 +690,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="252"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:252</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="337"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:337</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves target data based on the current configuration.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -678,14 +729,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="213"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:213</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="287"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:287</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Navigates to the UI for creating a new item.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -715,14 +768,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="190"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:190</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="261"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:261</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Opens the UI for a specific object.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -733,6 +788,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -747,6 +803,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>The object to open.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -782,14 +842,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="153"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:153</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="213"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:213</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Removes a filter from the specified property.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -800,6 +862,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -814,6 +877,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>The property from which to remove the filter.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -849,14 +916,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="145"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:145</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="201"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:201</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Removes sorting from the current query parameters.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -886,14 +955,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="166"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:166</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="230"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:230</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Selects an entity and closes the dialog.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -904,6 +975,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -918,6 +990,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>The entity to select.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -953,14 +1029,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="124"
-                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:124</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="177"
+                                    class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:177</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Opens the filter dialog for a specific column.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -971,6 +1049,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -985,6 +1064,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>The column for which to show the filter dialog.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1026,7 +1109,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:62</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:71</a></div>
                         </td>
                     </tr>
 
@@ -1053,7 +1136,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:61</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:70</a></div>
                         </td>
                     </tr>
 
@@ -1080,7 +1163,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:55</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:64</a></div>
                         </td>
                     </tr>
 
@@ -1107,7 +1190,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:52</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:61</a></div>
                         </td>
                     </tr>
 
@@ -1134,7 +1217,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:51</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:60</a></div>
                         </td>
                     </tr>
 
@@ -1161,7 +1244,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:57</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:66</a></div>
                         </td>
                     </tr>
 
@@ -1188,7 +1271,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:53</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:62</a></div>
                         </td>
                     </tr>
 
@@ -1215,7 +1298,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:58</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:67</a></div>
                         </td>
                     </tr>
 
@@ -1242,7 +1325,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:60</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:69</a></div>
                         </td>
                     </tr>
 
@@ -1269,7 +1352,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:56</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:65</a></div>
                         </td>
                     </tr>
 
@@ -1296,7 +1379,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:64</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:73</a></div>
                         </td>
                     </tr>
 
@@ -1322,10 +1405,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:50</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:58</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A signal representing the currently selected rows.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1349,7 +1438,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:54</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -1376,7 +1465,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:63</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:72</a></div>
                         </td>
                     </tr>
 
@@ -1403,7 +1492,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:59</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:68</a></div>
                         </td>
                     </tr>
 
@@ -1432,9 +1521,22 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:84</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:101</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the target data.</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="../interfaces/TargetData.html" target="_self" >TargetData</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -1454,9 +1556,22 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:88</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:109</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the pageable data.</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="../interfaces/PageableData.html" target="_self" >PageableData</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -1476,9 +1591,22 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:92</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:117</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the preloader channel for the section.</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -1498,9 +1626,22 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:96</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:125</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the configuration data for the section.</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="../interfaces/SectionDialogConfig.html" target="_self" >SectionDialogConfig</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -1520,9 +1661,22 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:100</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:133</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Checks if multiselect is enabled.</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -1542,9 +1696,22 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:104</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:141</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Checks if the component view is in dialog mode.</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -1564,9 +1731,22 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:108</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:149</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the observable for query parameters.</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>Observable&lt;Params&gt;</code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -1586,9 +1766,22 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:112</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">lib/src/components/explorer/src/section/explorer-section-view-model.service.ts:157</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the snapshot of query parameters.</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>Params</code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -1608,7 +1801,7 @@ import {DialogService, DynamicDialogConfig, DynamicDialogRef} from &quot;primeng
 import {Explorer, ExplorerService} from &quot;../../../explorer&quot;;
 import {ActivatedRoute, Params, QueryParamsHandling, Router} from &quot;@angular/router&quot;;
 import {TranslocoService} from &quot;@ngneat/transloco&quot;;
-import {BehaviorSubject, finalize, skip, Subscription, throwError} from &quot;rxjs&quot;;
+import {BehaviorSubject, finalize, Observable, skip, Subscription, throwError} from &quot;rxjs&quot;;
 import {catchError} from &quot;rxjs/operators&quot;;
 import {takeUntilDestroyed} from &quot;@angular/core/rxjs-interop&quot;;
 import {TablePageEvent} from &quot;primeng/table&quot;;
@@ -1627,10 +1820,19 @@ import {usePreloader} from &quot;../../../../modules/preloader/src/use-preloader
 import parseParamsString &#x3D; StringUtils.parseParamsString;
 import stringifyParamsObject &#x3D; StringUtils.stringifyParamsObject;
 
+/**
+ * ViewModel for the Explorer Section Component.
+ * This service handles the logic of the explorer section, including
+ * state management for selected rows, navigation, and data retrieval.
+ */
 @Injectable()
 export class ExplorerSectionViewModel {
 
+  /**
+   * A signal representing the currently selected rows.
+   */
   readonly selectedRows &#x3D; signal&lt;{ [pk: string | number]: unknown }&gt;({});
+
   private readonly dialogRef &#x3D; inject(DynamicDialogRef, {optional: true});
   private readonly config &#x3D; inject(DynamicDialogConfig, {optional: true});
   private readonly explorerService &#x3D; inject(ExplorerService);
@@ -1646,6 +1848,10 @@ export class ExplorerSectionViewModel {
   private target: string;
   private sectionSub: Subscription;
 
+  /**
+   * Constructor for the ExplorerSectionViewModel.
+   * Initializes the view model and subscribes to necessary services.
+   */
   constructor() {
     if (this.data?.target) {
       this._targetData.set(this.data.target);
@@ -1664,38 +1870,74 @@ export class ExplorerSectionViewModel {
     });
   }
 
-  get targetData() {
+  /**
+   * Gets the target data.
+   * @returns {TargetData} The target data.
+   */
+  get targetData(): TargetData {
     return this._targetData();
   }
 
-  get pageableData() {
+  /**
+   * Gets the pageable data.
+   * @returns {PageableData} The pageable data.
+   */
+  get pageableData(): PageableData {
     return this._pageableData();
   }
 
-  get preloaderChannel() {
+  /**
+   * Gets the preloader channel for the section.
+   * @returns {string} The preloader channel.
+   */
+  get preloaderChannel(): string {
     return Explorer.SectionPreloaderCn;
   }
 
-  get data() {
+  /**
+   * Gets the configuration data for the section.
+   * @returns {SectionDialogConfig} The section configuration data.
+   */
+  get data(): SectionDialogConfig {
     return this.config?.data as SectionDialogConfig;
   }
 
-  get multiselect() {
+  /**
+   * Checks if multiselect is enabled.
+   * @returns {boolean} True if multiselect is enabled, otherwise false.
+   */
+  get multiselect(): boolean {
     return this.data?.multi;
   }
 
-  get dialogMode() {
+  /**
+   * Checks if the component view is in dialog mode.
+   * @returns {boolean} True if in dialog mode, otherwise false.
+   */
+  get dialogMode(): boolean {
     return !!this.dialogRef;
   }
 
-  get queryParams$() {
+  /**
+   * Gets the observable for query parameters.
+   * @returns {Observable&lt;Params&gt;} The observable of query parameters.
+   */
+  get queryParams$(): Observable&lt;Params&gt; {
     return this.dialogMode ? this.paramsSub.asObservable() : this.ar.queryParams;
   }
 
+  /**
+   * Gets the snapshot of query parameters.
+   * @returns {Params} The snapshot of query parameters.
+   */
   get queryParamsSnapshot(): Params {
     return this.dialogMode ? this.paramsSub.value : this.ar.snapshot.queryParams;
   }
 
+  /**
+   * Gets items based on table pagination event.
+   * @param e The pagination event.
+   */
   getItems(e: TablePageEvent) {
     const params &#x3D; {} as PageableParams;
     Object.assign(params, this.queryParamsSnapshot);
@@ -1704,6 +1946,10 @@ export class ExplorerSectionViewModel {
     this.doNavigate(params, Object.keys(params).length ? &quot;merge&quot; : undefined);
   }
 
+  /**
+   * Opens the filter dialog for a specific column.
+   * @param column The column for which to show the filter dialog.
+   */
   showFilterDialog(column: ExplorerColumn) {
     import(&quot;./filter/section-filter-dialog.component&quot;).then(c &#x3D;&gt; {
       this.dialogService.open(c.SectionFilterDialogComponent, {
@@ -1725,6 +1971,9 @@ export class ExplorerSectionViewModel {
     });
   }
 
+  /**
+   * Removes sorting from the current query parameters.
+   */
   removeSorting() {
     const queryParams &#x3D; {...this.queryParamsSnapshot};
     delete queryParams.sort;
@@ -1733,6 +1982,10 @@ export class ExplorerSectionViewModel {
     this.doNavigate(queryParams);
   }
 
+  /**
+   * Removes a filter from the specified property.
+   * @param property The property from which to remove the filter.
+   */
   removeFilter(property: string) {
     const queryParams &#x3D; {...this.queryParamsSnapshot};
     queryParams.page &#x3D; 1;
@@ -1746,6 +1999,10 @@ export class ExplorerSectionViewModel {
     this.doNavigate(queryParams);
   }
 
+  /**
+   * Selects an entity and closes the dialog.
+   * @param item The entity to select.
+   */
   selectEntityAndCloseDialog(item: PlainObject) {
     if (!this.multiselect) {
       this.dialogRef.close(item);
@@ -1761,6 +2018,9 @@ export class ExplorerSectionViewModel {
     this.selectedRows.set({...selectedRows});
   }
 
+  /**
+   * Applies selected rows and closes the dialog.
+   */
   applySelectedRows() {
     const selectedRows &#x3D; this.selectedRows();
     const res: unknown[] &#x3D; [];
@@ -1770,6 +2030,10 @@ export class ExplorerSectionViewModel {
     this.dialogRef.close(res);
   }
 
+  /**
+   * Opens the UI for a specific object.
+   * @param item The object to open.
+   */
   openObjectUi(item: { [pk: string | number]: unknown }) {
     const entity &#x3D; this.targetData.entity;
     const id &#x3D; item[this.targetData.primaryColumn.property];
@@ -1793,6 +2057,9 @@ export class ExplorerSectionViewModel {
     ]);
   }
 
+  /**
+   * Navigates to the UI for creating a new item.
+   */
   navToCreateNewItemUi() {
     const entity &#x3D; this.targetData.entity;
     this.router.navigate([
@@ -1800,7 +2067,11 @@ export class ExplorerSectionViewModel {
     ]);
   }
 
-  getParsedFilter() {
+  /**
+   * Parses the current filters from the query parameters.
+   * @returns {Record&lt;string, string&gt;} The parsed filters.
+   */
+  getParsedFilter(): Record&lt;string, string&gt; {
     const filter &#x3D; this.queryParamsSnapshot.filter;
     if (!filter) {
       return undefined;
@@ -1808,6 +2079,10 @@ export class ExplorerSectionViewModel {
     return parseParamsString(filter);
   }
 
+  /**
+   * Retrieves the section data based on the given parameters.
+   * @param params Optional parameters for the section query.
+   */
   private getSection(params?: PageableParams) {
     this.sectionSub?.unsubscribe();
     this.sectionSub &#x3D; this.explorerService.getSectionList(this.target, params).pipe(
@@ -1832,6 +2107,9 @@ export class ExplorerSectionViewModel {
     });
   }
 
+  /**
+   * Retrieves target data based on the current configuration.
+   */
   private getTarget() {
     this._pageableData.set(undefined);
     this._targetData.set(undefined);
@@ -1848,6 +2126,11 @@ export class ExplorerSectionViewModel {
     });
   }
 
+  /**
+   * Navigates to a specific query parameter state.
+   * @param queryParams The query parameters to navigate to.
+   * @param queryParamsHandling Optional handling of query parameters.
+   */
   private doNavigate(queryParams: Params, queryParamsHandling?: QueryParamsHandling) {
     if (this.dialogMode) {
       this.paramsSub.next(queryParams);

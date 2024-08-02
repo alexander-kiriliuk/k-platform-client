@@ -116,6 +116,15 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Similar to the ExplorerSectionRendererComponent, this component is
+responsible for dynamically rendering objects based on the provided
+column definition and data.</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -307,10 +316,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:47</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:54</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The column definition for the object.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -334,10 +349,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:49</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:58</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The form group for managing the object&#39;s entity data.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -361,10 +382,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:46</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:52</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The target data to be rendered for this object.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -398,14 +425,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="77"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-object-renderer.component.ts:77</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-object-renderer.component.ts:106</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves the renderer corresponding to the specified code.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -416,6 +445,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -430,6 +460,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The code of the renderer to be retrieved.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -439,7 +475,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The renderer associated with the provided code.</p>
+
                             </div>
                 </td>
             </tr>
@@ -467,14 +504,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="81"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-object-renderer.component.ts:81</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-object-renderer.component.ts:115</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves the appropriate renderer based on the column&#39;s data type.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -485,6 +524,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -499,6 +539,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The data type of the column.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -508,7 +554,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The renderer associated with the specified data type.</p>
+
                             </div>
                 </td>
             </tr>
@@ -534,14 +581,19 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="53"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-object-renderer.component.ts:53</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-object-renderer.component.ts:69</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>This lifecycle method is invoked when any input properties
+change. If this is not the first change for data, it updates
+the component with the new data.
+state of input properties.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -552,6 +604,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -566,6 +619,13 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>An object that contains the current and previous
+state of input properties.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -601,14 +661,18 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="60"
-                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-object-renderer.component.ts:60</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">lib/src/components/explorer/src/renderer/explorer-object-renderer.component.ts:81</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>This lifecycle method is called once the component has been
+initialized. It retrieves the renderer based on the column&#39;s
+configuration and draws the component accordingly.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -646,7 +710,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:36</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:54</a></code>
 </div>
                         </td>
                     </tr>
@@ -654,6 +718,9 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>This method assigns renderer parameters and creates an instance of
+the renderer component, updating the view container accordingly.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -664,6 +731,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -678,6 +746,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The renderer loader to use for creating the component.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>rendererParams</td>
@@ -690,6 +764,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The parameters specific to the renderer.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>columnRendererParams</td>
@@ -702,6 +782,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Additional parameters from the column definition.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -745,7 +831,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:48</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:69</a></code>
 </div>
                         </td>
                     </tr>
@@ -753,6 +839,9 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>This method sets the current target, data, and form for the child
+component and triggers change detection to ensure the UI is updated.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -787,11 +876,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:47</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:54</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The column definition for the object.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -819,11 +914,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:48</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:56</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The data to be displayed for the object.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -847,11 +948,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:49</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:58</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The form group for managing the object&#39;s entity data.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -881,7 +988,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:51</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:60</a></code>
 </div>
                         </td>
                     </tr>
@@ -908,11 +1015,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:46</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:52</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The target data to be rendered for this object.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -941,7 +1054,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:50</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:59</a></code>
 </div>
                         </td>
                     </tr>
@@ -975,11 +1088,17 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:34</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractExplorerRendererComponent.html#source" target="_self" >AbstractExplorerRendererComponent:45</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Reference to the created component for rendering.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1009,6 +1128,11 @@ import {
 import {AbstractExplorerRendererComponent} from &quot;./abstract-explorer-renderer.component&quot;;
 import {FormGroup} from &quot;@angular/forms&quot;;
 
+/**
+ * Similar to the ExplorerSectionRendererComponent, this component is
+ * responsible for dynamically rendering objects based on the provided
+ * column definition and data.
+ */
 @Component({
   selector: &quot;explorer-object-renderer&quot;,
   template: &quot;&quot;,
@@ -1018,13 +1142,24 @@ import {FormGroup} from &quot;@angular/forms&quot;;
 export class ExplorerObjectRendererComponent extends AbstractExplorerRendererComponent
   implements OnInit, OnChanges {
 
+  /** The target data to be rendered for this object. */
   target &#x3D; input.required&lt;TargetData&gt;();
+  /** The column definition for the object. */
   column &#x3D; input.required&lt;ExplorerColumn&gt;();
+  /** The data to be displayed for the object. */
   data &#x3D; input.required&lt;{ [k: string]: unknown }&gt;();
+  /** The form group for managing the object&#x27;s entity data. */
   override entityForm &#x3D; input.required&lt;FormGroup&gt;();
   protected viewContainer &#x3D; inject(ViewContainerRef);
   protected readonly renderers &#x3D; inject(EXPLORER_OBJECT_RENDERER);
 
+  /**
+   * This lifecycle method is invoked when any input properties
+   * change. If this is not the first change for data, it updates
+   * the component with the new data.
+   * @param changes - An object that contains the current and previous
+   * state of input properties.
+   */
   ngOnChanges(changes: SimpleChanges) {
     if (changes.data.firstChange) {
       return;
@@ -1032,27 +1167,45 @@ export class ExplorerObjectRendererComponent extends AbstractExplorerRendererCom
     this.patchComponentData();
   }
 
+  /**
+   * This lifecycle method is called once the component has been
+   * initialized. It retrieves the renderer based on the column&#x27;s
+   * configuration and draws the component accordingly.
+   */
   ngOnInit(): void {
     let renderer: ExplorerRendererLoader;
-    const code &#x3D; this.column().objectRenderer?.code;
+    const code &#x3D; this.column().objectRenderer?.code; // Get the renderer code
+    // Select renderer based on the column&#x27;s renderer code or data type
     if (code) {
       renderer &#x3D; this.getRendererByCode(code);
     } else {
       renderer &#x3D; this.getRendererByDataType(this.column().type as ColumnDataType);
     }
+    // Fallback to default renderer if not found
     if (!renderer) {
       console.warn(&#x60;Renderer with ${code ? &#x60;code ${code}&#x60; : &#x60;type ${this.column().type}&#x60;} is not found&#x60;);
       renderer &#x3D; this.getRendererByCode(&quot;string-object-renderer&quot;);
     }
+    // Merge parameters and draw the component
     const rendererParams &#x3D; this.column()?.objectRenderer?.params ?? {};
     const columnRendererParams &#x3D; this.column()?.objectRendererParams ?? {};
     this.mergeParamsAndDrawComponent(renderer, rendererParams, columnRendererParams);
   }
 
+  /**
+   * Retrieves the renderer corresponding to the specified code.
+   * @param code - The code of the renderer to be retrieved.
+   * @returns {ExplorerRendererLoader} The renderer associated with the provided code.
+   */
   private getRendererByCode(code: string): ExplorerRendererLoader {
     return this.renderers.find(v &#x3D;&gt; v.code &#x3D;&#x3D;&#x3D; code);
   }
 
+  /**
+   * Retrieves the appropriate renderer based on the column&#x27;s data type.
+   * @param type - The data type of the column.
+   * @returns {ExplorerRendererLoader} The renderer associated with the specified data type.
+   */
   private getRendererByDataType(type: ColumnDataType): ExplorerRendererLoader {
     let code &#x3D; &quot;string-object-renderer&quot;;
     switch (type) {
