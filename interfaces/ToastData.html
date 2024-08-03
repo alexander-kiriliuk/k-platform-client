@@ -126,6 +126,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface for toast data.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -246,19 +253,23 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {MenuItemCommandEvent} from &quot;primeng/api&quot;;
-import {Translation} from &quot;@ngneat/transloco&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Translation} from &quot;@ngneat/transloco&quot;;
 import {LocalizedString} from &quot;../../../modules/locale&quot;;
 import {Media} from &quot;../../../modules/media&quot;;
 
+/**
+ * Type representing system themes.
+ */
 export type SystemTheme &#x3D; &quot;light&quot; | &quot;dark&quot;;
 
-export interface MenuCommandHandler {
-  onMenuCommand: (event: MenuItemCommandEvent, id?: string) &#x3D;&gt; void;
-}
-
+/**
+ * Type representing a plain object.
+ */
 export type PlainObject &#x3D; { [k: string]: unknown };
 
+/**
+ * Type representing the application environment configuration.
+ */
 export type Env &#x3D; {
   production: boolean;
   frontEndUrl: string;
@@ -268,16 +279,26 @@ export type Env &#x3D; {
   tmpUrl: string;
 }
 
+/**
+ * Type representing the application configuration.
+ */
 export type AppConfig &#x3D; {
   translation: Translation;
   fullDateFormat: string;
 }
 
+/**
+ * Interface for toast data.
+ */
 export interface ToastData {
   title?: string;
   message?: string;
 }
 
+/**
+ * Interface representing a category.
+ * @template Params - Type of the category parameters.
+ */
 export interface Category&lt;Params &#x3D; unknown&gt; {
   id: number;
   code: string;
@@ -289,6 +310,9 @@ export interface Category&lt;Params &#x3D; unknown&gt; {
   children: Category&lt;Params&gt;[];
 }
 
+/**
+ * Interface representing a user.
+ */
 export interface User {
   id: string;
   avatar: Media;
@@ -303,12 +327,18 @@ export interface User {
   tsCreated?: Date;
 }
 
+/**
+ * Interface representing a user role.
+ */
 export interface UserRole {
   code: string;
   name: LocalizedString[];
   tsCreated: Date;
 }
 
+/**
+ * Interface for pageable parameters.
+ */
 export interface PageableParams {
   limit?: number;
   page?: number;
@@ -317,6 +347,10 @@ export interface PageableParams {
   filter?: string;
 }
 
+/**
+ * Interface for pageable data.
+ * @template T - Type of the items in the pageable data.
+ */
 export interface PageableData&lt;T &#x3D; unknown&gt; {
   items: T[];
   totalCount: number;
@@ -324,10 +358,19 @@ export interface PageableData&lt;T &#x3D; unknown&gt; {
   pageSize: number;
 }
 
+/**
+ * Type representing sort order.
+ */
 export type SortOrder &#x3D; &quot;ASC&quot; | &quot;DESC&quot;;
 
+/**
+ * Type representing process status.
+ */
 export type ProcessStatus &#x3D; &quot;execute&quot; | &quot;ready&quot; | &quot;crashed&quot;;
 
+/**
+ * Interface representing a process unit.
+ */
 export interface ProcessUnit {
   code: string;
   status: ProcessStatus;
@@ -338,6 +381,9 @@ export interface ProcessUnit {
   tsCreated: Date;
 }
 
+/**
+ * Interface representing a process log.
+ */
 export interface ProcessLog {
   id: number;
   content: string;
@@ -346,6 +392,9 @@ export interface ProcessLog {
   process: ProcessUnit;
 }
 
+/**
+ * Type representing CAPTCHA response.
+ */
 export type CaptchaResponse &#x3D; {
   id?: string;
   type?: string;

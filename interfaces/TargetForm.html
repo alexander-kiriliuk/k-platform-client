@@ -126,6 +126,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface for a form representing a target in the Explorer, excluding the columns and actions properties.</p>
+
+            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -204,18 +211,30 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {FormArray, FormControl, FormGroup} from &quot;@angular/forms&quot;;
 import { ExplorerColumn, ExplorerTab, ExplorerTarget } from &quot;../../explorer&quot;;
 
+/**
+ * Form type for an object in the Explorer.
+ */
 type ObjectForm &#x3D; {
   [K in keyof ExplorerTarget]: FormControl&lt;ExplorerTarget[K]&gt;;
 }
 
+/**
+ * Form type for a column in the Explorer.
+ */
 export type ColumnForm &#x3D; {
   [K in keyof ExplorerColumn]: FormControl&lt;ExplorerColumn[K]&gt;;
 }
 
+/**
+ * Interface for a form representing a target in the Explorer, excluding the columns and actions properties.
+ */
 export interface TargetForm extends Omit&lt;ObjectForm, &quot;columns&quot;/* | &quot;actions&quot;*/&gt; {
   columns: FormArray&lt;FormGroup&lt;ColumnForm&gt;&gt;;
 }
 
+/**
+ * Form type for a tab in the Explorer.
+ */
 export type TabForm &#x3D; {
   [K in keyof ExplorerTab]: FormControl&lt;ExplorerTab[K]&gt;;
 }

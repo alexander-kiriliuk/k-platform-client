@@ -123,6 +123,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Class representing default user roles codes.</p>
+
+            </p>
 
 
 
@@ -199,7 +206,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">lib/src/global/vars/src/constants.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">lib/src/global/vars/src/constants.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -232,7 +239,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">lib/src/global/vars/src/constants.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">lib/src/global/vars/src/constants.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -265,7 +272,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">lib/src/global/vars/src/constants.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">lib/src/global/vars/src/constants.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -286,10 +293,16 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {InjectionToken} from &quot;@angular/core&quot;;
 
+/**
+ * Enumeration of toast keys.
+ */
 export enum ToastKey {
   Global &#x3D; &quot;global&quot;
 }
 
+/**
+ * Enumeration of toast types.
+ */
 export enum ToastType {
   Error  &#x3D; &quot;error&quot;,
   Warn  &#x3D; &quot;warn&quot;,
@@ -297,17 +310,26 @@ export enum ToastType {
   Success  &#x3D; &quot;success&quot;,
 }
 
+/**
+ * Class representing default user roles codes.
+ */
 export class Roles {
   static readonly ROOT &#x3D; &quot;root&quot;;
   static readonly ADMIN &#x3D; &quot;admin&quot;;
   static readonly MANAGER &#x3D; &quot;manager&quot;;
 }
 
+/** Injection token for the API URL.*/
 export const API_URL &#x3D; new InjectionToken&lt;string&gt;(&quot;Path to backend server&quot;);
+/** Injection token for the front-end URL.*/
 export const FRONT_END_URL &#x3D; new InjectionToken&lt;string&gt;(&quot;Path to front end server&quot;);
+/** Injection token for the media storage URL.*/
 export const MEDIA_URL &#x3D; new InjectionToken&lt;string&gt;(&quot;Path to medias storage&quot;);
+/** Injection token for the file storage URL.*/
 export const FILE_URL &#x3D; new InjectionToken&lt;string&gt;(&quot;Path to files storage&quot;);
+/** Injection token for the temporary files storage URL.*/
 export const TMP_URL &#x3D; new InjectionToken&lt;string&gt;(&quot;Path to tmp-files storage&quot;);
+/** Injection token for the WebP media format support flag.*/
 export const WEBP_SUPPORT &#x3D; new InjectionToken&lt;boolean&gt;(&quot;WEBP media format support flag&quot;);
 </code></pre>
     </div>

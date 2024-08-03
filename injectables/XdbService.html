@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Service for handling XDB import and export operations.</p>
+
+            </p>
 
 
 
@@ -201,14 +208,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="37"
-                                    class="link-to-prism">lib/src/components/xdb/src/xdb.service.ts:37</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">lib/src/components/xdb/src/xdb.service.ts:56</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Ensures the provided data is valid XML.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -219,6 +228,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -233,6 +243,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The data to be validated.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -242,7 +258,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The valid XML data.</p>
+
                             </div>
                 </td>
             </tr>
@@ -268,14 +285,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="33"
-                                    class="link-to-prism">lib/src/components/xdb/src/xdb.service.ts:33</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">lib/src/components/xdb/src/xdb.service.ts:47</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Exports data from the XDB.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -286,6 +305,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -300,16 +320,23 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The parameters for the export.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#XdbExportDto" target="_self" >Observable&lt;XdbExportDto&gt;</a></code>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An observable containing the exported data file information.</p>
+
                             </div>
                 </td>
             </tr>
@@ -335,14 +362,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">lib/src/components/xdb/src/xdb.service.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">lib/src/components/xdb/src/xdb.service.ts:35</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Imports data into the XDB.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -353,6 +382,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -367,16 +397,23 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The XML data to be imported.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>    <code>Observable&lt;void&gt;</code>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An observable for the import operation.</p>
+
                             </div>
                 </td>
             </tr>
@@ -408,7 +445,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">lib/src/components/xdb/src/xdb.service.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">lib/src/components/xdb/src/xdb.service.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -424,23 +461,42 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {inject, Injectable} from &quot;@angular/core&quot;;
 import {HttpClient, HttpHeaders} from &quot;@angular/common/http&quot;;
 import {XdbExportDto, XdbExportParams} from &quot;./xdb.types&quot;;
+import {Observable} from &quot;rxjs&quot;;
 
+/**
+ * Service for handling XDB import and export operations.
+ */
 @Injectable()
 export class XdbService {
 
   private readonly http &#x3D; inject(HttpClient);
 
-  importData(data: string) {
+  /**
+   * Imports data into the XDB.
+   * @param {string} data - The XML data to be imported.
+   * @returns {Observable&lt;void&gt;} An observable for the import operation.
+   */
+  importData(data: string): Observable&lt;void&gt; {
     const validXml &#x3D; this.ensureValidXml(data);
     return this.http.post&lt;void&gt;(&quot;/xdb/import&quot;, validXml, {
       headers: new HttpHeaders().append(&quot;Content-Type&quot;, &quot;application/xml&quot;)
     });
   }
 
-  exportData(params: XdbExportParams) {
+  /**
+   * Exports data from the XDB.
+   * @param {XdbExportParams} params - The parameters for the export.
+   * @returns {Observable&lt;XdbExportDto&gt;} An observable containing the exported data file information.
+   */
+  exportData(params: XdbExportParams): Observable&lt;XdbExportDto&gt; {
     return this.http.post&lt;XdbExportDto&gt;(&quot;/xdb/export&quot;, params);
   }
 
+  /**
+   * Ensures the provided data is valid XML.
+   * @param {string} data - The data to be validated.
+   * @returns {string} The valid XML data.
+   */
   private ensureValidXml(data: string): string {
     const startTag &#x3D; &quot;&lt;?xml version&#x3D;\&quot;1.0\&quot; encoding&#x3D;\&quot;UTF-8\&quot;?&gt;&lt;schema&gt;&quot;;
     const endTag &#x3D; &quot;&lt;/schema&gt;&quot;;

@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Service for managing the current user state.</p>
+
+            </p>
 
 
 
@@ -218,7 +225,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">lib/src/global/service/user/current-user.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">lib/src/global/service/user/current-user.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -251,14 +258,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="60"
-                                    class="link-to-prism">lib/src/global/service/user/current-user.ts:60</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">lib/src/global/service/user/current-user.ts:74</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Checks if the current user has any of the specified roles.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -269,6 +278,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -283,6 +293,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Array of role codes to check.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -292,7 +308,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>True if the user has one of the roles, false otherwise.</p>
+
                             </div>
                 </td>
             </tr>
@@ -320,14 +337,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="76"
-                                    class="link-to-prism">lib/src/global/service/user/current-user.ts:76</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">lib/src/global/service/user/current-user.ts:94</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Sets the current user.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -338,6 +357,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -352,6 +372,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>User data to set.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -389,14 +415,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="80"
-                                    class="link-to-prism">lib/src/global/service/user/current-user.ts:80</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="102"
+                                    class="link-to-prism">lib/src/global/service/user/current-user.ts:102</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Updates the current user with new data.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -407,6 +435,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -421,6 +450,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Partial user data to update.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -461,10 +496,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">lib/src/global/service/user/current-user.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">lib/src/global/service/user/current-user.ts:32</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Observable of the current user.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -493,10 +534,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">lib/src/global/service/user/current-user.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">lib/src/global/service/user/current-user.ts:34</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Configuration for the application.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -520,7 +567,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">lib/src/global/service/user/current-user.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">lib/src/global/service/user/current-user.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -547,10 +594,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">lib/src/global/service/user/current-user.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">lib/src/global/service/user/current-user.ts:29</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Subject holding the current user.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -576,9 +629,16 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">lib/src/global/service/user/current-user.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">lib/src/global/service/user/current-user.ts:44</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the current user data.</p>
+</div>
+
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -598,9 +658,16 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">lib/src/global/service/user/current-user.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">lib/src/global/service/user/current-user.ts:49</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the full name of the current user.</p>
+</div>
+
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -620,9 +687,16 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">lib/src/global/service/user/current-user.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">lib/src/global/service/user/current-user.ts:62</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the initials of the current user.</p>
+</div>
+
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -636,12 +710,18 @@ import {BehaviorSubject} from &quot;rxjs&quot;;
 import {Roles, AppConfig, User, CurrentUserEvent} from &quot;../../vars&quot;;
 import {Store} from &quot;../../../modules/store&quot;;
 
+/**
+ * Service for managing the current user state.
+ */
 @Injectable({providedIn: &quot;root&quot;})
 export class CurrentUser {
 
+  /** Subject holding the current user. */
   private readonly sub &#x3D; new BehaviorSubject&lt;User&gt;(null);
   private readonly store &#x3D; inject(Store);
+  /** Observable of the current user. */
   readonly asObservable &#x3D; this.sub.asObservable();
+  /** Configuration for the application. */
   readonly config: AppConfig &#x3D; {} as AppConfig;
 
   constructor() {
@@ -651,10 +731,12 @@ export class CurrentUser {
       .subscribe(v &#x3D;&gt; this.updateUser(v.payload));
   }
 
+  /** Gets the current user data. */
   get data() {
     return this.sub.value;
   }
 
+  /** Gets the full name of the current user. */
   get fullName() {
     const usr &#x3D; this.sub.value;
     const result: string[] &#x3D; [];
@@ -667,6 +749,7 @@ export class CurrentUser {
     return result.length &gt; 1 ? result.join(&quot; &quot;) : usr.login;
   }
 
+  /** Gets the initials of the current user. */
   get initials() {
     let res &#x3D; &quot;&quot;;
     const parts &#x3D; this.fullName.split(&quot; &quot;);
@@ -674,6 +757,11 @@ export class CurrentUser {
     return res.substring(0, 2);
   }
 
+  /**
+   * Checks if the current user has any of the specified roles.
+   * @param roles - Array of role codes to check.
+   * @returns True if the user has one of the roles, false otherwise.
+   */
   hasSomeRole(...roles: string[]) {
     const usr &#x3D; this.sub.value;
     if (!usr?.roles?.length) {
@@ -690,10 +778,18 @@ export class CurrentUser {
     return false;
   }
 
+  /**
+   * Sets the current user.
+   * @param user - User data to set.
+   */
   private setUser(user: User) {
     this.sub.next(user);
   }
 
+  /**
+   * Updates the current user with new data.
+   * @param updatedUser - Partial user data to update.
+   */
   private updateUser(updatedUser: Partial&lt;User&gt;) {
     const currentUser &#x3D; this.sub.value;
     if (currentUser) {

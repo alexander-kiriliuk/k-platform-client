@@ -126,6 +126,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface representing parameters for the XDB export dialog.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -194,6 +201,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Entity to be exported.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -227,6 +240,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Target data for the export.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -237,23 +256,43 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {FormControl} from &quot;@angular/forms&quot;;
 import {TargetData} from &quot;../../explorer&quot;;
 
+/**
+ * Interface representing parameters for the XDB export dialog.
+ */
 export interface XdbExportDialogParams {
+
+  /** Target data for the export. **/
   target: TargetData;
+  /** Entity to be exported. **/
   entity: { [k: string]: unknown };
 }
 
+/**
+ * Interface representing parameters for the XDB export.
+ */
 export interface XdbExportParams {
+  /** Target ID for the export. **/
   target: string;
+  /** Entity ID for the export. **/
   id: string;
+  /** Depth of the data export. **/
   depth: number;
+  /** Flag indicating whether files should be included in the export and add that to archive. **/
   useFiles: boolean;
+  /** List of properties to be excluded from the export. **/
   excludeProperties: string[];
 }
 
+/**
+ * Type representing the form controls for the XDB export.
+ */
 export type XdbExportForm &#x3D; {
   [K in keyof XdbExportParams]: FormControl&lt;XdbExportParams[K]&gt;;
 }
 
+/**
+ * Type representing the DTO for the XDB export response.
+ */
 export type XdbExportDto &#x3D; {
   file: string;
 }

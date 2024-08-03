@@ -124,6 +124,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component for managing and displaying the details of an object.</p>
+
+    </p>
 
 
 
@@ -266,10 +273,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:78</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:82</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Sets up initial state and loads the target data.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -304,7 +317,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:77</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:81</a></div>
                         </td>
                     </tr>
 
@@ -331,7 +344,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:78</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:82</a></div>
                         </td>
                     </tr>
 
@@ -358,10 +371,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:76</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:79</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Observable for the target data.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -384,7 +403,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:75</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:80</a></div>
                         </td>
                     </tr>
 
@@ -422,6 +441,9 @@ import {ExplorerService, TargetData} from &quot;../../../../components/explorer&
 import {usePreloader} from &quot;../../../../modules/preloader/src/use-preloader&quot;;
 import createColumnForm &#x3D; ObjectDetails.createColumnForm;
 
+/**
+ * Component for managing and displaying the details of an object.
+ */
 @Component({
   selector: &quot;object-details&quot;,
   standalone: true,
@@ -455,11 +477,15 @@ import createColumnForm &#x3D; ObjectDetails.createColumnForm;
 })
 export class ObjectDetailsComponent {
 
-  readonly vm &#x3D; inject(ObjectDetailsViewModel);
+  /** Observable for the target data. **/
   readonly target$: Observable&lt;TargetData&gt;;
+  readonly vm &#x3D; inject(ObjectDetailsViewModel);
   private readonly explorerService &#x3D; inject(ExplorerService);
   private readonly store &#x3D; inject(Store);
 
+  /**
+   * Sets up initial state and loads the target data.
+   */
   constructor() {
     this.target$ &#x3D; this.explorerService.getTarget(this.vm.target).pipe(
       usePreloader(this.store, this.vm.preloaderChannel),

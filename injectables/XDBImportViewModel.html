@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>ViewModel for the XDB import component. Manages file upload and import operations.</p>
+
+            </p>
 
 
 
@@ -210,10 +217,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:37</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Initializes the ViewModel and sets the header title.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -243,14 +256,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="63"
-                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:63</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:87</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Imports data into the XDB system.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -261,6 +276,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -275,6 +291,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The XML data to be imported.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -310,14 +332,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="45"
-                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:45</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:57</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Handles actions before uploading a file.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -347,14 +371,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="56"
-                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:56</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:76</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Handles errors during file upload.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -365,6 +391,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -379,6 +406,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The file upload error event payload.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -414,14 +447,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="49"
-                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:49</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:65</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Handles actions after successfully uploading a file.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -432,6 +467,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -446,6 +482,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The file upload event payload.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -487,7 +529,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -514,7 +556,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -541,7 +583,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -570,9 +612,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.view-model.ts:50</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the preloader channel name.</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -593,7 +644,9 @@ import {XdbService} from &quot;../xdb.service&quot;;
 import {PreloaderEvent} from &quot;../../../../modules/preloader&quot;;
 import {usePreloader} from &quot;../../../../modules/preloader/src/use-preloader&quot;;
 
-
+/**
+ * ViewModel for the XDB import component. Manages file upload and import operations.
+ */
 @Injectable()
 export class XDBImportViewModel {
 
@@ -601,18 +654,32 @@ export class XDBImportViewModel {
   private readonly xdbService &#x3D; inject(XdbService);
   private readonly store &#x3D; inject(Store);
 
+  /**
+   * Initializes the ViewModel and sets the header title.
+   */
   constructor() {
     this.store.emit&lt;string&gt;(DashboardEvent.PatchHeader, this.ts.translate(&quot;xdb.title&quot;));
   }
 
+  /**
+   * Gets the preloader channel name.
+   * @returns The preloader channel name.
+   */
   get preloaderChannel() {
     return Xdb.PreloaderCn;
   }
 
+  /**
+   * Handles actions before uploading a file.
+   */
   onBeforeUploadFile() {
     this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
   }
 
+  /**
+   * Handles actions after successfully uploading a file.
+   * @param {FileUploadEvent} payload - The file upload event payload.
+   */
   onUploadFile(payload: FileUploadEvent) {
     this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
     this.store.emit&lt;ToastData&gt;(ToastEvent.Success, {
@@ -620,6 +687,10 @@ export class XDBImportViewModel {
     });
   }
 
+  /**
+   * Handles errors during file upload.
+   * @param {FileUploadErrorEvent} payload - The file upload error event payload.
+   */
   onErrorFileUpload(payload: FileUploadErrorEvent) {
     this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
     this.store.emit&lt;ToastData&gt;(ToastEvent.Error, {
@@ -627,6 +698,10 @@ export class XDBImportViewModel {
     });
   }
 
+  /**
+   * Imports data into the XDB system.
+   * @param {string} value - The XML data to be imported.
+   */
   doImport(value: string) {
     this.xdbService.importData(value).pipe(
       usePreloader(this.store, this.preloaderChannel),

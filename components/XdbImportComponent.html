@@ -124,6 +124,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component for importing data into the XDB.</p>
+
+    </p>
 
 
 
@@ -285,10 +292,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.component.ts:51</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.component.ts:55</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Form control for the XML data to be imported.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -311,7 +324,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.component.ts:52</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.component.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -340,9 +353,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.component.ts:54</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">lib/src/components/xdb/src/xdb-import/xdb-import.component.ts:62</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the URL for uploading files.</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -362,6 +384,9 @@ import {FileUploadModule} from &quot;primeng/fileupload&quot;;
 import {XDBImportViewModel} from &quot;./xdb-import.view-model&quot;;
 import {PreloaderComponent, PreloaderDirective} from &quot;../../../../modules/preloader&quot;;
 
+/**
+ * Component for importing data into the XDB.
+ */
 @Component({
   selector: &quot;xdb-import&quot;,
   standalone: true,
@@ -385,9 +410,14 @@ import {PreloaderComponent, PreloaderDirective} from &quot;../../../../modules/p
 })
 export class XdbImportComponent {
 
+  /** Form control for the XML data to be imported. **/
   readonly ctrl: FormControl&lt;string&gt; &#x3D; new FormControl(&quot;&quot;, [Validators.required]);
   readonly vm &#x3D; inject(XDBImportViewModel);
 
+  /**
+   * Gets the URL for uploading files.
+   * @returns The upload URL.
+   */
   get uploadUrl() {
     return &quot;/xdb/import-file&quot;;
   }

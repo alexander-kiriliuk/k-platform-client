@@ -124,6 +124,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>ProfileComponent is responsible for displaying and managing the user&#39;s profile.
+It uses several external modules and services for localization, form control, and change detection.</p>
+
+    </p>
 
 
 
@@ -284,7 +292,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">lib/src/components/profile/src/profile.component.ts:57</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">lib/src/components/profile/src/profile.component.ts:61</a></div>
                         </td>
                     </tr>
 
@@ -310,7 +318,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">lib/src/components/profile/src/profile.component.ts:56</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">lib/src/components/profile/src/profile.component.ts:60</a></div>
                         </td>
                     </tr>
 
@@ -339,9 +347,22 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">lib/src/components/profile/src/profile.component.ts:59</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">lib/src/components/profile/src/profile.component.ts:67</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the localized names of the roles.</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>string[]</code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -363,6 +384,10 @@ import {LocalizePipe} from &quot;../../../modules/locale&quot;;
 import {MediaInputComponent} from &quot;../../../modules/media&quot;;
 import {PreloaderDirective, PreloaderComponent} from &quot;../../../modules/preloader&quot;;
 
+/**
+ * ProfileComponent is responsible for displaying and managing the user&#x27;s profile.
+ * It uses several external modules and services for localization, form control, and change detection.
+ */
 @Component({
   selector: &quot;profile&quot;,
   templateUrl: &quot;./profile.component.html&quot;,
@@ -392,7 +417,11 @@ export class ProfileComponent {
   readonly vm &#x3D; inject(ProfileViewModel);
   private readonly localizePipe &#x3D; inject(LocalizePipe);
 
-  get roles() {
+  /**
+   * Gets the localized names of the roles.
+   * @returns {string[]} An array of localized role names.
+   */
+  get roles(): string[] {
     const res: string[] &#x3D; [];
     this.vm.form.controls.roles.value.forEach(role &#x3D;&gt; {
       res.push(this.localizePipe.transform(role.name, role.code) as string);

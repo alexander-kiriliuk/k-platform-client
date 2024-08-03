@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>ViewModel for the ProfileComponent. Manages the user profile form and interaction with ProfileService.</p>
+
+            </p>
 
 
 
@@ -210,10 +217,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:39</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Initializes the ViewModel and patches the form with current user data.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -243,14 +256,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="46"
-                                    class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:46</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:60</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Saves the user profile by calling the ProfileService.
+Displays a preloader and handles errors by showing a toast message.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -286,7 +302,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -312,10 +328,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:35</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The form group representing the user profile.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -339,7 +361,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -366,7 +388,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -393,7 +415,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:38</a></div>
                         </td>
                     </tr>
 
@@ -422,9 +444,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">lib/src/components/profile/src/profile.view-model.ts:52</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the preloader channel name.</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -444,24 +475,38 @@ import {CurrentUser} from &quot;../../../global/service&quot;;
 import {ToastData, ToastEvent, User} from &quot;../../../global/vars&quot;;
 import {usePreloader} from &quot;../../../modules/preloader/src/use-preloader&quot;;
 
-
+/**
+ * ViewModel for the ProfileComponent. Manages the user profile form and interaction with ProfileService.
+ */
 @Injectable()
 export class ProfileViewModel {
 
+  /** The form group representing the user profile. */
   readonly form &#x3D; CreateProfileForm();
   private readonly ref &#x3D; inject(DynamicDialogRef);
   private readonly profileService &#x3D; inject(ProfileService);
   private readonly store &#x3D; inject(Store);
   private readonly currentUser &#x3D; inject(CurrentUser);
 
+  /**
+   * Initializes the ViewModel and patches the form with current user data.
+   */
   constructor() {
     this.form.patchValue(this.currentUser.data);
   }
 
+  /**
+   * Gets the preloader channel name.
+   * @returns The preloader channel name.
+   */
   get preloaderChannel() {
     return Profile.PreloaderCn;
   }
 
+  /**
+   * Saves the user profile by calling the ProfileService.
+   * Displays a preloader and handles errors by showing a toast message.
+   */
   save() {
     this.profileService.updateUser(this.form.value as User).pipe(
       usePreloader(this.store, this.preloaderChannel),

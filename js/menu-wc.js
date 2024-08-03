@@ -462,9 +462,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/MediaType.html" data-type="entity-link" >MediaType</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MenuCommandHandler.html" data-type="entity-link" >MenuCommandHandler</a>
-                            </li>
-                            <li class="link">
                                 <a href="interfaces/NewPasswordObjectRendererParams.html" data-type="entity-link" >NewPasswordObjectRendererParams</a>
                             </li>
                             <li class="link">

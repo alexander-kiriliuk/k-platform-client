@@ -124,6 +124,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component for displaying the XDB export dialog.</p>
+
+    </p>
 
 
 
@@ -272,10 +279,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">lib/src/components/xdb/src/xdb-export/xdb-export-dialog.component.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">lib/src/components/xdb/src/xdb-export/xdb-export-dialog.component.ts:48</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Initializes the component, setting up form controls and localizing column names.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -310,7 +323,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">lib/src/components/xdb/src/xdb-export/xdb-export-dialog.component.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">lib/src/components/xdb/src/xdb-export/xdb-export-dialog.component.ts:47</a></div>
                         </td>
                     </tr>
 
@@ -337,7 +350,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">lib/src/components/xdb/src/xdb-export/xdb-export-dialog.component.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">lib/src/components/xdb/src/xdb-export/xdb-export-dialog.component.ts:48</a></div>
                         </td>
                     </tr>
 
@@ -369,10 +382,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">lib/src/components/xdb/src/xdb-export/xdb-export-dialog.component.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">lib/src/components/xdb/src/xdb-export/xdb-export-dialog.component.ts:45</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>List of properties available for export.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -395,7 +414,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">lib/src/components/xdb/src/xdb-export/xdb-export-dialog.component.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/components/xdb/src/xdb-export/xdb-export-dialog.component.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -424,9 +443,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">lib/src/components/xdb/src/xdb-export/xdb-export-dialog.component.ts:57</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">lib/src/components/xdb/src/xdb-export/xdb-export-dialog.component.ts:68</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the data passed to the dialog.</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -450,6 +478,9 @@ import {XdbExportDialogViewModel} from &quot;./xdb-export-dialog.view-model&quot
 import {LocalizePipe} from &quot;../../../../modules/locale&quot;;
 import {PreloaderComponent, PreloaderDirective} from &quot;../../../../modules/preloader&quot;;
 
+/**
+ * Component for displaying the XDB export dialog.
+ */
 @Component({
   selector: &quot;xdb-export-dialog&quot;,
   standalone: true,
@@ -475,11 +506,15 @@ import {PreloaderComponent, PreloaderDirective} from &quot;../../../../modules/p
 })
 export class XdbExportDialogComponent {
 
+  /** List of properties available for export. **/
+  readonly properties: Array&lt;{ name: string, code: string }&gt; &#x3D; [];
+  readonly vm &#x3D; inject(XdbExportDialogViewModel);
   private readonly config &#x3D; inject(DynamicDialogConfig);
   private readonly localizePipe &#x3D; inject(LocalizePipe);
-  readonly vm &#x3D; inject(XdbExportDialogViewModel);
-  readonly properties: Array&lt;{ name: string, code: string }&gt; &#x3D; [];
 
+  /**
+   * Initializes the component, setting up form controls and localizing column names.
+   */
   constructor() {
     this.vm.form.controls.id.setValue(this.data.entity[this.data.target.primaryColumn.property] as string);
     this.vm.form.controls.target.setValue(this.data.target.entity.target);
@@ -491,6 +526,10 @@ export class XdbExportDialogComponent {
     });
   }
 
+  /**
+   * Gets the data passed to the dialog.
+   * @returns The parameters for the export dialog.
+   */
   get data() {
     return this.config.data as XdbExportDialogParams;
   }

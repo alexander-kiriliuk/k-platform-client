@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Service for handling CAPTCHA operations.</p>
+
+            </p>
 
 
 
@@ -192,19 +199,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">lib/src/global/service/captcha/captcha.service.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">lib/src/global/service/captcha/captcha.service.ts:33</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a CAPTCHA image.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>An observable that emits the CAPTCHA response.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -235,7 +248,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">lib/src/global/service/captcha/captcha.service.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">lib/src/global/service/captcha/captcha.service.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -252,11 +265,18 @@
 import {HttpClient} from &quot;@angular/common/http&quot;;
 import {CaptchaResponse} from &quot;../../vars&quot;;
 
+/**
+ * Service for handling CAPTCHA operations.
+ */
 @Injectable()
 export class CaptchaService {
 
   private readonly http &#x3D; inject(HttpClient);
 
+  /**
+   * Retrieves a CAPTCHA image.
+   * @returns An observable that emits the CAPTCHA response.
+   */
   getCaptcha() {
     return this.http.get&lt;CaptchaResponse&gt;(&quot;/captcha&quot;);
   }
