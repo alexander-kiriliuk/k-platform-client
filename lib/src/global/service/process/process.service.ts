@@ -22,31 +22,64 @@ import {ProcessLog, ProcessUnit} from "../../vars";
 import {catchError} from "rxjs/operators";
 import fillParams = StringUtils.fillParams;
 
+/**
+ * Service for handling process-related operations.
+ */
 @Injectable()
 export class ProcessService {
 
   private readonly http = inject(HttpClient);
 
+  /**
+   * Starts a process.
+   * @param code - The code of the process to start.
+   * @returns An observable that completes when the process starts.
+   */
   start(code: string) {
     return this.http.get<void>(fillParams("/process/start/:code", code));
   }
 
+  /**
+   * Stops a process.
+   * @param code - The code of the process to stop.
+   * @returns An observable that completes when the process stops.
+   */
   stop(code: string) {
     return this.http.get<void>(fillParams("/process/stop/:code", code));
   }
 
+  /**
+   * Toggles a process on or off.
+   * @param code - The code of the process to toggle.
+   * @returns An observable that completes when the process toggles.
+   */
   toggle(code: string) {
     return this.http.get<void>(fillParams("/process/toggle/:code", code));
   }
 
+  /**
+   * Retrieves statistics for a process.
+   * @param code - The code of the process to retrieve statistics for.
+   * @returns An observable that emits the process unit statistics.
+   */
   stats(code: string) {
     return this.http.get<ProcessUnit>(fillParams("/process/stats/:code", code));
   }
 
+  /**
+   * Retrieves the log for a process.
+   * @param id - The ID of the process log to retrieve.
+   * @returns An observable that emits the process log.
+   */
   log(id: number) {
     return this.http.get<ProcessLog>(fillParams("/process/log/:id", id));
   }
 
+  /**
+   * Polls for process logs.
+   * @param id - The ID of the process log to poll.
+   * @returns An observable that emits the process log periodically.
+   */
   logsPolling(id: number) {
     return this.log(id).pipe(
       catchError(() => {
@@ -61,6 +94,11 @@ export class ProcessService {
     );
   }
 
+  /**
+   * Polls for process statistics.
+   * @param code - The code of the process to poll.
+   * @returns An observable that emits the process statistics periodically.
+   */
   statsPolling(code: string) {
     return this.stats(code).pipe(
       catchError(() => {

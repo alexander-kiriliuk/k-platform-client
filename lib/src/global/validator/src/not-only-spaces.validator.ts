@@ -16,6 +16,10 @@
 
 import {AbstractControl, ValidatorFn} from "@angular/forms";
 
+/**
+ * Validator to check if a string contains more than just spaces.
+ * @returns A validator function for the form control.
+ */
 export function notOnlySpacesValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: unknown } | null => {
     const forbidden = !/^(\s+\S+\s*)*(?!\s).*$/.test(control.value);

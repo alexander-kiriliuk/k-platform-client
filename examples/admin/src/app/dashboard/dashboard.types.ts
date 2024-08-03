@@ -14,30 +14,8 @@
  * limitations under the License.
  */
 
+import {MenuItemCommandEvent} from "primeng/api";
 
-/**
- * Enumeration of toast events.
- */
-export enum ToastEvent {
-  All = "toast:message:*",
-  Error = "toast:message:error",
-  Warn = "toast:message:warn",
-  Info = "toast:message:info",
-  Success = "toast:message:success",
-}
-
-/**
- * Enumeration of current user events.
- */
-export enum CurrentUserEvent {
-  Set = "current:user:set",
-  Update = "current:user:update",
-}
-
-/**
- * Enumeration of dashboard events.
- */
-export enum DashboardEvent {
-  PatchHeader = "dashboard:header:patch",
-  ToggleSidebar = "dashboard:sidebar:toggle",
+export interface MenuCommandHandler {
+  onMenuCommand: (event: MenuItemCommandEvent, id?: string) => void;
 }

@@ -14,19 +14,23 @@
  * limitations under the License.
  */
 
-import {MenuItemCommandEvent} from "primeng/api";
 import {Translation} from "@ngneat/transloco";
 import {LocalizedString} from "../../../modules/locale";
 import {Media} from "../../../modules/media";
 
+/**
+ * Type representing system themes.
+ */
 export type SystemTheme = "light" | "dark";
 
-export interface MenuCommandHandler {
-  onMenuCommand: (event: MenuItemCommandEvent, id?: string) => void;
-}
-
+/**
+ * Type representing a plain object.
+ */
 export type PlainObject = { [k: string]: unknown };
 
+/**
+ * Type representing the application environment configuration.
+ */
 export type Env = {
   production: boolean;
   frontEndUrl: string;
@@ -36,16 +40,26 @@ export type Env = {
   tmpUrl: string;
 }
 
+/**
+ * Type representing the application configuration.
+ */
 export type AppConfig = {
   translation: Translation;
   fullDateFormat: string;
 }
 
+/**
+ * Interface for toast data.
+ */
 export interface ToastData {
   title?: string;
   message?: string;
 }
 
+/**
+ * Interface representing a category.
+ * @template Params - Type of the category parameters.
+ */
 export interface Category<Params = unknown> {
   id: number;
   code: string;
@@ -57,6 +71,9 @@ export interface Category<Params = unknown> {
   children: Category<Params>[];
 }
 
+/**
+ * Interface representing a user.
+ */
 export interface User {
   id: string;
   avatar: Media;
@@ -71,12 +88,18 @@ export interface User {
   tsCreated?: Date;
 }
 
+/**
+ * Interface representing a user role.
+ */
 export interface UserRole {
   code: string;
   name: LocalizedString[];
   tsCreated: Date;
 }
 
+/**
+ * Interface for pageable parameters.
+ */
 export interface PageableParams {
   limit?: number;
   page?: number;
@@ -85,6 +108,10 @@ export interface PageableParams {
   filter?: string;
 }
 
+/**
+ * Interface for pageable data.
+ * @template T - Type of the items in the pageable data.
+ */
 export interface PageableData<T = unknown> {
   items: T[];
   totalCount: number;
@@ -92,10 +119,19 @@ export interface PageableData<T = unknown> {
   pageSize: number;
 }
 
+/**
+ * Type representing sort order.
+ */
 export type SortOrder = "ASC" | "DESC";
 
+/**
+ * Type representing process status.
+ */
 export type ProcessStatus = "execute" | "ready" | "crashed";
 
+/**
+ * Interface representing a process unit.
+ */
 export interface ProcessUnit {
   code: string;
   status: ProcessStatus;
@@ -106,6 +142,9 @@ export interface ProcessUnit {
   tsCreated: Date;
 }
 
+/**
+ * Interface representing a process log.
+ */
 export interface ProcessLog {
   id: number;
   content: string;
@@ -114,6 +153,9 @@ export interface ProcessLog {
   process: ProcessUnit;
 }
 
+/**
+ * Type representing CAPTCHA response.
+ */
 export type CaptchaResponse = {
   id?: string;
   type?: string;

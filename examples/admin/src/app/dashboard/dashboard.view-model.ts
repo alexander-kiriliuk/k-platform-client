@@ -17,6 +17,7 @@
 import {ChangeDetectorRef, inject, Injectable, signal} from "@angular/core";
 import {MenuItem, MenuItemCommandEvent} from "primeng/api";
 import {Dashboard} from "./dashboard.constants";
+import {MenuCommandHandler} from "./dashboard.types";
 import {TranslocoService} from "@ngneat/transloco";
 import {DialogService} from "primeng/dynamicdialog";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
@@ -27,7 +28,6 @@ import {
   CurrentUser,
   CurrentUserEvent,
   DashboardEvent,
-  MenuCommandHandler,
   Store,
   User
 } from "@k-platform/client";

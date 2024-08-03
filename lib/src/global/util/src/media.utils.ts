@@ -18,16 +18,27 @@ import {DeviceDetectorService} from "ngx-device-detector";
 
 export namespace MediaUtils {
 
+  /**
+   * Detects support for the WebP image format.
+   * @param ds - Device detector service.
+   * @returns True if the browser supports WebP, false otherwise.
+   */
   export function detectWebpSupportFactory(ds: DeviceDetectorService) {
-    const browser = ds.browser.toLowerCase();
-    const browserVer = parseInt(ds.browser_version, 10);
-    const os = ds.os.toLowerCase();
-    return (browser === "chrome" && browserVer >= 23) ||
-      (browser === "opera" && browserVer >= 12.1) ||
-      (browser === "edge" && browserVer >= 18) ||
-      (browser === "firefox" && browserVer >= 65) ||
-      (browser === "safari" && browserVer >= 14) ||
-      (browser === "ios" && os.includes("11"));
+    const name = ds.browser.toLowerCase();
+    const ver = parseInt(ds.browser_version, null);
+    if (name === "chrome" && ver > 31) {
+      return true;
+    }
+    if (name === "opera" && ver > 18) {
+      return true;
+    }
+    if (name === "ms-edge-chromium" && ver > 17) {
+      return true;
+    }
+    if (name === "safari" && ver > 15) {
+      return true;
+    }
+    return name === "firefox" && ver > 64;
   }
 
 }

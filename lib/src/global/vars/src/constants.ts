@@ -16,10 +16,16 @@
 
 import {InjectionToken} from "@angular/core";
 
+/**
+ * Enumeration of toast keys.
+ */
 export enum ToastKey {
   Global = "global"
 }
 
+/**
+ * Enumeration of toast types.
+ */
 export enum ToastType {
   Error  = "error",
   Warn  = "warn",
@@ -27,15 +33,24 @@ export enum ToastType {
   Success  = "success",
 }
 
+/**
+ * Class representing default user roles codes.
+ */
 export class Roles {
   static readonly ROOT = "root";
   static readonly ADMIN = "admin";
   static readonly MANAGER = "manager";
 }
 
+/** Injection token for the API URL.*/
 export const API_URL = new InjectionToken<string>("Path to backend server");
+/** Injection token for the front-end URL.*/
 export const FRONT_END_URL = new InjectionToken<string>("Path to front end server");
+/** Injection token for the media storage URL.*/
 export const MEDIA_URL = new InjectionToken<string>("Path to medias storage");
+/** Injection token for the file storage URL.*/
 export const FILE_URL = new InjectionToken<string>("Path to files storage");
+/** Injection token for the temporary files storage URL.*/
 export const TMP_URL = new InjectionToken<string>("Path to tmp-files storage");
+/** Injection token for the WebP media format support flag.*/
 export const WEBP_SUPPORT = new InjectionToken<boolean>("WEBP media format support flag");

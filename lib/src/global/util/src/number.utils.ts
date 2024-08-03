@@ -16,6 +16,11 @@
 
 export namespace NumberUtils {
 
+  /**
+   * Generates a random integer.
+   * @param maxVal - The maximum value for the generated integer.
+   * @returns A random integer between 1 and maxVal.
+   */
   export function getRandomInt(maxVal?: number): number {
     if (!maxVal) {
       maxVal = Number.MAX_SAFE_INTEGER;

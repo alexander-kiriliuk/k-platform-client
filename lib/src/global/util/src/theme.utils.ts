@@ -18,9 +18,15 @@ import {SystemTheme} from "../../vars";
 
 export namespace ThemeUtils {
 
+  /** LS store key for theme variant. */
   const THEME_KEY = "theme_key";
+  /** Link ID for theme variant. */
   const THEME_ID = "app-theme-lnk";
 
+  /**
+   * Gets the current theme from local storage or system preferences.
+   * @returns The current theme.
+   */
   export function getCurrentTheme(): SystemTheme {
     const currTheme = localStorage.getItem(THEME_KEY) as SystemTheme;
     if (currTheme) {
@@ -29,12 +35,19 @@ export namespace ThemeUtils {
     return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   }
 
+  /**
+   * Sets the default theme based on local storage or system preferences.
+   */
   export function setDefaultTheme() {
     const theme = getCurrentTheme();
     const savedTheme = localStorage.getItem(THEME_KEY) as SystemTheme;
     setTheme(savedTheme ? savedTheme : theme);
   }
 
+  /**
+   * Sets the theme and updates the document link element.
+   * @param theme - The theme to set.
+   */
   export function setTheme(theme: SystemTheme) {
     const currentLink = document.getElementById(THEME_ID);
     if (currentLink) {

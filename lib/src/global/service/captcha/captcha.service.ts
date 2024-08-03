@@ -18,11 +18,18 @@ import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {CaptchaResponse} from "../../vars";
 
+/**
+ * Service for handling CAPTCHA operations.
+ */
 @Injectable()
 export class CaptchaService {
 
   private readonly http = inject(HttpClient);
 
+  /**
+   * Retrieves a CAPTCHA image.
+   * @returns An observable that emits the CAPTCHA response.
+   */
   getCaptcha() {
     return this.http.get<CaptchaResponse>("/captcha");
   }

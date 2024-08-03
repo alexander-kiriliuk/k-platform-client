@@ -16,6 +16,10 @@
 
 import {AbstractControl, ValidatorFn} from "@angular/forms";
 
+/**
+ * Validator to check if a string contains only Latin letters and numbers.
+ * @returns A validator function for the form control.
+ */
 export function onlyLatinLettersAndNumbersValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: unknown } | null => {
     const forbidden = !/^[A-Za-z0-9]+$/.test(control.value);
@@ -23,6 +27,10 @@ export function onlyLatinLettersAndNumbersValidator(): ValidatorFn {
   };
 }
 
+/**
+ * Validator to check if a string contains only Latin letters, numbers, and hyphens.
+ * @returns A validator function for the form control.
+ */
 export function onlyLatinLettersAndNumbersWithHyphensValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: unknown } | null => {
     const forbidden = !/^[A-Za-z0-9-]+$/.test(control.value);

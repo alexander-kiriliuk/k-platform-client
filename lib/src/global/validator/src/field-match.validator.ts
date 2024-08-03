@@ -16,6 +16,12 @@
 
 import {FormGroup, ValidatorFn} from "@angular/forms";
 
+/**
+ * Validator to check if two form fields match.
+ * @param firstCtrl - The name of the first form control.
+ * @param secondCtrl - The name of the second form control.
+ * @returns A validator function for the form group.
+ */
 export function fieldMatchValidator(firstCtrl: string, secondCtrl: string): ValidatorFn {
   return ((formGroup: FormGroup) => {
     const control = formGroup.controls[firstCtrl];

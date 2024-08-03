@@ -16,6 +16,12 @@
 
 export namespace StringUtils {
 
+  /**
+   * Replaces URL parameters with provided values.
+   * @param url - The URL containing parameters to replace.
+   * @param params - The values to replace the parameters with.
+   * @returns The URL with replaced parameters.
+   */
   export function fillParams(url: string, ...params: unknown[]) {
     let counter = -1;
     url.replace(/((:)(.*?))(\/|$)/g, (substring, args) => {
@@ -26,6 +32,11 @@ export namespace StringUtils {
     return url.replace(/\/+$/, "");
   }
 
+  /**
+   * Parses a parameter string into an object.
+   * @param filterString - The parameter string to parse.
+   * @returns An object containing the parsed parameters.
+   */
   export function parseParamsString(filterString: string): { [key: string]: string } {
     const filterObject: { [key: string]: string } = {};
     const filterParts = filterString.split("::");
@@ -39,6 +50,11 @@ export namespace StringUtils {
     return filterObject;
   }
 
+  /**
+   * Converts a parameter object into a string.
+   * @param filterObject - The object containing parameters.
+   * @returns A string representation of the parameters.
+   */
   export function stringifyParamsObject(filterObject: { [key: string]: string }): string {
     const filterParts = [];
     for (const key in filterObject) {
@@ -49,6 +65,11 @@ export namespace StringUtils {
     return "::" + filterParts.join("::");
   }
 
+  /**
+   * Removes excessive spaces from a string.
+   * @param str - The string to clean.
+   * @returns The cleaned string.
+   */
   export function clearSpaces(str: string) {
     return str?.replace(/[^\S\r\n]{2,}/g, " ");
   }

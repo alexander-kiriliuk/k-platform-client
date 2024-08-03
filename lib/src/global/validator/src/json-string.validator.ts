@@ -16,6 +16,10 @@
 
 import {AbstractControl, ValidatorFn} from "@angular/forms";
 
+/**
+ * Validator to check if a string is valid JSON.
+ * @returns A validator function for the form control.
+ */
 export function jsonStringValidator(): ValidatorFn {
   const jsonRegex = /^\{.*}$/;
   return (control: AbstractControl): { [key: string]: unknown } | null => {
