@@ -15,5 +15,8 @@
  */
 
 export namespace Object {
+  /**
+   * Preloader channel name for objects.
+   */
   export const PreloaderCn = "objects-cn";
 }

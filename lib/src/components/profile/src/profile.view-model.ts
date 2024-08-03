@@ -25,24 +25,38 @@ import {CurrentUser} from "../../../global/service";
 import {ToastData, ToastEvent, User} from "../../../global/vars";
 import {usePreloader} from "../../../modules/preloader/src/use-preloader";
 
-
+/**
+ * ViewModel for the ProfileComponent. Manages the user profile form and interaction with ProfileService.
+ */
 @Injectable()
 export class ProfileViewModel {
 
+  /** The form group representing the user profile. */
   readonly form = CreateProfileForm();
   private readonly ref = inject(DynamicDialogRef);
   private readonly profileService = inject(ProfileService);
   private readonly store = inject(Store);
   private readonly currentUser = inject(CurrentUser);
 
+  /**
+   * Initializes the ViewModel and patches the form with current user data.
+   */
   constructor() {
     this.form.patchValue(this.currentUser.data);
   }
 
+  /**
+   * Gets the preloader channel name.
+   * @returns The preloader channel name.
+   */
   get preloaderChannel() {
     return Profile.PreloaderCn;
   }
 
+  /**
+   * Saves the user profile by calling the ProfileService.
+   * Displays a preloader and handles errors by showing a toast message.
+   */
   save() {
     this.profileService.updateUser(this.form.value as User).pipe(
       usePreloader(this.store, this.preloaderChannel),

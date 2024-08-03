@@ -27,6 +27,10 @@ import {LocalizePipe} from "../../../modules/locale";
 import {MediaInputComponent} from "../../../modules/media";
 import {PreloaderDirective, PreloaderComponent} from "../../../modules/preloader";
 
+/**
+ * ProfileComponent is responsible for displaying and managing the user's profile.
+ * It uses several external modules and services for localization, form control, and change detection.
+ */
 @Component({
   selector: "profile",
   templateUrl: "./profile.component.html",
@@ -56,7 +60,11 @@ export class ProfileComponent {
   readonly vm = inject(ProfileViewModel);
   private readonly localizePipe = inject(LocalizePipe);
 
-  get roles() {
+  /**
+   * Gets the localized names of the roles.
+   * @returns {string[]} An array of localized role names.
+   */
+  get roles(): string[] {
     const res: string[] = [];
     this.vm.form.controls.roles.value.forEach(role => {
       res.push(this.localizePipe.transform(role.name, role.code) as string);

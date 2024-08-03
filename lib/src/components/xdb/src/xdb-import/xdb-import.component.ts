@@ -25,6 +25,9 @@ import {FileUploadModule} from "primeng/fileupload";
 import {XDBImportViewModel} from "./xdb-import.view-model";
 import {PreloaderComponent, PreloaderDirective} from "../../../../modules/preloader";
 
+/**
+ * Component for importing data into the XDB.
+ */
 @Component({
   selector: "xdb-import",
   standalone: true,
@@ -48,9 +51,14 @@ import {PreloaderComponent, PreloaderDirective} from "../../../../modules/preloa
 })
 export class XdbImportComponent {
 
+  /** Form control for the XML data to be imported. **/
   readonly ctrl: FormControl<string> = new FormControl("", [Validators.required]);
   readonly vm = inject(XDBImportViewModel);
 
+  /**
+   * Gets the URL for uploading files.
+   * @returns The upload URL.
+   */
   get uploadUrl() {
     return "/xdb/import-file";
   }

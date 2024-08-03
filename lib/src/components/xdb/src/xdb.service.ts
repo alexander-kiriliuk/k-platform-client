@@ -17,23 +17,42 @@
 import {inject, Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {XdbExportDto, XdbExportParams} from "./xdb.types";
+import {Observable} from "rxjs";
 
+/**
+ * Service for handling XDB import and export operations.
+ */
 @Injectable()
 export class XdbService {
 
   private readonly http = inject(HttpClient);
 
-  importData(data: string) {
+  /**
+   * Imports data into the XDB.
+   * @param {string} data - The XML data to be imported.
+   * @returns {Observable<void>} An observable for the import operation.
+   */
+  importData(data: string): Observable<void> {
     const validXml = this.ensureValidXml(data);
     return this.http.post<void>("/xdb/import", validXml, {
       headers: new HttpHeaders().append("Content-Type", "application/xml")
     });
   }
 
-  exportData(params: XdbExportParams) {
+  /**
+   * Exports data from the XDB.
+   * @param {XdbExportParams} params - The parameters for the export.
+   * @returns {Observable<XdbExportDto>} An observable containing the exported data file information.
+   */
+  exportData(params: XdbExportParams): Observable<XdbExportDto> {
     return this.http.post<XdbExportDto>("/xdb/export", params);
   }
 
+  /**
+   * Ensures the provided data is valid XML.
+   * @param {string} data - The data to be validated.
+   * @returns {string} The valid XML data.
+   */
   private ensureValidXml(data: string): string {
     const startTag = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><schema>";
     const endTag = "</schema>";

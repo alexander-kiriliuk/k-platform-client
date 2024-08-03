@@ -17,18 +17,30 @@
 import {FormArray, FormControl, FormGroup} from "@angular/forms";
 import { ExplorerColumn, ExplorerTab, ExplorerTarget } from "../../explorer";
 
+/**
+ * Form type for an object in the Explorer.
+ */
 type ObjectForm = {
   [K in keyof ExplorerTarget]: FormControl<ExplorerTarget[K]>;
 }
 
+/**
+ * Form type for a column in the Explorer.
+ */
 export type ColumnForm = {
   [K in keyof ExplorerColumn]: FormControl<ExplorerColumn[K]>;
 }
 
+/**
+ * Interface for a form representing a target in the Explorer, excluding the columns and actions properties.
+ */
 export interface TargetForm extends Omit<ObjectForm, "columns"/* | "actions"*/> {
   columns: FormArray<FormGroup<ColumnForm>>;
 }
 
+/**
+ * Form type for a tab in the Explorer.
+ */
 export type TabForm = {
   [K in keyof ExplorerTab]: FormControl<ExplorerTab[K]>;
 }

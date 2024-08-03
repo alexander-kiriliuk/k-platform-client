@@ -17,23 +17,43 @@
 import {FormControl} from "@angular/forms";
 import {TargetData} from "../../explorer";
 
+/**
+ * Interface representing parameters for the XDB export dialog.
+ */
 export interface XdbExportDialogParams {
+
+  /** Target data for the export. **/
   target: TargetData;
+  /** Entity to be exported. **/
   entity: { [k: string]: unknown };
 }
 
+/**
+ * Interface representing parameters for the XDB export.
+ */
 export interface XdbExportParams {
+  /** Target ID for the export. **/
   target: string;
+  /** Entity ID for the export. **/
   id: string;
+  /** Depth of the data export. **/
   depth: number;
+  /** Flag indicating whether files should be included in the export and add that to archive. **/
   useFiles: boolean;
+  /** List of properties to be excluded from the export. **/
   excludeProperties: string[];
 }
 
+/**
+ * Type representing the form controls for the XDB export.
+ */
 export type XdbExportForm = {
   [K in keyof XdbExportParams]: FormControl<XdbExportParams[K]>;
 }
 
+/**
+ * Type representing the DTO for the XDB export response.
+ */
 export type XdbExportDto = {
   file: string;
 }

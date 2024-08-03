@@ -39,6 +39,9 @@ import {ExplorerService, TargetData} from "../../../../components/explorer";
 import {usePreloader} from "../../../../modules/preloader/src/use-preloader";
 import createColumnForm = ObjectDetails.createColumnForm;
 
+/**
+ * Component for managing and displaying the details of an object.
+ */
 @Component({
   selector: "object-details",
   standalone: true,
@@ -72,11 +75,15 @@ import createColumnForm = ObjectDetails.createColumnForm;
 })
 export class ObjectDetailsComponent {
 
-  readonly vm = inject(ObjectDetailsViewModel);
+  /** Observable for the target data. **/
   readonly target$: Observable<TargetData>;
+  readonly vm = inject(ObjectDetailsViewModel);
   private readonly explorerService = inject(ExplorerService);
   private readonly store = inject(Store);
 
+  /**
+   * Sets up initial state and loads the target data.
+   */
   constructor() {
     this.target$ = this.explorerService.getTarget(this.vm.target).pipe(
       usePreloader(this.store, this.vm.preloaderChannel),

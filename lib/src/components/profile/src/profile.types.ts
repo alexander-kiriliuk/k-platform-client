@@ -17,6 +17,10 @@
 import {FormControl} from "@angular/forms";
 import {User} from "../../../global/vars";
 
+
+/**
+ * Type definition for the user form.
+ */
 export type UserForm = {
   [K in keyof User]: FormControl<User[K]>;
 }

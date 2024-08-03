@@ -16,6 +16,7 @@
 
 export namespace Xdb {
 
+  /** Preloader channel name. **/
   export const PreloaderCn = "xdb-cn";
 
 }

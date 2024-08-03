@@ -33,7 +33,9 @@ import {
   onlyLatinLettersAndNumbersWithHyphensValidator
 } from "../../../../global/validator";
 
-
+/**
+ * JSON-column data handler.
+ */
 function handleJsonColumn(data: unknown): object {
   if (data && typeof data === "object") {
     return JSON.stringify(data) as unknown as object;
@@ -43,8 +45,15 @@ function handleJsonColumn(data: unknown): object {
 
 export namespace ObjectDetails {
 
+  /**
+   * Preloader channel name for object details.
+   */
   export const PreloaderCn = "objects-det-cn";
 
+  /**
+   * Creates a form group for a target object.
+   * @returns {FormGroup<TargetForm>} The form group for the target.
+   */
   export function createTargetForm(): FormGroup<TargetForm> {
     return new FormGroup<TargetForm>({
       description: new FormControl<LocalizedString[]>(null),
@@ -64,6 +73,11 @@ export namespace ObjectDetails {
     });
   }
 
+  /**
+   * Creates a form group for a column.
+   * @param payload The column data.
+   * @returns {FormGroup<ColumnForm>} The form group for the column.
+   */
   export function createColumnForm(payload: ExplorerColumn): FormGroup<ColumnForm> {
     return new FormGroup<ColumnForm>({
       id: new FormControl<string>({value: payload.id, disabled: true}),
@@ -95,6 +109,11 @@ export namespace ObjectDetails {
     });
   }
 
+  /**
+   * Creates a form group for a tab.
+   * @param target The target object.
+   * @returns {FormGroup<TabForm>} The form group for the tab.
+   */
   export function createTabForm(target: ExplorerTarget): FormGroup<TabForm> {
     return new FormGroup<TabForm>({
       id: new FormControl<string>(null, [

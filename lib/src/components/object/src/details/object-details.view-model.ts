@@ -39,11 +39,15 @@ import createTargetForm = ObjectDetails.createTargetForm;
 import createColumnForm = ObjectDetails.createColumnForm;
 import createTabForm = ObjectDetails.createTabForm;
 
-
+/**
+ * ViewModel for managing the details of an object.
+ */
 @Injectable()
 export class ObjectDetailsViewModel {
 
+  /** Key for the new column dialog. */
   readonly newColumnDialogKey = "newColumnDialog";
+  /** Key for the new tab dialog. */
   readonly newTabDialogKey = "newTabDialog";
   private readonly explorerService = inject(ExplorerService);
   private readonly config = inject(DynamicDialogConfig);
@@ -54,29 +58,52 @@ export class ObjectDetailsViewModel {
   private readonly store = inject(Store);
   private readonly ts = inject(TranslocoService);
   private readonly cdr = inject(ChangeDetectorRef);
+  /** Form for editing a target data */
   readonly targetForm = createTargetForm();
+  /** Form for editing a tab data */
   tabForm: FormGroup<TabForm>;
+  /** Form control for new column name */
   newColName: FormControl<string> = new FormControl(null, [
     Validators.required,
     onlyLatinLettersAndNumbersValidator()
   ]);
 
+  /**
+   * Gets the identifier for the preloader channel.
+   * @returns The preloader channel identifier.
+   */
   get preloaderChannel() {
     return ObjectDetails.PreloaderCn;
   }
 
+  /**
+   * Gets the target data from the dialog configuration.
+   * @returns The target identifier.
+   */
   get target() {
     return this.config.data as string;
   }
 
+  /**
+   * Removes a column from the target form.
+   * @param columnIndex The index of the column to remove.
+   */
   removeColumn(columnIndex: number) {
     this.targetForm.controls.columns.removeAt(columnIndex);
   }
 
+  /**
+   * Clears the tab value of a column form.
+   * @param colForm The column form to clear the tab value for.
+   */
   clearColumnTab(colForm: FormGroup<ColumnForm>) {
     colForm.controls.tab.reset();
   }
 
+  /**
+   * Opens a dialog to select a tab for a column.
+   * @param colForm The column form to set the tab value for.
+   */
   openTabFinder(colForm: FormGroup<ColumnForm>) {
     this.explorerService.getTarget("ExplorerTabEntity").pipe(
       usePreloader(this.store, this.preloaderChannel),
@@ -102,6 +129,9 @@ export class ObjectDetailsViewModel {
     });
   }
 
+  /**
+   * Creates a new tab and adds it to the target form.
+   */
   createTab() {
     this.tabForm = createTabForm({target: this.targetForm.value.target} as ExplorerTarget);
     this.confirmationService.confirm({
@@ -128,6 +158,9 @@ export class ObjectDetailsViewModel {
     });
   }
 
+  /**
+   * Saves the current state of the target form.
+   */
   saveObject() {
     this.explorerService.saveTarget(this.targetForm.getRawValue()).pipe(
       usePreloader(this.store, this.preloaderChannel),
@@ -148,6 +181,9 @@ export class ObjectDetailsViewModel {
     });
   }
 
+  /**
+   * Adds a new virtual column to the target form.
+   */
   addVirtualColumn() {
     this.newColName.reset();
     this.confirmationService.confirm({
@@ -180,6 +216,10 @@ export class ObjectDetailsViewModel {
     });
   }
 
+  /**
+   * Opens the column editor for a specific column.
+   * @param colForm The column form to edit.
+   */
   openColumnEditor(colForm: FormGroup<ColumnForm>) {
     import("./column-editor/object-details-column-editor.component").then(c => {
       this.dialogService.open(c.ObjectDetailsColumnEditorComponent, {

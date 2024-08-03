@@ -13,6 +13,9 @@ import {XdbExportDialogViewModel} from "./xdb-export-dialog.view-model";
 import {LocalizePipe} from "../../../../modules/locale";
 import {PreloaderComponent, PreloaderDirective} from "../../../../modules/preloader";
 
+/**
+ * Component for displaying the XDB export dialog.
+ */
 @Component({
   selector: "xdb-export-dialog",
   standalone: true,
@@ -38,11 +41,15 @@ import {PreloaderComponent, PreloaderDirective} from "../../../../modules/preloa
 })
 export class XdbExportDialogComponent {
 
+  /** List of properties available for export. **/
+  readonly properties: Array<{ name: string, code: string }> = [];
+  readonly vm = inject(XdbExportDialogViewModel);
   private readonly config = inject(DynamicDialogConfig);
   private readonly localizePipe = inject(LocalizePipe);
-  readonly vm = inject(XdbExportDialogViewModel);
-  readonly properties: Array<{ name: string, code: string }> = [];
 
+  /**
+   * Initializes the component, setting up form controls and localizing column names.
+   */
   constructor() {
     this.vm.form.controls.id.setValue(this.data.entity[this.data.target.primaryColumn.property] as string);
     this.vm.form.controls.target.setValue(this.data.target.entity.target);
@@ -54,6 +61,10 @@ export class XdbExportDialogComponent {
     });
   }
 
+  /**
+   * Gets the data passed to the dialog.
+   * @returns The parameters for the export dialog.
+   */
   get data() {
     return this.config.data as XdbExportDialogParams;
   }

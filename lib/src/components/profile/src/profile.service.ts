@@ -19,25 +19,50 @@ import {HttpClient} from "@angular/common/http";
 import {StringUtils} from "../../../global/util";
 import {User} from "../../../global/vars";
 import fillParams = StringUtils.fillParams;
+import {Observable} from "rxjs";
 
+/**
+ * Service for managing user profiles.
+ */
 @Injectable({providedIn: "root"})
 export class ProfileService {
 
   private readonly http = inject(HttpClient);
 
-  getUser(id?: number) {
+  /**
+   * Retrieves user data by ID.
+   * @param {number} [id] - The ID of the user.
+   * @returns {Observable<User>} An observable containing the user data.
+   */
+  getUser(id?: number): Observable<User> {
     return this.http.get<User>(fillParams("/profile/:id", id));
   }
 
-  updateUser(user: User, id?: number) {
+  /**
+   * Updates user data.
+   * @param {User} user - The user data to update.
+   * @param {number} [id] - The ID of the user.
+   * @returns {Observable<User>} An observable containing the updated user data.
+   */
+  updateUser(user: User, id?: number): Observable<User> {
     return this.http.patch<User>(fillParams("/profile/:id", id), user);
   }
 
-  removeUser(id: number) {
+  /**
+   * Removes a user by ID.
+   * @param {number} id - The ID of the user to remove.
+   * @returns {Observable<User>} An observable for the delete operation.
+   */
+  removeUser(id: number): Observable<User> {
     return this.http.delete<User>(fillParams("/profile/:id", id));
   }
 
-  createUser(user: User) {
+  /**
+   * Creates a new user.
+   * @param {User} user - The user data to create.
+   * @returns {Observable<User>} An observable containing the created user data.
+   */
+  createUser(user: User): Observable<User> {
     return this.http.post<User>("/profile", user);
   }
 

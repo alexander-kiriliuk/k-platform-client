@@ -34,6 +34,9 @@ import {Store} from "../../../modules/store";
 import {DashboardEvent} from "../../../global/vars";
 import {usePreloader} from "../../../modules/preloader/src/use-preloader";
 
+/**
+ * Component for managing and displaying objects within the Explorer.
+ */
 @Component({
   selector: "object",
   standalone: true,
@@ -66,6 +69,9 @@ export class ObjectComponent {
   readonly ctrl: FormControl<string> = new FormControl();
   private targetsCache: ExplorerTarget[] = [];
 
+  /**
+   * Observable for the filtered list of targets.
+   */
   readonly targetList$ = this.ctrl.valueChanges.pipe(
     startWith(""),
     map(value => value.trim().toLowerCase()),
@@ -87,14 +93,25 @@ export class ObjectComponent {
     })
   );
 
+  /**
+   * Gets the identifier for the preloader channel.
+   * @returns The preloader channel identifier.
+   */
   get preloaderChannel() {
     return Object.PreloaderCn;
   }
 
+  /**
+   * Sets up initial state and emits an event to update the dashboard header.
+   */
   constructor() {
     this.store.emit<string>(DashboardEvent.PatchHeader, this.ts.translate("object.title"));
   }
 
+  /**
+   * Displays the details of a specific object in a dialog.
+   * @param item The object to display.
+   */
   showObjectDetails(item: ExplorerTarget) {
     import("./details/object-details.component").then(c => {
       this.dialogService.open(c.ObjectDetailsComponent, {
@@ -108,7 +125,13 @@ export class ObjectComponent {
     });
   }
 
-  private findTarget(targetList: ExplorerTarget[], val: string) {
+  /**
+   * Filters the list of targets based on a search value.
+   * @param targetList The list of targets to filter.
+   * @param val The search value.
+   * @returns {ExplorerTarget[]} The filtered list of targets.
+   */
+  private findTarget(targetList: ExplorerTarget[], val: string): ExplorerTarget[] {
     if (!val) {
       return targetList;
     }

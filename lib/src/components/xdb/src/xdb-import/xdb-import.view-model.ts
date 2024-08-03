@@ -26,7 +26,9 @@ import {XdbService} from "../xdb.service";
 import {PreloaderEvent} from "../../../../modules/preloader";
 import {usePreloader} from "../../../../modules/preloader/src/use-preloader";
 
-
+/**
+ * ViewModel for the XDB import component. Manages file upload and import operations.
+ */
 @Injectable()
 export class XDBImportViewModel {
 
@@ -34,18 +36,32 @@ export class XDBImportViewModel {
   private readonly xdbService = inject(XdbService);
   private readonly store = inject(Store);
 
+  /**
+   * Initializes the ViewModel and sets the header title.
+   */
   constructor() {
     this.store.emit<string>(DashboardEvent.PatchHeader, this.ts.translate("xdb.title"));
   }
 
+  /**
+   * Gets the preloader channel name.
+   * @returns The preloader channel name.
+   */
   get preloaderChannel() {
     return Xdb.PreloaderCn;
   }
 
+  /**
+   * Handles actions before uploading a file.
+   */
   onBeforeUploadFile() {
     this.store.emit(PreloaderEvent.Show, this.preloaderChannel);
   }
 
+  /**
+   * Handles actions after successfully uploading a file.
+   * @param {FileUploadEvent} payload - The file upload event payload.
+   */
   onUploadFile(payload: FileUploadEvent) {
     this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
     this.store.emit<ToastData>(ToastEvent.Success, {
@@ -53,6 +69,10 @@ export class XDBImportViewModel {
     });
   }
 
+  /**
+   * Handles errors during file upload.
+   * @param {FileUploadErrorEvent} payload - The file upload error event payload.
+   */
   onErrorFileUpload(payload: FileUploadErrorEvent) {
     this.store.emit(PreloaderEvent.Hide, this.preloaderChannel);
     this.store.emit<ToastData>(ToastEvent.Error, {
@@ -60,6 +80,10 @@ export class XDBImportViewModel {
     });
   }
 
+  /**
+   * Imports data into the XDB system.
+   * @param {string} value - The XML data to be imported.
+   */
   doImport(value: string) {
     this.xdbService.importData(value).pipe(
       usePreloader(this.store, this.preloaderChannel),

@@ -13,6 +13,9 @@ import {RefInputComponent} from "../../../../../modules/ref-input";
 import {ColumnForm} from "../../object.types";
 import {Explorer, ExplorerService} from "../../../../explorer";
 
+/**
+ * Component for editing the details of a column.
+ */
 @Component({
   selector: "object-details-column-editor",
   standalone: true,
@@ -37,21 +40,32 @@ import {Explorer, ExplorerService} from "../../../../explorer";
 })
 export class ObjectDetailsColumnEditorComponent {
 
-
+  /** List of type suggestions for the auto-complete input. **/
+  suggestions: string[] = [];
   private readonly config = inject(DynamicDialogConfig);
   private readonly ref = inject(DynamicDialogRef);
-  suggestions: string[] = [];
   private readonly cdr = inject(ChangeDetectorRef);
 
-  get colForm() {
+  /**
+   * Gets the column form from the dialog configuration.
+   * @returns {FormGroup<ColumnForm>} The column form.
+   */
+  get colForm(): FormGroup<ColumnForm> {
     return this.config.data as FormGroup<ColumnForm>;
   }
 
+  /**
+   * Searches for column types based on user input.
+   * @param e The auto-complete event containing the search query.
+   */
   searchType(e: AutoCompleteCompleteEvent) {
     this.suggestions = Explorer.Types.filter(s => s.startsWith(e.query.trim()));
     this.cdr.markForCheck();
   }
 
+  /**
+   * Saves the column form and closes the dialog.
+   */
   save() {
     this.ref.close(this.colForm);
   }

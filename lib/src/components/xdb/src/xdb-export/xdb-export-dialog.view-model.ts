@@ -28,10 +28,16 @@ import {TMP_URL, ToastData, ToastEvent} from "../../../../global/vars";
 import {usePreloader} from "../../../../modules/preloader/src/use-preloader";
 import createForm = XdbExportDialog.createForm;
 
+/**
+ * ViewModel for the XDB export dialog. Manages the export form and operations.
+ */
 @Injectable()
 export class XdbExportDialogViewModel {
 
+
+  /** The form group representing the export parameters. **/
   readonly form = createForm();
+  /** Temporary URL for accessing exported files. **/
   private readonly tmpUrl = inject(TMP_URL);
   private readonly config = inject(DynamicDialogConfig);
   private readonly ref = inject(DynamicDialogRef);
@@ -39,14 +45,25 @@ export class XdbExportDialogViewModel {
   private readonly xdbService = inject(XdbService);
   private readonly ts = inject(TranslocoService);
 
+  /**
+   * Gets the data for the export dialog.
+   * @returns The export dialog parameters.
+   */
   get data() {
     return this.config.data as XdbExportDialogParams;
   }
 
+  /**
+   * Gets the preloader channel name.
+   * @returns The preloader channel name.
+   */
   get preloaderChannel() {
     return Xdb.PreloaderCn;
   }
 
+  /**
+   * Initiates the export process.
+   */
   export() {
     this.xdbService.exportData(this.form.getRawValue()).pipe(
       usePreloader(this.store, this.preloaderChannel),

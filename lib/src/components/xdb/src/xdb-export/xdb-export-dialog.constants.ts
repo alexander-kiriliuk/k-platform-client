@@ -19,6 +19,10 @@ import {FormControl, FormGroup} from "@angular/forms";
 
 export namespace XdbExportDialog {
 
+  /**
+   * Creates a form group for the XDB export parameters.
+   * @returns {FormGroup<XdbExportForm>} The form group for the export parameters.
+   */
   export function createForm(): FormGroup<XdbExportForm> {
     return new FormGroup<XdbExportForm>({
       target: new FormControl<string>(null),

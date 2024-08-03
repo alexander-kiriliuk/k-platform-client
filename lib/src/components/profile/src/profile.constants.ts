@@ -19,7 +19,11 @@ import {UserForm} from "./profile.types";
 import {Media} from "../../../modules/media";
 import {UserRole} from "../../../global/vars";
 
-export function CreateProfileForm() {
+/**
+ * Creates a form group for the user profile.
+ * @returns {FormGroup<UserForm>} A FormGroup instance representing the user form.
+ */
+export function CreateProfileForm(): FormGroup<UserForm> {
   return new FormGroup<UserForm>({
     id: new FormControl<string>({disabled: true, value: null}),
     login: new FormControl<string>({disabled: true, value: null}),
@@ -36,6 +40,9 @@ export function CreateProfileForm() {
 
 export namespace Profile {
 
+  /**
+   * Preloader channel name.
+   */
   export const PreloaderCn = "profile-cn";
 
 }
