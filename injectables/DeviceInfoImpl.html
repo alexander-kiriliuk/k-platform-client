@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Service to provide current user device information.</p>
+
+            </p>
 
 
 
@@ -190,7 +197,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">lib/src/modules/device/src/device-info.impl.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">lib/src/modules/device/src/device-info.impl.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -225,10 +232,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">lib/src/modules/device/src/device-info.impl.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">lib/src/modules/device/src/device-info.impl.ts:29</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indicates whether the device is a desktop.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -253,10 +266,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">lib/src/modules/device/src/device-info.impl.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">lib/src/modules/device/src/device-info.impl.ts:31</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indicates whether the device is a tablet.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -280,7 +299,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">lib/src/modules/device/src/device-info.impl.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">lib/src/modules/device/src/device-info.impl.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -309,9 +328,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">lib/src/modules/device/src/device-info.impl.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">lib/src/modules/device/src/device-info.impl.ts:43</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets whether the device is a desktop.</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -331,9 +359,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">lib/src/modules/device/src/device-info.impl.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">lib/src/modules/device/src/device-info.impl.ts:51</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets whether the device is a tablet.</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -344,12 +381,18 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {DeviceDetectorService} from &quot;ngx-device-detector&quot;;
 import {inject, Injectable} from &quot;@angular/core&quot;;
-import {Device} from &quot;./device.constants&quot;;
 
+import {Device} from &quot;./device.types&quot;;
+
+/**
+ * Service to provide current user device information.
+ */
 @Injectable()
 export class DeviceInfoImpl implements Device {
 
+  /** Indicates whether the device is a desktop. */
   private readonly _isDesktop: boolean;
+  /** Indicates whether the device is a tablet. */
   private readonly _isTablet: boolean;
   private readonly ds &#x3D; inject(DeviceDetectorService);
 
@@ -358,10 +401,18 @@ export class DeviceInfoImpl implements Device {
     this._isTablet &#x3D; this.ds.isTablet();
   }
 
+  /**
+   * Gets whether the device is a desktop.
+   * @returns True if the device is a desktop, false otherwise.
+   */
   get isDesktop() {
     return this._isDesktop;
   }
 
+  /**
+   * Gets whether the device is a tablet.
+   * @returns True if the device is a tablet, false otherwise.
+   */
   get isTablet() {
     return this._isTablet;
   }

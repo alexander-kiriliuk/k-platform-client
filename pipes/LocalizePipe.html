@@ -123,6 +123,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Pipe for localizing values based on the active language.</p>
+
+            </p>
 
 
         <section data-compodoc="block-metadata">
@@ -166,14 +173,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="30"
-                                    class="link-to-prism">lib/src/modules/locale/src/localize.pipe.ts:30</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">lib/src/modules/locale/src/localize.pipe.ts:32</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Transforms the input value to the corresponding localized value.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -251,7 +260,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">lib/src/modules/locale/src/localize.pipe.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">lib/src/modules/locale/src/localize.pipe.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -269,6 +278,7 @@ import {LocalizedMedia, LocalizedString} from &quot;./locale.types&quot;;
 import {TranslocoService} from &quot;@ngneat/transloco&quot;;
 import {Media} from &quot;../../media&quot;;
 
+/** Pipe for localizing values based on the active language. */
 @Pipe({
   name: &quot;localize&quot;,
   standalone: true
@@ -277,6 +287,7 @@ export class LocalizePipe implements PipeTransform {
 
   private readonly ts &#x3D; inject(TranslocoService);
 
+  /** Transforms the input value to the corresponding localized value. */
   transform(incomeValue: Array&lt;LocalizedString | LocalizedMedia&gt;, fallbackValue?: string): string | Media {
     const lang &#x3D; this.ts.getActiveLang();
     const res &#x3D; incomeValue?.find(v &#x3D;&gt; v.lang.id &#x3D;&#x3D;&#x3D; lang);

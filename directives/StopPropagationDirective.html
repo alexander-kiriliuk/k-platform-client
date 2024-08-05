@@ -118,6 +118,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Directive to stop the propagation of click events.</p>
+
+            </p>
 
 
 
@@ -213,12 +220,19 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">lib/src/modules/events/src/stop-propagation.directive.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">lib/src/modules/events/src/stop-propagation.directive.ts:30</a></div>
                 </td>
             </tr>
 
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Listens to click events and stops their propagation.</p>
+</div>
+
+                </td>
+            </tr>
         </tbody>
     </table>
 </section>
@@ -256,14 +270,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">lib/src/modules/events/src/stop-propagation.directive.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="30"
+                                    class="link-to-prism">lib/src/modules/events/src/stop-propagation.directive.ts:30</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Listens to click events and stops their propagation.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -312,12 +328,16 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Directive, HostListener} from &quot;@angular/core&quot;;
 
+/**
+ * Directive to stop the propagation of click events.
+ */
 @Directive({
   selector: &quot;[stop-propagation]&quot;,
   standalone: true
 })
 export class StopPropagationDirective {
 
+  /** Listens to click events and stops their propagation. */
   @HostListener(&quot;click&quot;, [&quot;$event&quot;])
   onClick(e: Event): void {
     e.stopPropagation();

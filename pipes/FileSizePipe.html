@@ -123,6 +123,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Pipe to transform file size into a human-readable format.</p>
+
+            </p>
 
 
         <section data-compodoc="block-metadata">
@@ -166,14 +173,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="25"
-                                    class="link-to-prism">lib/src/modules/file/src/file-size.pipe.ts:25</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">lib/src/modules/file/src/file-size.pipe.ts:33</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Transforms a file size into a human-readable format (KB or MB).</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -184,6 +193,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -198,6 +208,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>The file size in bytes.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -207,7 +221,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The human-readable file size.</p>
+
                             </div>
                 </td>
             </tr>
@@ -221,12 +236,20 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Pipe, PipeTransform} from &quot;@angular/core&quot;;
 
+/**
+ * Pipe to transform file size into a human-readable format.
+ */
 @Pipe({
   name: &quot;fileSize&quot;,
   standalone: true
 })
 export class FileSizePipe implements PipeTransform {
 
+  /**
+   * Transforms a file size into a human-readable format (KB or MB).
+   * @param value The file size in bytes.
+   * @returns {string} The human-readable file size.
+   */
   transform(value: number): string {
     if (value &gt; 1024 * 500) {
       return (value / (1024 * 1024)).toFixed(2) + &quot; MB&quot;;

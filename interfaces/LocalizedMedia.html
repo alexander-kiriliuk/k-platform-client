@@ -126,6 +126,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface representing localized media.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -314,6 +321,7 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Media} from &quot;../../media&quot;;
 
+/** Interface representing a language. */
 export interface Language {
   id: string;
   code: string;
@@ -321,6 +329,7 @@ export interface Language {
   icon: Media;
 }
 
+/** Interface representing a localized string. */
 export interface LocalizedString {
   id: number;
   code: string;
@@ -328,6 +337,7 @@ export interface LocalizedString {
   value: string;
 }
 
+/** Interface representing localized media. */
 export interface LocalizedMedia {
   id: number;
   code: string;
