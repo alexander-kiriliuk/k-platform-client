@@ -38,6 +38,9 @@ import {Store} from "../../../store";
 import {SectionDialogConfig, ExplorerService} from "../../../../components/explorer";
 import {ToastData, ToastEvent} from "../../../../global/vars";
 
+/**
+ * Component for file input, allowing users to upload files with various options.
+ */
 @Component({
   selector: "file-input",
   standalone: true,
@@ -62,14 +65,23 @@ import {ToastData, ToastEvent} from "../../../../global/vars";
 })
 export class FileInputComponent implements ControlValueAccessor, OnChanges {
 
+  /** Emits the selected file(s). */
   changeFile = output<KFile | KFile[]>();
+  /** Placeholder text for the file input. */
   placeholder = input<string>();
+  /** Indicates whether multiple files can be selected. */
   multi = input<boolean>();
+  /** Indicates whether the gallery feature is enabled. */
   galleryEnabled = input(true);
+  /** Indicates whether the uploaded files are public. */
   isPublic = input(true);
+  /** Indicates the loading state of the target. */
   targetLoadingState: boolean;
+  /** Indicates whether the input is disabled. */
   disabled = false;
+  /** Holds the uploaded file(s) data. */
   data: KFile | KFile[];
+  /** Holds the list of uploaded files. */
   uploadedFiles: File[];
   private readonly store = inject(Store);
   private readonly cdr = inject(ChangeDetectorRef);
@@ -78,14 +90,17 @@ export class FileInputComponent implements ControlValueAccessor, OnChanges {
   private readonly localizePipe = inject(LocalizePipe);
   private readonly explorerService = inject(ExplorerService);
 
+  /** Gets the upload URL based on the public status. */
   get uploadUrl() {
     return `/file/upload?public=${this.isPublic()}`;
   }
 
+  /** Gets the selected files in multi-select mode. */
   get multiValue() {
     return this.data as KFile[];
   }
 
+  /** Gets the selected file in single-select mode. */
   get singleValue() {
     return this.data as KFile;
   }
@@ -96,6 +111,7 @@ export class FileInputComponent implements ControlValueAccessor, OnChanges {
     }
   }
 
+  /** Handles changes to input properties. */
   writeValue(res: KFile | KFile[]) {
     if (!res) {
       return;
@@ -104,6 +120,7 @@ export class FileInputComponent implements ControlValueAccessor, OnChanges {
     this.cdr.markForCheck();
   }
 
+  /** Handles the file upload event. */
   onUpload(event: FileUploadEvent) {
     this.uploadedFiles = [];
     for (const file of event.files) {
@@ -126,12 +143,14 @@ export class FileInputComponent implements ControlValueAccessor, OnChanges {
     }, 3000);
   }
 
+  /** Handles file upload error events. */
   onUploadError(e: FileUploadErrorEvent) {
     this.store.emit<ToastData>(ToastEvent.Error, {
       title: this.ts.translate("msg.error"), message: e.error.error?.message || e.error.error?.status
     });
   }
 
+  /** Removes uploaded media from the list. */
   removeUploadedMedia(idx: number) {
     if (!this.multi()) {
       this.data = undefined;
@@ -142,6 +161,7 @@ export class FileInputComponent implements ControlValueAccessor, OnChanges {
     this.cdr.markForCheck();
   }
 
+  /** Opens the file section dialog for file search and selection. */
   openFilesSection() {
     this.targetLoadingState = true;
     this.explorerService.getTarget("FileEntity", "section").pipe(finalize(() => {
@@ -173,6 +193,7 @@ export class FileInputComponent implements ControlValueAccessor, OnChanges {
     });
   }
 
+  /** Synchronizes the state with the form control. */
   synchronize() {
     this.onChange(this.data);
     this.changeFile.emit(this.data);

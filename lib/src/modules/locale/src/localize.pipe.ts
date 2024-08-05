@@ -19,6 +19,7 @@ import {LocalizedMedia, LocalizedString} from "./locale.types";
 import {TranslocoService} from "@ngneat/transloco";
 import {Media} from "../../media";
 
+/** Pipe for localizing values based on the active language. */
 @Pipe({
   name: "localize",
   standalone: true
@@ -27,6 +28,7 @@ export class LocalizePipe implements PipeTransform {
 
   private readonly ts = inject(TranslocoService);
 
+  /** Transforms the input value to the corresponding localized value. */
   transform(incomeValue: Array<LocalizedString | LocalizedMedia>, fallbackValue?: string): string | Media {
     const lang = this.ts.getActiveLang();
     const res = incomeValue?.find(v => v.lang.id === lang);

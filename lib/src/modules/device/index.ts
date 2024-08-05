@@ -17,3 +17,4 @@
 
 export * from "./src/device.constants";
 export * from "./src/device-info.impl";
+export {Device} from "./src/device.types";

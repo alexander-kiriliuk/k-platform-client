@@ -16,12 +16,16 @@
 
 import {Directive, HostListener} from "@angular/core";
 
+/**
+ * Directive to prevent the default action of click events.
+ */
 @Directive({
   selector: "[prevent-default]",
   standalone: true
 })
 export class PreventDefaultDirective {
 
+  /** Listens to click events and prevents their default action. */
   @HostListener("click", ["$event"])
   onClick(e: Event): void {
     e.preventDefault();

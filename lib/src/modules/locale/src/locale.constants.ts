@@ -18,4 +18,5 @@
 import {InjectionToken} from "@angular/core";
 import {Language} from "./locale.types";
 
+/** Injection token for available language codes. */
 export const AVAIL_LANGS = new InjectionToken<Language[]>("Available lang-codes");

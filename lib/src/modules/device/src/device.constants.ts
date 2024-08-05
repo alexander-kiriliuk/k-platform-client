@@ -15,10 +15,9 @@
  */
 
 import {InjectionToken} from "@angular/core";
+import {Device} from "./device.types";
 
-export interface Device {
-  isDesktop: boolean;
-  isTablet: boolean;
-}
-
+/**
+ * Injection token for the current device info.
+ */
 export const DEVICE = new InjectionToken<Device>("Current device info");

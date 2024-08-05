@@ -19,6 +19,7 @@
 
 import {Media} from "../../media";
 
+/** Interface representing a language. */
 export interface Language {
   id: string;
   code: string;
@@ -26,6 +27,7 @@ export interface Language {
   icon: Media;
 }
 
+/** Interface representing a localized string. */
 export interface LocalizedString {
   id: number;
   code: string;
@@ -33,6 +35,7 @@ export interface LocalizedString {
   value: string;
 }
 
+/** Interface representing localized media. */
 export interface LocalizedMedia {
   id: number;
   code: string;

@@ -30,6 +30,10 @@ import {TabViewModule} from "primeng/tabview";
 import {MediaComponent, MediaInputComponent, MediaTypeVariant} from "../../../media";
 import {NumberUtils} from "../../../../global/util";
 
+
+/**
+ * Component for localizing media input. Allow to use images for different locales.
+ */
 @Component({
   selector: "localize-media-input",
   standalone: true,
@@ -55,12 +59,19 @@ import {NumberUtils} from "../../../../global/util";
   ]
 })
 export class LocalizeMediaInputComponent implements ControlValueAccessor {
+  /** Placeholder text for the input. */
   placeholder = input<string>();
+  /** Indicates the required media type. */
   mediaType = input.required<MediaTypeVariant>();
+  /** Holds the localized media data. */
   resData: { [k: string]: LocalizedMedia };
+  /** Indicates whether the input is disabled. */
   disabled = false;
+  /** Active tab index. */
   activeTab = 0;
+  /** Unique identifier for the input tag. */
   readonly id = `lsi-${NumberUtils.getRandomInt()}`;
+  /** List of available languages. */
   readonly langList: Language[] = [];
   private readonly availableLangs = inject(AVAIL_LANGS);
   private readonly ts = inject(TranslocoService);
@@ -75,6 +86,7 @@ export class LocalizeMediaInputComponent implements ControlValueAccessor {
     }
   }
 
+  /** Writes the localized media data to the control. */
   writeValue(res: LocalizedMedia[]) {
     if (!res) {
       this.initEmptyValues();
@@ -88,6 +100,7 @@ export class LocalizeMediaInputComponent implements ControlValueAccessor {
     this.cdr.markForCheck();
   }
 
+  /** Synchronizes the localized media data with the form control. */
   synchronize() {
     const res: LocalizedMedia[] = [];
     for (const k in this.resData) {
@@ -115,6 +128,7 @@ export class LocalizeMediaInputComponent implements ControlValueAccessor {
   onTouched = () => {
   };
 
+  /** Initializes empty values for the localized media data. */
   private initEmptyValues() {
     this.resData = {};
     for (const lang of this.availableLangs) {

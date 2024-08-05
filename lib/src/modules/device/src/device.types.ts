@@ -14,28 +14,10 @@
  * limitations under the License.
  */
 
-import {Pipe, PipeTransform} from "@angular/core";
-
 /**
- * Pipe to transform file size into a human-readable format.
+ * Interface representing device information.
  */
-@Pipe({
-  name: "fileSize",
-  standalone: true
-})
-export class FileSizePipe implements PipeTransform {
-
-  /**
-   * Transforms a file size into a human-readable format (KB or MB).
-   * @param value The file size in bytes.
-   * @returns {string} The human-readable file size.
-   */
-  transform(value: number): string {
-    if (value > 1024 * 500) {
-      return (value / (1024 * 1024)).toFixed(2) + " MB";
-    } else {
-      return (value / 1024).toFixed(2) + " KB";
-    }
-  }
-
+export interface Device {
+  isDesktop: boolean;
+  isTablet: boolean;
 }

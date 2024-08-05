@@ -16,12 +16,18 @@
 
 import {DeviceDetectorService} from "ngx-device-detector";
 import {inject, Injectable} from "@angular/core";
-import {Device} from "./device.constants";
 
+import {Device} from "./device.types";
+
+/**
+ * Service to provide current user device information.
+ */
 @Injectable()
 export class DeviceInfoImpl implements Device {
 
+  /** Indicates whether the device is a desktop. */
   private readonly _isDesktop: boolean;
+  /** Indicates whether the device is a tablet. */
   private readonly _isTablet: boolean;
   private readonly ds = inject(DeviceDetectorService);
 
@@ -30,10 +36,18 @@ export class DeviceInfoImpl implements Device {
     this._isTablet = this.ds.isTablet();
   }
 
+  /**
+   * Gets whether the device is a desktop.
+   * @returns True if the device is a desktop, false otherwise.
+   */
   get isDesktop() {
     return this._isDesktop;
   }
 
+  /**
+   * Gets whether the device is a tablet.
+   * @returns True if the device is a tablet, false otherwise.
+   */
   get isTablet() {
     return this._isTablet;
   }
