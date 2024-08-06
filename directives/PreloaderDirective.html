@@ -118,6 +118,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>PreloaderDirective that controls the visibility of a preloader based on a store&#39;s state.
+It listens for show and hide events to manage the display of the preloader.</p>
+
+            </p>
 
 
             <p class="comment">
@@ -221,10 +229,17 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">lib/src/modules/preloader/src/preloader.directive.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/modules/preloader/src/preloader.directive.ts:46</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Initializes the directive and sets up subscriptions to the store for
+show and hide events related to the preloader.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -260,14 +275,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="68"
-                                    class="link-to-prism">lib/src/modules/preloader/src/preloader.directive.ts:68</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">lib/src/modules/preloader/src/preloader.directive.ts:86</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Checks the state of the preloader and updates the view container accordingly.
+If the preloader state is true, it creates an embedded view; otherwise, it clears the view.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -297,14 +315,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="64"
-                                    class="link-to-prism">lib/src/modules/preloader/src/preloader.directive.ts:64</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">lib/src/modules/preloader/src/preloader.directive.ts:78</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>This lifecycle hook checks the preloader&#39;s state and updates the view accordingly.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -344,10 +364,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">lib/src/modules/preloader/src/preloader.directive.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">lib/src/modules/preloader/src/preloader.directive.ts:43</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Input signal that holds the state of the preloader (visible or hidden).</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -371,7 +397,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">lib/src/modules/preloader/src/preloader.directive.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">lib/src/modules/preloader/src/preloader.directive.ts:44</a></div>
                         </td>
                     </tr>
 
@@ -398,7 +424,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">lib/src/modules/preloader/src/preloader.directive.ts:40</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">lib/src/modules/preloader/src/preloader.directive.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -425,7 +451,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">lib/src/modules/preloader/src/preloader.directive.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/modules/preloader/src/preloader.directive.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -454,42 +480,60 @@ import {filter} from &quot;rxjs/operators&quot;;
 import {takeUntilDestroyed} from &quot;@angular/core/rxjs-interop&quot;;
 import {TogglePreloader} from &quot;./preloader.types&quot;;
 
+/**
+ * PreloaderDirective that controls the visibility of a preloader based on a store&#x27;s state.
+ * It listens for show and hide events to manage the display of the preloader.
+ */
 @Directive({
   selector: &quot;[preloading]&quot;,
   standalone: true
 })
 export class PreloaderDirective implements AfterViewInit {
 
+  /** Input signal that holds the state of the preloader (visible or hidden). */
   ctx: InputSignal&lt;TogglePreloader&gt; &#x3D; input({state: true} as TogglePreloader, {alias: &quot;preloading&quot;});
   private readonly store &#x3D; inject(Store);
   private readonly templateRef &#x3D; inject(TemplateRef);
   private readonly viewContainer &#x3D; inject(ViewContainerRef);
 
+  /**
+   * Initializes the directive and sets up subscriptions to the store for
+   * show and hide events related to the preloader.
+   */
   constructor() {
+    // Subscribe to the &#x27;Hide&#x27; event to change the preloader state to false
     this.store.on&lt;string&gt;(PreloaderEvent.Hide)
       .pipe(
         filter(v &#x3D;&gt; v.payload &#x3D;&#x3D;&#x3D; this.ctx().channel),
         takeUntilDestroyed()
       )
       .subscribe(() &#x3D;&gt; {
-        this.ctx().state &#x3D; false;
-        this.checkContainer();
+        this.ctx().state &#x3D; false; // Update the state to hide the preloader
+        this.checkContainer(); // Check if the container needs to be updated
       });
+    // Subscribe to the &#x27;Show&#x27; event to change the preloader state to true
     this.store.on&lt;string&gt;(PreloaderEvent.Show)
       .pipe(
         filter(v &#x3D;&gt; v.payload &#x3D;&#x3D;&#x3D; this.ctx().channel),
         takeUntilDestroyed()
       )
       .subscribe(() &#x3D;&gt; {
-        this.ctx().state &#x3D; true;
-        this.checkContainer();
+        this.ctx().state &#x3D; true; // Update the state to show the preloader
+        this.checkContainer(); // Check if the container needs to be updated
       });
   }
 
+  /**
+   * This lifecycle hook checks the preloader&#x27;s state and updates the view accordingly.
+   */
   ngAfterViewInit(): void {
     this.checkContainer();
   }
 
+  /**
+   * Checks the state of the preloader and updates the view container accordingly.
+   * If the preloader state is true, it creates an embedded view; otherwise, it clears the view.
+   */
   private checkContainer() {
     if (this.ctx().state) {
       this.viewContainer.createEmbeddedView(this.templateRef, {});

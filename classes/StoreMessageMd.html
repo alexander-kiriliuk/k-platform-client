@@ -123,6 +123,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>StoreMessageMd represents a metadata structure for messages in the store.
+It includes an identifier, a key, and associated data for the message.</p>
+
+            </p>
 
 
 
@@ -193,12 +201,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">lib/src/modules/store/src/store-message-md.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">lib/src/modules/store/src/store-message-md.ts:28</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of StoreMessageMd.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -207,6 +217,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -221,6 +232,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The key associated with the message.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>data</td>
@@ -233,6 +250,12 @@
                                                             Yes
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The optional data payload for the message.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -269,10 +292,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">lib/src/modules/store/src/store-message-md.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">lib/src/modules/store/src/store-message-md.ts:28</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The data payload of the message.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -297,10 +326,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">lib/src/modules/store/src/store-message-md.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">lib/src/modules/store/src/store-message-md.ts:24</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Unique identifier for the message.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -325,10 +360,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">lib/src/modules/store/src/store-message-md.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">lib/src/modules/store/src/store-message-md.ts:26</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Key associated with the message.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -361,19 +402,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="29"
-                                    class="link-to-prism">lib/src/modules/store/src/store-message-md.ts:29</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">lib/src/modules/store/src/store-message-md.ts:45</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Generates a UUID for the message.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>A string representing a unique identifier.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -390,16 +437,28 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class StoreMessageMd&lt;T &#x3D; unknown&gt; {
 
+  /** Unique identifier for the message. */
   private readonly id: string;
+  /** Key associated with the message. */
   private readonly key: string;
+  /** The data payload of the message. */
   private readonly data: T | unknown;
 
+  /**
+   * Creates an instance of StoreMessageMd.
+   * @param key - The key associated with the message.
+   * @param data - The optional data payload for the message.
+   */
   constructor(key: string, data?: T) {
     this.id &#x3D; this.uuid();
     this.key &#x3D; key;
     this.data &#x3D; data;
   }
 
+  /**
+   * Generates a UUID for the message.
+   * @returns A string representing a unique identifier.
+   */
   private uuid(): string {
     return &quot;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&quot;.replace(/[xy]/g, (c: string) &#x3D;&gt; {
       const r &#x3D; (Math.random() * 16) | 0;

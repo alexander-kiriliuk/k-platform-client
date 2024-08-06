@@ -119,6 +119,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>MediaService provides methods for managing media content,
+including recreating and removing media by ID.</p>
+
+            </p>
 
 
 
@@ -195,14 +203,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">lib/src/modules/media/src/media.service.ts:28</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">lib/src/modules/media/src/media.service.ts:38</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Sends a request to recreate a media item by its ID.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -213,6 +223,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -227,12 +238,18 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the media to recreate.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>        <code><a href="../interfaces/Media.html" target="_self" >Observable&lt;Media&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -262,14 +279,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="32"
-                                    class="link-to-prism">lib/src/modules/media/src/media.service.ts:32</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">lib/src/modules/media/src/media.service.ts:47</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Sends a request to remove a media item by its ID.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -280,6 +299,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -294,12 +314,18 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the media to remove.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>        <code><a href="../interfaces/Media.html" target="_self" >Observable&lt;Media&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -335,7 +361,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">lib/src/modules/media/src/media.service.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">lib/src/modules/media/src/media.service.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -353,17 +379,32 @@ import {HttpClient} from &quot;@angular/common/http&quot;;
 import {StringUtils} from &quot;../../../global/util&quot;;
 import fillParams &#x3D; StringUtils.fillParams;
 import {Media} from &quot;./media.types&quot;;
+import {Observable} from &quot;rxjs&quot;;
 
+/**
+ * MediaService provides methods for managing media content,
+ * including recreating and removing media by ID.
+ */
 @Injectable()
 export class MediaService {
 
   private readonly http &#x3D; inject(HttpClient);
 
-  reCreate(id: string) {
+  /**
+   * Sends a request to recreate a media item by its ID.
+   * @param id - The ID of the media to recreate.
+   * @returns {Observable&lt;Media&gt;}
+   */
+  reCreate(id: string): Observable&lt;Media&gt; {
     return this.http.post&lt;Media&gt;(fillParams(&quot;/media/recreate/:id&quot;, id), undefined);
   }
 
-  remove(id: string) {
+  /**
+   * Sends a request to remove a media item by its ID.
+   * @param id - The ID of the media to remove.
+   * @returns {Observable&lt;Media&gt;}
+   */
+  remove(id: string): Observable&lt;Media&gt; {
     return this.http.delete&lt;Media&gt;(fillParams(&quot;/media/:id&quot;, id));
   }
 

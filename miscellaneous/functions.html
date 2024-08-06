@@ -1605,6 +1605,9 @@ Each renderer is defined with a unique code and a dynamic import for the corresp
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>usePreloader is a utility function that wraps an observable with preloader control.
+It emits show and hide events for the preloader when the observable starts and completes.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1615,6 +1618,7 @@ Each renderer is defined with a unique code and a dynamic import for the corresp
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1629,6 +1633,12 @@ Each renderer is defined with a unique code and a dynamic import for the corresp
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The store instance used to emit preloader events.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>preloaderCn</td>
@@ -1641,6 +1651,12 @@ Each renderer is defined with a unique code and a dynamic import for the corresp
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The channel name associated with the preloader.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -123,6 +123,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>MediaUrlPipe transforms a media object into a corresponding URL
+based on the requested format and current browser capabilities.</p>
+
+            </p>
 
 
         <section data-compodoc="block-metadata">
@@ -166,14 +174,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="31"
-                                    class="link-to-prism">lib/src/modules/media/src/media-url.pipe.ts:31</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">lib/src/modules/media/src/media-url.pipe.ts:42</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Transforms a media object into a URL.
+If the media type is a vector (SVG), it defaults to the original format.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -185,6 +196,7 @@
                                                 <td>Type</td>
                                             <td>Optional</td>
                                                 <td>Default value</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -201,6 +213,12 @@
                                             <td>
                                             </td>
 
+                                            <td>
+                                                    <ul>
+<li>The media object to transform.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>format</td>
@@ -216,6 +234,12 @@
                                                     <code>ReservedMediaFormat.THUMB</code>
                                             </td>
 
+                                            <td>
+                                                    <ul>
+<li>The desired format for the URL.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -257,7 +281,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">lib/src/modules/media/src/media-url.pipe.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">lib/src/modules/media/src/media-url.pipe.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -284,7 +308,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">lib/src/modules/media/src/media-url.pipe.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">lib/src/modules/media/src/media-url.pipe.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -302,6 +326,10 @@ import {Media} from &quot;./media.types&quot;;
 import {ReservedMediaFormat} from &quot;./media.constants&quot;;
 import {MEDIA_URL, WEBP_SUPPORT} from &quot;../../../global/vars&quot;;
 
+/**
+ * MediaUrlPipe transforms a media object into a corresponding URL
+ * based on the requested format and current browser capabilities.
+ */
 @Pipe({
   name: &quot;mediaUrl&quot;,
   standalone: true
@@ -311,7 +339,14 @@ export class MediaUrlPipe implements PipeTransform {
   private readonly mediaUrl &#x3D; inject(MEDIA_URL);
   private readonly webpSupport &#x3D; inject(WEBP_SUPPORT);
 
-  transform(media: Media, format: string &#x3D; ReservedMediaFormat.THUMB) {
+  /**
+   * Transforms a media object into a URL.
+   * If the media type is a vector (SVG), it defaults to the original format.
+   * @param media - The media object to transform.
+   * @param format - The desired format for the URL.
+   * @returns {string}
+   */
+  transform(media: Media, format: string &#x3D; ReservedMediaFormat.THUMB): string {
     if (!media) {
       return undefined;
     }

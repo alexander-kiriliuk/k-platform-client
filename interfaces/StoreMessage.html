@@ -126,6 +126,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>StoreMessage interface represents a message structure used in the store.
+It includes a key, metadata, and an optional payload for the message.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -281,6 +289,11 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {StoreMessageMd} from &quot;./store-message-md&quot;;
 
+/**
+ * StoreMessage interface represents a message structure used in the store.
+ * It includes a key, metadata, and an optional payload for the message.
+ * @template Data - The type of the data payload associated with the message.
+ */
 export interface StoreMessage&lt;Data &#x3D; unknown&gt; {
   key: string;
   metadata: StoreMessageMd;
