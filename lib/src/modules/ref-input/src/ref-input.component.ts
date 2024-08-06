@@ -35,6 +35,10 @@ import {RefNamePipe} from "./ref-name.pipe";
 import {PageableParams, PlainObject} from "../../../global/vars";
 import {SectionDialogConfig, TargetData, CachedExplorerService} from "../../../components/explorer";
 
+/**
+ * This component serves as an input for selecting
+ * references to entities. It implements ControlValueAccessor to integrate with Angular forms.
+ */
 @Component({
   selector: "ref-input",
   standalone: true,
@@ -60,28 +64,42 @@ import {SectionDialogConfig, TargetData, CachedExplorerService} from "../../../c
 })
 export class RefInputComponent implements ControlValueAccessor, OnInit {
 
+  /** Target identifier for the reference input. */
   target = input.required<string>();
+  /** Indicates if multiple selections are allowed. */
   multi = input<boolean>();
+  /** Placeholder text for the input field. */
   placeholder = input<string>();
+  /** Parameters for pagination or other settings. */
   params = input<PageableParams>();
+  /** Event emitted when the input value changes. */
   changeData = output<unknown | unknown[]>();
+  /** Data for the target reference. */
   targetData: TargetData;
+  /** Indicates whether the input is disabled. */
   disabled = false;
+  /** Indicates the loading state for the target data. */
   targetLoadingState = true;
+  /** Data for the selected entity or entities. */
+  private data: unknown | unknown[];
   private readonly cachedExplorerService = inject(CachedExplorerService);
   private readonly localizePipe = inject(LocalizePipe);
   private readonly dialogService = inject(DialogService);
   private readonly cdr = inject(ChangeDetectorRef);
-  private data: unknown | unknown[];
 
+  /** Gets the single selected entity. */
   get entity() {
     return this.data as PlainObject;
   }
 
+  /** Gets the array of selected entities. */
   get entities() {
     return this.data as PlainObject[];
   }
 
+  /**
+   * Initializes the component and loads the target data.
+   */
   ngOnInit(): void {
     this.cachedExplorerService.getTarget(this.target(), "section").pipe(finalize(() => {
       this.targetLoadingState = false;
@@ -91,6 +109,10 @@ export class RefInputComponent implements ControlValueAccessor, OnInit {
     });
   }
 
+  /**
+   * Writes the incoming value to the component.
+   * @param res - The value to be written (can be a single entity or an array of entities).
+   */
   writeValue(res: unknown | unknown[]) {
     if (!res) {
       return;
@@ -99,39 +121,48 @@ export class RefInputComponent implements ControlValueAccessor, OnInit {
     this.cdr.markForCheck();
   }
 
+  /**
+   * Opens a section dialog to allow the user to select entities.
+   */
   openSection() {
     import("../../../components/explorer").then(m => {
       this.dialogService.open(m.ExplorerSectionComponent, {
         header: this.localizePipe.transform(this.targetData.entity.name, this.targetData.entity.target) as string,
         data: {
-          target: this.targetData, multi: this.multi(), initialPageableParams: this.params()
+          target: this.targetData,
+          multi: this.multi(),
+          initialPageableParams: this.params()
         } as SectionDialogConfig,
         modal: true,
         position: "top",
       }).onClose.subscribe((res: unknown | unknown[]) => {
         if (!res) {
-          return;
+          return; // Exit if no result is returned
         }
         if (this.multi()) {
           if (!this.data) {
-            this.data = [];
+            this.data = []; // Initialize data array if it doesn't exist
           }
           (res as PlainObject[]).forEach(r => {
-            const pkKey = this.targetData.primaryColumn.property;
-            const pkVal = r[pkKey];
+            const pkKey = this.targetData.primaryColumn.property; // Get the primary key property
+            const pkVal = r[pkKey]; // Get the primary key value from the result
             if (!this.entities.find(v => v[pkKey] === pkVal)) {
-              (this.data as unknown[]).push(r);
+              (this.data as unknown[]).push(r); // Add new entity to data if it doesn't already exist
             }
           });
         } else {
-          this.data = res;
+          this.data = res; // Set data to the single selected entity
         }
-        this.synchronize();
-        this.cdr.markForCheck();
+        this.synchronize(); // Emit the updated data
+        this.cdr.markForCheck(); // Trigger change detection
       });
     });
   }
 
+  /**
+   * Removes an entity from the selected entities.
+   * @param entity - The entity to be removed.
+   */
   removeItem(entity: PlainObject) {
     if (!this.multi()) {
       this.data = null;
@@ -142,6 +173,9 @@ export class RefInputComponent implements ControlValueAccessor, OnInit {
     this.entities.splice(idx, 1);
   }
 
+  /**
+   * Synchronizes the internal data with the ControlValueAccessor interface.
+   */
   synchronize() {
     this.onChange(this.data);
     this.changeData.emit(this.data);

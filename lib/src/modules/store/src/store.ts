@@ -20,16 +20,31 @@ import {StoreMessage} from "./store-message";
 import {StoreMessageMd} from "./store-message-md";
 import {Injectable} from "@angular/core";
 
+/**
+ * Store is a service that implements an event bus pattern for managing
+ * application state through message emission and subscription.
+ */
 @Injectable({providedIn: "root"})
 export class Store {
 
+  /** Subject that acts as the event bus for messages. */
   private readonly eventBus: Subject<StoreMessage>;
+  /** Separator used in keys for matching purposes. */
   private readonly separator = ":";
 
+  /**
+   * Creates an instance of Store and initializes the event bus.
+   */
   constructor() {
     this.eventBus = new Subject<StoreMessage>();
   }
 
+  /**
+   * Emits a message to the event bus with a specified key and optional data.
+   * @param key - The key under which the message is emitted.
+   * @param data - Optional data payload for the message.
+   * @throws Error if the key is an empty string.
+   */
   emit<T = unknown>(key: string, data?: T): void {
     if (!key.trim().length) {
       throw new Error("key parameter must be a string and must not be empty");
@@ -38,6 +53,11 @@ export class Store {
     this.eventBus.next({key, payload: data, metadata});
   }
 
+  /**
+   * Subscribes to messages emitted under the specified key.
+   * @param key - The key for which messages are to be subscribed.
+   * @returns An observable of StoreMessage that emits messages with the matching key.
+   */
   on<T = unknown>(key: string): Observable<StoreMessage<T>> {
     return this.eventBus.asObservable().pipe(
       filter((event: StoreMessage) => this.keyMatch(event.key, key)),
@@ -45,6 +65,12 @@ export class Store {
     ) as Observable<StoreMessage<T>>;
   }
 
+  /**
+   * Checks if a given key matches a wildcard pattern.
+   * @param key - The key to be checked.
+   * @param wildcard - The wildcard pattern to match against.
+   * @returns A boolean indicating whether the key matches the wildcard.
+   */
   private keyMatch(key: string, wildcard: string): boolean {
     const w = "*";
     const ww = "**";

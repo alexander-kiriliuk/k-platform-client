@@ -14,11 +14,16 @@
  * limitations under the License.
  */
 
-
+/**
+ * Enum representing reserved media formats identifiers.
+ */
 export enum ReservedMediaFormat {
   THUMB = "thumb",
   ORIGINAL = "original"
 }
 
+/**
+ * Required media type for the input.
+ */
 export type MediaTypeVariant = "default" | "default-private" | "responsive" | "vector" | string;
 

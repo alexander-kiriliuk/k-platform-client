@@ -19,6 +19,10 @@ import {LocalizedString, LocalizePipe} from "../../locale";
 import {PlainObject} from "../../../global/vars";
 import {TargetData} from "../../../components/explorer";
 
+/**
+ * This pipe transforms a given entity into a human-readable name
+ * based on its target data and localization settings.
+ */
 @Pipe({
   name: "refName",
   standalone: true
@@ -27,19 +31,26 @@ export class RefNamePipe implements PipeTransform {
 
   private readonly localizePipe = inject(LocalizePipe);
 
+  /**
+   * Transforms the given entity into a localized name based on the target data.
+   * @param entity - The entity object from which to extract the name.
+   * @param target - The target data containing information about the entity.
+   * @returns The localized name of the entity or an empty string if the target is not defined.
+   */
   transform(entity: PlainObject, target: TargetData) {
     if (!target) {
-      return "";
+      return ""; // Return empty string if target is not provided
     }
-    const val = entity[target.namedColumn.property];
+    const val = entity[target.namedColumn.property]; // Get the value from the entity based on the target
     if (val) {
       if (target.namedColumn.referencedEntityName === "LocalizedStringEntity") {
+        // Use localization if the entity references a localized string
         return this.localizePipe.transform(
           val as LocalizedString[], entity[target.primaryColumn.property] as string
         );
       }
     }
-    return entity[target.primaryColumn.property];
+    return entity[target.primaryColumn.property]; // Return the primary column value if no localization is needed
   }
 
 }

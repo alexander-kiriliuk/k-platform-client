@@ -18,13 +18,21 @@ import {Store} from "../../store/src/store";
 import {PreloaderEvent} from "./preloader.event";
 import {defer, Observable, tap} from "rxjs";
 
+/**
+ * usePreloader is a utility function that wraps an observable with preloader control.
+ * It emits show and hide events for the preloader when the observable starts and completes.
+ * @param store - The store instance used to emit preloader events.
+ * @param preloaderCn - The channel name associated with the preloader.
+ * @returns A function that takes an observable and returns a new observable
+ *          that emits preloader events when subscribed to.
+ */
 export function usePreloader<T>(store: Store, preloaderCn: string) {
   return (source: Observable<T>) => defer(() => {
-    store.emit(PreloaderEvent.Show, preloaderCn);
+    store.emit(PreloaderEvent.Show, preloaderCn); // Show the preloader
     return source.pipe(
       tap({
-        error: () => store.emit(PreloaderEvent.Hide, preloaderCn),
-        next: () => store.emit(PreloaderEvent.Hide, preloaderCn)
+        error: () => store.emit(PreloaderEvent.Hide, preloaderCn), // Hide on error
+        next: () => store.emit(PreloaderEvent.Hide, preloaderCn) // Hide after successful execution
       })
     );
   });

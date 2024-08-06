@@ -18,5 +18,8 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {TargetData} from "../../../components/explorer";
 
 export namespace RefInput {
+  /**
+   * Cache interface for storing data related to target inputs.
+   */
   export type Cache = { data$: BehaviorSubject<TargetData>, request: Observable<TargetData> }
 }

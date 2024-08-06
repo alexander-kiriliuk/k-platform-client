@@ -38,6 +38,10 @@ import {Store} from "../../../store";
 import {ToastEvent, ToastData} from "../../../../global/vars";
 import {LocalizePipe} from "../../../locale";
 
+/**
+ * MediaInputComponent that facilitates the input of media,
+ * allowing for single or multiple uploads and integration with a media explorer dialog.
+ */
 @Component({
   selector: "media-input",
   standalone: true,
@@ -64,15 +68,25 @@ import {LocalizePipe} from "../../../locale";
 })
 export class MediaInputComponent implements ControlValueAccessor {
 
+  /** Event emitted when the media changes. */
   changeMedia = output<Media | Media[]>();
+  /** Required media type for the input. */
   mediaType = input.required<MediaTypeVariant>();
+  /** Optional media ID for associating with existing media. */
   mediaId = input<number>();
+  /** Placeholder text for the media input.*/
   placeholder = input<string>();
+  /** Boolean indicating whether multiple media can be uploaded. */
   multi = input<boolean>();
+  /** Boolean indicating if gallery features are enabled. */
   galleryEnabled = input<boolean>(true);
+  /** Boolean indicating if the input is disabled. */
   disabled = false;
+  /** Array of uploaded files. */
   uploadedFiles: File[];
+  /** Data representing the current media. */
   data: Media | Media[];
+  /** Boolean indicating if the target is loading. */
   targetLoadingState: boolean;
   private readonly store = inject(Store);
   private readonly dialogService = inject(DialogService);
@@ -81,18 +95,34 @@ export class MediaInputComponent implements ControlValueAccessor {
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly ts = inject(TranslocoService);
 
-  get uploadUrl() {
+  /**
+   * Constructs the upload URL based on media type and optional media ID.
+   * @returns {string}
+   */
+  get uploadUrl(): string {
     return `/media/upload/${this.mediaType()}${!this.mediaId() ? "" : `?id=${this.mediaId()}`}`;
   }
 
-  get multiValue() {
+  /**
+   * Retrieves the uploaded media as an array (multi mode).
+   * @returns {Media[]}
+   */
+  get multiValue(): Media[] {
     return this.data as Media[];
   }
 
-  get singleValue() {
+  /**
+   * Retrieves the uploaded media as a single object (single mode).
+   * @returns {Media}
+   */
+  get singleValue(): Media {
     return this.data as Media;
   }
 
+  /**
+   * Writes the value for the media input.
+   * @param res - The media object or array of media to set.
+   */
   writeValue(res: Media | Media[]) {
     if (!res) {
       return;
@@ -101,6 +131,11 @@ export class MediaInputComponent implements ControlValueAccessor {
     this.cdr.markForCheck();
   }
 
+  /**
+   * Handles the file upload event.
+   * Updates the component state with uploaded files and media data.
+   * @param event - The file upload event containing uploaded files.
+   */
   onUpload(event: FileUploadEvent) {
     this.uploadedFiles = [];
     for (const file of event.files) {
@@ -123,12 +158,21 @@ export class MediaInputComponent implements ControlValueAccessor {
     }, 3000);
   }
 
-  onUploadError(e: FileUploadErrorEvent) {
+  /**
+   * Handles errors that occur during the file upload process.
+   * Displays an error message using the store service.
+   * @param event - The error event containing upload error details.
+   */
+  onUploadError(event: FileUploadErrorEvent) {
     this.store.emit<ToastData>(ToastEvent.Error, {
-      title: this.ts.translate("msg.error"), message: e.error.error?.message || e.error.error?.status
+      title: this.ts.translate("msg.error"), message: event.error.error?.message || event.error.error?.status
     });
   }
 
+  /**
+   * Opens a media section dialog for selecting media from a gallery.
+   * Updates the data based on user selection and synchronizes the changes.
+   */
   openMediaSection() {
     this.targetLoadingState = true;
     this.explorerService.getTarget("MediaEntity", "section").pipe(finalize(() => {
@@ -160,6 +204,11 @@ export class MediaInputComponent implements ControlValueAccessor {
     });
   }
 
+  /**
+   * Removes an uploaded media item by its index in the array.
+   * Updates the component state accordingly.
+   * @param idx - The index of the media item to remove.
+   */
   removeUploadedMedia(idx: number) {
     if (!this.multi()) {
       this.data = null;
@@ -170,6 +219,10 @@ export class MediaInputComponent implements ControlValueAccessor {
     this.cdr.markForCheck();
   }
 
+  /**
+   * Synchronizes the current state with external change detection.
+   * Emits change events and updates bound values.
+   */
   synchronize() {
     this.onChange(this.data);
     this.changeMedia.emit(this.data);

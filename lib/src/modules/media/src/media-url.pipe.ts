@@ -19,6 +19,10 @@ import {Media} from "./media.types";
 import {ReservedMediaFormat} from "./media.constants";
 import {MEDIA_URL, WEBP_SUPPORT} from "../../../global/vars";
 
+/**
+ * MediaUrlPipe transforms a media object into a corresponding URL
+ * based on the requested format and current browser capabilities.
+ */
 @Pipe({
   name: "mediaUrl",
   standalone: true
@@ -28,7 +32,14 @@ export class MediaUrlPipe implements PipeTransform {
   private readonly mediaUrl = inject(MEDIA_URL);
   private readonly webpSupport = inject(WEBP_SUPPORT);
 
-  transform(media: Media, format: string = ReservedMediaFormat.THUMB) {
+  /**
+   * Transforms a media object into a URL.
+   * If the media type is a vector (SVG), it defaults to the original format.
+   * @param media - The media object to transform.
+   * @param format - The desired format for the URL.
+   * @returns {string}
+   */
+  transform(media: Media, format: string = ReservedMediaFormat.THUMB): string {
     if (!media) {
       return undefined;
     }

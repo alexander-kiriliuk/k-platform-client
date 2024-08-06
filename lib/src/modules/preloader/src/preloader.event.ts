@@ -14,9 +14,15 @@
  * limitations under the License.
  */
 
+/**
+ * Defines events for showing and hiding the preloader.
+ * These events can be emitted to control the visibility of the preloader.
+ */
 export namespace PreloaderEvent {
 
+  /** Event emitted to hide the preloader. */
   export const Hide = "preloader:hide";
+  /** Event emitted to show the preloader. */
   export const Show = "preloader:show";
 
 }

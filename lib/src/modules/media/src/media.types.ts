@@ -18,6 +18,9 @@
 import {UploadEvent} from "primeng/fileupload";
 import {LocalizedString} from "../../locale";
 
+/**
+ * Represents a media object.
+ */
 export interface Media {
   id: number;
   code: string;
@@ -26,6 +29,9 @@ export interface Media {
   files: MediaFile[];
 }
 
+/**
+ * Represents the type of media.
+ */
 export interface MediaType {
   code: string;
   name: string;
@@ -36,6 +42,9 @@ export interface MediaType {
   formats: MediaFormat[];
 }
 
+/**
+ * Represents the format of a media file.
+ */
 export interface MediaFormat {
   code: string;
   name: string;
@@ -43,6 +52,9 @@ export interface MediaFormat {
   height: string;
 }
 
+/**
+ * Represents a file associated with a media item.
+ */
 export interface MediaFile {
   id: number;
   code: string;
@@ -54,11 +66,17 @@ export interface MediaFile {
   media: Media;
 }
 
+/**
+ * Represents the extension of a media type.
+ */
 export interface MediaExt {
   code: string;
   name: string;
 }
 
+/**
+ * Represents an event triggered by a file upload.
+ */
 export interface FileUploadEvent extends UploadEvent {
   files: File[];
 }

@@ -14,18 +14,34 @@
  * limitations under the License.
  */
 
+/**
+ * StoreMessageMd represents a metadata structure for messages in the store.
+ * It includes an identifier, a key, and associated data for the message.
+ */
 export class StoreMessageMd<T = unknown> {
 
+  /** Unique identifier for the message. */
   private readonly id: string;
+  /** Key associated with the message. */
   private readonly key: string;
+  /** The data payload of the message. */
   private readonly data: T | unknown;
 
+  /**
+   * Creates an instance of StoreMessageMd.
+   * @param key - The key associated with the message.
+   * @param data - The optional data payload for the message.
+   */
   constructor(key: string, data?: T) {
     this.id = this.uuid();
     this.key = key;
     this.data = data;
   }
 
+  /**
+   * Generates a UUID for the message.
+   * @returns A string representing a unique identifier.
+   */
   private uuid(): string {
     return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c: string) => {
       const r = (Math.random() * 16) | 0;

@@ -14,6 +14,10 @@
  * limitations under the License.
  */
 
+/**
+ * Defines the structure of the preloader's state.
+ * It contains a boolean to indicate if the preloader is active and an optional channel identifier.
+ */
 export interface TogglePreloader {
   state: boolean;
   channel?: string;

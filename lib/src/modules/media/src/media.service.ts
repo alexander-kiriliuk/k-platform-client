@@ -19,17 +19,32 @@ import {HttpClient} from "@angular/common/http";
 import {StringUtils} from "../../../global/util";
 import fillParams = StringUtils.fillParams;
 import {Media} from "./media.types";
+import {Observable} from "rxjs";
 
+/**
+ * MediaService provides methods for managing media content,
+ * including recreating and removing media by ID.
+ */
 @Injectable()
 export class MediaService {
 
   private readonly http = inject(HttpClient);
 
-  reCreate(id: string) {
+  /**
+   * Sends a request to recreate a media item by its ID.
+   * @param id - The ID of the media to recreate.
+   * @returns {Observable<Media>}
+   */
+  reCreate(id: string): Observable<Media> {
     return this.http.post<Media>(fillParams("/media/recreate/:id", id), undefined);
   }
 
-  remove(id: string) {
+  /**
+   * Sends a request to remove a media item by its ID.
+   * @param id - The ID of the media to remove.
+   * @returns {Observable<Media>}
+   */
+  remove(id: string): Observable<Media> {
     return this.http.delete<Media>(fillParams("/media/:id", id));
   }
 

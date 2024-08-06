@@ -17,6 +17,10 @@
 import {ChangeDetectionStrategy, Component} from "@angular/core";
 import {ProgressSpinnerModule} from "primeng/progressspinner";
 
+/**
+ * PreloaderComponent is a simple Angular component that displays a loading spinner.
+ * This component can be used to indicate that a process is ongoing, enhancing user experience.
+ */
 @Component({
   selector: "preloader",
   templateUrl: "./preloader.component.html",

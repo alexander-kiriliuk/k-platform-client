@@ -15,13 +15,18 @@
  */
 
 import {ChangeDetectionStrategy, Component, HostBinding, inject, input} from "@angular/core";
-import {Media} from "./media.types";
+import {Media, MediaFile} from "./media.types";
 import {ImageModule} from "primeng/image";
 import {MediaUrlPipe} from "./media-url.pipe";
 import {DomSanitizer} from "@angular/platform-browser";
 import {ReservedMediaFormat} from "./media.constants";
 import {LocalizePipe} from "../../locale";
 
+/**
+ * MediaComponent that displays media content with various formatting options.
+ * It utilizes the MediaUrlPipe for URL transformation and LocalizePipe for localization.
+ * This component supports dynamic background images and zoom functionality for previews.
+ */
 @Component({
   selector: "media-res",
   standalone: true,
@@ -36,24 +41,47 @@ import {LocalizePipe} from "../../locale";
 })
 export class MediaComponent {
 
+  /** The source media object that is required for the component to function. */
   src = input.required<Media>();
+
+  /**
+   * The format of the media being displayed.
+   * Defaults to ReservedMediaFormat.ORIGINAL if not specified.
+   */
   format = input<string>(ReservedMediaFormat.ORIGINAL);
+
+  /** Boolean indicating whether a background image should be displayed. */
+
   background = input<boolean>();
+
+  /** Boolean indicating whether the media should be zoomed in for preview.*/
   zoom = input<boolean>();
+
   private readonly localizePipe = inject(LocalizePipe);
   private readonly mediaUrlPipe = inject(MediaUrlPipe);
   private readonly sanitizer = inject(DomSanitizer);
 
+  /**
+   * Host binding to apply background class based on the background input.
+   * @returns {boolean}
+   */
   @HostBinding("class.background")
-  private get cssClass() {
+  private get cssClass(): boolean {
     return this.background();
   }
 
+  /**
+   * Host binding to apply has-preview class based on the zoom input.
+   * @returns {boolean}
+   */
   @HostBinding("class.has-preview")
-  private get previewClass() {
+  private get previewClass(): boolean {
     return this.zoom();
   }
 
+  /**
+   * Host binding to set the style attribute for the background image if applicable.
+   */
   @HostBinding("style")
   private get styleAttr() {
     if (!this.background()) {
@@ -62,11 +90,21 @@ export class MediaComponent {
     return this.sanitizer.bypassSecurityTrustStyle(`background-image: url(${this.url});`);
   }
 
-  private getUrl(format: string) {
+  /**
+   * Retrieves the URL for the media based on the specified format.
+   * @param format - The format of the media to retrieve the URL for.
+   * @returns {string}
+   */
+  private getUrl(format: string): string {
     return this.mediaUrlPipe.transform(this.src(), format);
   }
 
-  get mediaFormat() {
+  /**
+   * Determines the media format based on the file extension.
+   * If the media type is SVG, it defaults to the original format.
+   * @returns {string}
+   */
+  get mediaFormat(): ReservedMediaFormat | string {
     const ext = this.src()?.type?.ext?.code;
     if (ext === "svg") {
       return ReservedMediaFormat.ORIGINAL;
@@ -74,26 +112,50 @@ export class MediaComponent {
     return this.format();
   }
 
-  get url() {
+  /**
+   * Gets the URL for the media based on its format.
+   * @returns {string}
+   */
+  get url(): string {
     return this.getUrl(this.mediaFormat);
   }
 
-  get file() {
+  /**
+   * Retrieves the specific file from the media that matches the current format.
+   * @returns {MediaFile}
+   */
+  get file(): MediaFile {
     return this.src()?.files?.find(v => v.format.code === this.mediaFormat);
   }
 
-  get width() {
+  /**
+   * Retrieves the width of the media file.
+   * @returns {string}
+   */
+  get width(): string {
     return this.file?.width ? this.file.width.toString() : undefined;
   }
 
-  get height() {
+  /**
+   * Retrieves the height of the media file.
+   * @returns {string}
+   */
+  get height(): string {
     return this.file?.height ? this.file.height.toString() : undefined;
   }
 
-  get originalUrl() {
+  /**
+   * Gets the original URL for the media.
+   * @returns {string}
+   */
+  get originalUrl(): string {
     return this.getUrl(ReservedMediaFormat.ORIGINAL);
   }
 
+  /**
+   * Provides the localized name of the media for accessibility.
+   * @returns {string}
+   */
   get alt(): string {
     return this.localizePipe.transform(this.src()?.name) as string;
   }

@@ -16,6 +16,11 @@
 
 import {StoreMessageMd} from "./store-message-md";
 
+/**
+ * StoreMessage interface represents a message structure used in the store.
+ * It includes a key, metadata, and an optional payload for the message.
+ * @template Data - The type of the data payload associated with the message.
+ */
 export interface StoreMessage<Data = unknown> {
   key: string;
   metadata: StoreMessageMd;
