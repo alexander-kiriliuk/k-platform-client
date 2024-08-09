@@ -23,13 +23,13 @@ The following describes some modules, services and utilities on which the applic
   This module provides an authorisation form and two types of captcha: normal and google recaptcha. Read more about [captcha](https://alexander-kiriliuk.github.io/k-platform-core/additional-documentation/properties/captcha.properties.html), [authorisation](https://alexander-kiriliuk.github.io/k-platform-core/additional-documentation/properties/auth.properties.html) and [bruteforce](https://alexander-kiriliuk.github.io/k-platform-core/additional-documentation/properties/bruteforce.properties.html) protection settings.
 
 - ### [Config](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/components/config)
-  UI module for [configuration](https://github.com/alexander-kiriliuk/k-platform-core/blob/master/guide/config/index.md) of application. Allows real-time control of application settings, default data is stored in redis, initial settings are read from `.properties` files.
+  UI module for [configuration](https://github.com/alexander-kiriliuk/k-platform-core/blob/master/guide/config.md) of application. Allows real-time control of application settings, default data is stored in redis, initial settings are read from `.properties` files.
 
 - ### [Profile](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/components/profile)
   This UI is designed to manage the current user's data.
 
 - ### [XDB](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/components/xdb)
-  This UI for working with [XML data-bridge](https://github.com/alexander-kiriliuk/k-platform-core/blob/master/guide/xml-data-bridge/index.md). It allows you to import xml-schema or configuration file as zip-archive.
+  This UI for working with [XML data-bridge](https://github.com/alexander-kiriliuk/k-platform-core/blob/master/guide/xml-data-bridge.md). It allows you to import xml-schema or configuration file as zip-archive.
 
 ## Embedded UI components
 
