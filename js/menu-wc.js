@@ -98,6 +98,15 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/DeleteMediaActionRendererComponent.html" data-type="entity-link" >DeleteMediaActionRendererComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/EntityComponent.html" data-type="entity-link" >EntityComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/EntityDetailsColumnEditorComponent.html" data-type="entity-link" >EntityDetailsColumnEditorComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/EntityDetailsComponent.html" data-type="entity-link" >EntityDetailsComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/ExplorerActionRendererComponent.html" data-type="entity-link" >ExplorerActionRendererComponent</a>
                             </li>
                             <li class="link">
@@ -150,15 +159,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="components/NewPasswordObjectRendererComponent.html" data-type="entity-link" >NewPasswordObjectRendererComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/ObjectComponent.html" data-type="entity-link" >ObjectComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/ObjectDetailsColumnEditorComponent.html" data-type="entity-link" >ObjectDetailsColumnEditorComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/ObjectDetailsComponent.html" data-type="entity-link" >ObjectDetailsComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/PreloaderComponent.html" data-type="entity-link" >PreloaderComponent</a>
@@ -311,6 +311,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/DeviceInfoImpl.html" data-type="entity-link" >DeviceInfoImpl</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/EntityDetailsViewModel.html" data-type="entity-link" >EntityDetailsViewModel</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/ExplorerObjectViewModel.html" data-type="entity-link" >ExplorerObjectViewModel</a>
                                 </li>
                                 <li class="link">
@@ -321,9 +324,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/MediaService.html" data-type="entity-link" >MediaService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/ObjectDetailsViewModel.html" data-type="entity-link" >ObjectDetailsViewModel</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/ProcessService.html" data-type="entity-link" >ProcessService</a>

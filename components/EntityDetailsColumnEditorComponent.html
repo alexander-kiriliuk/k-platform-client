@@ -89,7 +89,7 @@
   <li class="breadcrumb-item">Components</li>
   <li class="breadcrumb-item"
   >
-  ObjectDetailsColumnEditorComponent</li>
+  EntityDetailsColumnEditorComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -120,7 +120,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>lib/src/components/object/src/details/column-editor/object-details-column-editor.component.ts</code>
+    <code>lib/src/components/entity/src/details/column-editor/entity-details-column-editor.component.ts</code>
 </p>
 
 
@@ -163,7 +163,7 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>object-details-column-editor</code></td>
+                <td class="col-md-9"><code>entity-details-column-editor</code></td>
             </tr>
 
             <tr>
@@ -189,14 +189,14 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./object-details-column-editor.component.scss</code></td>
+                <td class="col-md-9"><code>./entity-details-column-editor.component.scss</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./object-details-column-editor.component.html</code></td>
+                <td class="col-md-9"><code>./entity-details-column-editor.component.html</code></td>
             </tr>
 
 
@@ -315,7 +315,7 @@
                     <tr>
                         <td class="col-md-4">
                             <div class="io-line">Defined in <a href="" data-line="69"
-                                    class="link-to-prism">lib/src/components/object/src/details/column-editor/object-details-column-editor.component.ts:69</a></div>
+                                    class="link-to-prism">lib/src/components/entity/src/details/column-editor/entity-details-column-editor.component.ts:69</a></div>
                         </td>
                     </tr>
 
@@ -354,7 +354,7 @@
                     <tr>
                         <td class="col-md-4">
                             <div class="io-line">Defined in <a href="" data-line="61"
-                                    class="link-to-prism">lib/src/components/object/src/details/column-editor/object-details-column-editor.component.ts:61</a></div>
+                                    class="link-to-prism">lib/src/components/entity/src/details/column-editor/entity-details-column-editor.component.ts:61</a></div>
                         </td>
                     </tr>
 
@@ -433,7 +433,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">lib/src/components/object/src/details/column-editor/object-details-column-editor.component.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">lib/src/components/entity/src/details/column-editor/entity-details-column-editor.component.ts:47</a></div>
                         </td>
                     </tr>
 
@@ -460,7 +460,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">lib/src/components/object/src/details/column-editor/object-details-column-editor.component.ts:45</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">lib/src/components/entity/src/details/column-editor/entity-details-column-editor.component.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -487,7 +487,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/components/object/src/details/column-editor/object-details-column-editor.component.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">lib/src/components/entity/src/details/column-editor/entity-details-column-editor.component.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -518,7 +518,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">lib/src/components/object/src/details/column-editor/object-details-column-editor.component.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">lib/src/components/entity/src/details/column-editor/entity-details-column-editor.component.ts:44</a></div>
                         </td>
                     </tr>
 
@@ -553,7 +553,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">lib/src/components/object/src/details/column-editor/object-details-column-editor.component.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">lib/src/components/entity/src/details/column-editor/entity-details-column-editor.component.ts:53</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -589,17 +589,17 @@ import {DynamicDialogConfig, DynamicDialogRef} from &quot;primeng/dynamicdialog&
 import {ButtonModule} from &quot;primeng/button&quot;;
 import { LocalizeStringInputComponent } from &quot;../../../../../modules/locale&quot;;
 import {RefInputComponent} from &quot;../../../../../modules/ref-input&quot;;
-import {ColumnForm} from &quot;../../object.types&quot;;
+import {ColumnForm} from &quot;../../entity.types&quot;;
 import {Explorer, ExplorerService} from &quot;../../../../explorer&quot;;
 
 /**
  * Component for editing the details of a column.
  */
 @Component({
-  selector: &quot;object-details-column-editor&quot;,
+  selector: &quot;entity-details-column-editor&quot;,
   standalone: true,
-  templateUrl: &quot;./object-details-column-editor.component.html&quot;,
-  styleUrls: [&quot;./object-details-column-editor.component.scss&quot;],
+  templateUrl: &quot;./entity-details-column-editor.component.html&quot;,
+  styleUrls: [&quot;./entity-details-column-editor.component.scss&quot;],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     LocalizeStringInputComponent,
@@ -617,7 +617,7 @@ import {Explorer, ExplorerService} from &quot;../../../../explorer&quot;;
     ExplorerService
   ]
 })
-export class ObjectDetailsColumnEditorComponent {
+export class EntityDetailsColumnEditorComponent {
 
   /** List of type suggestions for the auto-complete input. **/
   suggestions: string[] &#x3D; [];
@@ -781,7 +781,7 @@ export class ObjectDetailsColumnEditorComponent {
 
     <div class="tab-pane fade " id="styleData">
                 <p class="comment">
-                    <code>./object-details-column-editor.component.scss</code>
+                    <code>./entity-details-column-editor.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.content-wrapper {
   max-width: 100%;
@@ -843,9 +843,9 @@ export class ObjectDetailsColumnEditorComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="content-wrapper">  <div class="tab">    <div>      <localize-string-input        [formControl]="colForm.controls.name"        [placeholder]="\'object.details.col.name\' | transloco"/>    </div>    <div>      <localize-string-input        [formControl]="colForm.controls.description"        [placeholder]="\'object.details.col.description\' | transloco"/>    </div>    <div>      <ref-input target="ExplorerColumnRendererEntity"                 [params]="{filter: \'::type:section\'}"                 [placeholder]="\'object.details.col.renderer.section\' | transloco"                 [formControl]="colForm.controls.sectionRenderer"/>    </div>    <div>      <ref-input target="ExplorerColumnRendererEntity"                 [params]="{filter: \'::type:object\'}"                 [placeholder]="\'object.details.col.renderer.object\' | transloco"                 [formControl]="colForm.controls.objectRenderer"/>    </div>    <div class="p-float-label">      <p-autoComplete inputId="colType"                      [formControl]="colForm.controls.type"                      [suggestions]="suggestions"                      (completeMethod)="searchType($event)"/>      <label for="colType">{{"object.details.col.type" | transloco}}</label>    </div>    <div class="p-float-label">      <p-inputNumber inputId="colSecPriority" [min]="0" [formControl]="colForm.controls.sectionPriority"/>      <label for="colSecPriority">{{"object.details.col.sec.priority" | transloco}}</label>    </div>    <div class="p-float-label">      <p-inputNumber inputId="colObjPriority" [min]="0" [formControl]="colForm.controls.objectPriority"/>      <label for="colObjPriority">{{"object.details.col.obj.priority" | transloco}}</label>    </div>  </div>  <div class="tab">    <div class="cbx-container">      <p-checkbox inputId="colSecEnabled"                  [formControl]="colForm.controls.sectionEnabled"                  [binary]="true"                  [label]="\'object.details.col.sec.enabled\' | transloco"/>    </div>    <div class="cbx-container">      <p-checkbox inputId="colObjEnabled"                  [formControl]="colForm.controls.objectEnabled"                  [binary]="true"                  [label]="\'object.details.col.obj.enabled\' | transloco"/>    </div>    <div class="cbx-container">      <p-checkbox inputId="colSecEnabled"                  [formControl]="colForm.controls.sectionVisibility"                  [binary]="true"                  [label]="\'object.details.col.sec.visibility\' | transloco"/>    </div>    <div class="cbx-container">      <p-checkbox inputId="colSecEnabled"                  [formControl]="colForm.controls.objectVisibility"                  [binary]="true"                  [label]="\'object.details.col.obj.visibility\' | transloco"/>    </div>    <div class="p-float-label">              <textarea pInputTextarea id="colsSecRdParams"                        [formControl]="colForm.controls.sectionRendererParams">              </textarea>      <label for="colsSecRdParams">{{\'object.details.col.sec.rd.params\' | transloco}}</label>    </div>    <div class="p-float-label">              <textarea pInputTextarea id="colsObjRdParams"                        [formControl]="colForm.controls.objectRendererParams">              </textarea>      <label for="colsObjRdParams">{{\'object.details.col.obj.rd.params\' | transloco}}</label>    </div>    <div class="cbx-container">      <p-checkbox inputId="colVirtual"                  [formControl]="colForm.controls.virtual"                  [binary]="true"                  [label]="\'object.details.col.virtual\' | transloco"/>    </div>    <div class="cbx-container">      <p-checkbox inputId="colPrimary"                  [formControl]="colForm.controls.primary"                  [binary]="true"                  [label]="\'object.details.col.primary\' | transloco"/>    </div>    <div class="cbx-container">      <p-checkbox inputId="colUnique"                  [formControl]="colForm.controls.unique"                  [binary]="true"                  [label]="\'object.details.col.unique\' | transloco"/>    </div>    <div class="cbx-container">      <p-checkbox inputId="colMultiple"                  [formControl]="colForm.controls.multiple"                  [binary]="true"                  [label]="\'object.details.col.multiple\' | transloco"/>    </div>    <div class="p-float-label">      <input id="colId" type="text" pInputText [formControl]="colForm.controls.id"/>      <label for="colId">{{"object.details.col.id" | transloco}}</label>    </div>    <div class="p-float-label">      <input id="colProperty" type="text" pInputText [formControl]="colForm.controls.property"/>      <label for="colProperty">{{"object.details.col.property" | transloco}}</label>    </div>    <div class="p-float-label">      <input id="colRefTbl" type="text" pInputText [formControl]="colForm.controls.referencedTableName"/>      <label for="colRefTbl">{{"object.details.col.ref.tbl.name" | transloco}}</label>    </div>    <div class="p-float-label">      <input id="colRefEnt" type="text" pInputText [formControl]="colForm.controls.referencedEntityName"/>      <label for="colRefEnt">{{"object.details.col.ref.ent.name" | transloco}}</label>    </div>  </div></div><div class="actions">  <button pButton [disabled]="!colForm.valid" (click)="save()">{{"object.details.save" | transloco}}</button></div></div>'
-    var COMPONENTS = [{'name': 'AuthComponent', 'selector': 'auth'},{'name': 'BooleanObjectRendererComponent', 'selector': 'boolean-object-renderer'},{'name': 'BooleanSectionRendererComponent', 'selector': 'boolean-section-renderer'},{'name': 'ConfigComponent', 'selector': 'config'},{'name': 'ConfigPropertyEditorComponent', 'selector': 'config-property-editor'},{'name': 'CreateFileActionDialogComponent', 'selector': 'create-file-action-dialog'},{'name': 'CreateFileActionRendererComponent', 'selector': 'create-file-action-renderer'},{'name': 'CreateMediaActionDialogComponent', 'selector': 'create-media-action-dialog'},{'name': 'CreateMediaActionRendererComponent', 'selector': 'create-media-action-renderer'},{'name': 'DateObjectRendererComponent', 'selector': 'date-object-renderer'},{'name': 'DateSectionRendererComponent', 'selector': 'date-section-renderer'},{'name': 'DeleteFileActionRendererComponent', 'selector': 'delete-file-action-renderer'},{'name': 'DeleteMediaActionRendererComponent', 'selector': 'delete-media-action-renderer'},{'name': 'ExplorerActionRendererComponent', 'selector': 'explorer-action-renderer'},{'name': 'ExplorerObjectComponent', 'selector': 'explorer-object'},{'name': 'ExplorerObjectRendererComponent', 'selector': 'explorer-object-renderer'},{'name': 'ExplorerSectionComponent', 'selector': 'section'},{'name': 'ExplorerSectionRendererComponent', 'selector': 'explorer-section-renderer'},{'name': 'FileInputComponent', 'selector': 'file-input'},{'name': 'FileMetadataObjectRendererComponent', 'selector': 'file-metadata-object-renderer'},{'name': 'FileStatMediaObjectRendererComponent', 'selector': 'file-stat-media-object-renderer'},{'name': 'ImagesStatsMediaObjectRendererComponent', 'selector': 'images-stats-media-object-renderer'},{'name': 'LocalizedMediaObjectRendererComponent', 'selector': 'localized-media-object-renderer'},{'name': 'LocalizedStringObjectRendererComponent', 'selector': 'localized-string-object-renderer'},{'name': 'LocalizeMediaInputComponent', 'selector': 'localize-media-input'},{'name': 'LocalizeStringInputComponent', 'selector': 'localize-string-input'},{'name': 'MediaComponent', 'selector': 'media-res'},{'name': 'MediaInputComponent', 'selector': 'media-input'},{'name': 'MediaObjectRendererComponent', 'selector': 'media-object-renderer'},{'name': 'MediaSectionRendererComponent', 'selector': 'media-section-renderer'},{'name': 'NewPasswordObjectRendererComponent', 'selector': 'new-password-object-renderer'},{'name': 'ObjectComponent', 'selector': 'object'},{'name': 'ObjectDetailsColumnEditorComponent', 'selector': 'object-details-column-editor'},{'name': 'ObjectDetailsComponent', 'selector': 'object-details'},{'name': 'PreloaderComponent', 'selector': 'preloader'},{'name': 'ProcessStatsObjectRendererComponent', 'selector': 'process-stats-media-object-renderer'},{'name': 'ProfileComponent', 'selector': 'profile'},{'name': 'ReCreateMediaActionRendererComponent', 'selector': 're-create-media-action-renderer'},{'name': 'ReferenceObjectRendererComponent', 'selector': 'reference-object-renderer'},{'name': 'ReferenceSectionRendererComponent', 'selector': 'reference-section-renderer'},{'name': 'RefInputComponent', 'selector': 'ref-input'},{'name': 'SectionFilterDialogComponent', 'selector': 'section-filter-dialog'},{'name': 'StartProcessActionRendererComponent', 'selector': 'start-process-action-renderer'},{'name': 'StopProcessActionRendererComponent', 'selector': 'stop-process-action-renderer'},{'name': 'StringObjectRendererComponent', 'selector': 'string-object-renderer'},{'name': 'StringSectionRendererComponent', 'selector': 'string-section-renderer'},{'name': 'TargetColumnsDialogComponent', 'selector': 'target-columns-dialog'},{'name': 'ToggleProcessActionRendererComponent', 'selector': 'toggle-process-action-renderer'},{'name': 'UpdateMediaFileActionDialogComponent', 'selector': 'update-media-file-action-dialog'},{'name': 'UpdateMediaFileActionRendererComponent', 'selector': 'update-media-file-action-renderer'},{'name': 'VirtualMediaSectionRendererComponent', 'selector': 'virtual-media-section-renderer'},{'name': 'XdbExportDialogComponent', 'selector': 'xdb-export-dialog'},{'name': 'XdbImportComponent', 'selector': 'xdb-import'}];
+    var COMPONENTS = [{'name': 'AuthComponent', 'selector': 'auth'},{'name': 'BooleanObjectRendererComponent', 'selector': 'boolean-object-renderer'},{'name': 'BooleanSectionRendererComponent', 'selector': 'boolean-section-renderer'},{'name': 'ConfigComponent', 'selector': 'config'},{'name': 'ConfigPropertyEditorComponent', 'selector': 'config-property-editor'},{'name': 'CreateFileActionDialogComponent', 'selector': 'create-file-action-dialog'},{'name': 'CreateFileActionRendererComponent', 'selector': 'create-file-action-renderer'},{'name': 'CreateMediaActionDialogComponent', 'selector': 'create-media-action-dialog'},{'name': 'CreateMediaActionRendererComponent', 'selector': 'create-media-action-renderer'},{'name': 'DateObjectRendererComponent', 'selector': 'date-object-renderer'},{'name': 'DateSectionRendererComponent', 'selector': 'date-section-renderer'},{'name': 'DeleteFileActionRendererComponent', 'selector': 'delete-file-action-renderer'},{'name': 'DeleteMediaActionRendererComponent', 'selector': 'delete-media-action-renderer'},{'name': 'EntityComponent', 'selector': 'entity'},{'name': 'EntityDetailsColumnEditorComponent', 'selector': 'entity-details-column-editor'},{'name': 'EntityDetailsComponent', 'selector': 'entity-details'},{'name': 'ExplorerActionRendererComponent', 'selector': 'explorer-action-renderer'},{'name': 'ExplorerObjectComponent', 'selector': 'explorer-object'},{'name': 'ExplorerObjectRendererComponent', 'selector': 'explorer-object-renderer'},{'name': 'ExplorerSectionComponent', 'selector': 'section'},{'name': 'ExplorerSectionRendererComponent', 'selector': 'explorer-section-renderer'},{'name': 'FileInputComponent', 'selector': 'file-input'},{'name': 'FileMetadataObjectRendererComponent', 'selector': 'file-metadata-object-renderer'},{'name': 'FileStatMediaObjectRendererComponent', 'selector': 'file-stat-media-object-renderer'},{'name': 'ImagesStatsMediaObjectRendererComponent', 'selector': 'images-stats-media-object-renderer'},{'name': 'LocalizedMediaObjectRendererComponent', 'selector': 'localized-media-object-renderer'},{'name': 'LocalizedStringObjectRendererComponent', 'selector': 'localized-string-object-renderer'},{'name': 'LocalizeMediaInputComponent', 'selector': 'localize-media-input'},{'name': 'LocalizeStringInputComponent', 'selector': 'localize-string-input'},{'name': 'MediaComponent', 'selector': 'media-res'},{'name': 'MediaInputComponent', 'selector': 'media-input'},{'name': 'MediaObjectRendererComponent', 'selector': 'media-object-renderer'},{'name': 'MediaSectionRendererComponent', 'selector': 'media-section-renderer'},{'name': 'NewPasswordObjectRendererComponent', 'selector': 'new-password-object-renderer'},{'name': 'PreloaderComponent', 'selector': 'preloader'},{'name': 'ProcessStatsObjectRendererComponent', 'selector': 'process-stats-media-object-renderer'},{'name': 'ProfileComponent', 'selector': 'profile'},{'name': 'ReCreateMediaActionRendererComponent', 'selector': 're-create-media-action-renderer'},{'name': 'ReferenceObjectRendererComponent', 'selector': 'reference-object-renderer'},{'name': 'ReferenceSectionRendererComponent', 'selector': 'reference-section-renderer'},{'name': 'RefInputComponent', 'selector': 'ref-input'},{'name': 'SectionFilterDialogComponent', 'selector': 'section-filter-dialog'},{'name': 'StartProcessActionRendererComponent', 'selector': 'start-process-action-renderer'},{'name': 'StopProcessActionRendererComponent', 'selector': 'stop-process-action-renderer'},{'name': 'StringObjectRendererComponent', 'selector': 'string-object-renderer'},{'name': 'StringSectionRendererComponent', 'selector': 'string-section-renderer'},{'name': 'TargetColumnsDialogComponent', 'selector': 'target-columns-dialog'},{'name': 'ToggleProcessActionRendererComponent', 'selector': 'toggle-process-action-renderer'},{'name': 'UpdateMediaFileActionDialogComponent', 'selector': 'update-media-file-action-dialog'},{'name': 'UpdateMediaFileActionRendererComponent', 'selector': 'update-media-file-action-renderer'},{'name': 'VirtualMediaSectionRendererComponent', 'selector': 'virtual-media-section-renderer'},{'name': 'XdbExportDialogComponent', 'selector': 'xdb-export-dialog'},{'name': 'XdbImportComponent', 'selector': 'xdb-import'}];
     var DIRECTIVES = [{'name': 'PreloaderDirective', 'selector': '[preloading]'},{'name': 'PreventDefaultDirective', 'selector': '[prevent-default]'},{'name': 'StopPropagationDirective', 'selector': '[stop-propagation]'}];
-    var ACTUAL_COMPONENT = {'name': 'ObjectDetailsColumnEditorComponent'};
+    var ACTUAL_COMPONENT = {'name': 'EntityDetailsColumnEditorComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -891,7 +891,7 @@ export class ObjectDetailsColumnEditorComponent {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'ObjectDetailsColumnEditorComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'EntityDetailsColumnEditorComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -89,7 +89,7 @@
   <li class="breadcrumb-item">Components</li>
   <li class="breadcrumb-item"
   >
-  ObjectDetailsComponent</li>
+  EntityDetailsComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -120,7 +120,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>lib/src/components/object/src/details/object-details.component.ts</code>
+    <code>lib/src/components/entity/src/details/entity-details.component.ts</code>
 </p>
 
 
@@ -128,7 +128,7 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>Component for managing and displaying the details of an object.</p>
+        <p>Component for managing and displaying the details of an entity.</p>
 
     </p>
 
@@ -156,7 +156,7 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../injectables/ObjectDetailsViewModel.html" target="_self" >ObjectDetailsViewModel</a></code>
+                                <code><a href="../injectables/EntityDetailsViewModel.html" target="_self" >EntityDetailsViewModel</a></code>
                             <code>DialogService</code>
                                 <code><a href="../injectables/ExplorerService.html" target="_self" >ExplorerService</a></code>
                             <code>ConfirmationService</code>
@@ -166,7 +166,7 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>object-details</code></td>
+                <td class="col-md-9"><code>entity-details</code></td>
             </tr>
 
             <tr>
@@ -198,14 +198,14 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./object-details.component.scss</code></td>
+                <td class="col-md-9"><code>./entity-details.component.scss</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./object-details.component.html</code></td>
+                <td class="col-md-9"><code>./entity-details.component.html</code></td>
             </tr>
 
 
@@ -273,7 +273,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:82</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">lib/src/components/entity/src/details/entity-details.component.ts:82</a></div>
                             </td>
                         </tr>
 
@@ -317,7 +317,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:81</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">lib/src/components/entity/src/details/entity-details.component.ts:81</a></div>
                         </td>
                     </tr>
 
@@ -344,7 +344,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:82</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">lib/src/components/entity/src/details/entity-details.component.ts:82</a></div>
                         </td>
                     </tr>
 
@@ -371,7 +371,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:79</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">lib/src/components/entity/src/details/entity-details.component.ts:79</a></div>
                         </td>
                     </tr>
 
@@ -398,12 +398,12 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>inject(ObjectDetailsViewModel)</code>
+                        <i>Default value : </i><code>inject(EntityDetailsViewModel)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">lib/src/components/object/src/details/object-details.component.ts:80</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">lib/src/components/entity/src/details/entity-details.component.ts:80</a></div>
                         </td>
                     </tr>
 
@@ -430,25 +430,25 @@ import {InputTextareaModule} from &quot;primeng/inputtextarea&quot;;
 import {CheckboxModule} from &quot;primeng/checkbox&quot;;
 import {Observable} from &quot;rxjs&quot;;
 import {map} from &quot;rxjs/operators&quot;;
-import {ObjectDetails} from &quot;./object-details.constants&quot;;
+import {EntityDetails} from &quot;./entity-details.constants&quot;;
 import {PreloaderComponent, PreloaderDirective} from &quot;../../../../modules/preloader&quot;;
 import {LocalizePipe, LocalizeStringInputComponent} from &quot;../../../../modules/locale&quot;;
 import {MediaInputComponent} from &quot;../../../../modules/media&quot;;
 import {RefInputComponent} from &quot;../../../../modules/ref-input&quot;;
-import {ObjectDetailsViewModel} from &quot;./object-details.view-model&quot;;
+import {EntityDetailsViewModel} from &quot;./entity-details.view-model&quot;;
 import {Store} from &quot;../../../../modules/store&quot;;
 import {ExplorerService, TargetData} from &quot;../../../../components/explorer&quot;;
 import {usePreloader} from &quot;../../../../modules/preloader/src/use-preloader&quot;;
-import createColumnForm &#x3D; ObjectDetails.createColumnForm;
+import createColumnForm &#x3D; EntityDetails.createColumnForm;
 
 /**
- * Component for managing and displaying the details of an object.
+ * Component for managing and displaying the details of an entity.
  */
 @Component({
-  selector: &quot;object-details&quot;,
+  selector: &quot;entity-details&quot;,
   standalone: true,
-  templateUrl: &quot;./object-details.component.html&quot;,
-  styleUrls: [&quot;./object-details.component.scss&quot;],
+  templateUrl: &quot;./entity-details.component.html&quot;,
+  styleUrls: [&quot;./entity-details.component.scss&quot;],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     PreloaderComponent,
@@ -469,17 +469,17 @@ import createColumnForm &#x3D; ObjectDetails.createColumnForm;
     CheckboxModule,
   ],
   providers: [
-    ObjectDetailsViewModel,
+    EntityDetailsViewModel,
     DialogService,
     ExplorerService,
     ConfirmationService
   ]
 })
-export class ObjectDetailsComponent {
+export class EntityDetailsComponent {
 
   /** Observable for the target data. **/
   readonly target$: Observable&lt;TargetData&gt;;
-  readonly vm &#x3D; inject(ObjectDetailsViewModel);
+  readonly vm &#x3D; inject(EntityDetailsViewModel);
   private readonly explorerService &#x3D; inject(ExplorerService);
   private readonly store &#x3D; inject(Store);
 
@@ -717,7 +717,7 @@ export class ObjectDetailsComponent {
 
     <div class="tab-pane fade " id="styleData">
                 <p class="comment">
-                    <code>./object-details.component.scss</code>
+                    <code>./entity-details.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">:host {
   max-width: 75vw;
@@ -917,9 +917,9 @@ p-confirmDialog {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div>@if (target$ | async; as target) {  <div class="content-wrapper" [formGroup]="vm.targetForm">    <div class="cols">      <div class="p-float-label">        <input id="colAlias" type="text" pInputText               formControlName="alias"/>        <label for="colAlias">{{ "object.details.col.alias" | transloco }}</label>      </div>      <div class="cols-actions">        <div>          <p-button            icon="pi pi-plus" severity="success"            [rounded]="true"            [text]="true"            (click)="vm.addVirtualColumn()"/>          {{ "object.details.cols" | transloco }}        </div>        <div>          {{ "object.details.tabs" | transloco }}          <p-button            icon="pi pi-plus" severity="secondary"            [rounded]="true"            [text]="true"            (click)="vm.createTab()"/>        </div>      </div>      @for (colForm of vm.targetForm.controls.columns.controls; let i = $index; track colForm) {        <div formArrayName="columns"             class="cols-list">          <div [ngClass]="{virtual: colForm.controls.virtual.value}">            <div>              <p-button                icon="pi pi-pencil" severity="warning"                [rounded]="true"                [text]="true"                (click)="vm.openColumnEditor(colForm)"/>              {{ (colForm.controls.name.value | localize:colForm.controls.property.value)?.toString() }}              @if (colForm.controls.virtual.value) {                <p-button                  icon="pi pi-times" severity="danger"                  [rounded]="true"                  [text]="true"                  (click)="vm.removeColumn(i)"/>              }            </div>            <div>              {{ (colForm.controls.tab.value?.name | localize:colForm.controls.tab.value?.id)?.toString() }}              <p-button icon="pi pi-bookmark"                        severity="secondary"                        [rounded]="true"                        [text]="true"                        (click)="vm.openTabFinder(colForm)"/>              <p-button icon="pi pi-trash"                        severity="danger"                        [ngClass]="{transparent: !colForm.controls.tab.value}"                        [rounded]="true"                        [text]="true"                        (click)="vm.clearColumnTab(colForm)"/>            </div>          </div>        </div>      }    </div>    <div class="right">      <div class="info">        <div class="data-grid">          <div>            <div><i class="pi pi-box"></i>{{ "object.details.target.name" | transloco }}</div>            <div>              {{ target.entity.target }}              <a target="_blank" [attr.href]="\'/section/\' + target.entity.target">                <i class="pi pi-arrow-right"></i>              </a>            </div>          </div>          <div>            <div><i class="pi pi-database"></i>{{ "object.details.target.table" | transloco }}</div>            <div>{{ target.entity.tableName }}</div>          </div>          <div>            <div><i class="pi pi-key"></i>{{ "object.details.target.pk" | transloco }}</div>            <div>{{ target.primaryColumn.property }}</div>          </div>        </div>        <div>          <localize-string-input            formControlName="name"            [placeholder]="\'object.details.object.name\' | transloco"/>        </div>        <div>          <localize-string-input            formControlName="description"            [placeholder]="\'object.details.object.description\' | transloco"/>        </div>        <div>          <ref-input target="ExplorerActionEntity"                     [multi]="true"                     [placeholder]="\'object.details.col.actions\' | transloco"                     [formControl]="vm.targetForm.controls.actions"/>        </div>        <div>          <media-input            formControlName="icon"            mediaType="responsive"            [placeholder]="\'object.details.object.icon\' | transloco"/>        </div>        <div class="cbx-container">          <p-checkbox inputId="dac"                      [formControl]="vm.targetForm.controls.defaultActionCreate"                      [binary]="true"                      [label]="\'object.details.action.create\' | transloco"/>        </div>        <div class="cbx-container">          <p-checkbox inputId="dad"                      [formControl]="vm.targetForm.controls.defaultActionDelete"                      [binary]="true"                      [label]="\'object.details.action.delete\' | transloco"/>        </div>        <div class="cbx-container">          <p-checkbox inputId="das"                      [formControl]="vm.targetForm.controls.defaultActionSave"                      [binary]="true"                      [label]="\'object.details.action.save\' | transloco"/>        </div>        <div class="cbx-container">          <p-checkbox inputId="daDup"                      [formControl]="vm.targetForm.controls.defaultActionDuplicate"                      [binary]="true"                      [label]="\'object.details.action.duplicate\' | transloco"/>        </div>        <div>          <ref-input target="UserRoleEntity"                     [multi]="true"                     [placeholder]="\'object.details.col.can.read\' | transloco"                     [formControl]="vm.targetForm.controls.canRead"/>        </div>        <div>          <ref-input target="UserRoleEntity"                     [multi]="true"                     [placeholder]="\'object.details.col.can.write\' | transloco"                     [formControl]="vm.targetForm.controls.canWrite"/>        </div>        <div class="actions">          <button pButton [disabled]="!vm.targetForm.valid" (click)="vm.saveObject()">            {{ "object.details.save" | transloco }}          </button>        </div>      </div>    </div>  </div>}<preloader *preloading="{state: true, channel: vm.preloaderChannel}"/><p-confirmDialog #newColumnDialog [key]="vm.newColumnDialogKey">  <ng-template pTemplate="header">    {{ "object.details.col.new.label" | transloco }}  </ng-template>  <ng-template pTemplate="message">    <div>      <input type="text" pInputText [placeholder]="\'object.details.col.new.name\' | transloco"             [formControl]="vm.newColName"/>    </div>  </ng-template>  <ng-template pTemplate="footer">    <button type="button" pButton (click)="newColumnDialog.reject()">      {{ "object.details.col.new.cancel" | transloco }}    </button>    <button type="button" class="p-button-success" pButton [disabled]="!vm.newColName.valid"            (click)="newColumnDialog.accept()">      {{ "object.details.col.new.ok" | transloco }}    </button>  </ng-template></p-confirmDialog><p-confirmDialog #newTabDialog [key]="vm.newTabDialogKey">  <ng-template pTemplate="header">    {{ "object.details.tab.label" | transloco }}  </ng-template>  <ng-template pTemplate="message">    <div class="tabs">      <div>        <localize-string-input          [formControl]="vm.tabForm.controls.name"          [placeholder]="\'object.details.tab.name\' | transloco"/>      </div>      <div>        <input type="text" pInputText [formControl]="vm.tabForm.controls.id"               [placeholder]="\'object.details.tab.id\' | transloco"/>      </div>      <div class="p-float-label">        <p-inputNumber inputId="tabPriority" [min]="0"                       [formControl]="vm.tabForm.controls.priority"/>        <label for="tabPriority">{{ "object.details.tab.priority" | transloco }}</label>      </div>      <div class="p-float-label">        <textarea pInputTextarea id="tabParams" [formControl]="vm.tabForm.controls.size"></textarea>        <label for="tabParams">{{ \'object.details.tab.params\' | transloco }}</label>      </div>    </div>  </ng-template>  <ng-template pTemplate="footer">    <button type="button" pButton (click)="newTabDialog.reject()">      {{ "object.details.tab.cancel" | transloco }}    </button>    <button type="button" class="p-button-success" pButton [disabled]="!vm.tabForm.valid" (click)="newTabDialog.accept()">      {{ "object.details.tab.ok" | transloco }}    </button>  </ng-template></p-confirmDialog></div>'
-    var COMPONENTS = [{'name': 'AuthComponent', 'selector': 'auth'},{'name': 'BooleanObjectRendererComponent', 'selector': 'boolean-object-renderer'},{'name': 'BooleanSectionRendererComponent', 'selector': 'boolean-section-renderer'},{'name': 'ConfigComponent', 'selector': 'config'},{'name': 'ConfigPropertyEditorComponent', 'selector': 'config-property-editor'},{'name': 'CreateFileActionDialogComponent', 'selector': 'create-file-action-dialog'},{'name': 'CreateFileActionRendererComponent', 'selector': 'create-file-action-renderer'},{'name': 'CreateMediaActionDialogComponent', 'selector': 'create-media-action-dialog'},{'name': 'CreateMediaActionRendererComponent', 'selector': 'create-media-action-renderer'},{'name': 'DateObjectRendererComponent', 'selector': 'date-object-renderer'},{'name': 'DateSectionRendererComponent', 'selector': 'date-section-renderer'},{'name': 'DeleteFileActionRendererComponent', 'selector': 'delete-file-action-renderer'},{'name': 'DeleteMediaActionRendererComponent', 'selector': 'delete-media-action-renderer'},{'name': 'ExplorerActionRendererComponent', 'selector': 'explorer-action-renderer'},{'name': 'ExplorerObjectComponent', 'selector': 'explorer-object'},{'name': 'ExplorerObjectRendererComponent', 'selector': 'explorer-object-renderer'},{'name': 'ExplorerSectionComponent', 'selector': 'section'},{'name': 'ExplorerSectionRendererComponent', 'selector': 'explorer-section-renderer'},{'name': 'FileInputComponent', 'selector': 'file-input'},{'name': 'FileMetadataObjectRendererComponent', 'selector': 'file-metadata-object-renderer'},{'name': 'FileStatMediaObjectRendererComponent', 'selector': 'file-stat-media-object-renderer'},{'name': 'ImagesStatsMediaObjectRendererComponent', 'selector': 'images-stats-media-object-renderer'},{'name': 'LocalizedMediaObjectRendererComponent', 'selector': 'localized-media-object-renderer'},{'name': 'LocalizedStringObjectRendererComponent', 'selector': 'localized-string-object-renderer'},{'name': 'LocalizeMediaInputComponent', 'selector': 'localize-media-input'},{'name': 'LocalizeStringInputComponent', 'selector': 'localize-string-input'},{'name': 'MediaComponent', 'selector': 'media-res'},{'name': 'MediaInputComponent', 'selector': 'media-input'},{'name': 'MediaObjectRendererComponent', 'selector': 'media-object-renderer'},{'name': 'MediaSectionRendererComponent', 'selector': 'media-section-renderer'},{'name': 'NewPasswordObjectRendererComponent', 'selector': 'new-password-object-renderer'},{'name': 'ObjectComponent', 'selector': 'object'},{'name': 'ObjectDetailsColumnEditorComponent', 'selector': 'object-details-column-editor'},{'name': 'ObjectDetailsComponent', 'selector': 'object-details'},{'name': 'PreloaderComponent', 'selector': 'preloader'},{'name': 'ProcessStatsObjectRendererComponent', 'selector': 'process-stats-media-object-renderer'},{'name': 'ProfileComponent', 'selector': 'profile'},{'name': 'ReCreateMediaActionRendererComponent', 'selector': 're-create-media-action-renderer'},{'name': 'ReferenceObjectRendererComponent', 'selector': 'reference-object-renderer'},{'name': 'ReferenceSectionRendererComponent', 'selector': 'reference-section-renderer'},{'name': 'RefInputComponent', 'selector': 'ref-input'},{'name': 'SectionFilterDialogComponent', 'selector': 'section-filter-dialog'},{'name': 'StartProcessActionRendererComponent', 'selector': 'start-process-action-renderer'},{'name': 'StopProcessActionRendererComponent', 'selector': 'stop-process-action-renderer'},{'name': 'StringObjectRendererComponent', 'selector': 'string-object-renderer'},{'name': 'StringSectionRendererComponent', 'selector': 'string-section-renderer'},{'name': 'TargetColumnsDialogComponent', 'selector': 'target-columns-dialog'},{'name': 'ToggleProcessActionRendererComponent', 'selector': 'toggle-process-action-renderer'},{'name': 'UpdateMediaFileActionDialogComponent', 'selector': 'update-media-file-action-dialog'},{'name': 'UpdateMediaFileActionRendererComponent', 'selector': 'update-media-file-action-renderer'},{'name': 'VirtualMediaSectionRendererComponent', 'selector': 'virtual-media-section-renderer'},{'name': 'XdbExportDialogComponent', 'selector': 'xdb-export-dialog'},{'name': 'XdbImportComponent', 'selector': 'xdb-import'}];
+    var COMPONENTS = [{'name': 'AuthComponent', 'selector': 'auth'},{'name': 'BooleanObjectRendererComponent', 'selector': 'boolean-object-renderer'},{'name': 'BooleanSectionRendererComponent', 'selector': 'boolean-section-renderer'},{'name': 'ConfigComponent', 'selector': 'config'},{'name': 'ConfigPropertyEditorComponent', 'selector': 'config-property-editor'},{'name': 'CreateFileActionDialogComponent', 'selector': 'create-file-action-dialog'},{'name': 'CreateFileActionRendererComponent', 'selector': 'create-file-action-renderer'},{'name': 'CreateMediaActionDialogComponent', 'selector': 'create-media-action-dialog'},{'name': 'CreateMediaActionRendererComponent', 'selector': 'create-media-action-renderer'},{'name': 'DateObjectRendererComponent', 'selector': 'date-object-renderer'},{'name': 'DateSectionRendererComponent', 'selector': 'date-section-renderer'},{'name': 'DeleteFileActionRendererComponent', 'selector': 'delete-file-action-renderer'},{'name': 'DeleteMediaActionRendererComponent', 'selector': 'delete-media-action-renderer'},{'name': 'EntityComponent', 'selector': 'entity'},{'name': 'EntityDetailsColumnEditorComponent', 'selector': 'entity-details-column-editor'},{'name': 'EntityDetailsComponent', 'selector': 'entity-details'},{'name': 'ExplorerActionRendererComponent', 'selector': 'explorer-action-renderer'},{'name': 'ExplorerObjectComponent', 'selector': 'explorer-object'},{'name': 'ExplorerObjectRendererComponent', 'selector': 'explorer-object-renderer'},{'name': 'ExplorerSectionComponent', 'selector': 'section'},{'name': 'ExplorerSectionRendererComponent', 'selector': 'explorer-section-renderer'},{'name': 'FileInputComponent', 'selector': 'file-input'},{'name': 'FileMetadataObjectRendererComponent', 'selector': 'file-metadata-object-renderer'},{'name': 'FileStatMediaObjectRendererComponent', 'selector': 'file-stat-media-object-renderer'},{'name': 'ImagesStatsMediaObjectRendererComponent', 'selector': 'images-stats-media-object-renderer'},{'name': 'LocalizedMediaObjectRendererComponent', 'selector': 'localized-media-object-renderer'},{'name': 'LocalizedStringObjectRendererComponent', 'selector': 'localized-string-object-renderer'},{'name': 'LocalizeMediaInputComponent', 'selector': 'localize-media-input'},{'name': 'LocalizeStringInputComponent', 'selector': 'localize-string-input'},{'name': 'MediaComponent', 'selector': 'media-res'},{'name': 'MediaInputComponent', 'selector': 'media-input'},{'name': 'MediaObjectRendererComponent', 'selector': 'media-object-renderer'},{'name': 'MediaSectionRendererComponent', 'selector': 'media-section-renderer'},{'name': 'NewPasswordObjectRendererComponent', 'selector': 'new-password-object-renderer'},{'name': 'PreloaderComponent', 'selector': 'preloader'},{'name': 'ProcessStatsObjectRendererComponent', 'selector': 'process-stats-media-object-renderer'},{'name': 'ProfileComponent', 'selector': 'profile'},{'name': 'ReCreateMediaActionRendererComponent', 'selector': 're-create-media-action-renderer'},{'name': 'ReferenceObjectRendererComponent', 'selector': 'reference-object-renderer'},{'name': 'ReferenceSectionRendererComponent', 'selector': 'reference-section-renderer'},{'name': 'RefInputComponent', 'selector': 'ref-input'},{'name': 'SectionFilterDialogComponent', 'selector': 'section-filter-dialog'},{'name': 'StartProcessActionRendererComponent', 'selector': 'start-process-action-renderer'},{'name': 'StopProcessActionRendererComponent', 'selector': 'stop-process-action-renderer'},{'name': 'StringObjectRendererComponent', 'selector': 'string-object-renderer'},{'name': 'StringSectionRendererComponent', 'selector': 'string-section-renderer'},{'name': 'TargetColumnsDialogComponent', 'selector': 'target-columns-dialog'},{'name': 'ToggleProcessActionRendererComponent', 'selector': 'toggle-process-action-renderer'},{'name': 'UpdateMediaFileActionDialogComponent', 'selector': 'update-media-file-action-dialog'},{'name': 'UpdateMediaFileActionRendererComponent', 'selector': 'update-media-file-action-renderer'},{'name': 'VirtualMediaSectionRendererComponent', 'selector': 'virtual-media-section-renderer'},{'name': 'XdbExportDialogComponent', 'selector': 'xdb-export-dialog'},{'name': 'XdbImportComponent', 'selector': 'xdb-import'}];
     var DIRECTIVES = [{'name': 'PreloaderDirective', 'selector': '[preloading]'},{'name': 'PreventDefaultDirective', 'selector': '[prevent-default]'},{'name': 'StopPropagationDirective', 'selector': '[stop-propagation]'}];
-    var ACTUAL_COMPONENT = {'name': 'ObjectDetailsComponent'};
+    var ACTUAL_COMPONENT = {'name': 'EntityDetailsComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -965,7 +965,7 @@ p-confirmDialog {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'ObjectDetailsComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'EntityDetailsComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
