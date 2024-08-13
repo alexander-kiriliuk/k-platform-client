@@ -38,6 +38,6 @@ export * from "./modules/store";
 export * from "./components/auth";
 export * from "./components/config";
 export * from "./components/explorer";
-export * from "./components/object";
+export * from "./components/entity";
 export * from "./components/profile";
 export * from "./components/xdb";

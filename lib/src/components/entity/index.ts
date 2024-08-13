@@ -14,5 +14,5 @@
  * limitations under the License.
  */
 
-export * from "./src/object.component";
-export * from "./src/object.types";
+export * from "./src/entity.component";
+export * from "./src/entity.types";

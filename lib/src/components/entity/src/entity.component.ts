@@ -22,7 +22,7 @@ import {CardModule} from "primeng/card";
 import {BadgeModule} from "primeng/badge";
 import {InputTextModule} from "primeng/inputtext";
 import {FormControl, ReactiveFormsModule} from "@angular/forms";
-import {Object} from "./object.constants";
+import {Object} from "./entity.constants";
 import {map} from "rxjs/operators";
 import {DialogService} from "primeng/dynamicdialog";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
@@ -38,10 +38,10 @@ import {usePreloader} from "../../../modules/preloader/src/use-preloader";
  * Component for managing and displaying objects within the Explorer.
  */
 @Component({
-  selector: "object",
+  selector: "entity",
   standalone: true,
-  templateUrl: "./object.component.html",
-  styleUrls: ["./object.component.scss"],
+  templateUrl: "./entity.component.html",
+  styleUrls: ["./entity.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     AsyncPipe,
@@ -59,7 +59,7 @@ import {usePreloader} from "../../../modules/preloader/src/use-preloader";
     ExplorerService
   ]
 })
-export class ObjectComponent {
+export class EntityComponent {
 
   private readonly store = inject(Store);
   private readonly ts = inject(TranslocoService);
@@ -113,8 +113,8 @@ export class ObjectComponent {
    * @param item The object to display.
    */
   showObjectDetails(item: ExplorerTarget) {
-    import("./details/object-details.component").then(c => {
-      this.dialogService.open(c.ObjectDetailsComponent, {
+    import("./details/entity-details.component").then(c => {
+      this.dialogService.open(c.EntityDetailsComponent, {
         header: this.localizePipe.transform(item.name, item.target).toString(),
         data: item.target,
         resizable: true,

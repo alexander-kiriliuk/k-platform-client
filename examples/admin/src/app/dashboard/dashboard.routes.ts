@@ -33,9 +33,9 @@ export const DashboardRoutes: Routes = [
           .then(m => m.ExplorerObjectComponent)
       },
       {
-        path: "system/objects",
+        path: "system/entities",
         loadComponent: () => import("@k-platform/client")
-          .then(m => m.ObjectComponent)
+          .then(m => m.EntityComponent)
       },
       {
         path: "system/import-data",

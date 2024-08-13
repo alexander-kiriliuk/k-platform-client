@@ -10,17 +10,17 @@ import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {ButtonModule} from "primeng/button";
 import { LocalizeStringInputComponent } from "../../../../../modules/locale";
 import {RefInputComponent} from "../../../../../modules/ref-input";
-import {ColumnForm} from "../../object.types";
+import {ColumnForm} from "../../entity.types";
 import {Explorer, ExplorerService} from "../../../../explorer";
 
 /**
  * Component for editing the details of a column.
  */
 @Component({
-  selector: "object-details-column-editor",
+  selector: "entity-details-column-editor",
   standalone: true,
-  templateUrl: "./object-details-column-editor.component.html",
-  styleUrls: ["./object-details-column-editor.component.scss"],
+  templateUrl: "./entity-details-column-editor.component.html",
+  styleUrls: ["./entity-details-column-editor.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     LocalizeStringInputComponent,
@@ -38,7 +38,7 @@ import {Explorer, ExplorerService} from "../../../../explorer";
     ExplorerService
   ]
 })
-export class ObjectDetailsColumnEditorComponent {
+export class EntityDetailsColumnEditorComponent {
 
   /** List of type suggestions for the auto-complete input. **/
   suggestions: string[] = [];

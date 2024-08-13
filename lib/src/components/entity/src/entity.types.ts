@@ -20,7 +20,7 @@ import { ExplorerColumn, ExplorerTab, ExplorerTarget } from "../../explorer";
 /**
  * Form type for an object in the Explorer.
  */
-type ObjectForm = {
+type EntityForm = {
   [K in keyof ExplorerTarget]: FormControl<ExplorerTarget[K]>;
 }
 
@@ -34,7 +34,7 @@ export type ColumnForm = {
 /**
  * Interface for a form representing a target in the Explorer, excluding the columns and actions properties.
  */
-export interface TargetForm extends Omit<ObjectForm, "columns"/* | "actions"*/> {
+export interface TargetForm extends Omit<EntityForm, "columns"> {
   columns: FormArray<FormGroup<ColumnForm>>;
 }
 

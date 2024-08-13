@@ -15,7 +15,7 @@
  */
 
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ColumnForm, TabForm, TargetForm} from "../object.types";
+import {ColumnForm, TabForm, TargetForm} from "../entity.types";
 import {
   ExplorerAction,
   ExplorerColumn,
@@ -43,12 +43,12 @@ function handleJsonColumn(data: unknown): object {
   return data as object;
 }
 
-export namespace ObjectDetails {
+export namespace EntityDetails {
 
   /**
    * Preloader channel name for object details.
    */
-  export const PreloaderCn = "objects-det-cn";
+  export const PreloaderCn = "entity-det-cn";
 
   /**
    * Creates a form group for a target object.

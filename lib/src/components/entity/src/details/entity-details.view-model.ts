@@ -21,10 +21,10 @@ import {TranslocoService} from "@ngneat/transloco";
 import {throwError} from "rxjs";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {catchError} from "rxjs/operators";
-import {ObjectDetails} from "./object-details.constants";
+import {EntityDetails} from "./entity-details.constants";
 import {LocalizePipe} from "../../../../modules/locale";
 import {Store} from "../../../../modules/store";
-import {ColumnForm, TabForm} from "../object.types";
+import {ColumnForm, TabForm} from "../entity.types";
 import {onlyLatinLettersAndNumbersValidator} from "../../../../global/validator";
 import {
   ExplorerColumn,
@@ -35,15 +35,15 @@ import {
 } from "../../../explorer";
 import {ToastData, ToastEvent} from "../../../../global/vars";
 import {usePreloader} from "../../../../modules/preloader/src/use-preloader";
-import createTargetForm = ObjectDetails.createTargetForm;
-import createColumnForm = ObjectDetails.createColumnForm;
-import createTabForm = ObjectDetails.createTabForm;
+import createTargetForm = EntityDetails.createTargetForm;
+import createColumnForm = EntityDetails.createColumnForm;
+import createTabForm = EntityDetails.createTabForm;
 
 /**
- * ViewModel for managing the details of an object.
+ * ViewModel for managing the details of an entity.
  */
 @Injectable()
-export class ObjectDetailsViewModel {
+export class EntityDetailsViewModel {
 
   /** Key for the new column dialog. */
   readonly newColumnDialogKey = "newColumnDialog";
@@ -73,7 +73,7 @@ export class ObjectDetailsViewModel {
    * @returns The preloader channel identifier.
    */
   get preloaderChannel() {
-    return ObjectDetails.PreloaderCn;
+    return EntityDetails.PreloaderCn;
   }
 
   /**
@@ -221,8 +221,8 @@ export class ObjectDetailsViewModel {
    * @param colForm The column form to edit.
    */
   openColumnEditor(colForm: FormGroup<ColumnForm>) {
-    import("./column-editor/object-details-column-editor.component").then(c => {
-      this.dialogService.open(c.ObjectDetailsColumnEditorComponent, {
+    import("./column-editor/entity-details-column-editor.component").then(c => {
+      this.dialogService.open(c.EntityDetailsColumnEditorComponent, {
         header: this.localizePipe.transform(colForm.controls.name.value, colForm.controls.id.value)?.toString(),
         data: colForm,
         resizable: true,

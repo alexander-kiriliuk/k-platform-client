@@ -28,25 +28,25 @@ import {InputTextareaModule} from "primeng/inputtextarea";
 import {CheckboxModule} from "primeng/checkbox";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
-import {ObjectDetails} from "./object-details.constants";
+import {EntityDetails} from "./entity-details.constants";
 import {PreloaderComponent, PreloaderDirective} from "../../../../modules/preloader";
 import {LocalizePipe, LocalizeStringInputComponent} from "../../../../modules/locale";
 import {MediaInputComponent} from "../../../../modules/media";
 import {RefInputComponent} from "../../../../modules/ref-input";
-import {ObjectDetailsViewModel} from "./object-details.view-model";
+import {EntityDetailsViewModel} from "./entity-details.view-model";
 import {Store} from "../../../../modules/store";
 import {ExplorerService, TargetData} from "../../../../components/explorer";
 import {usePreloader} from "../../../../modules/preloader/src/use-preloader";
-import createColumnForm = ObjectDetails.createColumnForm;
+import createColumnForm = EntityDetails.createColumnForm;
 
 /**
- * Component for managing and displaying the details of an object.
+ * Component for managing and displaying the details of an entity.
  */
 @Component({
-  selector: "object-details",
+  selector: "entity-details",
   standalone: true,
-  templateUrl: "./object-details.component.html",
-  styleUrls: ["./object-details.component.scss"],
+  templateUrl: "./entity-details.component.html",
+  styleUrls: ["./entity-details.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     PreloaderComponent,
@@ -67,17 +67,17 @@ import createColumnForm = ObjectDetails.createColumnForm;
     CheckboxModule,
   ],
   providers: [
-    ObjectDetailsViewModel,
+    EntityDetailsViewModel,
     DialogService,
     ExplorerService,
     ConfirmationService
   ]
 })
-export class ObjectDetailsComponent {
+export class EntityDetailsComponent {
 
   /** Observable for the target data. **/
   readonly target$: Observable<TargetData>;
-  readonly vm = inject(ObjectDetailsViewModel);
+  readonly vm = inject(EntityDetailsViewModel);
   private readonly explorerService = inject(ExplorerService);
   private readonly store = inject(Store);
 
