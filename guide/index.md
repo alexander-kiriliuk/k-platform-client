@@ -15,9 +15,9 @@ The following describes some modules, services and utilities on which the applic
   - Explorer object - is a universal component that provides the ability to perform CRUD operations on any entity. Each column is displayed with the help of the object renderer bound to it.
   - [Explorer renderer](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/guide/explorer/explorer-renderer.md) - special components that are bound to entity columns, responsible for the appearance and behaviour logic of editing elements and displaying entity fields. There is also a separate type of renderer `action-renderer`, which is responsible for the display and logic of entity action elements.
 
-- ### [Object](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/components/object)
+- ### [Entity](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/components/entity)
 
-  This module is responsible for displaying all database entities. It allows you to edit the metadata of all entity columns, manage renderers, create virtual columns, manage read and edit access by users roles, adjust the display order and customise the tabbed UI for editing an entity. You can [read more here](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/guide/object/object.md).
+  This module is responsible for displaying all database entities. It allows you to edit the metadata of all entity columns, manage renderers, create virtual columns, manage read and edit access by users roles, adjust the display order and customise the tabbed UI for editing an entity. You can [read more here](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/guide/entity/entity.md).
 
 - ### [Auth](https://github.com/alexander-kiriliuk/k-platform-client/tree/master/lib/src/components/auth)
   This module provides an authorisation form and two types of captcha: normal and google recaptcha. Read more about [captcha](https://alexander-kiriliuk.github.io/k-platform-core/additional-documentation/properties/captcha.properties.html), [authorisation](https://alexander-kiriliuk.github.io/k-platform-core/additional-documentation/properties/auth.properties.html) and [bruteforce](https://alexander-kiriliuk.github.io/k-platform-core/additional-documentation/properties/bruteforce.properties.html) protection settings.
