@@ -292,6 +292,9 @@ handling operations such as saving, deleting, and initializing objects.</p>
                                     <a href="#exportDialogConfig" >exportDialogConfig</a>
                                 </li>
                                 <li>
+                                    <a href="#canDuplicate" >canDuplicate</a>
+                                </li>
+                                <li>
                                     <a href="#dialogMode" >dialogMode</a>
                                 </li>
                                 <li>
@@ -366,8 +369,8 @@ handling operations such as saving, deleting, and initializing objects.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="207"
-                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:207</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="218"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:218</a></div>
                         </td>
                     </tr>
 
@@ -409,8 +412,8 @@ emits a delete event in the store with the current entity&#39;s ID and target.</
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="319"
-                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:319</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="335"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:335</a></div>
                         </td>
                     </tr>
 
@@ -489,8 +492,8 @@ and navigates back to the section view.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="248"
-                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:248</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="259"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:259</a></div>
                         </td>
                     </tr>
 
@@ -569,8 +572,8 @@ updates the form controls, and emits the title for the header.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="290"
-                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:290</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="301"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:301</a></div>
                         </td>
                     </tr>
 
@@ -647,8 +650,8 @@ save operation, and navigates to the newly created object if applicable.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="223"
-                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:223</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="234"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:234</a></div>
                         </td>
                     </tr>
 
@@ -688,8 +691,8 @@ and sets up the reactive form with the fetched entity data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="192"
-                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:192</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="203"
+                                    class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:203</a></div>
                         </td>
                     </tr>
 
@@ -1410,6 +1413,43 @@ entity data and its target.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="canDuplicate"></a>
+                        <span class="name"><b>canDuplicate</b><a href="#canDuplicate"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>canDuplicate()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:142</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Checks if the object can be duplicated.
+The object can be duplicated if there is no existing duplicate ID
+and if the default action for duplication is enabled.</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="dialogMode"></a>
                         <span class="name"><b>dialogMode</b><a href="#dialogMode"><span class="icon ion-ios-link"></span></a></span>
                     </td>
@@ -1422,7 +1462,7 @@ entity data and its target.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="140" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:140</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:151</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1457,7 +1497,7 @@ entity data and its target.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="148" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:148</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="159" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:159</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1488,7 +1528,7 @@ entity data and its target.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="156" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:156</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:167</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1519,7 +1559,7 @@ entity data and its target.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:164</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="175" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:175</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1554,7 +1594,7 @@ entity data and its target.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="172" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:172</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="183" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:183</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1589,7 +1629,7 @@ entity data and its target.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="180" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:180</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="191" class="link-to-prism">lib/src/components/explorer/src/object/explorer-object.view-model.ts:191</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1726,6 +1766,17 @@ export class ExplorerObjectViewModel {
       modal: true,
       position: &quot;center&quot;
     };
+  }
+
+  /**
+   * Checks if the object can be duplicated.
+   * The object can be duplicated if there is no existing duplicate ID
+   * and if the default action for duplication is enabled.
+   * @returns {boolean} True if the object can be duplicated, otherwise false.
+   */
+  get canDuplicate(): boolean {
+    return this.id !&#x3D;&#x3D; Explorer.NewItemToken &amp;&amp; !this.duplicateId
+      &amp;&amp; this.targetData.entity.defaultActionDuplicate;
   }
 
   /**
@@ -1898,9 +1949,14 @@ export class ExplorerObjectViewModel {
       });
       if (this.id &#x3D;&#x3D;&#x3D; Explorer.NewItemToken) {
         const p1 &#x3D; this.entityTargetOrAlias;
-        this.router.navigate([
-          &#x60;/object/${p1}/${(entity as { [k: string]: unknown })[this.targetData.primaryColumn.property]}&#x60;
-        ], {replaceUrl: true});
+        const p2 &#x3D; (entity as { [k: string]: unknown })[this.targetData.primaryColumn.property];
+        const url &#x3D; &#x60;/object/${p1}/${p2}&#x60;;
+        const dupId &#x3D; this.duplicateId;
+        this.router.navigate([url], {replaceUrl: true}).then(() &#x3D;&gt; {
+          if (dupId) {
+            location.reload();
+          }
+        });
       }
     });
   }
