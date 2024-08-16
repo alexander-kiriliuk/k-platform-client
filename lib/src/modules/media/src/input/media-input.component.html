@@ -34,7 +34,7 @@
         </ul>
       </div>
     }
-    <h4>{{ placeholder() }}</h4>
+    <div class="placeholder">{{ placeholder() }} <sup>{{mediaType()}}</sup></div>
     <div class="medias">
       @if (data) {
         @if (!multi() && singleValue) {

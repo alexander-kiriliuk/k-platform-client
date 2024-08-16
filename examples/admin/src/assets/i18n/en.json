@@ -312,7 +312,7 @@
         "id": "ID",
         "name": "Name",
         "priority": "Priority",
-        "params": "Params",
+        "size": "Size",
         "cancel": "Cancel",
         "ok": "Save",
         "error": "Error saving tab",

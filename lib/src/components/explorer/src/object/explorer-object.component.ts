@@ -118,16 +118,6 @@ export class ExplorerObjectComponent implements OnInit {
   }
 
   /**
-   * Checks if the object can be duplicated.
-   * The object can be duplicated if there is no existing duplicate ID
-   * and if the default action for duplication is enabled.
-   * @returns {boolean} True if the object can be duplicated, otherwise false.
-   */
-  get canDuplicate(): boolean {
-    return !this.vm.duplicateId && this.vm.targetData.entity.defaultActionDuplicate;
-  }
-
-  /**
    * Initializes the component when it is created.
    * This lifecycle method is called once the component has been initialized.
    * It triggers the ViewModel to initialize the object being explored.

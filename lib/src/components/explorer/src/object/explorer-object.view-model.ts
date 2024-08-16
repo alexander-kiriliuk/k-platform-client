@@ -134,6 +134,17 @@ export class ExplorerObjectViewModel {
   }
 
   /**
+   * Checks if the object can be duplicated.
+   * The object can be duplicated if there is no existing duplicate ID
+   * and if the default action for duplication is enabled.
+   * @returns {boolean} True if the object can be duplicated, otherwise false.
+   */
+  get canDuplicate(): boolean {
+    return this.id !== Explorer.NewItemToken && !this.duplicateId
+      && this.targetData.entity.defaultActionDuplicate;
+  }
+
+  /**
    * Indicates whether the ViewModel is operating in dialog mode.
    * @returns {boolean} True if in dialog mode, otherwise false.
    */
@@ -303,9 +314,14 @@ export class ExplorerObjectViewModel {
       });
       if (this.id === Explorer.NewItemToken) {
         const p1 = this.entityTargetOrAlias;
-        this.router.navigate([
-          `/object/${p1}/${(entity as { [k: string]: unknown })[this.targetData.primaryColumn.property]}`
-        ], {replaceUrl: true});
+        const p2 = (entity as { [k: string]: unknown })[this.targetData.primaryColumn.property];
+        const url = `/object/${p1}/${p2}`;
+        const dupId = this.duplicateId;
+        this.router.navigate([url], {replaceUrl: true}).then(() => {
+          if (dupId) {
+            location.reload();
+          }
+        });
       }
     });
   }

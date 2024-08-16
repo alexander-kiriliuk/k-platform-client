@@ -28,9 +28,15 @@
   }
 }
 
-h4 {
+.placeholder {
   padding: 0.5rem 1rem;
   font-weight: 600;
+}
+
+sup {
+  color: var(--accent-color);
+  margin-left: 30px;
+  font-weight: 400;
 }
 
 .medias {
