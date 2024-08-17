@@ -84,6 +84,18 @@ export class LocalizeStringInputComponent implements ControlValueAccessor {
     for (const v of res) {
       this.resData[v.lang.id] = v;
     }
+    if (Object.keys(this.resData).length) {
+      for (const lang of this.langList) {
+        if (this.resData[lang.id]) {
+          continue;
+        }
+        this.resData[lang.id] = {
+          lang: lang,
+          value: ""
+        } as LocalizedString;
+      }
+    }
+
     this.synchronize();
     this.cdr.markForCheck();
   }

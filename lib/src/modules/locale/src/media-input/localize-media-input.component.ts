@@ -15,7 +15,7 @@
  */
 
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, input} from "@angular/core";
-import {Language, LocalizedMedia} from "../locale.types";
+import {Language, LocalizedMedia, LocalizedString} from "../locale.types";
 import {AVAIL_LANGS} from "../locale.constants";
 import {TranslocoPipe, TranslocoService} from "@ngneat/transloco";
 import {
@@ -95,6 +95,17 @@ export class LocalizeMediaInputComponent implements ControlValueAccessor {
     this.resData = {};
     for (const v of res) {
       this.resData[v.lang.id] = v;
+    }
+    if (Object.keys(this.resData).length) {
+      for (const lang of this.langList) {
+        if (this.resData[lang.id]) {
+          continue;
+        }
+        this.resData[lang.id] = {
+          lang: lang,
+          value: null
+        } as LocalizedMedia;
+      }
     }
     this.synchronize();
     this.cdr.markForCheck();
