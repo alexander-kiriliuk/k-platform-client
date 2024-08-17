@@ -431,8 +431,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="132"
-                                    class="link-to-prism">lib/src/modules/locale/src/media-input/localize-media-input.component.ts:132</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="143"
+                                    class="link-to-prism">lib/src/modules/locale/src/media-input/localize-media-input.component.ts:143</a></div>
                         </td>
                     </tr>
 
@@ -470,8 +470,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="112"
-                                    class="link-to-prism">lib/src/modules/locale/src/media-input/localize-media-input.component.ts:112</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="123"
+                                    class="link-to-prism">lib/src/modules/locale/src/media-input/localize-media-input.component.ts:123</a></div>
                         </td>
                     </tr>
 
@@ -537,8 +537,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="116"
-                                    class="link-to-prism">lib/src/modules/locale/src/media-input/localize-media-input.component.ts:116</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="127"
+                                    class="link-to-prism">lib/src/modules/locale/src/media-input/localize-media-input.component.ts:127</a></div>
                         </td>
                     </tr>
 
@@ -604,8 +604,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="120"
-                                    class="link-to-prism">lib/src/modules/locale/src/media-input/localize-media-input.component.ts:120</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="131"
+                                    class="link-to-prism">lib/src/modules/locale/src/media-input/localize-media-input.component.ts:131</a></div>
                         </td>
                     </tr>
 
@@ -671,8 +671,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="104"
-                                    class="link-to-prism">lib/src/modules/locale/src/media-input/localize-media-input.component.ts:104</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">lib/src/modules/locale/src/media-input/localize-media-input.component.ts:115</a></div>
                         </td>
                     </tr>
 
@@ -1001,7 +1001,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">lib/src/modules/locale/src/media-input/localize-media-input.component.ts:125</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">lib/src/modules/locale/src/media-input/localize-media-input.component.ts:136</a></div>
                         </td>
                     </tr>
 
@@ -1026,7 +1026,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">lib/src/modules/locale/src/media-input/localize-media-input.component.ts:128</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">lib/src/modules/locale/src/media-input/localize-media-input.component.ts:139</a></div>
                         </td>
                     </tr>
 
@@ -1125,7 +1125,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, input} from &quot;@angular/core&quot;;
-import {Language, LocalizedMedia} from &quot;../locale.types&quot;;
+import {Language, LocalizedMedia, LocalizedString} from &quot;../locale.types&quot;;
 import {AVAIL_LANGS} from &quot;../locale.constants&quot;;
 import {TranslocoPipe, TranslocoService} from &quot;@ngneat/transloco&quot;;
 import {
@@ -1205,6 +1205,17 @@ export class LocalizeMediaInputComponent implements ControlValueAccessor {
     this.resData &#x3D; {};
     for (const v of res) {
       this.resData[v.lang.id] &#x3D; v;
+    }
+    if (Object.keys(this.resData).length) {
+      for (const lang of this.langList) {
+        if (this.resData[lang.id]) {
+          continue;
+        }
+        this.resData[lang.id] &#x3D; {
+          lang: lang,
+          value: null
+        } as LocalizedMedia;
+      }
     }
     this.synchronize();
     this.cdr.markForCheck();

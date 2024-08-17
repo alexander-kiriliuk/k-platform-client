@@ -395,8 +395,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="120"
-                                    class="link-to-prism">lib/src/modules/locale/src/string-input/localize-string-input.component.ts:120</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="132"
+                                    class="link-to-prism">lib/src/modules/locale/src/string-input/localize-string-input.component.ts:132</a></div>
                         </td>
                     </tr>
 
@@ -434,8 +434,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="100"
-                                    class="link-to-prism">lib/src/modules/locale/src/string-input/localize-string-input.component.ts:100</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">lib/src/modules/locale/src/string-input/localize-string-input.component.ts:112</a></div>
                         </td>
                     </tr>
 
@@ -501,8 +501,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="104"
-                                    class="link-to-prism">lib/src/modules/locale/src/string-input/localize-string-input.component.ts:104</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">lib/src/modules/locale/src/string-input/localize-string-input.component.ts:116</a></div>
                         </td>
                     </tr>
 
@@ -568,8 +568,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="108"
-                                    class="link-to-prism">lib/src/modules/locale/src/string-input/localize-string-input.component.ts:108</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">lib/src/modules/locale/src/string-input/localize-string-input.component.ts:120</a></div>
                         </td>
                     </tr>
 
@@ -635,8 +635,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="92"
-                                    class="link-to-prism">lib/src/modules/locale/src/string-input/localize-string-input.component.ts:92</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">lib/src/modules/locale/src/string-input/localize-string-input.component.ts:104</a></div>
                         </td>
                     </tr>
 
@@ -939,7 +939,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">lib/src/modules/locale/src/string-input/localize-string-input.component.ts:113</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">lib/src/modules/locale/src/string-input/localize-string-input.component.ts:125</a></div>
                         </td>
                     </tr>
 
@@ -964,7 +964,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">lib/src/modules/locale/src/string-input/localize-string-input.component.ts:116</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">lib/src/modules/locale/src/string-input/localize-string-input.component.ts:128</a></div>
                         </td>
                     </tr>
 
@@ -1132,6 +1132,18 @@ export class LocalizeStringInputComponent implements ControlValueAccessor {
     for (const v of res) {
       this.resData[v.lang.id] &#x3D; v;
     }
+    if (Object.keys(this.resData).length) {
+      for (const lang of this.langList) {
+        if (this.resData[lang.id]) {
+          continue;
+        }
+        this.resData[lang.id] &#x3D; {
+          lang: lang,
+          value: &quot;&quot;
+        } as LocalizedString;
+      }
+    }
+
     this.synchronize();
     this.cdr.markForCheck();
   }
