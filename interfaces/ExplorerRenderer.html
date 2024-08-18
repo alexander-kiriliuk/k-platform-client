@@ -554,10 +554,10 @@ export interface ExplorerRendererProvider extends ValueProvider {
 /**
  * Represents an action renderer in the explorer.
  */
-export interface ExplorerActionRenderer&lt;Data &#x3D; unknown&gt; {
+export interface ExplorerActionRenderer {
   target: InputSignal&lt;TargetData&gt;;
   action: ExplorerAction;
-  data?: InputSignal&lt;Data | Data[]&gt;;
+  data?: InputSignal&lt;unknown | unknown[]&gt;;
   entityForm?: InputSignal&lt;FormGroup&gt;;
 }
 
