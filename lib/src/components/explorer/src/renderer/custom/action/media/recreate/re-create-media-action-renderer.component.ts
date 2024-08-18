@@ -30,7 +30,7 @@ import {LocalizePipe} from "../../../../../../../../modules/locale";
 import {Store} from "../../../../../../../../modules/store";
 import {Media, MediaService} from "../../../../../../../../modules/media";
 import {Explorer, ExplorerEvent} from "../../../../../../../explorer";
-import {ProcessUnit, ToastData, ToastEvent} from "../../../../../../../../global/vars";
+import {ToastData, ToastEvent} from "../../../../../../../../global/vars";
 import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
 import {FormControl, FormGroup} from "@angular/forms";
 

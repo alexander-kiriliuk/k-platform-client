@@ -15,7 +15,7 @@
  */
 
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, input} from "@angular/core";
-import {Language, LocalizedMedia, LocalizedString} from "../locale.types";
+import {Language, LocalizedMedia} from "../locale.types";
 import {AVAIL_LANGS} from "../locale.constants";
 import {TranslocoPipe, TranslocoService} from "@ngneat/transloco";
 import {
