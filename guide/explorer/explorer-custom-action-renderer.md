@@ -4,6 +4,19 @@
 
 Here we will look at an example of creating a custom action renderer to reset the `price` and `discountPercent` fields of the `ProductEntity` entity.
 
+First, define the Product interface:
+
+    interface Product {
+      id: number;
+      code: string;
+      name: string;
+      price: number;
+      inStock: boolean;
+      picture: Media;
+      tsCreated: Date;
+      discountPercent: number;
+    }
+
 Let's create a UI component of the action renderer that will reset the form fields:
 
     @Component({

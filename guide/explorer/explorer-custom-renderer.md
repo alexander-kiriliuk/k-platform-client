@@ -4,6 +4,19 @@
 
 Here we will look at an example of creating a custom renderer for the `virtual-product-discount-info` virtual column from the example above.
 
+First, define the Product interface:
+
+    interface Product {
+      id: number;
+      code: string;
+      name: string;
+      price: number;
+      inStock: boolean;
+      picture: Media;
+      tsCreated: Date;
+      discountPercent: number;
+    }
+
 Let's create a simple renderer component for the example that will display the price of the product with the discount and will be updated when the values of the discount and price fields change:
 
     @Component({
