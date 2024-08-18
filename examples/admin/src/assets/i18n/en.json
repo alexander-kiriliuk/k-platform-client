@@ -335,6 +335,7 @@
         "virtual": "Virtual",
         "primary": "Primary",
         "unique": "Unique",
+        "named": "Named",
         "alias": "Alias",
         "multiple": "Array of values",
         "actions": "Actions",

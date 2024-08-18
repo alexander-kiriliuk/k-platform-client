@@ -76,6 +76,12 @@
       <label for="colsObjRdParams">{{'object.details.col.obj.rd.params' | transloco}}</label>
     </div>
     <div class="cbx-container">
+      <p-checkbox inputId="colNamed"
+                  [formControl]="colForm.controls.named"
+                  [binary]="true"
+                  [label]="'object.details.col.named' | transloco"/>
+    </div>
+    <div class="cbx-container">
       <p-checkbox inputId="colVirtual"
                   [formControl]="colForm.controls.virtual"
                   [binary]="true"

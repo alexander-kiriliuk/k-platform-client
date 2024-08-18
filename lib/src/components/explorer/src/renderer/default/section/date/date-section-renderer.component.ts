@@ -33,4 +33,7 @@ import {AbstractExplorerSectionRenderer} from "../../abstract-explorer-section-r
   ],
 })
 export class DateSectionRendererComponent extends AbstractExplorerSectionRenderer<string> {
+
+  override params: { format: string };
+
 }

@@ -83,6 +83,7 @@ export namespace EntityDetails {
       id: new FormControl<string>({value: payload.id, disabled: true}),
       property: new FormControl<string>({value: payload.property, disabled: true}),
       multiple: new FormControl<boolean>({value: payload.multiple, disabled: true}),
+      named: new FormControl<boolean>({value: payload.named, disabled: false}),
       primary: new FormControl<boolean>({value: payload.primary, disabled: true}),
       unique: new FormControl<boolean>({value: payload.unique, disabled: true}),
       referencedEntityName: new FormControl<string>({value: payload.referencedEntityName, disabled: true}),
