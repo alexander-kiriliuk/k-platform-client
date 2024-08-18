@@ -20,7 +20,7 @@ import {ExplorerRendererLoader, ExplorerRendererProvider} from "./explorer.types
 /**
  * Provides an array of section renderers for the explorer.
  * Each renderer is defined with a unique code and a dynamic import for the corresponding component.
- * @param loaders - loaders for custom renderers
+ * @param loaders - loaders for custom renderers, will be merged with default renderers
  * @returns {ExplorerRendererProvider[]} An array of section renderer providers.
  */
 export function provideExplorerSectionRenderers(...loaders: ExplorerRendererLoader[]): ExplorerRendererProvider[] {

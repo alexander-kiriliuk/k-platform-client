@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import {ChangeDetectionStrategy, Component, inject} from "@angular/core";
+import {ChangeDetectionStrategy, Component, inject, InputSignal} from "@angular/core";
 import {RippleModule} from "primeng/ripple";
 import {ButtonModule} from "primeng/button";
 import {ConfirmDialogModule} from "primeng/confirmdialog";
@@ -28,10 +28,11 @@ import {
 import {PreloaderComponent} from "../../../../../../../../modules/preloader";
 import {LocalizePipe} from "../../../../../../../../modules/locale";
 import {Store} from "../../../../../../../../modules/store";
-import {MediaService} from "../../../../../../../../modules/media";
+import {Media, MediaService} from "../../../../../../../../modules/media";
 import {Explorer, ExplorerEvent} from "../../../../../../../explorer";
-import {ToastData, ToastEvent} from "../../../../../../../../global/vars";
+import {ProcessUnit, ToastData, ToastEvent} from "../../../../../../../../global/vars";
 import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
+import {FormControl, FormGroup} from "@angular/forms";
 
 /**
  * This component provides functionality to confirm and re-create a media file
@@ -57,6 +58,7 @@ export class ReCreateMediaActionRendererComponent extends AbstractExplorerAction
   /** Key for the confirmation dialog. */
 
   readonly dialogKey = "recreate-media-action-dialog";
+  override entityForm: InputSignal<FormGroup<{ [K in keyof Media]: FormControl<Media[K]> }>>;
   private readonly confirmationService = inject(ConfirmationService);
   private readonly store = inject(Store);
   private readonly service = inject(MediaService);
@@ -80,7 +82,7 @@ export class ReCreateMediaActionRendererComponent extends AbstractExplorerAction
     this.confirmationService.confirm({
       key: this.dialogKey,
       accept: () => {
-        this.service.reCreate(this.entityForm().controls.id.value).pipe(
+        this.service.reCreate(this.entityForm().controls.id.value?.toString()).pipe(
           usePreloader(this.store, this.preloaderChannel),
           catchError((res) => {
             this.store.emit<ToastData>(ToastEvent.Error, {message: res.error.message});

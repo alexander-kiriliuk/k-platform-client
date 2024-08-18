@@ -75,6 +75,7 @@ module.exports = {
             argsIgnorePattern: '^_'
           }
         ],
+        "@typescript-eslint/ban-ts-comment": "off",
         "@typescript-eslint/no-namespace": "off",
         "import-newlines/enforce": ["error", {items: 40, "max-len": 100}],
         "max-len": [

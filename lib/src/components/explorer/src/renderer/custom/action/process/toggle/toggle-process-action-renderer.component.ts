@@ -20,6 +20,7 @@ import {
   Component,
   inject,
   Injector,
+  InputSignal,
   OnInit,
   runInInjectionContext
 } from "@angular/core";
@@ -38,6 +39,7 @@ import {Store} from "../../../../../../../../modules/store";
 import {Explorer, ExplorerEvent} from "../../../../../../../explorer";
 import {ProcessUnit, ToastData, ToastEvent} from "../../../../../../../../global/vars";
 import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
+import {FormControl, FormGroup} from "@angular/forms";
 
 /**
  * This component allows users to enable or disable a process and handles state changes.
@@ -58,6 +60,7 @@ import {usePreloader} from "../../../../../../../../modules/preloader/src/use-pr
 export class ToggleProcessActionRendererComponent extends AbstractExplorerActionRenderer
   implements OnInit {
 
+  override entityForm: InputSignal<FormGroup<{ [K in keyof ProcessUnit]: FormControl<ProcessUnit[K]> }>>;
   private readonly service = inject(ProcessService);
   private readonly store = inject(Store);
   private readonly cdr = inject(ChangeDetectorRef);
@@ -68,7 +71,7 @@ export class ToggleProcessActionRendererComponent extends AbstractExplorerAction
    * @returns The enabled control value.
    */
   get enabledCtrlValue() {
-    return this.entityForm().controls.enabled.value as boolean;
+    return this.entityForm().controls.enabled.value;
   }
 
   /**

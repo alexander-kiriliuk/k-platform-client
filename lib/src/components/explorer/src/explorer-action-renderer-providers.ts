@@ -20,7 +20,7 @@ import {ExplorerActionRendererLoader, ExplorerActionRendererProvider} from "./ex
 /**
  * Provides an array of action renderers for the explorer.
  * Each renderer is defined with a unique code and a dynamic import for the corresponding component.
- * @param loaders - loaders for custom renderers
+ * @param loaders - loaders for custom renderers, will be merged with default renderers
  * @returns {ExplorerActionRendererProvider[]} An array of action renderer providers.
  */
 export function provideExplorerActionRenderers(...loaders: ExplorerActionRendererLoader[])

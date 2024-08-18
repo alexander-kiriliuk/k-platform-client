@@ -20,6 +20,7 @@ import {
   Component,
   inject,
   Injector,
+  InputSignal,
   OnInit,
   runInInjectionContext
 } from "@angular/core";
@@ -43,6 +44,7 @@ import {
   ToastEvent
 } from "../../../../../../../../global/vars";
 import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
+import {FormControl, FormGroup} from "@angular/forms";
 
 /**
  * This component allows users to start a process and handle the action state.
@@ -63,6 +65,7 @@ import {usePreloader} from "../../../../../../../../modules/preloader/src/use-pr
 export class StartProcessActionRendererComponent extends AbstractExplorerActionRenderer
   implements OnInit {
 
+  override entityForm: InputSignal<FormGroup<{ [K in keyof ProcessUnit]: FormControl<ProcessUnit[K]> }>>;
   private readonly service = inject(ProcessService);
   private readonly store = inject(Store);
   private readonly cdr = inject(ChangeDetectorRef);
@@ -73,7 +76,7 @@ export class StartProcessActionRendererComponent extends AbstractExplorerActionR
    * @returns The enabled control value.
    */
   get enabledCtrlValue() {
-    return this.entityForm().controls.enabled.value as boolean;
+    return this.entityForm().controls.enabled.value;
   }
 
   /**
@@ -81,7 +84,7 @@ export class StartProcessActionRendererComponent extends AbstractExplorerActionR
    * @returns The current status of the process.
    */
   get statusControlValue() {
-    return this.entityForm().controls.status.value as ProcessStatus;
+    return this.entityForm().controls.status.value;
   }
 
   /**

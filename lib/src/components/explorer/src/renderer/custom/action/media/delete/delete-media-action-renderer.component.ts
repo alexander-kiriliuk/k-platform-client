@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import {ChangeDetectionStrategy, Component, inject} from "@angular/core";
+import {ChangeDetectionStrategy, Component, inject, InputSignal} from "@angular/core";
 import {RippleModule} from "primeng/ripple";
 import {ButtonModule} from "primeng/button";
 import {throwError} from "rxjs";
@@ -23,7 +23,7 @@ import {ConfirmDialogModule} from "primeng/confirmdialog";
 import {TranslocoPipe} from "@ngneat/transloco";
 import {ConfirmationService} from "primeng/api";
 import {catchError} from "rxjs/operators";
-import {MediaService} from "../../../../../../../../modules/media";
+import {Media, MediaService} from "../../../../../../../../modules/media";
 import {LocalizePipe} from "../../../../../../../../modules/locale";
 import {
   AbstractExplorerActionRenderer
@@ -32,6 +32,7 @@ import {Store} from "../../../../../../../../modules/store";
 import {Explorer} from "../../../../../../../explorer";
 import {ToastData, ToastEvent} from "../../../../../../../../global/vars";
 import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
+import {FormControl, FormGroup} from "@angular/forms";
 
 /**
  * This component provides functionality to confirm and delete a media file.
@@ -52,6 +53,7 @@ import {usePreloader} from "../../../../../../../../modules/preloader/src/use-pr
 })
 export class DeleteMediaActionRendererComponent extends AbstractExplorerActionRenderer {
 
+  override entityForm: InputSignal<FormGroup<{ [K in keyof Media]: FormControl<Media[K]> }>>;
   /** Key for the confirmation dialog. */
   readonly dialogKey = "del-media-action-dialog";
   private readonly confirmationService = inject(ConfirmationService);
@@ -75,7 +77,7 @@ export class DeleteMediaActionRendererComponent extends AbstractExplorerActionRe
     this.confirmationService.confirm({
       key: this.dialogKey,
       accept: () => {
-        this.service.remove(this.entityForm().controls.id.value).pipe(
+        this.service.remove(this.entityForm().controls.id.value?.toString()).pipe(
           usePreloader(this.store, this.preloaderChannel),
           catchError((res) => {
             this.store.emit<ToastData>(ToastEvent.Error, {message: res.error.message});

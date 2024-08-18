@@ -23,11 +23,11 @@ import {InputSignal} from "@angular/core";
  * This class provides common properties for action renderers,
  * including the target data, action data, and form management.
  */
-export abstract class AbstractExplorerActionRenderer<Data = unknown> implements ExplorerActionRenderer<Data> {
+export abstract class AbstractExplorerActionRenderer implements ExplorerActionRenderer {
   /** The target data associated with the actions. */
   target: InputSignal<TargetData>;
   /** The data for the actions to be rendered. */
-  data: InputSignal<Data | Data[]>;
+  data: InputSignal<unknown | unknown[]>;
   /** The form group managing the entity data associated with the actions. */
   entityForm: InputSignal<FormGroup>;
   /** The action-data to be rendered. */

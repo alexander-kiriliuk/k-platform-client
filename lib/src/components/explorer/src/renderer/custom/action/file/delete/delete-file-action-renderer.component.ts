@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import {ChangeDetectionStrategy, Component, inject} from "@angular/core";
+import {ChangeDetectionStrategy, Component, inject, InputSignal} from "@angular/core";
 import {RippleModule} from "primeng/ripple";
 import {ButtonModule} from "primeng/button";
 import {DeleteFileActionRendererService} from "./delete-file-action-renderer.service";
@@ -32,6 +32,8 @@ import {Store} from "../../../../../../../../modules/store";
 import {Explorer} from "../../../../../../../explorer";
 import {ToastData, ToastEvent} from "../../../../../../../../global/vars";
 import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
+import {FormControl, FormGroup} from "@angular/forms";
+import {File, Media} from "@k-platform/client";
 
 /**
  * This component provides functionality to confirm and delete a file.
@@ -52,6 +54,7 @@ import {usePreloader} from "../../../../../../../../modules/preloader/src/use-pr
 })
 export class DeleteFileActionRendererComponent extends AbstractExplorerActionRenderer {
 
+  override entityForm: InputSignal<FormGroup<{ [K in keyof File]: FormControl<File[K]> }>>;
   /** Key for the confirmation dialog. */
   readonly dialogKey = "del-file-action-dialog";
   private readonly confirmationService = inject(ConfirmationService);
@@ -75,7 +78,7 @@ export class DeleteFileActionRendererComponent extends AbstractExplorerActionRen
     this.confirmationService.confirm({
       key: this.dialogKey,
       accept: () => {
-        this.service.remove(this.entityForm().controls.id.value).pipe(
+        this.service.remove(this.entityForm().controls.id.value?.toString()).pipe(
           usePreloader(this.store, this.preloaderChannel),
           catchError((res) => {
             this.store.emit<ToastData>(ToastEvent.Error, {message: res.error.message});

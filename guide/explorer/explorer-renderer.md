@@ -16,7 +16,7 @@ These renderers are assigned to entity fields based on their data types when met
 
 In the case of action-renderers, there are no embedded ones as such in the form of system objects, but they are in the form of embedded in the system object listing UI (sections) and in their editing interfaces (objects). They are represented as buttons `Create`, `Duplicate`, `Export`, `Delete`, `Save`. They can only be disabled if required (for example, if you want to implement your own special process for saving the form of a database entity, thus replacing the standard mechanism, you might to disable default save action).
 
-Some custom renderers of objects, sections, and action renderers are provided with several embedded modules, which can be found in the corresponding documentation sections.
+Some custom renderers of objects, sections, and action renderers are provided with several embedded modules, which can be found in the corresponding documentation sections. Read about how to create a custom renderer [here](https://github.com/alexander-kiriliuk/k-platform-client/blob/master/guide/explorer/explorer-custom-renderer.md).
 
 The object and section renderers implement the corresponding abstract classes (`AbstractExplorerSectionRenderer`, `AbstractExplorerObjectRenderer`), that implement the interface `ExplorerRenderer`. This interface contains fields:
 - `target` - contains all information about the current database entity

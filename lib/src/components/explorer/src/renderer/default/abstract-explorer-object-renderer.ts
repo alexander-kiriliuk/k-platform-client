@@ -35,8 +35,10 @@ implements ExplorerRenderer<Data, Params> {
   data: Data;
   /** The entity data associated with this object. */
   target: TargetData;
-  /** The form group associated with the entity. */
-  entityForm: FormGroup;
+  /** The form group associated with the entity data. */
+  entityForm: FormGroup<{
+    [K in keyof Data]: FormControl<Data[K]>;
+  }>;
 
 
   /**
@@ -44,6 +46,7 @@ implements ExplorerRenderer<Data, Params> {
    * @returns The form control for the column property.
    */
   get ctrl() {
+    // @ts-ignore
     return this.entityForm.controls[this.column.property] as FormControl;
   }
 
