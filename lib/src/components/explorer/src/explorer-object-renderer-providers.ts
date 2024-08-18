@@ -14,124 +14,89 @@
  * limitations under the License.
  */
 
-import {ExplorerRendererProvider} from "./explorer.types";
+import {ExplorerRendererLoader, ExplorerRendererProvider} from "./explorer.types";
 import {EXPLORER_OBJECT_RENDERER} from "./explorer.constants";
 
 /**
  * Provides an array of object renderers for the explorer.
  * Each renderer is defined with a unique code and a dynamic import for the corresponding component.
+ * @param loaders - loaders for custom renderers
  * @returns {ExplorerRendererProvider[]} An array of object renderer providers.
  */
-export function provideExplorerObjectRenderers(): ExplorerRendererProvider[] {
-  return [
+export function provideExplorerObjectRenderers(...loaders: ExplorerRendererLoader[]): ExplorerRendererProvider[] {
+  let _loaders: ExplorerRendererLoader[] = [
     {
-      provide: EXPLORER_OBJECT_RENDERER,
-      multi: true,
-      useValue: {
-        code: "string-object-renderer",
-        load: import("./renderer/default/object/string/string-object-renderer.component")
-          .then(m => m.StringObjectRendererComponent)
-      }
+      code: "string-object-renderer",
+      load: import("./renderer/default/object/string/string-object-renderer.component")
+        .then(m => m.StringObjectRendererComponent)
     },
     {
-      provide: EXPLORER_OBJECT_RENDERER,
-      multi: true,
-      useValue: {
-        code: "boolean-object-renderer",
-        load: import("./renderer/default/object/boolean/boolean-object-renderer.component")
-          .then(m => m.BooleanObjectRendererComponent)
-      }
+      code: "boolean-object-renderer",
+      load: import("./renderer/default/object/boolean/boolean-object-renderer.component")
+        .then(m => m.BooleanObjectRendererComponent)
     },
     {
-      provide: EXPLORER_OBJECT_RENDERER,
-      multi: true,
-      useValue: {
-        code: "date-object-renderer",
-        load: import("./renderer/default/object/date/date-object-renderer.component")
-          .then(m => m.DateObjectRendererComponent)
-      }
+      code: "date-object-renderer",
+      load: import("./renderer/default/object/date/date-object-renderer.component")
+        .then(m => m.DateObjectRendererComponent)
     },
     {
-      provide: EXPLORER_OBJECT_RENDERER,
-      multi: true,
-      useValue: {
-        code: "reference-object-renderer",
-        load: import("./renderer/default/object/reference/reference-object-renderer.component")
-          .then(m => m.ReferenceObjectRendererComponent)
-      }
+      code: "reference-object-renderer",
+      load: import("./renderer/default/object/reference/reference-object-renderer.component")
+        .then(m => m.ReferenceObjectRendererComponent)
     },
     {
-      provide: EXPLORER_OBJECT_RENDERER,
-      multi: true,
-      useValue: {
-        code: "media-object-renderer",
-        load: import("./renderer/default/object/media/media-object-renderer.component")
-          .then(m => m.MediaObjectRendererComponent)
-      }
+      code: "media-object-renderer",
+      load: import("./renderer/default/object/media/media-object-renderer.component")
+        .then(m => m.MediaObjectRendererComponent)
     },
     {
-      provide: EXPLORER_OBJECT_RENDERER,
-      multi: true,
-      useValue: {
-        code: "localized-string-renderer",
-        load: import("./renderer/default/object/localized-string/localized-string-object-renderer.component")
-          .then(m => m.LocalizedStringObjectRendererComponent)
-      }
+      code: "localized-string-renderer",
+      load: import("./renderer/default/object/localized-string/localized-string-object-renderer.component")
+        .then(m => m.LocalizedStringObjectRendererComponent)
     },
     {
-      provide: EXPLORER_OBJECT_RENDERER,
-      multi: true,
-      useValue: {
-        code: "localized-media-renderer",
-        load: import("./renderer/default/object/localized-media/localized-media-object-renderer.component")
-          .then(m => m.LocalizedMediaObjectRendererComponent)
-      }
+      code: "localized-media-renderer",
+      load: import("./renderer/default/object/localized-media/localized-media-object-renderer.component")
+        .then(m => m.LocalizedMediaObjectRendererComponent)
     },
     {
-      provide: EXPLORER_OBJECT_RENDERER,
-      multi: true,
-      useValue: {
-        code: "images-stats-media-object-renderer",
-        load: import("./renderer/custom/object/images-stats/images-stats-media-object-renderer.component")
-          .then(m => m.ImagesStatsMediaObjectRendererComponent)
-      }
+      code: "images-stats-media-object-renderer",
+      load: import("./renderer/custom/object/images-stats/images-stats-media-object-renderer.component")
+        .then(m => m.ImagesStatsMediaObjectRendererComponent)
     },
     {
-      provide: EXPLORER_OBJECT_RENDERER,
-      multi: true,
-      useValue: {
-        code: "file-stat-object-renderer",
-        load: import("./renderer/custom/object/file-stat/file-stat-media-object-renderer.component")
-          .then(m => m.FileStatMediaObjectRendererComponent)
-      }
+      code: "file-stat-object-renderer",
+      load: import("./renderer/custom/object/file-stat/file-stat-media-object-renderer.component")
+        .then(m => m.FileStatMediaObjectRendererComponent)
     },
     {
-      provide: EXPLORER_OBJECT_RENDERER,
-      multi: true,
-      useValue: {
-        code: "new-password-object-renderer",
-        load: import("./renderer/custom/object/new-password/new-password-object-renderer.component")
-          .then(m => m.NewPasswordObjectRendererComponent)
-      }
+      code: "new-password-object-renderer",
+      load: import("./renderer/custom/object/new-password/new-password-object-renderer.component")
+        .then(m => m.NewPasswordObjectRendererComponent)
     },
     {
-      provide: EXPLORER_OBJECT_RENDERER,
-      multi: true,
-      useValue: {
-        code: "process-stats-object-renderer",
-        load: import("./renderer/custom/object/process/stats/process-stats-object-renderer.component")
-          .then(m => m.ProcessStatsObjectRendererComponent)
-      }
+      code: "process-stats-object-renderer",
+      load: import("./renderer/custom/object/process/stats/process-stats-object-renderer.component")
+        .then(m => m.ProcessStatsObjectRendererComponent)
     },
     {
-      provide: EXPLORER_OBJECT_RENDERER,
-      multi: true,
-      useValue: {
-        code: "file-metadata-object-renderer",
-        load: import("./renderer/custom/object/file-metadata/file-metadata-object-renderer.component")
-          .then(m => m.FileMetadataObjectRendererComponent)
-      }
-    },
+      code: "file-metadata-object-renderer",
+      load: import("./renderer/custom/object/file-metadata/file-metadata-object-renderer.component")
+        .then(m => m.FileMetadataObjectRendererComponent)
+    }
   ];
+  if (loaders) {
+    _loaders = _loaders.concat(loaders);
+  }
+  const providers: ExplorerRendererProvider[] = [];
+  _loaders.forEach(loader => {
+    providers.push({
+      provide: EXPLORER_OBJECT_RENDERER,
+      multi: true,
+      useValue: loader
+    });
+  });
+  return providers;
 }
 

@@ -15,68 +15,57 @@
  */
 
 import {EXPLORER_SECTION_RENDERER} from "./explorer.constants";
-import {ExplorerRendererProvider} from "./explorer.types";
+import {ExplorerRendererLoader, ExplorerRendererProvider} from "./explorer.types";
 
 /**
  * Provides an array of section renderers for the explorer.
  * Each renderer is defined with a unique code and a dynamic import for the corresponding component.
+ * @param loaders - loaders for custom renderers
  * @returns {ExplorerRendererProvider[]} An array of section renderer providers.
  */
-export function provideExplorerSectionRenderers(): ExplorerRendererProvider[] {
-  return [
+export function provideExplorerSectionRenderers(...loaders: ExplorerRendererLoader[]): ExplorerRendererProvider[] {
+  let _loaders: ExplorerRendererLoader[] = [
     {
-      provide: EXPLORER_SECTION_RENDERER,
-      multi: true,
-      useValue: {
-        code: "string-section-renderer",
-        load: import("./renderer/default/section/string/string-section-renderer.component")
-          .then(m => m.StringSectionRendererComponent)
-      }
+      code: "string-section-renderer",
+      load: import("./renderer/default/section/string/string-section-renderer.component")
+        .then(m => m.StringSectionRendererComponent)
     },
     {
-      provide: EXPLORER_SECTION_RENDERER,
-      multi: true,
-      useValue: {
-        code: "boolean-section-renderer",
-        load: import("./renderer/default/section/boolean/boolean-section-renderer.component")
-          .then(m => m.BooleanSectionRendererComponent)
-      }
+      code: "boolean-section-renderer",
+      load: import("./renderer/default/section/boolean/boolean-section-renderer.component")
+        .then(m => m.BooleanSectionRendererComponent)
     },
     {
-      provide: EXPLORER_SECTION_RENDERER,
-      multi: true,
-      useValue: {
-        code: "date-section-renderer",
-        load: import("./renderer/default/section/date/date-section-renderer.component")
-          .then(m => m.DateSectionRendererComponent)
-      }
+      code: "date-section-renderer",
+      load: import("./renderer/default/section/date/date-section-renderer.component")
+        .then(m => m.DateSectionRendererComponent)
     },
     {
-      provide: EXPLORER_SECTION_RENDERER,
-      multi: true,
-      useValue: {
-        code: "reference-section-renderer",
-        load: import("./renderer/default/section/reference/reference-section-renderer.component")
-          .then(m => m.ReferenceSectionRendererComponent)
-      }
+      code: "reference-section-renderer",
+      load: import("./renderer/default/section/reference/reference-section-renderer.component")
+        .then(m => m.ReferenceSectionRendererComponent)
     },
     {
-      provide: EXPLORER_SECTION_RENDERER,
-      multi: true,
-      useValue: {
-        code: "media-section-renderer",
-        load: import("./renderer/default/section/media/media-section-renderer.component")
-          .then(m => m.MediaSectionRendererComponent)
-      }
+      code: "media-section-renderer",
+      load: import("./renderer/default/section/media/media-section-renderer.component")
+        .then(m => m.MediaSectionRendererComponent)
     },
     {
-      provide: EXPLORER_SECTION_RENDERER,
-      multi: true,
-      useValue: {
-        code: "virtual-media-column-section-renderer",
-        load: import("./renderer/custom/section/virtual-media/virtual-media-section-renderer.component")
-          .then(m => m.VirtualMediaSectionRendererComponent)
-      }
-    },
+      code: "virtual-media-column-section-renderer",
+      load: import("./renderer/custom/section/virtual-media/virtual-media-section-renderer.component")
+        .then(m => m.VirtualMediaSectionRendererComponent)
+    }
   ];
+  if (loaders) {
+    _loaders = _loaders.concat(loaders);
+  }
+  const providers: ExplorerRendererProvider[] = [];
+  _loaders.forEach(loader => {
+    providers.push({
+      provide: EXPLORER_SECTION_RENDERER,
+      multi: true,
+      useValue: loader
+    });
+  });
+  return providers;
 }
