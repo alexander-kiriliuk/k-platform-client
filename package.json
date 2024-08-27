@@ -29,27 +29,27 @@
     "analyze:example:admin": "ng build k-platform-admin --configuration development --stats-json && webpack-bundle-analyzer dist/examples/admin/stats.json"
   },
   "dependencies": {
-    "@angular/animations": "18.0.3",
-    "@angular/common": "18.0.3",
-    "@angular/compiler": "18.0.3",
-    "@angular/core": "18.0.3",
-    "@angular/forms": "18.0.3",
-    "@angular/platform-browser": "18.0.3",
-    "@angular/platform-browser-dynamic": "18.0.3",
-    "@angular/router": "18.0.3",
+    "@angular/animations": "18.2.1",
+    "@angular/common": "18.2.1",
+    "@angular/compiler": "18.2.1",
+    "@angular/core": "18.2.1",
+    "@angular/forms": "18.2.1",
+    "@angular/platform-browser": "18.2.1",
+    "@angular/platform-browser-dynamic": "18.2.1",
+    "@angular/router": "18.2.1",
     "@ngneat/transloco": "6.0.4",
     "ng-recaptcha-2": "14.0.0",
     "ngx-device-detector": "8.0.0",
     "primeicons": "7.0.0",
-    "primeng": "17.18.1",
+    "primeng": "17.18.9",
     "rxjs": "7.8.1",
-    "zone.js": "0.14.7",
-    "tslib": "2.6.3"
+    "zone.js": "0.14.10",
+    "tslib": "2.7.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "18.0.3",
-    "@angular/compiler-cli": "18.0.3",
-    "@angular/cli": "18.0.3",
+    "@angular-devkit/build-angular": "18.2.1",
+    "@angular/compiler-cli": "18.2.1",
+    "@angular/cli": "18.2.1",
     "@angular-eslint/eslint-plugin": "18.0.1",
     "@angular-eslint/eslint-plugin-template": "18.0.1",
     "@angular-eslint/template-parser": "18.0.1",
@@ -67,8 +67,8 @@
     "karma-coverage": "2.2.1",
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
-    "ng-packagr": "18.0.0",
-    "typescript": "5.4.5",
+    "ng-packagr": "18.2.1",
+    "typescript": "5.5.4",
     "webpack-bundle-analyzer": "4.10.2"
   }
 }
