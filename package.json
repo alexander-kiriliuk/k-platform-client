@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "ng": "ng",
-    "build:lib": "ng build k-platform-client --configuration production",
+    "build:lib": "ng build k-platform-client --configuration production && cp README.md dist/lib/README.md && cp LICENSE dist/lib/LICENSE",
     "publish": "cd dist/lib && npm publish",
     "start:example:admin": "ng serve k-platform-admin",
     "build:example:admin": "ng build k-platform-admin",

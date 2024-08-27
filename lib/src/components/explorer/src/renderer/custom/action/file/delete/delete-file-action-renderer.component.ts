@@ -33,7 +33,7 @@ import {Explorer} from "../../../../../../../explorer";
 import {ToastData, ToastEvent} from "../../../../../../../../global/vars";
 import {usePreloader} from "../../../../../../../../modules/preloader/src/use-preloader";
 import {FormControl, FormGroup} from "@angular/forms";
-import {File} from "@k-platform/client";
+import {File} from "../../../../../../../../modules/file";
 
 /**
  * This component provides functionality to confirm and delete a file.
