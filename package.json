@@ -1,10 +1,26 @@
 {
-  "description": "todo description",
   "author": "Alexander Kiriliuk",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexander-kiriliuk/k-platform-client"
+  },
+  "description": "Client application, which is an administrative panel for managing a platform-based system @k-platform",
+  "keywords": [
+    "admin panel",
+    "platform management",
+    "customizable application",
+    "extensible application",
+    "angular",
+    "frontend",
+    "admin interface",
+    "system administration",
+    "admin UI"
+  ],
   "scripts": {
     "ng": "ng",
     "build:lib": "ng build k-platform-client --configuration production",
-    "publish": "cd dist/lib && npm publish --registry=https://npm.specs-tech.ru",
+    "publish": "cd dist/lib && npm publish",
     "start:example:admin": "ng serve k-platform-admin",
     "build:example:admin": "ng build k-platform-admin",
     "lint": "eslint --fix --ext .js,.ts,.html .",

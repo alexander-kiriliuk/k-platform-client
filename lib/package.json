@@ -1,6 +1,24 @@
 {
   "name": "@k-platform/client",
-  "version": "0.0.1",
+  "author": "Alexander Kiriliuk",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexander-kiriliuk/k-platform-client"
+  },
+  "version": "0.9.0",
+  "description": "Client application, which is an administrative panel for managing a platform-based system @k-platform",
+  "keywords": [
+    "admin panel",
+    "platform management",
+    "customizable application",
+    "extensible application",
+    "angular",
+    "frontend",
+    "admin interface",
+    "system administration",
+    "admin UI"
+  ],
   "peerDependencies": {
     "@angular/animations": "18.*",
     "@angular/common": "18.*",
