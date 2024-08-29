@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/alexander-kiriliuk/k-platform-client"
   },
-  "version": "0.9.1",
+  "version": "0.9.9",
   "publishConfig": {
     "access": "public"
   },
